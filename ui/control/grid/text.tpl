@@ -1,0 +1,1 @@
+<input class="input-{$inputSize} {$disabledClass}" {$disabledAttr} id="{$id}{$multiSeparator}{$fieldAttrs['name']}" name="{$id}{$multiSeparator}{$fieldAttrs['name']}" onchange='{$onChange}' value="{$value['value']}"></input>
