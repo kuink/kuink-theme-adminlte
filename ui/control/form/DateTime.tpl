@@ -3,7 +3,7 @@
 	<input type="hidden" name="{$fieldID}" id="{$fieldID}" value="{$field['value']}"/>
 	<div class='input-group date' id='datetimepicker__{$fieldID}' data-date-format="YYYY/MM/DD HH:mm">
 
-    	<input type='text' class="form-control {$disabledClass}" {$disabledAttr} id="{$fieldID}_visible" name="{$fieldID}_visible"  {if $field['attributes']['required']=='true'}
+    	<input type='text' disabled="true" class="form-control {$disabledClass}" {$disabledAttr} id="{$fieldID}_visible" name="{$fieldID}_visible"  {if $field['attributes']['required']=='true'}
 				data-bv-notempty="true"
         		data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"
 			{/if} />

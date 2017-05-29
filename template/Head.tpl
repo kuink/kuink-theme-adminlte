@@ -21,7 +21,8 @@
         <link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
         <link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/css/simple-sidebar/simple-sidebar.css">
 
-        <link rel="shortcut icon" href="{$_themeRoot}theme/{$THEME}/img/favicon.ico">
+        <link rel="icon" type="image/png" href="favicon.png" sizes="16x16">
+        
 
         <style>
           {literal}
