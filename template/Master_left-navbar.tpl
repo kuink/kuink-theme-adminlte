@@ -8,8 +8,8 @@
 		<div class="user-panel">
 			<div class="pull-left image">
 				{if $_environment == 'dev'}<img src="{$_imageUrl}photo/default.jpg"
-        {else}<img src="{$_imageUrl}photo/{$_user['publicKey']}.jpg"
-        {/if}
+				{else}<img src="{$_imageUrl}photo/{$_user['publicKey']}.jpg"
+				{/if}
 					class="img-circle " alt="User Image" />
 			</div>
 			<div class="pull-left info">
@@ -18,7 +18,7 @@
 				<!--a href="#"><i class="fa fa-circle text-success"></i> Online</a-->
 			</div>
 		</div>
-		
+
 	</section>
 	<!-- /.sidebar -->
 </aside>
