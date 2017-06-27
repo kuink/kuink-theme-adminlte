@@ -19,6 +19,36 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 	</div>
 {/function}
 
+{if $freeze == 'true'}
+	<div id="{$_guid}_properties" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title"><i class="fa fa-table">&nbsp;</i>{$title}</h4>
+				</div>
+				<div class="modal-body">
+					<ul class="list-group">
+						{foreach $columnAttributes as $colAttr}
+							{if $colAttr['inline'] != 'true'}
+								<li class="list-group-item">
+									<input type="checkbox" id="{$colAttr['name']}" class="{$name}_hidden" {if $colAttr['hidden'] != 'true'}checked{/if}>
+										{$colAttr['label']}
+									</input>
+								</li>
+							{/if}
+						{/foreach}
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">{translate}back{/translate}</button>
+					<button type="button" class="btn btn-primary" onclick=" var hidden=''; $('.{$name}_hidden').each(function(){ if (!this.checked) hidden=hidden+this.id+';'; }); window.location = '{$baseUrl}&{$name}_hidden='+hidden;">{translate}save{/translate}</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+{/if}
+
 <div class="box">
 	<form class="form-horizontal" id="{$_guid}" action="" method="post" enctype="multipart/form-data">
 		<div class="box-header">
@@ -48,6 +78,10 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 					{/if}
 				{/if}
 
+				<!-- Hide/Show grid not editable columns -->
+				{if $freeze == 'true'}
+					<a href="#{$_guid}_properties" class="btn btn-default" data-toggle="modal" data-target="#{$_guid}_properties"><i class="fa fa-bars"></i></a>
+				{/if}
 			</div>
 			<i class="fa fa-table">&nbsp;</i>
 			<h3 class="box-title">{$title}</h3>
@@ -195,7 +229,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 								{$index = $index + 1}
 							{/if}
 							{if $columnAttributes[$index]['hidden'] != "true"}
-								<th>
+								<th class="col_{$columnAttributes[$index]['name']}">
 									{if $columnAttributes[$index]['type'] == 'pick'}
 										<input type="checkbox" class="input-medium" id="{$name}_selectall" name="{$name}_selectall" onclick="{$name}ToggleChecked(this.checked);" value="0">
 									{/if}
@@ -298,7 +332,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 													{/if}
 												{/if}
 											</td>
-					 				{/if}
+									{/if}
 
 									{* create an hidden field if this value is supposed to be posted *}
 									{if $fieldAttrs['post'] == "true"}
@@ -313,8 +347,8 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 								{/if}
 							</tr>
 						{/foreach}
-		 			{/foreach}
-		 			{if $extendEdit == 'true'}
+					{/foreach}
+					{if $extendEdit == 'true'}
 						{$index = 0 }
 						{foreach $headers as $header}
 							{* $columnAttributes[$index]['inline'] *}
@@ -398,7 +432,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 							<a id="extendEditAction" type="submit" class=" btn btn-info " onclick="javascript: extendedEditAddValues(); return(false);"><i class="fa fa-arrow-circle-up icon-white"></i></a>
 						</td>
-			 		{/if}
+					{/if}
 				</tbody>
 			</table>
 
@@ -428,7 +462,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 												<i class="fa fa-{$buttonAttrs['icon']}" ></i>
 											{/if}
 											{$action_desc}
-					 					</button>
+										</button>
 							{/foreach}
 							{if $count > 0}
 								</div>
@@ -498,11 +532,11 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 							</select>
 							<script>$('#{$name}_pageselector option[value={$pageSize}]').attr('selected', 'selected');</script>
 
-		 				</li>
+						</li>
 
-		 				<li class="active">
+						<li class="active">
 							<a disabled="disabled">{translate app="framework"}total{/translate}:&nbsp;{$recordsTotal}</a>
-		 				</li>
+						</li>
 
 					</ul>
 				</div>
