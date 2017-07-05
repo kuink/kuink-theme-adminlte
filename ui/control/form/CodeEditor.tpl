@@ -1,8 +1,3 @@
-<!--
-<div class="controls">
-  <textarea class="input-{$inputSize} {$disabledClass}" id="{$fieldID}" name="{$fieldID}" rows="{$fieldAttrs['rows']}" cols="{$fieldAttrs['cols']}" {$disabledAttr}>{$field['value']}</textarea>
-</div>
--->
 
 <link rel="stylesheet" href="lib/tools/codemirror/addon/hint/show-hint.css">
 <link rel="stylesheet" href="lib/tools/codemirror/theme/ambiance.css">
@@ -21,7 +16,7 @@
 </style>
 
 <div class="controls">
-<textarea id="{$fieldID}" name="{$fieldID}" class="{$disabledClass}">{$field['value']}</textarea>
+	<textarea id="{$fieldID}" name="{$fieldID}" class="{$disabledClass}">{$field['value']}</textarea>
 </div>
 
 <script>
@@ -33,7 +28,13 @@
             autoCloseTags: true,
             viewportMargin: Infinity,
             foldGutter: true,
-            gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]            
+            gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
         });
         {$fieldID}_editor.setOption("theme", "ambiance");
+
+				__kuinkFormInternalFieldFunctions.push(() => {
+					var codeEditorContent = {$fieldID}_editor.getDoc().getValue();
+					$("textarea#{$fieldID}").val(codeEditorContent);
+				});
+				
     </script>

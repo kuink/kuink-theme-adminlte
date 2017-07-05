@@ -5,9 +5,9 @@
 			{if $field['attributes']['required']=='true'}
 				data-bv-notempty="true" data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"
 			{/if}/>
-		<span class="input-group-addon">
-			<span class="fa fa-calendar"></span>
-		</span>
+			<span class="input-group-addon">
+				<span class="fa fa-calendar"></span>
+			</span>
 	</div>
 </div>
 
@@ -42,7 +42,7 @@
 				kuink_updateHiddenDateTime('{$fieldID}',{$personTimeZoneOffset});
 				$('#datetimepicker__{$fieldID}').data("DateTimePicker").setDate($('#{$fieldID}_visible').val());
 			});
-			
+
 		{/if}
 
 		kuink_updateVisibleDateTime('{$fieldID}',{$personTimeZoneOffset});

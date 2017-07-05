@@ -19,8 +19,10 @@
 		$("#"+guid).attr('kuink-data-button-pressed-id', buttonId);
 	};
 
+	var __kuinkFormInternalFieldFunctions = [];
+
 	$(document).ready(function() {
-    	$("#{$form['_guid']}").bootstrapValidator({
+			$("#{$form['_guid']}").bootstrapValidator({
 				onError: function(e) {
 					var buttonType = $("#{$form['_guid']}").attr('kuink-data-button-pressed');
 					var url = $("#{$form['_guid']}").attr('action');
@@ -39,7 +41,7 @@
 					}
 				},
 			onSuccess: function(e) {
-                // Call kuink submit center
+								// Call kuink submit center
 				var url = $("#{$form['_guid']}").attr('action');
 				var confirm = $("#{$form['_guid']}").attr('kuink-data-confirm');
 				var confirm_message = $("#{$form['_guid']}").attr('kuink-data-confirm-message');
@@ -51,6 +53,11 @@
 					else
 						confirm = true;
 
+				// before getting form data, run all fields internal functions
+				$.each(__kuinkFormInternalFieldFunctions, function( index, fieldFunction ) {
+  				fieldFunction();
+				});
+
 				// get form data
 				var formData = new FormData(document.querySelector("form"));
 
@@ -58,13 +65,14 @@
 					'url' 			: url+'&modal=widget',
 					'id_context'	: '{$_idContext}',
 					'method' 		: 'post',
+					processData: false, contentType: false,
 					'data'			: formData,//$("#{$form['_guid']}").serialize(),
 					'confirm'		: confirm,
 					'confirm_message'	: confirm_message,
 					'button_id' : buttonId
 				});
 				e.preventDefault();
-      }
+			}
 		});
 
 		$("#{$form['_guid']}").submit(function(e){
@@ -75,17 +83,17 @@
 
 	function formActionField(confirm, confirm_message, location, button_id) {
 
-    //Call kuink submit center
-    $("#{$form['_guid']}").kuinkSubmit({
-      'url' : location+'&modal=widget',
-      'id_context' : '{$_idContext}',
-      'method' : 'post',
-      'data' : $("#{$form['_guid']}").serialize(),
-      'confirm'	: confirm,
-      'confirm_message'	: confirm_message,
-      'button_id' : button_id
-    });
-  }
+		//Call kuink submit center
+		$("#{$form['_guid']}").kuinkSubmit({
+			'url' : location+'&modal=widget',
+			'id_context' : '{$_idContext}',
+			'method' : 'post',
+			'data' : $("#{$form['_guid']}").serialize(),
+			'confirm'	: confirm,
+			'confirm_message'	: confirm_message,
+			'button_id' : button_id
+		});
+	}
 
 	//Applying rules to the form
 	var rules_{$form['_guid']} = {$jsonDynamicRules};
@@ -94,22 +102,22 @@
 	function applyRule(field, attr, attrValue) {
 		//console.log(attr);
 		if  (attr=='disabled') {
-	    	if (attrValue == 'true')
-		        $("#"+field).attr('disabled','disabled');
-		    else
-	        	$("#"+field).removeAttr('disabled');
-	  	} else if (attr=='visible') {
-	    	if (attrValue == 'true') {
-	    		$("#"+field).removeAttr('disabled');
-	    		$("#"+field+"CG").fadeIn('slow');
+				if (attrValue == 'true')
+						$("#"+field).attr('disabled','disabled');
+				else
+						$("#"+field).removeAttr('disabled');
+			} else if (attr=='visible') {
+				if (attrValue == 'true') {
+					$("#"+field).removeAttr('disabled');
+					$("#"+field+"CG").fadeIn('slow');
 			} else if (attr == 'value'){
 
 			}else {
-	    		$("#"+field+"CG").fadeOut();
-	    		$("#"+field).attr('disabled','disabled');
+					$("#"+field+"CG").fadeOut();
+					$("#"+field).attr('disabled','disabled');
 			}
-	    }
-	    return;
+			}
+			return;
 	}
 
 
@@ -118,121 +126,121 @@
 	 **/
 	function handle_{$form['_guid']}_rules( changedId ){
 
-	 	$(rules_{$form['_guid']}).each(function(i,obj){
-	        if (obj.datasource!=''){
-	          var apiUrl = obj.datasource;
-	          var apiParams = obj.datasourceparams;
+		$(rules_{$form['_guid']}).each(function(i,obj){
+					if (obj.datasource!=''){
+						var apiUrl = obj.datasource;
+						var apiParams = obj.datasourceparams;
 
-	          /** Verify if the modified parameter is in this datasource params **/
-	          var makeCall = false;
-	          //console.log("Api params length: " + Object.keys(apiParams).length);
-	          if (Object.keys(apiParams).length == 0){
-	            makeCall = true;
-	          }
-	          for(var param in apiParams) {
+						/** Verify if the modified parameter is in this datasource params **/
+						var makeCall = false;
+						//console.log("Api params length: " + Object.keys(apiParams).length);
+						if (Object.keys(apiParams).length == 0){
+							makeCall = true;
+						}
+						for(var param in apiParams) {
 							//console.log(param);
-	            if (param==changedId && makeCall==false){
-	              makeCall=true;
-	            }
-	          }
-	          if (makeCall == true){
+							if (param==changedId && makeCall==false){
+								makeCall=true;
+							}
+						}
+						if (makeCall == true){
 
-	                for(var param in apiParams) {
-	                  var paramValue = $("#{$form['_guid']}").find('#'+param).val();
-	                  param = '$'+param;
-	                  while (apiUrl.search('\\'+param)!=-1){
-	                    apiUrl = apiUrl.replace(param,paramValue);
-	                  }
-	                }
-	                //console.log(apiUrl);
-	                $.ajax({
-	                  url: apiUrl,
-	                  type: 'get',
-	                  success: function (data, status) {
+									for(var param in apiParams) {
+										var paramValue = $("#{$form['_guid']}").find('#'+param).val();
+										param = '$'+param;
+										while (apiUrl.search('\\'+param)!=-1){
+											apiUrl = apiUrl.replace(param,paramValue);
+										}
+									}
+									//console.log(apiUrl);
+									$.ajax({
+										url: apiUrl,
+										type: 'get',
+										success: function (data, status) {
 
-	                    //console.log('Success Ajax data= ' + data);
-	                    $("#{$form['_guid']}").find('#'+obj.field).find('option').remove().end();
-	                    $("#{$form['_guid']}").find('#'+obj.field).find('option').remove().end();
-	                    $("#{$form['_guid']}").find('#'+obj.field).append('<option></option>');
-	                    $.each(data, function (index, value) {
-	                    $("#{$form['_guid']}").find('#'+obj.field).append('<option value="'+value[obj.bindid]+'">'+value[obj.bindvalue]+'</option>');
+											//console.log('Success Ajax data= ' + data);
+											$("#{$form['_guid']}").find('#'+obj.field).find('option').remove().end();
+											$("#{$form['_guid']}").find('#'+obj.field).find('option').remove().end();
+											$("#{$form['_guid']}").find('#'+obj.field).append('<option></option>');
+											$.each(data, function (index, value) {
+											$("#{$form['_guid']}").find('#'+obj.field).append('<option value="'+value[obj.bindid]+'">'+value[obj.bindvalue]+'</option>');
 
-	                    if (data.length == 1) {
-	                      $("#{$form['_guid']}").find('#'+obj.field).prop('selectedIndex', 1);
-	                    }
+											if (data.length == 1) {
+												$("#{$form['_guid']}").find('#'+obj.field).prop('selectedIndex', 1);
+											}
 
-	                    if (obj.field != changedId)
-	                      handle_{$form['_guid']}_rules(obj.field);
+											if (obj.field != changedId)
+												handle_{$form['_guid']}_rules(obj.field);
 
-	                });
+									});
 
-	                },
-	                error: function (xhr, err) {
-	                  //console.log(xhr);
-	                  console.debug("Desc: " + err);
-	                }
-	            });
+									},
+									error: function (xhr, err) {
+										//console.log(xhr);
+										console.debug("Desc: " + err);
+									}
+							});
 
-	          }
+						}
 
-	        /** continue with condition rules **/
-	        } else if (eval(obj.condition)){
-	            //console.log("#"+obj.field+" "+obj.attr+"="+obj.value_true);
-	            //$("#"+obj.field).attr('disabled',obj.value_true);
+					/** continue with condition rules **/
+					} else if (eval(obj.condition)){
+							//console.log("#"+obj.field+" "+obj.attr+"="+obj.value_true);
+							//$("#"+obj.field).attr('disabled',obj.value_true);
 
 
-	            applyRule(obj.field, obj.attr, obj.value_true);
-	        }else{
-	            //console.log("#"+obj.field+" "+obj.attr+"="+obj.value_false);
-	            //$("#"+obj.field).attr('disabled',obj.value_false);
-	            applyRule(obj.field, obj.attr, obj.value_false);
-	        }
-	    });
+							applyRule(obj.field, obj.attr, obj.value_true);
+					}else{
+							//console.log("#"+obj.field+" "+obj.attr+"="+obj.value_false);
+							//$("#"+obj.field).attr('disabled',obj.value_false);
+							applyRule(obj.field, obj.attr, obj.value_false);
+					}
+			});
 	 }
 
 	 /** make magic things happen **/
 	 $(document).ready(function(){
-	 	//when form is loaded
-	 	handle_{$form['_guid']}_rules();
+		//when form is loaded
+		handle_{$form['_guid']}_rules();
 
-	 	//when  form is changed
-	 	$({$form['_guid']}).change(function(event){
-	 	   var changedId = event.target.id;
-	      handle_{$form['_guid']}_rules(changedId);
-	   });
+		//when  form is changed
+		$({$form['_guid']}).change(function(event){
+			 var changedId = event.target.id;
+				handle_{$form['_guid']}_rules(changedId);
+		 });
 	 });
 
-    //Place a copy of default button in first place in a position outside of visible screen
-    $(function(){
-        $({$form['_guid']}).each(function () {
-            var thisform = $(this);
-            thisform.prepend(thisform.find('button.default').clone().css({
-                position: 'absolute',
-                left: '-999px',
-                top: '-999px',
-                height: 0,
-                width: 0
-            }));
-        });
-    });
+		//Place a copy of default button in first place in a position outside of visible screen
+		$(function(){
+				$({$form['_guid']}).each(function () {
+						var thisform = $(this);
+						thisform.prepend(thisform.find('button.default').clone().css({
+								position: 'absolute',
+								left: '-999px',
+								top: '-999px',
+								height: 0,
+								width: 0
+						}));
+				});
+		});
 
-  function processClientAction(clientAction) {
-    switch(clientAction)
-    {
-    case 'print':
-      window.print();
-      break;
-    default:
-      alert('Client side action ' + clientAction + ' not defined.');
-    }
-  }
+	function processClientAction(clientAction) {
+		switch(clientAction)
+		{
+		case 'print':
+			window.print();
+			break;
+		default:
+			alert('Client side action ' + clientAction + ' not defined.');
+		}
+	}
 </script>
 
 <div class="box">
 	{*check if this form has a title*}
 	{if $form['title'] != ''}
 	<div class="box-header">
-	  <i class="fa fa-th-large">&nbsp;</i>
+		<i class="fa fa-th-large">&nbsp;</i>
 		<h3 class="box-title">{$form['title']}</h3>
 	</div>
 	{/if}
@@ -246,9 +254,9 @@
 			action="{$form['baseUrl']}"
 			method="post" enctype="multipart/form-data"
 			data-bv-message="{translate app="framework"}requiredField{/translate}"
-    	data-bv-feedbackicons-valid=""
-    	data-bv-feedbackicons-invalid=""
-    	data-bv-feedbackicons-validating=""
+			data-bv-feedbackicons-valid=""
+			data-bv-feedbackicons-invalid=""
+			data-bv-feedbackicons-validating=""
 			data-bv-live="enabled">
 		<div class="box-body ">
 			{foreach from=$fields item="field" name="handleFieldForEach"}

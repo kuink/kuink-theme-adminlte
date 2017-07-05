@@ -38,7 +38,7 @@ Handle all thing about form action buttons.
   	          {$buttonClass = "btn btn-primary"}
   	      {elseif $buttonType == "delete"}
   	       	  {$buttonType = "submit"}
-  	       	  {$buttonIcon = "eraser"}
+  	       	  {$buttonIcon = "remove"}
   	          {$iconColor = "icon-white"}
   	          {$buttonClass = "btn btn-danger"}
   	      {elseif $buttonType == "search"}

@@ -29,15 +29,17 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 				</div>
 				<div class="modal-body">
 					<ul class="list-group">
-						{foreach $columnAttributes as $colAttr}
-							{if $colAttr['inline'] != 'true'}
-								<li class="list-group-item">
-									<input type="checkbox" id="{$colAttr['name']}" class="{$name}_hidden" {if $colAttr['hidden'] != 'true'}checked{/if}>
-										{$colAttr['label']}
-									</input>
-								</li>
-							{/if}
-						{/foreach}
+						{if $freeze == 'true'}
+							{foreach $columnAttributes as $colAttr}
+								{if $colAttr['inline'] != 'true'}
+									<li class="list-group-item">
+										<input type="checkbox" id="{$colAttr['name']}" class="{$name}_hidden" {if $colAttr['hidden'] != 'true'}checked{/if}>
+											{$colAttr['label']}
+										</input>
+									</li>
+								{/if}
+							{/foreach}
+						{/if}
 					</ul>
 				</div>
 				<div class="modal-footer">
@@ -324,7 +326,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 														{$inputSize = $value['attributes']['inputsize']}
 														{include file="./grid/$colType.tpl"}
 													{else}
-														<span nowrap="true" style="white-space: nowrap; overflow-x: auto;">
+														<span style="overflow-x: auto;">
 															{foreach $value['constructor'] as $actionAttribute}
 																{$actionAttribute['separator']}<a href="javascript: void(0)" {$actionAttribute['tooltip']} class="{$actionAttribute['class']}" onclick="gridActionField({$actionAttribute['confirm']}, '{$actionAttribute['confirm_message']}', '{$actionAttribute['location']}', '')"><span nowrap="true" style="white-space: nowrap; overflow-x: auto;">{$actionAttribute['label']}</span></a>
 															{/foreach}
