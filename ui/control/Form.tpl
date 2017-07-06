@@ -19,7 +19,7 @@
 		$("#"+guid).attr('kuink-data-button-pressed-id', buttonId);
 	};
 
-	var __kuinkFormInternalFieldFunctions = [];
+	var __kuink_{$form['_guid']}_fieldFunctions = [];
 
 	$(document).ready(function() {
 			$("#{$form['_guid']}").bootstrapValidator({
@@ -54,7 +54,7 @@
 						confirm = true;
 
 				// before getting form data, run all fields internal functions
-				$.each(__kuinkFormInternalFieldFunctions, function( index, fieldFunction ) {
+				$.each(__kuink_{$form['_guid']}_fieldFunctions, function( index, fieldFunction ) {
   				fieldFunction();
 				});
 
