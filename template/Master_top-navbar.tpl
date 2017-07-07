@@ -18,7 +18,7 @@
 				</a>
 				<ul class="dropdown-menu">
 					<!-- User image -->
-					<li class="user-header bg-light-blue">
+					<li class="user-header {if $_environment == 'dev'}bg-yellow{else}bg-light-blue{/if}">
 						{if $_environment == 'dev'}<img src="{$_imageUrl}photo/default.jpg" class="img-circle " alt="User Image" />
 						{else}<img src="{$_imageUrl}photo/{$_user['publicKey']}.jpg" class="img-circle " alt="User Image" />
 						{/if}

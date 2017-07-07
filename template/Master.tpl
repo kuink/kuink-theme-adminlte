@@ -20,7 +20,7 @@ $position = Position of controls
 		{include 'Head.tpl'}
 	</head>
 
-	<body class="skin-blue-light sidebar-mini wysihtml5-supported">
+	<body class="{if $_environment == 'dev'}skin-yellow{else}skin-blue-light{/if} sidebar-mini wysihtml5-supported">
 		<div class="wrapper row-offcanvas row-offcanvas-left">
 			<header class="main-header">
 				<!-- header logo: style can be found in header.less -->
