@@ -18,7 +18,7 @@
 			$('#datetimepicker__{$fieldID}').datetimepicker({
 				pickDate: true, 		// disables the date picker
 				pickTime: false, 		// disables the time picker
-				useMinutes: true, 	// disables the minutes picker
+				useMinutes: false, 	// disables the minutes picker
 				useSeconds: false, 	// disables the seconds picker
 				useCurrent: false, 	// when true, picker will set the value to the current date/time
 				minuteStepping: 1, 	// set the minute stepping
@@ -49,7 +49,9 @@
 			$('#{$fieldID}_visible').inputmask('yyyy/mm/dd');
 		{/if}
 
-		kuink_updateVisibleDate('{$fieldID}',{$personTimeZoneOffset});
+		{if $field['attributes']['now'] == 'true'}
+			kuink_updateVisibleDate('{$fieldID}',{$personTimeZoneOffset});
+		{/if}
 
 		{if $field['attributes']['disabled'] != 'true'}
 			$('#datetimepicker__{$fieldID}').data("DateTimePicker").setDate($('#{$fieldID}_visible').val());

@@ -41,7 +41,7 @@
 					}
 				},
 			onSuccess: function(e) {
-								// Call kuink submit center
+				// Call kuink submit center
 				var url = $("#{$form['_guid']}").attr('action');
 				var confirm = $("#{$form['_guid']}").attr('kuink-data-confirm');
 				var confirm_message = $("#{$form['_guid']}").attr('kuink-data-confirm-message');

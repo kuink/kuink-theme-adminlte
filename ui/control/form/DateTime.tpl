@@ -45,7 +45,9 @@
 
 		{/if}
 
-		kuink_updateVisibleDateTime('{$fieldID}',{$personTimeZoneOffset});
+		{if $field['attributes']['now'] == 'true'}
+			kuink_updateVisibleDateTime('{$fieldID}',{$personTimeZoneOffset});
+		{/if}
 
 		{if $field['attributes']['disabled'] != 'true'}
 			$('#datetimepicker__{$fieldID}').data("DateTimePicker").setDate($('#{$fieldID}_visible').val());

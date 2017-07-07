@@ -2,7 +2,7 @@
 	<!-- This is multilang: load languages from _lang datasource-->
 	{foreach $_languages as $language}
 		{$lang = $language['country']}
-		<div class="input-append">
+		<div class="controls">
 			<textarea
 				class="form-control {$disabledClass}" style="display:table-cell"
 				id="{$fieldGuid}_{$lang}"
