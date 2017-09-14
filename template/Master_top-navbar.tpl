@@ -10,6 +10,32 @@
 	<div class="navbar-right">
 		<ul class="nav navbar-nav">
 
+			<!-- Companies Menu -->
+      <li class="dropdown notifications-menu">
+        <!-- Menu toggle button -->
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <i class="fa fa-building"></i> {translate app="framework"}company{/translate}
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <!-- Inner Menu: contains the companies -->
+            <ul class="menu">
+              <li>
+								{foreach from=$NEON_USER_COMPANIES item=COMPANY}
+									{if $NEON_USER_COMPANY == $COMPANY.id}
+										<a href="#"><i class="fa fa-caret-right"></i>{$COMPANY.name}</a>
+									{else}
+										<a href="#" id="kuink_company_{$COMPANY.id}" onclick="javascript: window.location = window.location + '&idCompany={$COMPANY.id}';">
+											{$COMPANY.name}
+										</a>
+		            	{/if}
+								{/foreach}
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
 			<!-- User Account: style can be found in dropdown.less -->
 			<li class="dropdown user user-menu">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -28,19 +54,19 @@
 						</p>
 					</li>
 					<!-- Menu Body -->
-					<li class="user-body">
-						<div class="col-xs-4 text-center">
-							<a href="{$baseurl}/user/profile.php?id={$userId}">{translate app="framework"}profile{/translate}</a>
-						</div>
+					<li class="user-footer">
+						<!--div class="col-xs-4 text-center"-->
+							<a href="{$baseurl}/user/profile.php?id={$userId}" class="btn btn-default btn-flat">{translate app="framework"}profile{/translate}</a>
+						<!--/div-->
 					</li>
 					<!-- Menu Footer-->
 					<li class="user-footer">
-						<div class="pull-left">
+						<!--div class="pull-left">
 							<a href="{$breadcrumbEntries[1]['href']}" class="btn btn-default btn-flat">{translate app="framework"}backToMoodleCourse{/translate}</a>
 						</div>
-						<div class="pull-right">
+						<div class="pull-right"-->
 							<a href="{$baseurl}/login/logout.php?sesskey={$sessKey}" class="btn btn-default btn-flat">{translate app="framework"}sign-out{/translate}</a>
-						</div>
+						<!--/div-->
 					</li>
 				</ul>
 			</li>
