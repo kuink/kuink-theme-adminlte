@@ -28,19 +28,19 @@
 						</p>
 					</li>
 					<!-- Menu Body -->
-					<li class="user-body">
-						<div class="col-xs-4 text-center">
-							<a href="{$baseurl}/user/profile.php?id={$userId}">{translate app="framework"}profile{/translate}</a>
-						</div>
+					<li class="user-footer">
+						<!--div class="col-xs-4 text-center"-->
+							<a href="{$baseurl}/user/profile.php?id={$userId}" class="btn btn-default btn-flat">{translate app="framework"}profile{/translate}</a>
+						<!--/div-->
 					</li>
 					<!-- Menu Footer-->
 					<li class="user-footer">
-						<div class="pull-left">
+						<!--div class="pull-left">
 							<a href="{$breadcrumbEntries[1]['href']}" class="btn btn-default btn-flat">{translate app="framework"}backToMoodleCourse{/translate}</a>
 						</div>
-						<div class="pull-right">
+						<div class="pull-right"-->
 							<a href="{$baseurl}/login/logout.php?sesskey={$sessKey}" class="btn btn-default btn-flat">{translate app="framework"}sign-out{/translate}</a>
-						</div>
+						<!--/div-->
 					</li>
 				</ul>
 			</li>
