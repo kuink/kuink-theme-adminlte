@@ -25,6 +25,7 @@
 			
 			<script>
 				$(function(){
+					console.log("{$url}");
 					
 					$("#{$_guid}_wrapper").kuinkSubmit({
 						'url' 			: '{$url}&idcontext={$_guid}&modal=widget',
