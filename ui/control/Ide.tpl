@@ -22,14 +22,14 @@
 
 <script type="text/javascript" src="lib/tools/bootstrap-gtreetable/dist/bootstrap-gtreetable.js"></script>
 
-<div id="wrapper">
+<div id="ss_wrapper">
 <!-- Sidebar -->
 
-<div id="sidebar-wrapper">
+<div id="ss_sidebar-wrapper">
   <table class="table gtreetable" id="gtreetable"><thead><tr><th>Apps</th></tr></thead></table>
 </div>
 
-<div id="page-content-wrapper">
+<div id="ss_page-content-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
@@ -210,7 +210,7 @@ jQuery("#libraries").select2({
 <script>
 $("#menu-toggle").click(function(e) {
     e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
+    $("#ss_wrapper").toggleClass("toggled");
 });
 
 window.setTimeout("saveFile();", 30000);
