@@ -27,8 +27,8 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="../index.html"><i class="fa fa-circle-o"></i>{translate}Aplicações{/translate}</a></li>
-          <li><a href="../index.html"><i class="fa fa-circle-o"></i>{translate}Utilizadores{/translate}</a></li>
+          <li><a href="view.php?idPage=APPS&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Aplicações{/translate}</a></li>
+          <!--li><a href="view.php?idPage=USERS&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Utilizadores{/translate}</a></li-->
         </ul>
       </li>
       <li class="treeview">
@@ -39,11 +39,11 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="layout/top-nav.html"><i class="fa fa-circle-o"></i>{translate}Testes Unitários{/translate}</a></li>
-          <li><a href="layout/boxed.html"><i class="fa fa-circle-o"></i>{translate}Gestor de Entidades{/translate}</a></li>
-          <li><a href="layout/fixed.html"><i class="fa fa-circle-o"></i>{translate}Gerador de Aplicações{/translate}</a></li>
-          <li><a href="layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>{translate}Explorador de API{/translate}</a></li>
-          <li><a href="layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>{translate}Scripting{/translate}</a></li>
+          <!--li><a href="view.php?idPage=UTST&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Testes Unitários{/translate}</a></li-->
+          <!--li><a href="view.php?idPage=ENTS&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Gestor de Entidades{/translate}</a></li-->
+          <li><a href="view.php?idPage=GNRT&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Gerador de Aplicações{/translate}</a></li>
+          <li><a href="view.php?idPage=APIS&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Explorador de API{/translate}</a></li>
+          <li><a href="view.php?idPage=POS&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Kuink POS{/translate}</a></li>
         </ul>
       </li>
     </ul>		
