@@ -29,7 +29,7 @@ $position = Position of controls
 					<!-- mini logo for sidebar mini 50x50 pixels -->
 					<span class="logo-mini">K</span>
 					<!-- logo for regular state and mobile devices -->
-					<span class="logo-lg">KuinK</span>
+					<span class="logo-lg">Kuinꓘ</span>
 				</a>
 
 				{* include the top navbar*}
