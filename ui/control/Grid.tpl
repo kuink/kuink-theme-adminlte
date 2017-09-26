@@ -65,7 +65,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 								{$count = $count+1}
 								<div class="btn-group">
 							{/if}
-							<button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="javascript: gridActionField(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;">
+							<button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;">
 							<!--button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="submitGlobalAction_{$name}('{$action_name}');return false;"-->
 							<!--button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="gridActionField(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');"-->
 								{if $buttonAttrs['icon']!=""}
@@ -145,7 +145,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 				var __kuink_{$_guid}_fieldFunctions = [];
 
-				function gridActionField(confirm, confirm_message, location, button_id) {
+				function gridActionField_{$_guid}(confirm, confirm_message, location, button_id) {
 
 							// Call kuink submit center
 							var url = $("#{$_guid}").attr('action');
@@ -371,7 +371,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 													{else}
 														<span style="overflow-x: auto;">
 															{foreach $value['constructor'] as $actionAttribute}
-																{$actionAttribute['separator']}<a href="javascript: void(0)" {$actionAttribute['tooltip']} class="{$actionAttribute['class']}" onclick="gridActionField({$actionAttribute['confirm']}, '{$actionAttribute['confirm_message']}', '{$actionAttribute['location']}', '')"><span nowrap="true" style="white-space: nowrap; overflow-x: auto;">{$actionAttribute['label']}</span></a>
+																{$actionAttribute['separator']}<a href="javascript: void(0)" {$actionAttribute['tooltip']} class="{$actionAttribute['class']}" onclick="gridActionField_{$_guid}({$actionAttribute['confirm']}, '{$actionAttribute['confirm_message']}', '{$actionAttribute['location']}', '')"><span nowrap="true" style="white-space: nowrap; overflow-x: auto;">{$actionAttribute['label']}</span></a>
 															{/foreach}
 														</span>
 													{/if}
@@ -503,7 +503,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 									<div class="btn-group">
 								{/if}
 										<!--button type="submit" class="{$buttonClass}" onclick="submitGlobalAction_{$name}('{$action_name}');return false;" -->
-										<button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="javascript: gridActionField(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;">
+										<button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;">
 											{if $buttonAttrs['icon']!=""}
 												<i class="fa fa-{$buttonAttrs['icon']}" ></i>
 											{/if}
@@ -522,8 +522,8 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 					<ul style="width: 100%" class="pagination pagination-sm no-margin pull-right">
 						{if $pageCurrent > 0}
-							<li><a href="javascript: gridActionField(false, '', '{$baseUrl}&{$name}_page={$pageCurrent-1}', '');">{translate app="framework"}previous{/translate}</a></li>
-							<li><a href="javascript: gridActionField(false, '', '{$baseUrl}&{$name}_page=0', '');">1</a></li>
+							<li><a href="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_page={$pageCurrent-1}', '');">{translate app="framework"}previous{/translate}</a></li>
+							<li><a href="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_page=0', '');">1</a></li>
 						{else}
 							<li class=""><a disabled="disabled" href="javascript:void(0);">{translate app="framework"}previous{/translate}</a></li>
 							<li class="active"><a disabled="disabled" href="javascript:void(0);">1</a></li>
@@ -547,7 +547,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 							{if $pageCurrent+1 eq $i}
 								<li class="active"><a disabled="disabled" href="javascript:void(0);">{$i}</a></li>
 							{else}
-								<li><a href="javascript: gridActionField(false, '', '{$baseUrl}&{$name}_page={$i-1}', '');">{$i}</a></li>
+								<li><a href="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_page={$i-1}', '');">{$i}</a></li>
 							{/if}
 						{/for}
 
@@ -557,12 +557,12 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 						{if $pageCurrent < $pageTotal-1}
 							{if $pageTotal != 1}
-								<li><a href="javascript: gridActionField(false, '', '{$baseUrl}&{$name}_page={$pageTotal-1}', '');">{$pageTotal}</a></li>
+								<li><a href="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_page={$pageTotal-1}', '');">{$pageTotal}</a></li>
 							{/if}
-							<li><a href="javascript: gridActionField(false, '', '{$baseUrl}&{$name}_page={$pageCurrent+1}', '');">{translate app="framework"}next{/translate}</a></li>
+							<li><a href="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_page={$pageCurrent+1}', '');">{translate app="framework"}next{/translate}</a></li>
 						{else}
 							{if $pageTotal != 1}
-								<li class="active">&nbsp;<a href="javascript: gridActionField(false, '', '{$baseUrl}&{$name}_page={$pageTotal-1}', '');">{$pageTotal}</a></li>
+								<li class="active">&nbsp;<a href="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_page={$pageTotal-1}', '');">{$pageTotal}</a></li>
 							{/if}
 							<li class=""><a disabled="disabled" href="javascript:void(0);">{translate app="framework"}next{/translate}</a></li>
 						{/if}
@@ -570,7 +570,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 						<li>&nbsp;
 
 							<!--{translate app="framework"}recordsPerPage{/translate}-->
-							<select id="{$name}_pageselector" name="{$name}_pageselector" class="form-control input-small" onchange="javascript: gridActionField(false, '', '{$baseUrl}&{$name}_pagesize='+this.value+'&{$name}_page=0', '');" style="width: 80px; height: 28px; padding:0px 6px; display:inline;">
+							<select id="{$name}_pageselector" name="{$name}_pageselector" class="form-control input-small" onchange="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_pagesize='+this.value+'&{$name}_page=0', '');" style="width: 80px; height: 28px; padding:0px 6px; display:inline;">
 								<option value="10">10</option>
 								<option value="20">20</option>
 								<option value="50">50</option>
