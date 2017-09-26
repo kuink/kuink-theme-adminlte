@@ -14,15 +14,15 @@
       <li class="dropdown notifications-menu">
         <!-- Menu toggle button -->
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <i class="fa fa-building"></i> {translate app="framework"}company{/translate}
+          <i class="fa fa-building"></i> {translate app="framework"}Empresa{/translate}
         </a>
         <ul class="dropdown-menu">
           <li>
             <!-- Inner Menu: contains the companies -->
             <ul class="menu">
               <li>
-								{foreach from=$NEON_USER_COMPANIES item=COMPANY}
-									{if $NEON_USER_COMPANY == $COMPANY.id}
+								{foreach from=$KUINK_USER_COMPANIES item=COMPANY}
+									{if $KUINK_USER_COMPANY == $COMPANY.id}
 										<a href="#"><i class="fa fa-caret-right"></i>{$COMPANY.name}</a>
 									{else}
 										<a href="#" id="kuink_company_{$COMPANY.id}" onclick="javascript: window.location = window.location + '&idCompany={$COMPANY.id}';">
