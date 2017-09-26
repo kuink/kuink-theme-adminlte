@@ -20,7 +20,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 {/function}
 
 {if $freeze == 'true'}
-	<div id="{$_guid}_properties" class="modal fade" tabindex="-1" role="dialog">
+	<div id="properties_{$_guid}" class="modal fade" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -29,17 +29,15 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 				</div>
 				<div class="modal-body">
 					<ul class="list-group">
-						{if $freeze == 'true'}
-							{foreach $columnAttributes as $colAttr}
-								{if $colAttr['inline'] != 'true'}
-									<li class="list-group-item">
-										<input type="checkbox" id="{$colAttr['name']}" class="{$name}_hidden" {if $colAttr['hidden'] != 'true'}checked{/if}>
-											{$colAttr['label']}
-										</input>
-									</li>
-								{/if}
-							{/foreach}
-						{/if}
+						{foreach $columnAttributes as $colAttr}
+							{if $colAttr['inline'] != 'true'}
+								<li class="list-group-item">
+									<input type="checkbox" id="{$colAttr['name']}" class="{$name}_hidden" {if $colAttr['hidden'] != 'true'}checked{/if}>
+										{$colAttr['label']}
+									</input>
+								</li>
+							{/if}
+						{/foreach}
 					</ul>
 				</div>
 				<div class="modal-footer">
@@ -67,7 +65,9 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 								{$count = $count+1}
 								<div class="btn-group">
 							{/if}
-							<button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="gridActionField(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');" >
+							<button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="javascript: gridActionField(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;">
+							<!--button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="submitGlobalAction_{$name}('{$action_name}');return false;"-->
+							<!--button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="gridActionField(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');"-->
 								{if $buttonAttrs['icon']!=""}
 									<i class="fa fa-{$buttonAttrs['icon']}" ></i>
 								{/if}
@@ -82,14 +82,14 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 				<!-- Hide/Show grid not editable columns -->
 				{if $freeze == 'true'}
-					<a href="#{$_guid}_properties" class="btn btn-default" data-toggle="modal" data-target="#{$_guid}_properties"><i class="fa fa-bars"></i></a>
+					<a href="#properties_{$_guid}" class="btn btn-default" data-toggle="modal" data-target="#properties_{$_guid}"><i class="fa fa-bars"></i></a>
 				{/if}
 			</div>
 			<i class="fa fa-table">&nbsp;</i>
 			<h3 class="box-title">{$title}</h3>
 		</div>
 
-		<div class="gridBlock_{$name}">
+		<div class="gridBlock_{$name} kuink-grid">
 
 			{$multiSeparator = '-'}
 
@@ -100,7 +100,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 			<!-- Handle required fields -->
 
 			<script type="text/javascript">
-				function {$name}validateRequiredFields() {
+				function validateRequiredFields_{$_guid}() {
 					var reqErrors;
 					reqErrors = false;
 					var reqFocus;
@@ -143,23 +143,66 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 					});
 				{/if}
 
+				var __kuink_{$_guid}_fieldFunctions = [];
 
 				function gridActionField(confirm, confirm_message, location, button_id) {
 
-					var reqValidate = {$name}validateRequiredFields();
-					if (!reqValidate)
-						return false;
-					//Call kuink submit center
-					$("#{$_guid}").kuinkSubmit({
-						'url' : location+'&modal=widget',
-						'id_context' : '{$_idContext}',
-						'method' : 'post',
-						'data' : $("#{$_guid}").serialize(),
-						'confirm'	: confirm,
-						'confirm_message'	: confirm_message,
-						'button_id' : button_id
-					});
+							// Call kuink submit center
+							var url = $("#{$_guid}").attr('action');
+							var confirm = $("#{$_guid}").attr('kuink-data-confirm');
+							var confirm_message = $("#{$_guid}").attr('kuink-data-confirm-message');
+							var buttonId = $("#{$_guid}").attr('kuink-data-button-pressed-id');
+
+							if (confirm!='' && confirm!='false')
+								if (confirm!='true')
+									confirmMessage = confirm;
+								else
+									confirm = true;
+
+							// before getting form data, run all fields internal functions
+							$.each(__kuink_{$_guid}_fieldFunctions, function( index, fieldFunction ) {
+			  				fieldFunction();
+							});
+
+							// get form data
+							//var formData = new FormData(document.querySelector("form"));
+							var formData = new FormData($("#{$_guid}")[0]);
+
+							var reqValidate = validateRequiredFields_{$_guid}();
+							if (!reqValidate)
+								return false;
+
+							$("#{$_guid}").kuinkSubmit({
+								'url' 			: location+'&modal=widget',
+								'id_context'	: '{$_idContext}',
+								'method' 		: 'post',
+								processData: false, contentType: false,
+								'data'			: formData,//$("#{$_guid}").serialize(),
+								'confirm'		: confirm,
+								'confirm_message'	: confirm_message,
+								'button_id' : buttonId
+							});
+
+							/*var reqValidate = validateRequiredFields_{$_guid}();
+							if (!reqValidate)
+								return false;
+							//Call kuink submit center
+							$("#{$_guid}").kuinkSubmit({
+								'url' : location+'&modal=widget',
+								'id_context' : '{$_idContext}',
+								'method' : 'post',
+								'data' : $("#{$_guid}").serialize(),
+								'confirm'	: confirm,
+								'confirm_message'	: confirm_message,
+								'button_id' : button_id
+							});*/
+
 				}
+				$(document).ready(function() {
+					$("#{$_guid}").submit(function(e){
+						return false;
+					});
+				});
 
 				//Function to toggle all the pick checkboxes
 				function {$name}ToggleChecked(status) {
@@ -459,7 +502,8 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 									{$count = $count+1}
 									<div class="btn-group">
 								{/if}
-										<button type="submit" class="{$buttonClass}" onclick="submitGlobalAction_{$name}_{$action_name}();return false;" >
+										<!--button type="submit" class="{$buttonClass}" onclick="submitGlobalAction_{$name}('{$action_name}');return false;" -->
+										<button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="javascript: gridActionField(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;">
 											{if $buttonAttrs['icon']!=""}
 												<i class="fa fa-{$buttonAttrs['icon']}" ></i>
 											{/if}

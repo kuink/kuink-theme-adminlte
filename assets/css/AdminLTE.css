@@ -1121,7 +1121,7 @@ a:focus {
 }
 .navbar-nav > .user-menu > .dropdown-menu > .user-footer {
   background-color: #f9f9f9;
-  padding: 5px;
+  padding: 10px;
 }
 .navbar-nav > .user-menu > .dropdown-menu > .user-footer:before,
 .navbar-nav > .user-menu > .dropdown-menu > .user-footer:after {
@@ -5145,4 +5145,12 @@ fieldset[disabled] .btn-yahoo.active {
   .table-responsive > .table tr td {
     white-space: normal!important;
   }
+}
+/*
+ * Custom: custom
+ * -------------------
+ */
+.kuink-grid {
+  overflow-x: auto;
+  overflow-y: hidden;
 }

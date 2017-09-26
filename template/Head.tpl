@@ -1,5 +1,5 @@
         <meta charset="UTF-8">
-        <title>KuinK</title>
+        <title>Kuinꓘ</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.3.5 -->
         <link href="{$_themeRoot}theme/{$THEME}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/css/simple-sidebar/simple-sidebar.css">
 
         <link rel="icon" type="image/png" href="favicon.png" sizes="16x16">
-        
+
 
         <style>
           {literal}
