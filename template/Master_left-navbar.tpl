@@ -40,10 +40,11 @@
         </a>
         <ul class="treeview-menu">
           <!--li><a href="view.php?idPage=UTST&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Testes Unitários{/translate}</a></li-->
-          <!--li><a href="view.php?idPage=ENTS&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Gestor de Entidades{/translate}</a></li-->
+          <li><a href="view.php?idPage=ENTS&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Gestor de Entidades{/translate}</a></li>
           <li><a href="view.php?idPage=GNRT&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Gerador de Aplicações{/translate}</a></li>
           <li><a href="view.php?idPage=APIS&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Explorador de API{/translate}</a></li>
           <li><a href="view.php?idPage=POS&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Kuink POS{/translate}</a></li>
+          <li><a href="view.php?idPage=IDE&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}IDE{/translate}</a></li>
         </ul>
       </li>
     </ul>		
