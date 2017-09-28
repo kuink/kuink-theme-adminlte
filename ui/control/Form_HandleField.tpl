@@ -48,7 +48,7 @@ and handle the control display
 				<label for="{$fieldGuid}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label>
 				{if $field['attributes']['help']!=''}
 					&nbsp;&nbsp;
-					<a
+					<a tabindex="-1"
 					   data-toggle="tooltip" title=""
 					   data-original-title="{$field['attributes']['help']}"
 					   data-placement="right"

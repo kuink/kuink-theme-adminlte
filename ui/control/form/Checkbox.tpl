@@ -18,7 +18,7 @@
     &nbsp;{$field['attributes']['label']}
 	{if $field['attributes']['help']!=''}
 			&nbsp;&nbsp;
-			<a
+			<a tabindex="-1"
 			   data-toggle="tooltip" title=""
 			   data-original-title="{$field['attributes']['help']}"
 			   data-placement="right"
