@@ -154,7 +154,7 @@
 				jQuery(document).ready(function() {
 						jQuery("#{$fieldID}").select2(
 								{
-										width: "200"
+										width: "100%"
 								}
 						);
 				});
