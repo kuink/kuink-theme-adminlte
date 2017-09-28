@@ -21,10 +21,7 @@
 
 			{assign var=datasourceParams value=","|explode:$fieldAttrs['datasource-params']}
 
-      {$width = 300}
-      {if $inputSize == 'xlarge'}
-        {$width = 500}
-      {/if}
+      {$width = "100%"}
 
 	<script type="text/javascript">
 					jQuery(document).ready(function() {
@@ -88,7 +85,7 @@
 		minimumInputLength: 3,
 		formatResult: formatData{$fieldID},
 		initSelection: initSelection{$fieldID},
-		width: {$width}
+		width: "{$width}"
 	});
 					});
 
