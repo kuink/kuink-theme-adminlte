@@ -370,9 +370,13 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 														{include file="./grid/$colType.tpl"}
 													{else}
 														<span style="overflow-x: auto;">
-															{foreach $value['constructor'] as $actionAttribute}
-																{$actionAttribute['separator']}<a href="javascript: void(0)" {$actionAttribute['tooltip']} class="{$actionAttribute['class']}" onclick="gridActionField_{$_guid}({$actionAttribute['confirm']}, '{$actionAttribute['confirm_message']}', '{$actionAttribute['location']}', '')"><span nowrap="true" style="white-space: nowrap; overflow-x: auto;">{$actionAttribute['label']}</span></a>
-															{/foreach}
+															{if count($value['constructor']) == 0}
+																{$value['value']}
+															{else}
+																{foreach $value['constructor'] as $actionAttribute}
+																	{$actionAttribute['separator']}<a href="javascript: void(0)" {$actionAttribute['tooltip']} class="{$actionAttribute['class']}" onclick="gridActionField_{$_guid}({$actionAttribute['confirm']}, '{$actionAttribute['confirm_message']}', '{$actionAttribute['location']}', '')"><span nowrap="true" style="white-space: nowrap; overflow-x: auto;">{$actionAttribute['label']}</span></a>
+																{/foreach}
+															{/if}
 														</span>
 													{/if}
 												{/if}
