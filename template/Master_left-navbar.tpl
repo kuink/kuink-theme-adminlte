@@ -28,6 +28,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="view.php?idPage=APPS&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Aplicações{/translate}</a></li>
+          <li><a href="view.php?idPage=MSGS&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Mensagens{/translate}</a></li>
           <!--li><a href="view.php?idPage=USERS&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Utilizadores{/translate}</a></li-->
         </ul>
       </li>
@@ -47,6 +48,35 @@
           <li><a href="view.php?idPage=IDE&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}IDE{/translate}</a></li>
         </ul>
       </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-book"></i></i><span>{translate}Proof Of Concept{/translate}</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="view.php?idPage=POC.status&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Estados dos documentos{/translate}</a></li>
+          <li><a href="view.php?idPage=POC.group&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Grupos de documentos{/translate}</a></li>
+          <li><a href="view.php?idPage=POC.type&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Tipos de documentos{/translate}</a></li>
+          <li><a href="view.php?idPage=POC.document&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Gestão de documentos{/translate}</a></li>
+					<li><a href="view.php?idPage=POC.documentApproval&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Aprovação de documentos{/translate}</a></li>          
+        </ul>
+      </li>
+
+
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-book"></i></i><span>{translate}Gestão Documental{/translate}</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="view.php?idPage=WF.inbox&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Inbox{/translate}</a></li>
+        </ul>
+      </li>
+      
     </ul>		
 
 	</section>
