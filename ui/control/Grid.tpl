@@ -147,12 +147,6 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 				function gridActionField_{$_guid}(confirm, confirm_message, location, button_id) {
 
-							// Call kuink submit center
-							var url = $("#{$_guid}").attr('action');
-							var confirm = $("#{$_guid}").attr('kuink-data-confirm');
-							var confirm_message = $("#{$_guid}").attr('kuink-data-confirm-message');
-							var buttonId = $("#{$_guid}").attr('kuink-data-button-pressed-id');
-
 							if (confirm!='' && confirm!='false')
 								if (confirm!='true')
 									confirmMessage = confirm;
@@ -179,8 +173,8 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 								processData: false, contentType: false,
 								'data'			: formData,//$("#{$_guid}").serialize(),
 								'confirm'		: confirm,
-								'confirm_message'	: confirm_message,
-								'button_id' : buttonId
+								'confirm_message'	: confirm_message//,
+								//'button_id' : buttonId
 							});
 
 							/*var reqValidate = validateRequiredFields_{$_guid}();
