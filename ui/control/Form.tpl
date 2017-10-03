@@ -9,7 +9,7 @@
 		var confirmMessage = '';
 		if (confirm!='' && confirm!='false'){
 			hasConfirm = true;
-			// get the first submit button
+			// get all buttons and store their states
 			let formButtons = $("#"+buttonId).parent().children();
 			buttonsBeforeSubmit = [];
 			$(formButtons).each(function() {
