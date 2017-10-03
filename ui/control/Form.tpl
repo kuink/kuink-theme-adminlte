@@ -9,6 +9,15 @@
 		var confirmMessage = '';
 		if (confirm!='' && confirm!='false'){
 			hasConfirm = true;
+			// get the first submit button
+			let formButtons = $("#"+buttonId).parent().children();
+			buttonsBeforeSubmit = [];
+			$(formButtons).each(function() {
+				buttonsBeforeSubmit.push({
+					key: $(this).attr('id'),
+					value: $(this).attr('disabled')
+				});
+			});
 			if (confirm!='true')
 				confirmMessage = confirm;
 		}
@@ -17,15 +26,6 @@
 		$("#"+guid).attr('kuink-data-confirm-message', confirmMessage);
 		$("#"+guid).attr('kuink-data-button-pressed', buttonType);
 		$("#"+guid).attr('kuink-data-button-pressed-id', buttonId);
-		// get the first submit button
-		let formButtons = $("#"+buttonId).parent().children();
-		buttonsBeforeSubmit = [];
-		$(formButtons).each(function() {
-			buttonsBeforeSubmit.push({
-				key: $(this).attr('id'),
-				value: $(this).attr('disabled')
-			});
-		});
 	};
 
 	// variable to store button's state before submitting
