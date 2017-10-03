@@ -17,7 +17,19 @@
 		$("#"+guid).attr('kuink-data-confirm-message', confirmMessage);
 		$("#"+guid).attr('kuink-data-button-pressed', buttonType);
 		$("#"+guid).attr('kuink-data-button-pressed-id', buttonId);
+		// get the first submit button
+		let formButtons = $("#"+buttonId).parent().children();
+		buttonsBeforeSubmit = [];
+		$(formButtons).each(function() {
+			buttonsBeforeSubmit.push({
+				key: $(this).attr('id'),
+				value: $(this).attr('disabled')
+			});
+		});
 	};
+
+	// variable to store button's state before submitting
+	var buttonsBeforeSubmit = [];
 
 	var __kuink_{$form['_guid']}_fieldFunctions = [];
 
@@ -60,6 +72,9 @@
 
 				// get form data
 				var formData = new FormData(document.querySelector("form"));
+
+				// disable pressed button
+				$("#"+buttonId).attr('disabled', true);
 
 				$("#{$form['_guid']}").kuinkSubmit({
 					'url' 			: url+'&modal=widget',
@@ -257,7 +272,8 @@
 			data-bv-feedbackicons-valid=""
 			data-bv-feedbackicons-invalid=""
 			data-bv-feedbackicons-validating=""
-			data-bv-live="enabled">
+			data-bv-live="enabled"
+			data-disable="false">
 		<div class="box-body ">
 			{foreach from=$fields item="field" name="handleFieldForEach"}
 				{include './Form_HandleField.tpl'}

@@ -78,6 +78,10 @@
         			      label: "Não",
         			      className: "btn-primary",
         			      callback: function() {
+											// restore buttons to previous state before submitting
+											$(buttonsBeforeSubmit).each(function() {
+												$("#"+this.key).attr('disabled', this.value != undefined ? true : false);
+											});
                       if(settings.button_id != '' || settings.button_id != undefined)
                         $("#"+settings.button_id).attr('disabled', false);
         			      }
