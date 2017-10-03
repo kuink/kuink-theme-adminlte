@@ -78,12 +78,12 @@
         			      label: "Não",
         			      className: "btn-primary",
         			      callback: function() {
-											// restore buttons to previous state before submitting
-											$(__kuink_buttonsBeforeSubmit).each(function() {
-												$("#"+this.key).attr('disabled', this.value != undefined ? true : false);
-											});
-                      if(settings.button_id != '' || settings.button_id != undefined)
-                        $("#"+settings.button_id).attr('disabled', false);
+											// restore form buttons to previous state before submitting
+											if(typeof __kuink_formButtonsBeforeSubmit != 'undefined' && __kuink_formButtonsBeforeSubmit instanceof Array) {
+												$(__kuink_formButtonsBeforeSubmit).each(function() {
+													$("#"+this.form).children().find("#"+this.key).attr('disabled', this.value != undefined ? true : false);
+												});
+											}
         			      }
         			    }
         			  }

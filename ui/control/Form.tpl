@@ -13,7 +13,8 @@
 			let formButtons = $("#"+buttonId).parent().children();
 			__kuink_buttonsBeforeSubmit = [];
 			$(formButtons).each(function() {
-				__kuink_buttonsBeforeSubmit.push({
+				__kuink_formButtonsBeforeSubmit.push({
+					form: '{$form['_guid']}',
 					key: $(this).attr('id'),
 					value: $(this).attr('disabled')
 				});
@@ -29,7 +30,9 @@
 	};
 
 	// variable to store button's state before submitting
-	var __kuink_buttonsBeforeSubmit = [];
+	if (typeof __kuink_formButtonsBeforeSubmit === 'undefined') {
+		var __kuink_formButtonsBeforeSubmit = [];
+	}
 
 	var __kuink_{$form['_guid']}_fieldFunctions = [];
 
