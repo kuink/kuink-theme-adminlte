@@ -11,9 +11,9 @@
 			hasConfirm = true;
 			// get all buttons and store their states
 			let formButtons = $("#"+buttonId).parent().children();
-			buttonsBeforeSubmit = [];
+			__kuink_buttonsBeforeSubmit = [];
 			$(formButtons).each(function() {
-				buttonsBeforeSubmit.push({
+				__kuink_buttonsBeforeSubmit.push({
 					key: $(this).attr('id'),
 					value: $(this).attr('disabled')
 				});
@@ -29,7 +29,7 @@
 	};
 
 	// variable to store button's state before submitting
-	var buttonsBeforeSubmit = [];
+	var __kuink_buttonsBeforeSubmit = [];
 
 	var __kuink_{$form['_guid']}_fieldFunctions = [];
 
