@@ -12,8 +12,8 @@
     <link href="{$_themeRoot}theme/{$THEME}/css/bootstrap/select2-bootstrap.css" rel="stylesheet" />
     <link href="{$_themeRoot}theme/{$THEME}/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="lib/tools/codemirror/theme/ambiance.css"/>
-    <link href="lib/tools/bootstrap-3/css/bootstrap.css" rel="stylesheet">
-    <link href="lib/tools/bootstrap-3/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="kuink-core/lib/tools/bootstrap-3/css/bootstrap.css" rel="stylesheet">
+    <link href="kuink-core/lib/tools/bootstrap-3/css/bootstrap-theme.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="lib/tools/bootstrap-gtreetable/dist/bootstrap-gtreetable.min.css" />
     <link rel="stylesheet" href="lib/tools/codemirror/lib/codemirror.css">
     <link rel="stylesheet" href="lib/tools/codemirror/addon/hint/show-hint.css">
@@ -25,12 +25,12 @@
     <script src="theme/{$THEME}/js/jquery.js"></script>
     <script src="theme/{$THEME}/js/jquery-migrate-1.2.1.js"></script>
 
-    <script src="lib/tools/bootstrap-3/js/bootstrap.min.js"></script>
-    <script src="lib/tools/codemirror/lib/codemirror.js"></script>
-    <script src="lib/tools/codemirror/addon/edit/closetag.js"></script>
-    <script src="lib/tools/codemirror/addon/hint/show-hint.js"></script>
-    <script src="lib/tools/codemirror/addon/hint/xml-hint.js"></script>
-    <script src="lib/tools/codemirror/mode/xml/xml.js"></script>
+    <script src="kuink-core/lib/tools/bootstrap-3/js/bootstrap.min.js"></script>
+    <script src="kuink-core/lib/tools/codemirror/lib/codemirror.js"></script>
+    <script src="kuink-core/lib/tools/codemirror/addon/edit/closetag.js"></script>
+    <script src="kuink-core/lib/tools/codemirror/addon/hint/show-hint.js"></script>
+    <script src="kuink-core/lib/tools/codemirror/addon/hint/xml-hint.js"></script>
+    <script src="kuink-core/lib/tools/codemirror/mode/xml/xml.js"></script>
     <script type="text/javascript" src="lib/tools/bootstrap-gtreetable/dist/bootstrap-gtreetable.js"></script>
     <script type='text/javascript' src='{$_themeRoot}theme/{$THEME}/js/select2.js'></script>
     
@@ -50,9 +50,10 @@
           </div>
       {/foreach}
     {/function}
-           
-    {* include the template *}      
-    {include file=$appTemplate}
+     
+    {* include the template *}    
+    {assign var="appTemplateSmarty" value='app/'|cat:$appTemplate}  
+    {include $appTemplateSmarty}
 
   </body>
 </html>
