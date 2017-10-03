@@ -13,9 +13,9 @@
 			let formButtons = $("#"+buttonId).parent().children();
 			__kuink_buttonsBeforeSubmit = [];
 			$(formButtons).each(function() {
+				let button = $("#{$form['_guid']}").children().find('#'+this.id);
 				__kuink_formButtonsBeforeSubmit.push({
-					form: '{$form['_guid']}',
-					key: $(this).attr('id'),
+					button,
 					value: $(this).attr('disabled')
 				});
 			});

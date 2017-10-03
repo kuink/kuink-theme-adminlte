@@ -81,7 +81,7 @@
 											// restore form buttons to previous state before submitting
 											if(typeof __kuink_formButtonsBeforeSubmit != 'undefined' && __kuink_formButtonsBeforeSubmit instanceof Array) {
 												$(__kuink_formButtonsBeforeSubmit).each(function() {
-													$("#"+this.form).children().find("#"+this.key).attr('disabled', this.value != undefined ? true : false);
+													$(this.button).attr('disabled', this.value != undefined ? true : false);
 												});
 											}
         			      }
