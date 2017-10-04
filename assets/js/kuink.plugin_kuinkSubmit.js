@@ -18,7 +18,6 @@
 
         var doSubmit = function(){
 
-        	//console.log("// Loading "+settings.url+' on '+settings.id_context + " context");
             $.ajax({
                 url		: settings.url,
                 type	: settings.method,
@@ -33,11 +32,6 @@
                 	}
                 },
                 success	: function (data, status) {
-                	//console.log('SUCCESS');
-                	//console.log(settings.id_context+"_loading_wrapper");
-                	//console.log(settings.target );
-                	//console.log(settings.url);
-                	//console.log($("#"+settings.id_context+"_loading_wrapper"));
                 	if (settings.target != undefined){
                 		$(settings.target).html(data);
                 	} else {

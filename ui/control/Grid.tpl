@@ -66,8 +66,6 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 								<div class="btn-group">
 							{/if}
 							<button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;">
-							<!--button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="submitGlobalAction_{$name}('{$action_name}');return false;"-->
-							<!--button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="gridActionField(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');"-->
 								{if $buttonAttrs['icon']!=""}
 									<i class="fa fa-{$buttonAttrs['icon']}" ></i>
 								{/if}
@@ -159,7 +157,6 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 							});
 
 							// get form data
-							//var formData = new FormData(document.querySelector("form"));
 							var formData = new FormData($("#{$_guid}")[0]);
 
 							var reqValidate = validateRequiredFields_{$_guid}();
@@ -171,25 +168,10 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 								'id_context'	: '{$_idContext}',
 								'method' 		: 'post',
 								processData: false, contentType: false,
-								'data'			: formData,//$("#{$_guid}").serialize(),
+								'data'			: formData,
 								'confirm'		: confirm,
-								'confirm_message'	: confirm_message//,
-								//'button_id' : buttonId
+								'confirm_message'	: confirm_message
 							});
-
-							/*var reqValidate = validateRequiredFields_{$_guid}();
-							if (!reqValidate)
-								return false;
-							//Call kuink submit center
-							$("#{$_guid}").kuinkSubmit({
-								'url' : location+'&modal=widget',
-								'id_context' : '{$_idContext}',
-								'method' : 'post',
-								'data' : $("#{$_guid}").serialize(),
-								'confirm'	: confirm,
-								'confirm_message'	: confirm_message,
-								'button_id' : button_id
-							});*/
 
 				}
 				$(document).ready(function() {
@@ -500,7 +482,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 									{$count = $count+1}
 									<div class="btn-group">
 								{/if}
-										<!--button type="submit" class="{$buttonClass}" onclick="submitGlobalAction_{$name}('{$action_name}');return false;" -->
+
 										<button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;">
 											{if $buttonAttrs['icon']!=""}
 												<i class="fa fa-{$buttonAttrs['icon']}" ></i>
@@ -567,7 +549,6 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 						<li>&nbsp;
 
-							<!--{translate app="framework"}recordsPerPage{/translate}-->
 							<select id="{$name}_pageselector" name="{$name}_pageselector" class="form-control input-small" onchange="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_pagesize='+this.value+'&{$name}_page=0', '');" style="width: 80px; height: 28px; padding:0px 6px; display:inline;">
 								<option value="10">10</option>
 								<option value="20">20</option>
