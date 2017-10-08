@@ -118,7 +118,6 @@
 
 	/** generic apply rules **/
 	function applyRule(field, attr, attrValue) {
-		//console.log(attr);
 		if  (attr=='disabled') {
 				if (attrValue == 'true')
 						$("#"+field).attr('disabled','disabled');
@@ -151,12 +150,10 @@
 
 						/** Verify if the modified parameter is in this datasource params **/
 						var makeCall = false;
-						//console.log("Api params length: " + Object.keys(apiParams).length);
 						if (Object.keys(apiParams).length == 0){
 							makeCall = true;
 						}
 						for(var param in apiParams) {
-							//console.log(param);
 							if (param==changedId && makeCall==false){
 								makeCall=true;
 							}
@@ -170,13 +167,11 @@
 											apiUrl = apiUrl.replace(param,paramValue);
 										}
 									}
-									//console.log(apiUrl);
 									$.ajax({
 										url: apiUrl,
 										type: 'get',
 										success: function (data, status) {
 
-											//console.log('Success Ajax data= ' + data);
 											$("#{$form['_guid']}").find('#'+obj.field).find('option').remove().end();
 											$("#{$form['_guid']}").find('#'+obj.field).find('option').remove().end();
 											$("#{$form['_guid']}").find('#'+obj.field).append('<option></option>');
@@ -194,7 +189,6 @@
 
 									},
 									error: function (xhr, err) {
-										//console.log(xhr);
 										console.debug("Desc: " + err);
 									}
 							});
@@ -203,14 +197,8 @@
 
 					/** continue with condition rules **/
 					} else if (eval(obj.condition)){
-							//console.log("#"+obj.field+" "+obj.attr+"="+obj.value_true);
-							//$("#"+obj.field).attr('disabled',obj.value_true);
-
-
 							applyRule(obj.field, obj.attr, obj.value_true);
 					}else{
-							//console.log("#"+obj.field+" "+obj.attr+"="+obj.value_false);
-							//$("#"+obj.field).attr('disabled',obj.value_false);
 							applyRule(obj.field, obj.attr, obj.value_false);
 					}
 			});
