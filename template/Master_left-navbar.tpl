@@ -50,7 +50,7 @@
       </li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-book"></i></i><span>{translate}Proof Of Concept{/translate}</span>
+          <i class="fa fa-file-o"></i></i><span>{translate}Proof Of Concept{/translate}</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -67,13 +67,17 @@
 
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-book"></i></i><span>{translate}Gestão Documental{/translate}</span>
+          <i class="fa fa-book"></i></i><span>{translate}Records Management{/translate}</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="view.php?idPage=WF.inbox&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Inbox{/translate}</a></li>
+          <li><a href="view.php?idPage=CD&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Documentos Controlados{/translate}</a></li>
+          <li><a href="view.php?idPage=RM.class&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Classes{/translate}</a></li>
+          <li><a href="view.php?idPage=RM.document&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Gestão de documentos{/translate}</a></li>
+          <li><a href="view.php?idPage=RM.record&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Registos{/translate}</a></li>
+          <li><a href="view.php?idPage=WF.inbox&modal=widgetContainer"><i class="fa fa-circle-o"></i>{translate}Fila Trabalho{/translate}</a></li>
         </ul>
       </li>
       

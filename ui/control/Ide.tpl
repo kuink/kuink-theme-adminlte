@@ -1,18 +1,18 @@
-<!--link href="lib/tools/bootstrap-3/css/bootstrap.css" rel="stylesheet"-->
-<!--link href="lib/tools/bootstrap-3/css/bootstrap-theme.css" rel="stylesheet"-->
+<!--link href="kuink-core/lib/tools/bootstrap-3/css/bootstrap.css" rel="stylesheet"-->
+<!--link href="kuink-core/lib/tools/bootstrap-3/css/bootstrap-theme.css" rel="stylesheet"-->
 
-<link rel="stylesheet" type="text/css" href="lib/tools/bootstrap-gtreetable/dist/bootstrap-gtreetable.min.css" />
+<link rel="stylesheet" type="text/css" href="kuink-core/lib/tools/bootstrap-gtreetable/dist/bootstrap-gtreetable.min.css" />
 
-<link rel="stylesheet" href="lib/tools/codemirror/lib/codemirror.css">
-<link rel="stylesheet" href="lib/tools/codemirror/addon/hint/show-hint.css">
-<link rel="stylesheet" href="lib/tools/codemirror/theme/ambiance.css">
-<script src="lib/tools/codemirror/lib/codemirror.js"></script>
-<script src="lib/tools/codemirror/addon/edit/closetag.js"></script>
-<script src="lib/tools/codemirror/addon/hint/show-hint.js"></script>
-<script src="lib/tools/codemirror/addon/hint/xml-hint.js"></script>
-<script src="lib/tools/codemirror/mode/xml/xml.js"></script>
+<link rel="stylesheet" href="kuink-core/lib/tools/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="kuink-core/lib/tools/codemirror/addon/hint/show-hint.css">
+<link rel="stylesheet" href="kuink-core/lib/tools/codemirror/theme/ambiance.css">
+<script src="kuink-core/lib/tools/codemirror/lib/codemirror.js"></script>
+<script src="kuink-core/lib/tools/codemirror/addon/edit/closetag.js"></script>
+<script src="kuink-core/lib/tools/codemirror/addon/hint/show-hint.js"></script>
+<script src="kuink-core/lib/tools/codemirror/addon/hint/xml-hint.js"></script>
+<script src="kuink-core/lib/tools/codemirror/mode/xml/xml.js"></script>
 
-<link href="theme/default/css/simple-sidebar/simple-sidebar.css" rel="stylesheet">
+<link href="{$_themeRoot}theme/{$THEME}/assets/css/simple-sidebar/simple-sidebar.css" rel="stylesheet">
 
 <style type="text/css">
   .CodeMirror { border: 1px solid #eee; width: 99%; height: auto }
@@ -20,7 +20,7 @@
 </style>
 
 
-<script type="text/javascript" src="lib/tools/bootstrap-gtreetable/dist/bootstrap-gtreetable.js"></script>
+<script type="text/javascript" src="kuink-core/lib/tools/bootstrap-gtreetable/dist/bootstrap-gtreetable.js"></script>
 
 <div id="ss_wrapper">
 <!-- Sidebar -->
@@ -382,7 +382,7 @@ document.getElementById("saveButtonTop").disabled = true;
 
 <script type="text/javascript">
 jQuery(document).ready(function () {
-
+	
   jQuery('#gtreetable').gtreetable({
     'source': function (id) {
         return {
