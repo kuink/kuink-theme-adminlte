@@ -118,23 +118,30 @@
 
 	/** generic apply rules **/
 	function applyRule(field, attr, attrValue) {
-		if  (attr=='disabled') {
-				if (attrValue == 'true')
-						$("#"+field).attr('disabled','disabled');
-				else
-						$("#"+field).removeAttr('disabled');
-			} else if (attr=='visible') {
-				if (attrValue == 'true') {
-					$("#"+field).removeAttr('disabled');
-					$("#"+field+"CG").fadeIn('slow');
-			} else if (attr == 'value'){
-
-			}else {
-					$("#"+field+"CG").fadeOut();
-					$("#"+field).attr('disabled','disabled');
+		if (attr=='disabled') {
+			if (attrValue == 'true')
+				$("#"+field).attr('disabled','disabled');
+			else
+				$("#"+field).removeAttr('disabled');
+		} else if (attr=='visible') {
+			if (attrValue == 'true') {
+				$("#"+field).removeAttr('disabled');
+				$("#"+field+"CG").fadeIn('slow');
+			} else {
+				$("#"+field+"CG").fadeOut();
+				$("#"+field).attr('disabled','disabled');
 			}
+		} else if (attr=='value') {
+			if(attrValue != '' && attrValue != null) {
+				if(attrValue == '__kuink_clear'){
+					$("#"+field).val('');
+				}
+				else {
+					$("#"+field).val(attrValue);
+				}
 			}
-			return;
+		}
+		return;
 	}
 
 
