@@ -273,16 +273,31 @@
 			data-bv-live="enabled"
 			data-disable="false">
 		<div class="box-body ">
+			{if $columns > 0}
+				{assign var=columnWidth value=12/$columns}
+				{assign var=lastFieldWasColumn value=0}
+				{assign var=firstColumn value=1}
+			{/if}
 			{foreach from=$fields item="field" name="handleFieldForEach"}
-				{include './Form_HandleField.tpl'}
+				{if $field['type'] == 'Column'}
+					{$lastFieldWasColumn=1}
+				{else}
+					{include './Form_HandleField.tpl'}
+					{if $firstColumn==1}
+						{$firstColumn=0}
+					{/if}
+					{$lastFieldWasColumn=0}
+				{/if}
 				{if $smarty.foreach.handleFieldForEach.last}
 					{if isset($notFirstHeader)}
 								</fieldset>
 							</div>
-						</div>
 					{/if}
 				{/if}
 			{/foreach}
+			{if $columns > 0}
+				</div>
+			{/if}
 		</div>
 		{if $hasRequiredFields == true}
 			<span class="badge">{translate app="framework"}requiredFieldsMessage{/translate} {$sRequiredString}</span>
