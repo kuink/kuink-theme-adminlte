@@ -49,7 +49,7 @@
 			$('#{$fieldID}_visible').inputmask('yyyy/mm/dd');
 		{/if}
 
-		{if $field['attributes']['now'] == 'true'}
+		{if $field['attributes']['now'] == 'true' || $field['value']}
 			kuink_updateVisibleDate('{$fieldID}',{$personTimeZoneOffset});
 		{/if}
 

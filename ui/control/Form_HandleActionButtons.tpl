@@ -119,4 +119,4 @@ Handle all thing about form action buttons.
 {/if}
 
 <button type="{$buttonType}" class="btn-flat {$buttonPrintableClass} {$buttonDefaultClass} {$buttonClass}" id="{$buttonAttrs['id']}"
-		onclick="result = setFormAction('{$form['_guid']}', '{$buttonActionUrl}','{$buttonAttrs['confirm']|escape:'htmlall'}', '{$buttonType}', '{$buttonAttrs['id']}');">{if $buttonIcon != ""}<i class="fa fa-{$buttonIcon} {$iconColor}"></i>{/if}&nbsp;{$buttonAttrs['label']}</button>
+		onclick="javascript: result = setFormAction_{$form['_guid']}('{$buttonActionUrl}','{$buttonAttrs['confirm']|escape:'htmlall'}', '{$buttonType}', '{$buttonAttrs['id']}');">{if $buttonIcon != ""}<i class="fa fa-{$buttonIcon} {$iconColor}"></i>{/if}&nbsp;{$buttonAttrs['label']}</button>
