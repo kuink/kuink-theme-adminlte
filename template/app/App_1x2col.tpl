@@ -4,10 +4,10 @@
 		{hook position='default'}
 	</div>
 	<div class="row-fluid" style="margin-top: 10px;">
-		<div class="span6">
+		<div class="col-md-6">
 		{hook position='left'}
-		</div>
-		<div class="span6">
+		</div></div>
+		<div class="col-md-6">
 		{hook position='right'}
 		</div>
 	</div>
