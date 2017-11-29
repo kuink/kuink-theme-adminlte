@@ -107,22 +107,22 @@
 
     	<div class="panel panel-default">
   			<div class="panel-heading">
-  				{hook position='top'}
+  				{call hook position='top'}
   			</div>
   			<div class="panel-body">
     			<div class="col-md-5">
-            		{hook position='left'}
+            		{call hook position='left'}
         		</div>
         		<div class="col-md-5">
-            		{hook position='right'}
+            		{call hook position='right'}
         		</div>
     			<div class="col-md-10">
-            		{hook position='default'}
+            		{call hook position='default'}
         		</div>
     			<div class="footerSeparator"></div>
   			</div>
   			<div class="panel-footer">
-				{hook position='bottom'}
+				{call hook position='bottom'}
 			</div>
 		</div>
 

@@ -59,3 +59,4 @@
 {if $title != ''}
 </div>
 {/if}
+{/nocache}

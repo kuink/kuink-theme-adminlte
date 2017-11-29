@@ -3,7 +3,7 @@
   <div id="sidebar-wrapper" style="overflow: hidden; display: none;margin-right: 20px; float: left;">
     <ul style="list-style: none;" class="nav nav-pills nav-stacked">
       {foreach from=$menuEntries item=menu}
-        {createLeftMenu menu=$menu submenu=false menuType=toggle}
+        {call createLeftMenu menu=$menu submenu=false menuType=toggle}
       {/foreach}
     </ul>
   </div>
@@ -11,7 +11,7 @@
   <div id="iconMenuToggled" style="display: block;margin-right:20px;float:left;">
     <ul style="list-style: none;" class="nav nav-pills nav-stacked" id="toggleMenuChildren">
       {foreach from=$menuEntries item=menu}
-        {createLeftMenu menu=$menu submenu=false menuType=toggled}
+        {call createLeftMenu menu=$menu submenu=false menuType=toggled}
       {/foreach}
     </ul>
   </div>

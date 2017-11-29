@@ -39,27 +39,29 @@ $position = Position of controls
 
 			{* include left sidebar *}
 			{include 'Master_left-navbar.tpl'}
-
+			
 			<!-- Right side column. Contains the navbar and content of the page -->
 			<aside class="right-side">
 				<!-- Content Header (Page header) -->
-				<section class="content-header">
-					<h1>
-						{$breadcrumbEntries[4]['label']}
-						<small>{$breadcrumbEntries[3]['label']}</small>
-					</h1>
-					<ol class="breadcrumb">
-						{foreach from=$breadcrumbEntries item=breadcrumb}
-							<li><a href="{if $breadcrumb['href']==''}javascript: void(0);{else}{$breadcrumb['href']}{/if}">{$breadcrumb['label']}</a></li>
-						{/foreach}
-					</ol>
-				</section>
-
-				<!-- Main content -->
 				{if $widgetContainer!=true}
-					{include 'Modal_embed.tpl'}
-				{else}
+					<section class="content-header">
+						<h1>
+							{$breadcrumbEntries[4]['label']}
+							<small>{$breadcrumbEntries[3]['label']}</small>
+						</h1>
+						<ol class="breadcrumb">
+							{foreach from=$breadcrumbEntries item=breadcrumb}
+								<li><a href="{if $breadcrumb['href']==''}javascript: void(0);{else}{$breadcrumb['href']}{/if}">{$breadcrumb['label']}</a></li>
+							{/foreach}
+						</ol>
+					</section>
+				{/if}			
+				
+				<!-- Main content -->
+				{if $widgetContainer==true}
 					{include 'Modal_widget.tpl'}
+				{else}
+					{include 'Modal_embed.tpl'}
 				{/if}
 
 				<footer>

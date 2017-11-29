@@ -1,5 +1,5 @@
-{hook position='left'}
-{hook position='default'}
+{call hook position='left'}
+{call hook position='default'}
 <script>
   $("#cscmHeader").parent().parent().hide();
   $(".breadcrumb").hide();

@@ -52,9 +52,9 @@
 								</div><!-- ./row -->
 							</div>
 							<div id="debugMessages" class="noPrint">
-								{hook position='debugMessages'}
+								{call hook position='debugMessages'}
 							</div>
-							{hook position='trace'}
+							{call hook position='trace'}
 						</div>
 					</div>
 				</div>

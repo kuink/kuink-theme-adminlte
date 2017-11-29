@@ -103,3 +103,4 @@ $(function(){
 })
  </script>
 <div id="chart_{$name}" style="width:{$width}; height:{$height}"></div>
+{/nocache}

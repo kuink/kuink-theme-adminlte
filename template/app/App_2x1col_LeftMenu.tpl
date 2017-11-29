@@ -102,14 +102,14 @@
 
 
         <div class="col-md-4">
-        {hook position='left'}
+        {call hook position='left'}
         </div>
         <div class="col-md-6" style="margin-top:0px">
-        {hook position='right'}
+        {call hook position='right'}
         </div>
         <div class="col-md-10">
-            {hook position='bottom'}
-            {hook position='default'}
+            {call hook position='bottom'}
+            {call hook position='default'}
         </div>
 
 
