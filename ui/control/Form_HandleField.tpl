@@ -40,6 +40,14 @@ and handle the control display
 </div>
 {/if}
 
+
+{if $lastFieldWasColumn==1}
+	{if $firstColumn==0}
+		</div>
+	{/if}
+	<div class="col-md-{$columnWidth}">
+{/if}
+
 <div class="form-group" id="{$fieldID}CG">
 	<div class="row">
 		{if $fieldType != 'Header' && $fieldType != 'Checkbox' && $fieldType != 'ActionGroup'}

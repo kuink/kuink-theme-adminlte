@@ -45,7 +45,7 @@
 
 		{/if}
 
-		{if $field['attributes']['now'] == 'true'}
+		{if $field['attributes']['now'] == 'true' || $field['value']}
 			kuink_updateVisibleDateTime('{$fieldID}',{$personTimeZoneOffset});
 		{/if}
 

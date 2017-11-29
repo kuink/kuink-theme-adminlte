@@ -2,19 +2,18 @@
 
 <script type="text/javascript">
 
-	function setFormAction(guid, actionUrl, confirm, buttonType, buttonId){
-		$("#"+guid).attr('action', actionUrl);
-
-		var hasConfirm = false;
-		var confirmMessage = '';
+	function setFormAction_{$form['_guid']}(actionUrl, confirm, buttonType, buttonId){
+		$("#{$form['_guid']}").attr('action', actionUrl);
+		let hasConfirm = false;
+		let confirmMessage = '';
 		if (confirm!='' && confirm!='false'){
 			hasConfirm = true;
 			// get all buttons and store their states
-			let formButtons = $("#"+buttonId).parent().children();
-			__kuink_buttonsBeforeSubmit = [];
+			let formButtons = $("#{$form['_guid']}").find("button").parent().children();
+			__kuink_{$form['_guid']}_formButtonsBeforeSubmit = [];
 			$(formButtons).each(function() {
-				let button = $("#{$form['_guid']}").children().find('#'+this.id);
-				__kuink_formButtonsBeforeSubmit.push({
+				let button = $("#{$form['_guid']}").children().find("#"+this.id);
+				__kuink_{$form['_guid']}_formButtonsBeforeSubmit.push({
 					button,
 					value: $(this).attr('disabled')
 				});
@@ -23,15 +22,15 @@
 				confirmMessage = confirm;
 		}
 
-		$("#"+guid).attr('kuink-data-confirm', hasConfirm);
-		$("#"+guid).attr('kuink-data-confirm-message', confirmMessage);
-		$("#"+guid).attr('kuink-data-button-pressed', buttonType);
-		$("#"+guid).attr('kuink-data-button-pressed-id', buttonId);
+		$("#{$form['_guid']}").attr('kuink-data-confirm', hasConfirm);
+		$("#{$form['_guid']}").attr('kuink-data-confirm-message', confirmMessage);
+		$("#{$form['_guid']}").attr('kuink-data-button-pressed', buttonType);
+		$("#{$form['_guid']}").attr('kuink-data-button-pressed-id', buttonId);
 	};
 
 	// variable to store button's state before submitting
-	if (typeof __kuink_formButtonsBeforeSubmit === 'undefined') {
-		var __kuink_formButtonsBeforeSubmit = [];
+	if (typeof __kuink_{$form['_guid']}_formButtonsBeforeSubmit === 'undefined') {
+		var __kuink_{$form['_guid']}_formButtonsBeforeSubmit = [];
 	}
 
 	var __kuink_{$form['_guid']}_fieldFunctions = [];
@@ -74,10 +73,11 @@
 				});
 
 				// get form data
-				var formData = new FormData(document.querySelector("form"));
+				var formData = new FormData(document.querySelector("#{$form['_guid']}"));
 
 				// disable pressed button
-				$("#"+buttonId).attr('disabled', true);
+				if(buttonId!='')
+					$("#{$form['_guid']}").find("#"+buttonId).attr('disabled', true);
 
 				$("#{$form['_guid']}").kuinkSubmit({
 					'url' 			: url+'&modal=widget',
@@ -89,6 +89,7 @@
 					'confirm_message'	: confirm_message,
 					'button_id' : buttonId
 				});
+
 				e.preventDefault();
 			}
 		});
@@ -99,7 +100,7 @@
 
 	});
 
-	function formActionField(confirm, confirm_message, location, button_id) {
+	function formActionField_{$form['_guid']}(confirm, confirm_message, location, button_id) {
 
 		//Call kuink submit center
 		$("#{$form['_guid']}").kuinkSubmit({
@@ -117,24 +118,31 @@
 	var rules_{$form['_guid']} = {$jsonDynamicRules};
 
 	/** generic apply rules **/
-	function applyRule(field, attr, attrValue) {
-		if  (attr=='disabled') {
-				if (attrValue == 'true')
-						$("#"+field).attr('disabled','disabled');
-				else
-						$("#"+field).removeAttr('disabled');
-			} else if (attr=='visible') {
-				if (attrValue == 'true') {
-					$("#"+field).removeAttr('disabled');
-					$("#"+field+"CG").fadeIn('slow');
-			} else if (attr == 'value'){
-
-			}else {
-					$("#"+field+"CG").fadeOut();
-					$("#"+field).attr('disabled','disabled');
+	function applyRule_{$form['_guid']}(field, attr, attrValue) {
+		if (attr=='disabled') {
+			if (attrValue == 'true')
+				$("#{$form['_guid']}").find("#"+field).attr('disabled','disabled');
+			else
+				$("#{$form['_guid']}").find("#"+field).removeAttr('disabled');
+		} else if (attr=='visible') {
+			if (attrValue == 'true') {
+				$("#{$form['_guid']}").find("#"+field).removeAttr('disabled');
+				$("#{$form['_guid']}").find("#"+field+"CG").fadeIn('slow');
+			} else {
+				$("#{$form['_guid']}").find("#"+field+"CG").fadeOut();
+				$("#{$form['_guid']}").find("#"+field).attr('disabled','disabled');
 			}
+		} else if (attr=='value') {
+			if(attrValue != '' && attrValue != null) {
+				if(attrValue == '__kuink_clear'){
+					$("#{$form['_guid']}").find("#"+field).val('');
+				}
+				else {
+					$("#{$form['_guid']}").find("#"+field).val(attrValue);
+				}
 			}
-			return;
+		}
+		return;
 	}
 
 
@@ -161,7 +169,7 @@
 						if (makeCall == true){
 
 									for(var param in apiParams) {
-										var paramValue = $("#{$form['_guid']}").find('#'+param).val();
+										var paramValue = $("#{$form['_guid']}").find("#"+param).val();
 										param = '$'+param;
 										while (apiUrl.search('\\'+param)!=-1){
 											apiUrl = apiUrl.replace(param,paramValue);
@@ -172,14 +180,14 @@
 										type: 'get',
 										success: function (data, status) {
 
-											$("#{$form['_guid']}").find('#'+obj.field).find('option').remove().end();
-											$("#{$form['_guid']}").find('#'+obj.field).find('option').remove().end();
-											$("#{$form['_guid']}").find('#'+obj.field).append('<option></option>');
+											$("#{$form['_guid']}").find("#"+obj.field).find('option').remove().end();
+											$("#{$form['_guid']}").find("#"+obj.field).find('option').remove().end();
+											$("#{$form['_guid']}").find("#"+obj.field).append('<option></option>');
 											$.each(data, function (index, value) {
-											$("#{$form['_guid']}").find('#'+obj.field).append('<option value="'+value[obj.bindid]+'">'+value[obj.bindvalue]+'</option>');
+											$("#{$form['_guid']}").find("#"+obj.field).append('<option value="'+value[obj.bindid]+'">'+value[obj.bindvalue]+'</option>');
 
 											if (data.length == 1) {
-												$("#{$form['_guid']}").find('#'+obj.field).prop('selectedIndex', 1);
+												$("#{$form['_guid']}").find("#"+obj.field).prop('selectedIndex', 1);
 											}
 
 											if (obj.field != changedId)
@@ -197,9 +205,9 @@
 
 					/** continue with condition rules **/
 					} else if (eval(obj.condition)){
-							applyRule(obj.field, obj.attr, obj.value_true);
+							applyRule_{$form['_guid']}(obj.field, obj.attr, obj.value_true);
 					}else{
-							applyRule(obj.field, obj.attr, obj.value_false);
+							applyRule_{$form['_guid']}(obj.field, obj.attr, obj.value_false);
 					}
 			});
 	 }
@@ -210,7 +218,7 @@
 		handle_{$form['_guid']}_rules();
 
 		//when  form is changed
-		$({$form['_guid']}).change(function(event){
+		$("#{$form['_guid']}").change(function(event){
 			 var changedId = event.target.id;
 				handle_{$form['_guid']}_rules(changedId);
 		 });
@@ -218,7 +226,7 @@
 
 		//Place a copy of default button in first place in a position outside of visible screen
 		$(function(){
-				$({$form['_guid']}).each(function () {
+				$("#{$form['_guid']}").each(function () {
 						var thisform = $(this);
 						thisform.prepend(thisform.find('button.default').clone().css({
 								position: 'absolute',
@@ -230,7 +238,7 @@
 				});
 		});
 
-	function processClientAction(clientAction) {
+	function processClientAction_{$form['_guid']}(clientAction) {
 		switch(clientAction)
 		{
 		case 'print':
@@ -266,16 +274,31 @@
 			data-bv-live="enabled"
 			data-disable="false">
 		<div class="box-body ">
+			{if $columns > 0}
+				{assign var=columnWidth value=12/$columns}
+				{assign var=lastFieldWasColumn value=0}
+				{assign var=firstColumn value=1}
+			{/if}
 			{foreach from=$fields item="field" name="handleFieldForEach"}
-				{include './Form_HandleField.tpl'}
+				{if $field['type'] == 'Column'}
+					{$lastFieldWasColumn=1}
+				{else}
+					{include './Form_HandleField.tpl'}
+					{if $firstColumn==1}
+						{$firstColumn=0}
+					{/if}
+					{$lastFieldWasColumn=0}
+				{/if}
 				{if $smarty.foreach.handleFieldForEach.last}
 					{if isset($notFirstHeader)}
 								</fieldset>
 							</div>
-						</div>
 					{/if}
 				{/if}
 			{/foreach}
+			{if $columns > 0}
+				</div>
+			{/if}
 		</div>
 		{if $hasRequiredFields == true}
 			<span class="badge">{translate app="framework"}requiredFieldsMessage{/translate} {$sRequiredString}</span>

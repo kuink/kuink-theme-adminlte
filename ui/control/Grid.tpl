@@ -246,9 +246,9 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 							{$countHeaders = $countHeaders + 1}
 						{/foreach}
 						{foreach $headers as $header}
-							{if ($columnAttributes[$index]['inline'] == 'true')}
+							{while ($columnAttributes[$index]['inline'] == 'true')}
 								{$index = $index + 1}
-							{/if}
+							{/while}
 							{if $columnAttributes[$index]['hidden'] != "true"}
 								<th class="col_{$columnAttributes[$index]['name']}">
 									{if $columnAttributes[$index]['type'] == 'pick'}
