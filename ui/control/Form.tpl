@@ -276,6 +276,7 @@
 		<div class="box-body ">
 			{if $columns > 0}
 				{assign var=columnWidth value=12/$columns}
+				{$converted = settype($columnWidth, 'integer')}
 				{assign var=lastFieldWasColumn value=0}
 				{assign var=firstColumn value=1}
 			{/if}
