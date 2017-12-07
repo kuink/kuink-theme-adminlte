@@ -1,5 +1,5 @@
         <meta charset="UTF-8">
-        <title>Kuinꓘ</title>
+        <title>KuinK</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.3.5 -->
         <link href="{$_themeRoot}theme/{$THEME}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />

@@ -1,10 +1,6 @@
 
-	
-	<div id="{$_guid}_wrapper" class="box" style="padding: 0px 5px;">
 
-		<script>
-			
-		</script>
+	<div id="{$_guid}_wrapper" class="box" style="padding: 0px 5px;">
 
 	<div class="box-header" style="cursor: move;">
 		<!-- tools box -->
@@ -18,7 +14,7 @@
 			{*include 'app_dropdownMenu.tpl'*}
 		</div>
 	</div>
-			
+
 		{if $userMessages|@count > 0}
 			<div class="kuink-user-messages">
 				{include 'UserMessages.tpl'}
@@ -26,11 +22,11 @@
 		{/if}
     	<div id="{$_guid}_loading_wrapper" class="box-body">
 			{* include the template *}
-			
+
 			<script>
 				$(function(){
 					console.log("{$url}");
-					
+
 					$("#{$_guid}_wrapper").kuinkSubmit({
 						'url' 			: '{$url}&idcontext={$_guid}',
 						'id_context'	: '{$_guid}',
@@ -39,16 +35,16 @@
 						'data'			: undefined,
 						'callback'		: undefined
 					});
-				
+
 				});
-			</script>	    
+			</script>
 		</div>
-		
+
 		<div class="box-footer">
 	        <div class="row">
 	        </div><!-- /.row -->
 	    </div>
-	</div> 
+	</div>
 
 <!-- Menu Toggle Script -->
 <script>
