@@ -3,7 +3,7 @@
     <span class="caret"></span></button>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
     {foreach from=$menuEntries item=menu}
-      {createLeftMenu menu=$menu submenu=false menuType=dropdown}
+      {call createLeftMenu menu=$menu submenu=false menuType=dropdown}
     {/foreach}
   </ul>
 </div>
