@@ -14,7 +14,7 @@ $position = Position of controls
 
 
 <!DOCTYPE html>
-<html>
+<html lang="{$_lang}">
 
 	<head>
 		{include 'Head.tpl'}
@@ -29,7 +29,7 @@ $position = Position of controls
 					<!-- mini logo for sidebar mini 50x50 pixels -->
 					<span class="logo-mini">K</span>
 					<!-- logo for regular state and mobile devices -->
-					<span class="logo-lg">Kuinꓘ</span>
+					<span class="logo-lg">KuinK</span>
 				</a>
 
 				{* include the top navbar*}
@@ -39,7 +39,7 @@ $position = Position of controls
 
 			{* include left sidebar *}
 			{include 'Master_left-navbar.tpl'}
-			
+
 			<!-- Right side column. Contains the navbar and content of the page -->
 			<aside class="right-side">
 				<!-- Content Header (Page header) -->
@@ -55,8 +55,8 @@ $position = Position of controls
 							{/foreach}
 						</ol>
 					</section>
-				{/if}			
-				
+				{/if}
+
 				<!-- Main content -->
 				{if $widgetContainer==true}
 					{include 'Modal_widget.tpl'}
