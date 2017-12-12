@@ -290,12 +290,6 @@
 					{/if}
 					{$lastFieldWasColumn=0}
 				{/if}
-				{if $smarty.foreach.handleFieldForEach.last}
-					{if isset($notFirstHeader)}
-								</fieldset>
-							</div>
-					{/if}
-				{/if}
 			{/foreach}
 			{if $columns > 0}
 				</div>

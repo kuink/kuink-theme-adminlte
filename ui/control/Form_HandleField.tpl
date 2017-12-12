@@ -25,21 +25,6 @@ and handle the control display
   {/foreach}
 
 {assign var=fieldType value=$field['type']}
-{if $fieldType == 'Header'}
-	{if !isset($notFirstHeader)}
-		{assign var=notFirstHeader value=false scope=parent}
-	{else}
-		{$notFirstHeader=true}
-	{/if}
-{/if}
-
-{if $fieldType == 'Header' && $notFirstHeader}
-	{*Close the previous header*}
-		</fieldset>
-	</div>
-</div>
-{/if}
-
 
 {if $lastFieldWasColumn==1}
 	{if $firstColumn==0}
@@ -77,7 +62,3 @@ and handle the control display
 		</div>
 	</div>
 </div>
-{if $fieldType == 'Header'}
-	{*Close the previous header*}
-	<div id="head_{$fieldID}">
-{/if}
