@@ -274,24 +274,24 @@
 			data-bv-live="enabled"
 			data-disable="false">
 		<div class="box-body ">
-			{if $columns > 0}
-				{assign var=columnWidth value=12/$columns}
-				{$converted = settype($columnWidth, 'integer')}
-				{assign var=lastFieldWasColumn value=0}
-				{assign var=firstColumn value=1}
-			{/if}
+			{assign var="insideColumn" value="0"}
+			{assign var="insideHeader" value="0"}
 			{foreach from=$fields item="field" name="handleFieldForEach"}
+				{include './Form_HandleField.tpl'}
+				{if $field['type'] == 'Header'}
+					{$insideHeader = 1}
+				{/if}
 				{if $field['type'] == 'Column'}
-					{$lastFieldWasColumn=1}
-				{else}
-					{include './Form_HandleField.tpl'}
-					{if $firstColumn==1}
-						{$firstColumn=0}
+					{if $insideHeader == 1}
+						{$insideHeader = 0}
 					{/if}
-					{$lastFieldWasColumn=0}
+					{$insideColumn = 1}
 				{/if}
 			{/foreach}
-			{if $columns > 0}
+			{if $insideHeader == 1}
+				</div>
+			{/if}
+			{if $insideColumn == 1}
 				</div>
 			{/if}
 		</div>
@@ -302,10 +302,10 @@
 		<div style="clear:both"></div>
 		<div class="box-footer">
 			<div class="btn-group">
-			{foreach $buttonActions as $buttonID=>$button}
-				{include './Form_HandleActionButtons.tpl'}
-			{/foreach}
-		</div>
+				{foreach $buttonActions as $buttonID=>$button}
+					{include './Form_HandleActionButtons.tpl'}
+				{/foreach}
+			</div>
 		</div>
 	</form>
 </div>

@@ -26,39 +26,36 @@ and handle the control display
 
 {assign var=fieldType value=$field['type']}
 
-{if $lastFieldWasColumn==1}
-	{if $firstColumn==0}
-		</div>
-	{/if}
-	<div class="col-md-{$columnWidth}">
-{/if}
-
-<div class="form-group" id="{$fieldID}CG">
-	<div class="row">
-		{if $fieldType != 'Header' && $fieldType != 'Checkbox' && $fieldType != 'ActionGroup'}
-		<div class="col-lg-2 col-sm-2 col-xs-3">
-			{if $field['attributes']['inline']!='true' && $fieldType !='Hidden'}
-				<label for="{$fieldGuid}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label>
-				{if $field['attributes']['help']!=''}
-					&nbsp;&nbsp;
-					<a tabindex="-1"
-					   data-toggle="tooltip" title=""
-					   data-original-title="{$field['attributes']['help']}"
-					   data-placement="right"
-					   href="javascript:void(0);">
-							<i class="fieldQuestionMark fa fa-info-circle" ></i>
-					</a>
-				{/if}
-			{/if}
-		</div>
-		{/if}
-		{if $fieldType == 'Checkbox'}
+{if $fieldType == 'Header' || $fieldType == 'Column'}
+	{include file="./form/$fieldType.tpl"}
+{else}
+	<div class="form-group" id="{$fieldID}CG">
+		<div class="row">
+			{if $fieldType != 'Checkbox' && $fieldType != 'ActionGroup'}
 			<div class="col-lg-2 col-sm-2 col-xs-3">
+				{if $field['attributes']['inline']!='true' && $fieldType !='Hidden'}
+					<label for="{$fieldGuid}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label>
+					{if $field['attributes']['help']!=''}
+						&nbsp;&nbsp;
+						<a tabindex="-1"
+						   data-toggle="tooltip" title=""
+						   data-original-title="{$field['attributes']['help']}"
+						   data-placement="right"
+						   href="javascript:void(0);">
+								<i class="fieldQuestionMark fa fa-info-circle" ></i>
+						</a>
+					{/if}
+				{/if}
 			</div>
-		{/if}
+			{/if}
+			{if $fieldType == 'Checkbox'}
+				<div class="col-lg-2 col-sm-2 col-xs-3">
+				</div>
+			{/if}
 
-		<div class="col-lg-10 col-sm-10 col-xs-12">
-			{include file="./form/$fieldType.tpl"}
+			<div class="col-lg-10 col-sm-10 col-xs-12">
+				{include file="./form/$fieldType.tpl"}
+			</div>
 		</div>
 	</div>
-</div>
+{/if}
