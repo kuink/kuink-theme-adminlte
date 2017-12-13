@@ -37,8 +37,8 @@
 {/if}
 
 <div id="{$form['_guid']}_{$fieldGuid}" name="{$form['_guid']}_{$fieldName}" class="page-header">
-		<h2>{$field['attributes']['label']} {if $field['attributes']['collapsible'] == 'true'}
+		<h3>{$field['attributes']['label']} {if $field['attributes']['collapsible'] == 'true'}
 			<small><a id="showHide_{$form['_guid']}_{$fieldGuid}" showText="{translate app="framework"}show{/translate}" hideText="{translate app="framework"}hide{/translate}" href="javascript:void(0);" onmousedown='showHideHeader_{$form['_guid']}_{$fieldGuid}();'></a></small>
-		{/if}</h2>
+		{/if}</h3>
 </div>
 <div id="head_{$form['_guid']}_{$fieldGuid}" name="head_{$form['_guid']}_{$fieldName}" style="display:{$styleDisplay}">
