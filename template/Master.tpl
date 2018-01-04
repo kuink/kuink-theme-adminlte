@@ -23,7 +23,6 @@ $position = Position of controls
 	<body class="{if $_environment == 'dev'}skin-yellow{else}skin-blue-light{/if} sidebar-mini wysihtml5-supported">
 		<div class="wrapper row-offcanvas row-offcanvas-left">
 			<header class="main-header">
-				<!-- header logo: style can be found in header.less -->
 				<!-- Logo -->
 				<a href="{$breadcrumbEntries[2]['href']}" class="logo">
 					<!-- mini logo for sidebar mini 50x50 pixels -->

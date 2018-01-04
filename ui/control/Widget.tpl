@@ -38,12 +38,12 @@
 
 				});
 			</script>
+			<hr>
+			<div class="box-footer">
+		        <div class="row">
+		        </div><!-- /.row -->
+		    </div>
 		</div>
-
-		<div class="box-footer">
-	        <div class="row">
-	        </div><!-- /.row -->
-	    </div>
 	</div>
 
 <!-- Menu Toggle Script -->

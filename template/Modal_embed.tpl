@@ -1,4 +1,3 @@
-
 {function hook }          {* short-hand *}
 	{foreach $POSITION[ $position ] as $item}
 		{$item}
@@ -34,7 +33,6 @@
 			{/if}
 			<!-- Page Content -->
 			<div style="overflow: auto;overflow-x: hidden;">
-				<div class="">
 					<div class="row">
 						<div class="col-lg-12 col-md-12 .col-sm-12 .col-xs-12">
 							{if $userMessages|@count > 0}
@@ -47,17 +45,18 @@
 								{assign var="appTemplateSmarty" value='app/'|cat:$appTemplate}
 								{include $appTemplateSmarty}
 							</div>
-							<div class="box-footer">
-								<div class="row">
-								</div><!-- ./row -->
-							</div>
-							<div id="debugMessages" class="noPrint">
-								{call hook position='debugMessages'}
-							</div>
-							{call hook position='trace'}
+						</div>
+						<div class="box-footer">
+							<div class="row">
+							</div><!-- /.row -->
 						</div>
 					</div>
-				</div>
+					<div id="debugMessages" class="noPrint">
+						{call hook position='debugMessages'}
+					</div>
+					<div id="kuinkTrace">
+						{call hook position='trace'}
+					</div>
 			</div>
 		</div>
 	</div>
