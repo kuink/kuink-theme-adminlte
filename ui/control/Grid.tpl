@@ -145,35 +145,36 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 				function gridActionField_{$_guid}(confirm, confirm_message, location, button_id) {
 
-							if (confirm!='' && confirm!='false')
-								if (confirm!='true')
-									confirmMessage = confirm;
-								else
-									confirm = true;
+					if (confirm!='' && confirm!='false')
+						if (confirm!='true')
+							confirmMessage = confirm;
+						else
+							confirm = true;
 
-							// before getting form data, run all fields internal functions
-							$.each(__kuink_{$_guid}_fieldFunctions, function( index, fieldFunction ) {
-			  				fieldFunction();
-							});
+					// before getting form data, run all fields internal functions
+					$.each(__kuink_{$_guid}_fieldFunctions, function( index, fieldFunction ) {
+						fieldFunction();
+					});
 
-							// get form data
-							var formData = new FormData($("#{$_guid}")[0]);
+					// get form data
+					var formData = new FormData($("#{$_guid}")[0]);
 
-							var reqValidate = validateRequiredFields_{$_guid}();
-							if (!reqValidate)
-								return false;
+					var reqValidate = validateRequiredFields_{$_guid}();
+					if (!reqValidate)
+						return false;
 
-							$("#{$_guid}").kuinkSubmit({
-								'url' 			: location+'&modal=widget',
-								'id_context'	: '{$_idContext}',
-								'method' 		: 'post',
-								processData: false, contentType: false,
-								'data'			: formData,
-								'confirm'		: confirm,
-								'confirm_message'	: confirm_message
-							});
+					$("#{$_guid}").kuinkSubmit({
+						'url' 			: location+'&modal=widget',
+						'id_context'	: '{$_idContext}',
+						'method' 		: 'post',
+						processData: false, contentType: false,
+						'data'			: formData,
+						'confirm'		: confirm,
+						'confirm_message'	: confirm_message
+					});
 
 				}
+
 				$(document).ready(function() {
 					$("#{$_guid}").submit(function(e){
 						return false;
@@ -319,44 +320,44 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 										{/if}
 
 
-												{if $tree == 'true' && $index==0 && $first['attributes']['treeparentid'] == ''}
-													<span class="treegrid-indent"></span>
-													<i class="treegrid-expander"></i>
-												{/if}
+										{if $tree == 'true' && $index==0 && $first['attributes']['treeparentid'] == ''}
+											<span class="treegrid-indent"></span>
+											<i class="treegrid-expander"></i>
+										{/if}
 
 
-												{$disabledClass = ''}
-												{$disabledAttr = ''}
+										{$disabledClass = ''}
+										{$disabledAttr = ''}
 
-												{if $value['attributes']['disabled'] == 'true'}
+										{if $value['attributes']['disabled'] == 'true'}
+											{$disabledClass='disabled'}
+											{$disabledAttr='disabled'}
+										{else}
+											{if $value['attributes']['conditionalfield'] != ''}
+												{if $row[$value['attributes']['conditionalfield']] == $value['attributes']['conditionalvalue']}
 													{$disabledClass='disabled'}
 													{$disabledAttr='disabled'}
-												{else}
-													{if $value['attributes']['conditionalfield'] != ''}
-														{if $row[$value['attributes']['conditionalfield']] == $value['attributes']['conditionalvalue']}
-															{$disabledClass='disabled'}
-															{$disabledAttr='disabled'}
-														{/if}
-													{/if}
 												{/if}
+											{/if}
+										{/if}
 
-												{if $fieldAttrs['visible'] == "true" || $fieldAttrs['visible'] == ""}
-													{if $colType != ""}
-														{$inputSize = $value['attributes']['inputsize']}
-														{include file="./grid/$colType.tpl"}
+										{if $fieldAttrs['visible'] == "true" || $fieldAttrs['visible'] == ""}
+											{if $colType != ""}
+												{$inputSize = $value['attributes']['inputsize']}
+												{include file="./grid/$colType.tpl"}
+											{else}
+												<span style="overflow-x: auto;">
+													{if count($value['constructor']) == 0}
+														{$value['value']}
 													{else}
-														<span style="overflow-x: auto;">
-															{if count($value['constructor']) == 0}
-																{$value['value']}
-															{else}
-																{foreach $value['constructor'] as $actionAttribute}
-																	{$actionAttribute['separator']}<a href="javascript: void(0)" {$actionAttribute['tooltip']} class="{$actionAttribute['class']}" onclick="gridActionField_{$_guid}({$actionAttribute['confirm']}, '{$actionAttribute['confirm_message']}', '{$actionAttribute['location']}', '')"><span nowrap="true" style="white-space: nowrap; overflow-x: auto;">{$actionAttribute['label']}</span></a>
-																{/foreach}
-															{/if}
-														</span>
+														{foreach $value['constructor'] as $actionAttribute}
+															{$actionAttribute['separator']}<a href="javascript: void(0)" {$actionAttribute['tooltip']} class="{$actionAttribute['class']}" onclick="gridActionField_{$_guid}({$actionAttribute['confirm']}, '{$actionAttribute['confirm_message']}', '{$actionAttribute['location']}', '')"><span nowrap="true" style="white-space: nowrap; overflow-x: auto;">{$actionAttribute['label']}</span></a>
+														{/foreach}
 													{/if}
-												{/if}
-											</td>
+												</span>
+											{/if}
+										{/if}
+										</td>
 									{/if}
 
 									{* create an hidden field if this value is supposed to be posted *}
@@ -483,12 +484,12 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 									<div class="btn-group">
 								{/if}
 
-										<button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;">
-											{if $buttonAttrs['icon']!=""}
-												<i class="fa fa-{$buttonAttrs['icon']}" ></i>
-											{/if}
-											{$action_desc}
-										</button>
+								<button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;">
+									{if $buttonAttrs['icon']!=""}
+										<i class="fa fa-{$buttonAttrs['icon']}" ></i>
+									{/if}
+									{$action_desc}
+								</button>
 							{/foreach}
 							{if $count > 0}
 								</div>
@@ -548,7 +549,6 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 						{/if}
 
 						<li>&nbsp;
-
 							<select id="{$name}_pageselector" name="{$name}_pageselector" class="form-control input-small" onchange="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_pagesize='+this.value+'&{$name}_page=0', '');" style="width: 80px; height: 28px; padding:0px 6px; display:inline;">
 								<option value="10">10</option>
 								<option value="20">20</option>
@@ -556,26 +556,23 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 								<option value="100">100</option>
 							</select>
 							<script>$('#{$name}_pageselector option[value={$pageSize}]').attr('selected', 'selected');</script>
-
 						</li>
 
 						<li class="active">
 							<a disabled="disabled">{translate app="framework"}total{/translate}:&nbsp;{$recordsTotal}</a>
 						</li>
-
 					</ul>
 				</div>
-				{else}
-					<span class="label label-default">{translate app="framework"}total{/translate}: {$recordsTotal}</span>
-				{/if}
-				{if $legend != ''}
-					<strong>{translate app="framework"}legend{/translate}</strong>: {$legend}
-				{/if}
+			{else}
+				<span class="label label-default">{translate app="framework"}total{/translate}: {$recordsTotal}</span>
+			{/if}
+			{if $legend != ''}
+				<strong>{translate app="framework"}legend{/translate}</strong>: {$legend}
+			{/if}
 
-				{* If the grid is freezed then hide global actions *}
-
+			{* If the grid is freezed then hide global actions *}
+		</div>
 	</form>
-
 </div>
 
 {if $tree=='true'}
