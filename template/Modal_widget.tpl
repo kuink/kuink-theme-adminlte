@@ -4,6 +4,8 @@
 	{/foreach}
 {/function}
 
+{include 'app_menuInclude.tpl'}
+
 {* include the template *}
 <!-- Main content -->
 

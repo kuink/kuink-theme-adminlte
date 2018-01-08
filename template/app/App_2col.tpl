@@ -1,7 +1,6 @@
 <div class="container-fluid" style="zoom:100%">
 	<div class="row-fluid" style="margin-top: 10px;">
 		{call hook position='top'}
-		{call hook position='default'}
 	</div>
 	<div class="row-fluid" style="margin-top: 10px;">
 		<div class="col-md-6">
@@ -13,5 +12,6 @@
 	</div>
 	<div class="row-fluid" style="margin-top: 10px;">
 		{call hook position='bottom'}
+		{call hook position='default'}
 	</div>
 </div>
