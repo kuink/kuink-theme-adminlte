@@ -1,14 +1,14 @@
 
-<div class="container-fluid">
+<div class="container-fluid" style="zoom:100%">
 	<div class="row-fluid" style="margin-top: 10px;">
-		<div class="col-xs-12 col-md-6 col-lg-6">
+		<div class="col-md-6">
 			{call hook position='left'}
 		</div>
-		<div class="col-xs-12 col-md-6 col-lg-6">
+		<div class="col-md-6">
 			{call hook position='right'}
 		</div>
 	</div>
-	<div class="row-fluid" style="margin-top: 10px; clear: both;">
+	<div class="row-fluid" style="margin-top: 10px;">
 		{call hook position='bottom'}
 		{call hook position='default'}
 	</div>
