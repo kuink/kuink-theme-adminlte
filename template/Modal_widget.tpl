@@ -31,16 +31,16 @@
 						{include $appTemplateSmarty}
 					</div>
 				</div>
-				<div class="box-footer">
-					<div class="row">
-					</div><!-- /.row -->
-				</div>
-			</div>
-			<div id="debugMessages" class="noPrint">
-				{call hook position='debugMessages'}
-			</div>
-			<div id="kuinkTrace">
-				{call hook position='trace'}
 			</div>
 	</div>
+</div>
+<div class="box-footer">
+	<div class="row">
+		<div id="debugMessages" class="noPrint">
+			{call hook position='debugMessages'}
+		</div>
+		<div id="kuinkTrace">
+			{call hook position='trace'}
+		</div>
+	</div><!-- /.row -->
 </div>

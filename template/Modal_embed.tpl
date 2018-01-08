@@ -11,7 +11,7 @@
 
 <div id="{$_idContext}_wrapper" class="box" kuink-guid="{$_idContext}" style="padding: 0px 5px;">
 
-	<div class="box-header" style="cursor: move;">
+	<div class="box-header with-border" style="cursor: move;">
 		<!-- tools box -->
 		<div class="pull-right box-tools">
 			<button id="collapseWidgetButton" class="btn btn-danger btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="{translate}toggleApp{/translate}"><i class="fa fa-minus"></i></button>
@@ -23,40 +23,42 @@
 			{*include 'app_dropdownMenu.tpl'*}
 		</div>
 	</div>
-	<div id="{$_idContext}_loading_wrapper" kuink-guid="{$_idContext}" class="box-body">
-		<div id="wrapper" class="toggled">
-			{if !empty($menuEntries)}
-				{assign var="menuIsToggled" value=false}
-				{include 'app_toggleMenu.tpl'}
-				{assign var="menuIsToggled" value=true}
-				{include 'app_toggleMenu.tpl'}
-			{/if}
-			<!-- Page Content -->
-			<div style="overflow: auto;overflow-x: hidden;">
-					<div class="row">
-						<div class="col-lg-12 col-md-12 .col-sm-12 .col-xs-12">
-							{if $userMessages|@count > 0}
-							<div class="kuink-user-messages">
-								{include 'UserMessages.tpl'}
-							</div>
-							{/if}
-							<div id="{$_idContext}_content_wrapper" kuink-guid="{$_idContext}">
-								{* include the template *}
-								{assign var="appTemplateSmarty" value='app/'|cat:$appTemplate}
-								{include $appTemplateSmarty}
+	<div class="box-body">
+		<div id="{$_idContext}_loading_wrapper" kuink-guid="{$_idContext}">
+			<div id="wrapper" class="toggled">
+				{if !empty($menuEntries)}
+					{assign var="menuIsToggled" value=false}
+					{include 'app_toggleMenu.tpl'}
+					{assign var="menuIsToggled" value=true}
+					{include 'app_toggleMenu.tpl'}
+				{/if}
+				<!-- Page Content -->
+				<div style="overflow: auto;overflow-x: hidden;">
+						<div class="row">
+							<div class="col-lg-12 col-md-12 .col-sm-12 .col-xs-12">
+								{if $userMessages|@count > 0}
+								<div class="kuink-user-messages">
+									{include 'UserMessages.tpl'}
+								</div>
+								{/if}
+								<div id="{$_idContext}_content_wrapper" kuink-guid="{$_idContext}">
+									{* include the template *}
+									{assign var="appTemplateSmarty" value='app/'|cat:$appTemplate}
+									{include $appTemplateSmarty}
+								</div>
 							</div>
 						</div>
-						<div class="box-footer">
-							<div class="row">
-							</div><!-- /.row -->
-						</div>
-					</div>
+				</div>
+			</div>
+			<div class="box-footer">
+				<div class="row">
 					<div id="debugMessages" class="noPrint">
 						{call hook position='debugMessages'}
 					</div>
 					<div id="kuinkTrace">
 						{call hook position='trace'}
 					</div>
+				</div><!-- /.row -->
 			</div>
 		</div>
 	</div>

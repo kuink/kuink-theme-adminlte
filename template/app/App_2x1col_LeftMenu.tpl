@@ -1,7 +1,7 @@
 
 <div class="container-fluid" style="zoom:100%">
 	<div class="row-fluid" style="margin-top: 10px;">
-		<div class="col-md-4">
+		<div class="col-md-6">
 			{call hook position='left'}
 		</div>
 		<div class="col-md-6">
