@@ -34,7 +34,7 @@
 			</div>
 	</div>
 </div>
-<div class="box-footer">
+<div class="box-footer" style="clear:both;">
 	<div class="row">
 		<div id="debugMessages" class="noPrint">
 			{call hook position='debugMessages'}
