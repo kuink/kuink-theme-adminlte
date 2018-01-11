@@ -50,7 +50,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 {/if}
 
 <div class="box">
-	<form class="form-horizontal" id="{$_guid}" action="" method="post" enctype="multipart/form-data">
+	<form class="form-horizontal" id="kuink_{$_guid}" action="" method="post" enctype="multipart/form-data">
 		<div class="box-header">
 			<div class="pull-right box-tools">
 
@@ -157,7 +157,8 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 					});
 
 					// get form data
-					var formData = new FormData($("#{$_guid}")[0]);
+					//var formData = new FormData($("#{$_guid}")[0]);
+					var formData = new FormData(document.querySelector("#kuink_{$_guid}"));
 
 					var reqValidate = validateRequiredFields_{$_guid}();
 					if (!reqValidate)
