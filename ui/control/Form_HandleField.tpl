@@ -26,7 +26,7 @@ and handle the control display
 
 {assign var=fieldType value=$field['type']}
 
-{if $fieldType == 'Header' || $fieldType == 'Column'}
+{if $fieldType == 'Header' || $fieldType == 'Column' || $fieldType == 'Tab'}
 	{include file="./form/$fieldType.tpl"}
 {else}
 	<div class="form-group" id="{$fieldID}CG">

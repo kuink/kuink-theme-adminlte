@@ -56,5 +56,8 @@
 		{if $field['attributes']['disabled'] != 'true'}
 			$('#datetimepicker__{$fieldID}').data("DateTimePicker").setDate($('#{$fieldID}_visible').val());
 		{/if}
+
+		__kuink_{$form['_guid']}_inputsNotSubmitted.push("{$fieldID}_visible");
+
 	});
 </script>

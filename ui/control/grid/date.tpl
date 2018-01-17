@@ -1,4 +1,4 @@
-<div id="{$id}{$multiSeparator}{$fieldAttrs['name']}CG" style="display:inline-block; white-space: nowrap;" >
+<div id="{$id}{$multiSeparator}{$fieldAttrs['name']}CG" style="display:inline-block; white-space: nowrap;" onclick="{$onChange}">
 	<input type="hidden" name="{$id}{$multiSeparator}{$fieldAttrs['name']}" id="{$id}{$multiSeparator}{$fieldAttrs['name']}" value="{$value['value']}"/>
 	<div class='input-group date' id="datetimepicker__{$id}{$multiSeparator}{$fieldAttrs['name']}" data-date-format="YYYY/MM/DD">
 		<input type='text' class="input-medium {$disabledClass}" {$disabledAttr} id="{$id}{$multiSeparator}{$fieldAttrs['name']}_visible" name="{$id}{$multiSeparator}{$fieldAttrs['name']}_visible"
@@ -6,7 +6,7 @@
 			data-bv-notempty="true" data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"
 		{/if} />
 		<span class="input-group-addon">
-			<span class="fa fa-calendar"></span>
+			<span class="fa fa-calendar" onclick="{$onChange}"></span>
 		</span>
 	</div>
 </div>
@@ -56,5 +56,8 @@
 		{if $fieldAttrs['disabled'] != 'true'}
 			$("#datetimepicker__{$id}{$multiSeparator}{$fieldAttrs['name']}").data("DateTimePicker").setDate($("#{$id}{$multiSeparator}{$fieldAttrs['name']}_visible").val());
 		{/if}
+
+		__kuink_{$_guid}_inputsNotSubmitted.push("{$id}{$multiSeparator}{$fieldAttrs['name']}_visible");
+
 	});
 </script>

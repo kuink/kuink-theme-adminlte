@@ -142,6 +142,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 				{/if}
 
 				var __kuink_{$_guid}_fieldFunctions = [];
+				var __kuink_{$_guid}_inputsNotSubmitted = [];
 
 				function gridActionField_{$_guid}(confirm, confirm_message, location, button_id) {
 
@@ -157,18 +158,23 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 					});
 
 					// get form data
-					//var formData = new FormData($("#{$_guid}")[0]);
 					var formData = new FormData(document.querySelector("#kuink_{$_guid}"));
+
+					// delete from formData all inputs that are not to be submitted
+					for (var key of __kuink_{$_guid}_inputsNotSubmitted) {
+						formData.delete(key);
+					}
 
 					var reqValidate = validateRequiredFields_{$_guid}();
 					if (!reqValidate)
 						return false;
 
-					$("#{$_guid}").kuinkSubmit({
+					$("#kuink_{$_guid}").kuinkSubmit({
 						'url' 			: location+'&modal=widget',
 						'id_context'	: '{$_idContext}',
 						'method' 		: 'post',
-						processData: false, contentType: false,
+						'processData': false,
+						'contentType': false,
 						'data'			: formData,
 						'confirm'		: confirm,
 						'confirm_message'	: confirm_message
@@ -177,7 +183,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 				}
 
 				$(document).ready(function() {
-					$("#{$_guid}").submit(function(e){
+					$("#kuink_{$_guid}").submit(function(e){
 						return false;
 					});
 				});
@@ -197,15 +203,15 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 				//Function to toggle all the pick checkboxes
 				function {$name}ToggleChecked2(status, style) {
-					$("."+style).each( function() {
+					$("#kuink_{$_guid} ."+style).each( function() {
 						$(this).attr("checked",status);
 						var id = $(this).attr("id");
 						var idParts = id.split("{$multiSeparator}"); //id is number-fieldname, ans we need just the number
 						if( $(this).attr("checked") == "checked") {
-							$("#"+idParts[0]+"{$multiSeparator}").val(1);
+							document.getElementById($(this).attr("id")).checked = true;
 							setChanged(idParts[0]);
 						} else
-							$("#"+idParts[0]+"{$multiSeparator}").val(0);
+							document.getElementById($(this).attr("id")).checked = false;
 					})
 				}
 

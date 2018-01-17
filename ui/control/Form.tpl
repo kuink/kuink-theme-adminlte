@@ -34,6 +34,7 @@
 	}
 
 	var __kuink_{$form['_guid']}_fieldFunctions = [];
+	var __kuink_{$form['_guid']}_inputsNotSubmitted = [];
 
 	$(document).ready(function() {
 			$("#{$form['_guid']}").bootstrapValidator({
@@ -75,6 +76,11 @@
 				// get form data
 				var formData = new FormData(document.querySelector("#{$form['_guid']}"));
 
+				// delete from formData all inputs that are not to be submitted
+				for (var key of __kuink_{$form['_guid']}_inputsNotSubmitted) {
+					formData.delete(key);
+				}
+
 				// disable pressed button
 				if(buttonId!='')
 					$("#{$form['_guid']}").find("#"+buttonId).attr('disabled', true);
@@ -83,7 +89,8 @@
 					'url' 			: url+'&modal=widget',
 					'id_context'	: '{$_idContext}',
 					'method' 		: 'post',
-					processData: false, contentType: false,
+					'processData': false,
+					'contentType': false,
 					'data'			: formData,//$("#{$form['_guid']}").serialize(),
 					'confirm'		: confirm,
 					'confirm_message'	: confirm_message,
@@ -276,7 +283,29 @@
 		<div class="box-body ">
 			{assign var="insideColumn" value="0"}
 			{assign var="insideHeader" value="0"}
+			{$insideTab = 0}
 			{foreach from=$fields item="field" name="handleFieldForEach"}
+				{if $field['type'] == 'Tab'}
+					{if $insideTab == 0}
+						{if $hasTabs}
+							{*build the ul for tabs*}
+							<div class="tabbable tabs-{$tabsPosition}" id="{$form['_guid']}Tab">
+								<ul id="{$form['_guid']}TabList" class="nav nav-tabs" style="margin-bottom:10px;">
+								{$firstTab = 1}
+								{foreach $tabs as $tab}
+									{$tabClass = ''}
+									{if $firstTab == 1}
+										{$tabClass = 'active'}
+									{/if}
+									<li class="{$tabClass}"><a href="#{$tab['id']}" data-toggle="tab">{$tab['label']}</a></li>
+									{$firstTab = 0}
+								{/foreach}
+								</ul>
+
+								<div id="{$form['_guid']}TabContent" class="tab-content">
+						{/if}
+					{/if}
+				{/if}
 				{include './Form_HandleField.tpl'}
 				{if $field['type'] == 'Header'}
 					{$insideHeader = 1}
@@ -287,11 +316,24 @@
 					{/if}
 					{$insideColumn = 1}
 				{/if}
+				{if $field['type'] == 'Tab'}
+					{if $insideHeader == 1}
+						{$insideHeader = 0}
+					{/if}
+					{if $insideColumn == 1}
+						{$insideColumn = 0}
+					{/if}
+					{$insideTab = 1}
+				{/if}
 			{/foreach}
 			{if $insideHeader == 1}
 				</div>
 			{/if}
 			{if $insideColumn == 1}
+				</div>
+			{/if}
+			{if $insideTab == 1}
+					</div>
 				</div>
 			{/if}
 		</div>

@@ -1,12 +1,9 @@
-<input type="text" {$disabledAttr} 
-	class="form-control {$disabledClass}" 
-	id="{$fieldGuid}" 
-	name="{$fieldName}" 
-	value="{$field['value']}" 
+<input type="number" id="{$fieldGuid}" name="{$fieldName}" {$disabledAttr}
+	class="form-control {$disabledClass}"
+	data-fv-integer-message="{translate app="framework"}integerField{/translate}"
 	maxlength="{$fieldAttrs['maxlength']}"
-	data-bv-integer="true"
-   	data-bv-integer-message="{translate app="framework"}integerField{/translate}"
+	value="{$field['value']}"
 	{if $field['attributes']['required']=='true'}
-		data-bv-notempty="true"
-  		data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"
-	{/if}>
+		data-fv-notempty="true"
+		data-fv-notempty-message="{translate app="framework"}requiredField{/translate}"
+	{/if}/>

@@ -1,15 +1,20 @@
+{if $insideHeader == 1}
+	</div>
+{/if}
+
+{if $insideColumn == 1}
+	</div>
+{/if}
 
 {if $insideTab == 1}
   {*Close the previous tab*}
-    </fieldset>
-  </div>
+	</div>
 {/if}
 
 {*Insert the new tab*}
 {$active = ''}
-{if $firstTab == 1}
-  {$active = 'active in'}
+{if $insideTab == 0}
+  {$active = 'in active'}
 {/if}
 
-<div class="tab-pane fade {$active}" id="{$fieldAttrs['id']}">
-  <fieldset>
+	<div class="tab-pane fade {$active}" id="{$fieldID}">

@@ -48,14 +48,9 @@ function kuink_updateHiddenTime(fieldId, offset){
 	if (dateTimeStr == ''){
 		$(hiddenField).val('');
 	}else{
-		// user have defined a date
-
-		var timestampUTC = ( moment.utc(dateTimeStr, "HH:mm").valueOf() / 1000.0 )-(offset);
-
-		$(hiddenField).val(timestampUTC);
-
+		$(hiddenField).val(dateTimeStr);
 	}
-	var dateTimeTS = $(hiddenField).attr('value',timestampUTC);
+	var dateTimeTS = $(hiddenField).attr('value',dateTimeStr);
 }
 
 /**
