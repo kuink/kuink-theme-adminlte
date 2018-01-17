@@ -506,7 +506,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 				{/if}
 			{/if}
 			{if $isPageable == "true"}
-				<div class="pull-left" style="margin: 5px 5px 65px 5px">
+				<div class="pull-left" style="margin: 5px 5px 5px 5px">
 
 					<ul style="width: 100%" class="pagination pagination-sm no-margin pull-right">
 						{if $pageCurrent > 0}
