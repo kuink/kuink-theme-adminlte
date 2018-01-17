@@ -1,5 +1,5 @@
 <div class="container-fluid" style="zoom:100%">
-	<div class="row-fluid" style="margin-top: 10px;">
+	<div class="row-fluid" style="margin-top: 10px;clear:both;">
 		<div class="col-md-6">
 			{call hook position='left'}
 			{call hook position='default'}
