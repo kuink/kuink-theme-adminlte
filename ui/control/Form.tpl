@@ -257,6 +257,7 @@
 	}
 </script>
 
+{if (count($buttonActions) > 0) || ($form['title'] != '') || (count($fields) > 0)}
 <div class="box">
 	{*check if this form has a title*}
 	{if $form['title'] != ''}
@@ -280,74 +281,80 @@
 			data-bv-feedbackicons-validating=""
 			data-bv-live="enabled"
 			data-disable="false">
-		<div class="box-body ">
-			{assign var="insideColumn" value="0"}
-			{assign var="insideHeader" value="0"}
-			{$insideTab = 0}
-			{foreach from=$fields item="field" name="handleFieldForEach"}
-				{if $field['type'] == 'Tab'}
-					{if $insideTab == 0}
-						{if $hasTabs}
-							{*build the ul for tabs*}
-							<div class="tabbable tabs-{$tabsPosition}" id="{$form['_guid']}Tab">
-								<ul id="{$form['_guid']}TabList" class="nav nav-tabs" style="margin-bottom:10px;">
-								{$firstTab = 1}
-								{foreach $tabs as $tab}
-									{$tabClass = ''}
-									{if $firstTab == 1}
-										{$tabClass = 'active'}
-									{/if}
-									<li class="{$tabClass}"><a href="#{$tab['id']}" data-toggle="tab">{$tab['label']}</a></li>
-									{$firstTab = 0}
-								{/foreach}
-								</ul>
-
-								<div id="{$form['_guid']}TabContent" class="tab-content">
+			{if count($fields) > 0}
+				<div class="box-body ">		
+			
+				{assign var="insideColumn" value="0"}
+				{assign var="insideHeader" value="0"}
+				{$insideTab = 0}
+				{foreach from=$fields item="field" name="handleFieldForEach"}
+					{if $field['type'] == 'Tab'}
+						{if $insideTab == 0}
+							{if $hasTabs}
+								{*build the ul for tabs*}
+								<div class="tabbable tabs-{$tabsPosition}" id="{$form['_guid']}Tab">
+									<ul id="{$form['_guid']}TabList" class="nav nav-tabs" style="margin-bottom:10px;">
+									{$firstTab = 1}
+									{foreach $tabs as $tab}
+										{$tabClass = ''}
+										{if $firstTab == 1}
+											{$tabClass = 'active'}
+										{/if}
+										<li class="{$tabClass}"><a href="#{$tab['id']}" data-toggle="tab">{$tab['label']}</a></li>
+										{$firstTab = 0}
+									{/foreach}
+									</ul>
+	
+									<div id="{$form['_guid']}TabContent" class="tab-content">
+							{/if}
 						{/if}
 					{/if}
-				{/if}
-				{include './Form_HandleField.tpl'}
-				{if $field['type'] == 'Header'}
-					{$insideHeader = 1}
-				{/if}
-				{if $field['type'] == 'Column'}
-					{if $insideHeader == 1}
-						{$insideHeader = 0}
+					{include './Form_HandleField.tpl'}
+					{if $field['type'] == 'Header'}
+						{$insideHeader = 1}
 					{/if}
-					{$insideColumn = 1}
-				{/if}
-				{if $field['type'] == 'Tab'}
-					{if $insideHeader == 1}
-						{$insideHeader = 0}
+					{if $field['type'] == 'Column'}
+						{if $insideHeader == 1}
+							{$insideHeader = 0}
+						{/if}
+						{$insideColumn = 1}
 					{/if}
-					{if $insideColumn == 1}
-						{$insideColumn = 0}
+					{if $field['type'] == 'Tab'}
+						{if $insideHeader == 1}
+							{$insideHeader = 0}
+						{/if}
+						{if $insideColumn == 1}
+							{$insideColumn = 0}
+						{/if}
+						{$insideTab = 1}
 					{/if}
-					{$insideTab = 1}
-				{/if}
-			{/foreach}
-			{if $insideHeader == 1}
-				</div>
-			{/if}
-			{if $insideColumn == 1}
-				</div>
-			{/if}
-			{if $insideTab == 1}
+				{/foreach}
+				{if $insideHeader == 1}
 					</div>
-				</div>
+				{/if}
+				{if $insideColumn == 1}
+					</div>
+				{/if}
+				{if $insideTab == 1}
+						</div>
+					</div>
+				{/if}
+			</div>
+			{if $hasRequiredFields == true}
+				<span class="badge">{translate app="framework"}requiredFieldsMessage{/translate} {$sRequiredString}</span>
 			{/if}
-		</div>
-		{if $hasRequiredFields == true}
-			<span class="badge">{translate app="framework"}requiredFieldsMessage{/translate} {$sRequiredString}</span>
 		{/if}
 		<!-- /.box-body -->
-		<div style="clear:both"></div>
-		<div class="box-footer">
-			<div class="btn-group">
-				{foreach $buttonActions as $buttonID=>$button}
-					{include './Form_HandleActionButtons.tpl'}
-				{/foreach}
+		{if count($buttonActions) > 0}
+			<div style="clear:both"></div>
+			<div class="box-footer">
+				<div class="btn-group">
+					{foreach $buttonActions as $buttonID=>$button}
+						{include './Form_HandleActionButtons.tpl'}
+					{/foreach}
+				</div>
 			</div>
-		</div>
+		{/if}
 	</form>
 </div>
+{/if}
