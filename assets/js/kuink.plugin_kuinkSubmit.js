@@ -4,91 +4,91 @@
  */
 (function($) {
 
-    $.fn.kuinkSubmit = function(options) {
+		$.fn.kuinkSubmit = function(options) {
 
-        // setting options defaults
-        var settings = $.extend({
-            // These are the defaults.
-        	id_context : undefined,
-            url : undefined,
-            method: 'post',
-            target: undefined,
-            callback: undefined
-        }, options);
+				// setting options defaults
+				var settings = $.extend({
+						// These are the defaults.
+					id_context	: undefined,
+						url 			: undefined,
+						method		: 'post',
+						target		: undefined,
+						callback	: undefined
+				}, options);
 
-        var doSubmit = function(){
+				var doSubmit = function(){
 
-            $.ajax({
-                url		: settings.url,
-                type	: settings.method,
-                data	: settings.data,
-                processData: false,  // tell jQuery not to process the data
-                contentType: false,   // tell jQuery not to set contentType
-                beforeSend: function () {
-                	if (settings.target != undefined){
-                		$(settings.target).append('<div class="overlay"><i class="fa fa-refresh fa-spin loading-img"></i></div>');
-                	} else {
-                		$("#"+settings.id_context+"_wrapper").append('<div class="overlay" id="' + settings.id_context + '_loading"><i class="fa fa-refresh fa-spin loading-img"></i></div>');
-                	}
-                },
-                success	: function (data, status) {
-                	if (settings.target != undefined){
-                		$(settings.target).html(data);
-                	} else {
-                		$("#"+settings.id_context+"_loading_wrapper").html(data);
-                    $("#"+settings.id_context+"_loading").remove();
+						$.ajax({
+								url					: settings.url,
+								type				: settings.method,
+								data				: settings.data,
+								processData	: false,  // tell jQuery not to process the data
+								contentType	: false,  // tell jQuery not to set contentType
+								beforeSend	: function () {
+									if (settings.target != undefined){
+										$(settings.target).append('<div class="overlay"><i class="fa fa-refresh fa-spin loading-img"></i></div>');
+									} else {
+										$("#"+settings.id_context+"_wrapper").append('<div class="overlay" id="' + settings.id_context + '_loading"><i class="fa fa-refresh fa-spin loading-img"></i></div>');
+									}
+								},
+								success			: function (data, status) {
+									if (settings.target != undefined){
+										$(settings.target).html(data);
+									} else {
+										$("#"+settings.id_context+"_loading_wrapper").html(data);
+										$("#"+settings.id_context+"_loading").remove();
 
-                	}
-                	if (settings.callback != undefined){
-                		settings.callback();
-                	}
-                }
-            });
-        }
+									}
+									if (settings.callback != undefined){
+										settings.callback();
+									}
+								}
+						});
+				}
 
-        if (settings.id_context == undefined || settings.url == undefined){
-        	//nothing
-        }
-        else {
-        	var elem = this;
-        	if (settings.confirm == 'true' || settings.confirm == true){
+				if (settings.id_context == undefined || settings.url == undefined){
+					//nothing
+				}
+				else {
+					var elem = this;
+					if (settings.confirm == 'true' || settings.confirm == true){
 
-        		var confirmationMessage = 'Tem a certeza que deseja prosseguir?';
-        		if (settings.confirm_message != '' && settings.confirm_message != undefined)
-        			confirmationMessage = settings.confirm_message;
+						var confirmationMessage = 'Tem a certeza que deseja prosseguir?';
+						if (settings.confirm_message != '' && settings.confirm_message != undefined)
+							confirmationMessage = settings.confirm_message;
 
-        		bootbox.dialog({
-        			  message: confirmationMessage,
-        			  title: "Confirmação",
-        			  buttons: {
-        			    success: {
-        			      label: "Sim",
-        			      className: "btn-success",
-        			      callback: function() {
-        			    	  doSubmit();
-        			      }
-        			    },
-        			    main: {
-        			      label: "Não",
-        			      className: "btn-primary",
-        			      callback: function() {
+						bootbox.dialog({
+								message	: confirmationMessage,
+								title		: "Confirmação",
+								buttons	: {
+									success	: {
+										label			: "Sim",
+										className	: "btn-success",
+										callback	: function() {
+											doSubmit();
+										}
+									},
+									main		: {
+										label			: "Não",
+										className	: "btn-primary",
+										callback	: function() {
 											// restore form buttons to previous state before submitting
 											if(typeof __kuink_formButtonsBeforeSubmit != 'undefined' && __kuink_formButtonsBeforeSubmit instanceof Array) {
 												$(__kuink_formButtonsBeforeSubmit).each(function() {
 													$(this.button).attr('disabled', this.value != undefined ? true : false);
 												});
 											}
-        			      }
-        			    }
-        			  }
-        			});
-        	}else{
-        		doSubmit();
-        	}
+										}
+									}
+								}
+							});
+					}else{
+						doSubmit();
+					}
 
-        }
+				}
 
-        return false;
-    };
+				return false;
+		};
 
 }(jQuery));

@@ -118,5 +118,21 @@ Handle all thing about form action buttons.
 	{$buttonActionUrl = "{$form['baseUrl']}&event={$buttonAttrs['event']}"}
 {/if}
 
-<button type="{$buttonType}" class="btn-flat {$buttonPrintableClass} {$buttonDefaultClass} {$buttonClass}" id="{$buttonAttrs['id']}"
-		onclick="javascript: result = setFormAction_{$form['_guid']}('{$buttonActionUrl}','{$buttonAttrs['confirm']|escape:'htmlall'}', '{$buttonType}', '{$buttonAttrs['id']}');">{if $buttonIcon != ""}<i class="fa fa-{$buttonIcon} {$iconColor}"></i>{/if}&nbsp;{$buttonAttrs['label']}</button>
+<script>
+	$(document).ready(function() {
+		{if $buttonAttrs['confirm'] != 'false' && $buttonAttrs['confirm'] != ''}
+			var confirmMessage = "";
+			{assign var="keywords" value="\n"|explode:$buttonAttrs['confirm']}
+			{foreach from=$keywords item=keyword}
+				confirmMessage = confirmMessage + "\n{$keyword}";
+			{/foreach}
+		{else}
+			confirmMessage = "{$buttonAttrs['confirm']}";
+		{/if}
+		$("#{$form['_guid']} #{$buttonAttrs['id']}").attr("onclick", function() {
+			return "javascript: result = setFormAction_{$form['_guid']}('{$buttonActionUrl}', confirmMessage, '{$buttonType}', '{$buttonAttrs['id']}');";
+		});
+	});
+</script>
+
+<button type="{$buttonType}" class="btn-flat {$buttonPrintableClass} {$buttonDefaultClass} {$buttonClass}" id="{$buttonAttrs['id']}" onclick="">{if $buttonIcon != ""}<i class="fa fa-{$buttonIcon} {$iconColor}"></i>{/if}&nbsp;{$buttonAttrs['label']}</button>
