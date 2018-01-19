@@ -11,16 +11,16 @@
 		<ul class="nav navbar-nav">
 
 			<!-- Companies Menu -->
-      <li class="dropdown notifications-menu">
-        <!-- Menu toggle button -->
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <i class="fa fa-building"></i> {translate app="framework"}Empresa{/translate}
-        </a>
-        <ul class="dropdown-menu">
-          <li>
-            <!-- Inner Menu: contains the companies -->
-            <ul class="menu">
-              <li>
+			<li class="dropdown notifications-menu">
+				<!-- Menu toggle button -->
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<i class="fa fa-building"></i> {translate app="framework"}Empresa{/translate}
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<!-- Inner Menu: contains the companies -->
+						<ul class="menu">
+							<li>
 								{foreach from=$KUINK_USER_COMPANIES item=COMPANY}
 									{if $KUINK_USER_COMPANY == $COMPANY.id}
 										<a href="#"><i class="fa fa-caret-right"></i>{$COMPANY.name}</a>
@@ -28,13 +28,13 @@
 										<a href="#" id="kuink_company_{$COMPANY.id}" onclick="javascript: window.location = window.location + '&idCompany={$COMPANY.id}';">
 											{$COMPANY.name}
 										</a>
-		            	{/if}
+									{/if}
 								{/foreach}
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
 
 			<!-- User Account: style can be found in dropdown.less -->
 			<li class="dropdown user user-menu">

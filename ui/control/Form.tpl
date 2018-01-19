@@ -33,8 +33,15 @@
 		var __kuink_{$form['_guid']}_formButtonsBeforeSubmit = [];
 	}
 
-	var __kuink_{$form['_guid']}_fieldFunctions = [];
-	var __kuink_{$form['_guid']}_inputsNotSubmitted = [];
+	// variable to store field's functions to run
+	if (typeof __kuink_{$form['_guid']}_fieldFunctions === 'undefined') {
+		var __kuink_{$form['_guid']}_fieldFunctions = [];
+	}
+
+	// variable to store the inputs not to be submitted
+	if (typeof __kuink_{$form['_guid']}_inputsNotSubmitted === 'undefined') {
+		var __kuink_{$form['_guid']}_inputsNotSubmitted = [];
+	}
 
 	$(document).ready(function() {
 			$("#{$form['_guid']}").bootstrapValidator({
@@ -70,7 +77,7 @@
 
 				// before getting form data, run all fields internal functions
 				$.each(__kuink_{$form['_guid']}_fieldFunctions, function( index, fieldFunction ) {
-  				fieldFunction();
+					fieldFunction();
 				});
 
 				// get form data
@@ -86,15 +93,15 @@
 					$("#{$form['_guid']}").find("#"+buttonId).attr('disabled', true);
 
 				$("#{$form['_guid']}").kuinkSubmit({
-					'url' 			: url+'&modal=widget',
-					'id_context'	: '{$_idContext}',
-					'method' 		: 'post',
-					'processData': false,
-					'contentType': false,
-					'data'			: formData,//$("#{$form['_guid']}").serialize(),
-					'confirm'		: confirm,
+					'url' 						: url + '&modal=widget',
+					'id_context'			: '{$_idContext}',
+					'method' 					: 'post',
+					'processData'			: false,
+					'contentType'			: false,
+					'data'						: formData,
+					'confirm'					: confirm,
 					'confirm_message'	: confirm_message,
-					'button_id' : buttonId
+					'button_id' 			: buttonId
 				});
 
 				e.preventDefault();
@@ -109,15 +116,23 @@
 
 	function formActionField_{$form['_guid']}(confirm, confirm_message, location, button_id) {
 
+		var formData = new FormData(document.querySelector("#{$form['_guid']}"));
+
+		for (var key of __kuink_{$form['_guid']}_inputsNotSubmitted) {
+			formData.delete(key);
+		}
+
 		//Call kuink submit center
 		$("#{$form['_guid']}").kuinkSubmit({
-			'url' : location+'&modal=widget',
-			'id_context' : '{$_idContext}',
-			'method' : 'post',
-			'data' : $("#{$form['_guid']}").serialize(),
-			'confirm'	: confirm,
+			'url' 						: location + '&modal=widget',
+			'id_context' 			: '{$_idContext}',
+			'method' 					: 'post',
+			'processData'			: false,
+			'contentType'			: false,
+			'data' 						: formData,
+			'confirm'					: confirm,
 			'confirm_message'	: confirm_message,
-			'button_id' : button_id
+			'button_id' 			: button_id
 		});
 	}
 
@@ -282,8 +297,8 @@
 			data-bv-live="enabled"
 			data-disable="false">
 			{if count($fields) > 0}
-				<div class="box-body ">		
-			
+				<div class="box-body ">
+
 				{assign var="insideColumn" value="0"}
 				{assign var="insideHeader" value="0"}
 				{$insideTab = 0}
@@ -304,7 +319,7 @@
 										{$firstTab = 0}
 									{/foreach}
 									</ul>
-	
+
 									<div id="{$form['_guid']}TabContent" class="tab-content">
 							{/if}
 						{/if}

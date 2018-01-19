@@ -1,7 +1,7 @@
 {function hook }          {* short-hand *}
-  {foreach $POSITION[ $position ] as $item}
-          {$item}
-  {/foreach}
+	{foreach $POSITION[ $position ] as $item}
+					{$item}
+	{/foreach}
 {/function}
 {* include the template *}
 <!-- Main content -->
