@@ -123,8 +123,14 @@ Handle all thing about form action buttons.
 		{if $buttonAttrs['confirm'] != 'false' && $buttonAttrs['confirm'] != ''}
 			var confirmMessage = "";
 			{assign var="keywords" value="\n"|explode:$buttonAttrs['confirm']}
+			{$firstChunk = 1}
 			{foreach from=$keywords item=keyword}
-				confirmMessage = confirmMessage + "\n{$keyword}";
+				{if $firstChunk == 1}
+					confirmMessage = "{$keyword}";
+					{$firstChunk = 0}
+				{else}
+					confirmMessage = confirmMessage + "\n{$keyword}";
+				{/if}
 			{/foreach}
 		{else}
 			confirmMessage = "{$buttonAttrs['confirm']}";

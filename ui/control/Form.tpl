@@ -348,6 +348,7 @@
 					</div>
 				{/if}
 				{if $insideColumn == 1}
+						</div>
 					</div>
 				{/if}
 				{if $insideTab == 1}

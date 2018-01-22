@@ -22,7 +22,7 @@ and handle the control display
 		{if $item == 'required'}
 			{$fieldRequired = true}
 		{/if}
-  {/foreach}
+	{/foreach}
 
 {assign var=fieldType value=$field['type']}
 
@@ -38,10 +38,10 @@ and handle the control display
 					{if $field['attributes']['help']!=''}
 						&nbsp;&nbsp;
 						<a tabindex="-1"
-						   data-toggle="tooltip" title=""
-						   data-original-title="{$field['attributes']['help']}"
-						   data-placement="right"
-						   href="javascript:void(0);">
+							 data-toggle="tooltip" title=""
+							 data-original-title="{$field['attributes']['help']}"
+							 data-placement="right"
+							 href="javascript:void(0);">
 								<i class="fieldQuestionMark fa fa-info-circle" ></i>
 						</a>
 					{/if}
