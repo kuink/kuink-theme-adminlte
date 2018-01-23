@@ -15,36 +15,113 @@
 						target		: undefined,
 						callback	: undefined
 				}, options);
+				
+				var doSubmitHttpRequest = function() {
+					//console.log("// Loading "+settings.url+' on '+settings.id_context + " context using "+settings.method+" on target "+settings.target+" with callback: "+settings.callback);
+					xhr = new XMLHttpRequest();
 
+				    xhr.open(settings.method, settings.url);
+				    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				    xhr.onload = function() {
+				        if (xhr.status === 200) {
+				            //console.log(xhr.responseText);
+				            var contentType = xhr.getResponseHeader("Content-Type");
+				            
+							if (contentType.indexOf("html") != -1) {
+								//The response is html
+								reader = new FileReader();
+								var text='';
+								reader.addEventListener('loadend', (e) => {
+								  text = e.srcElement.result;
+								  //console.log(text);
+				                  $("#"+settings.id_context+"_loading_wrapper").html(text);
+								});
+								reader.readAsText(xhr.response);
+								
+							} else {
+								var filename = "";
+						        var disposition = xhr.getResponseHeader('Content-Disposition');
+						        if (disposition && disposition.indexOf('filename') !== -1) {
+						            var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+						            var matches = filenameRegex.exec(disposition);
+						            if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+						        }							
+						        var fileBlob = new Blob([xhr.response]);
+								a = document.createElement('a');
+					            a.href = window.URL.createObjectURL(xhr.response);
+					            // Give filename you wish to download
+					            a.download = filename;
+					            a.style.display = 'none';
+					            document.body.appendChild(a);
+					            a.click();				            
+
+							}
+				            $("#"+settings.id_context+"_loading").remove();			            
+				        }
+				        else if (xhr.status !== 200) {
+				            console.log('Request failed.  Returned status of ' + xhr.status);
+				            $("#"+settings.id_context+"_loading").remove();
+				        }
+	                	if (settings.callback != undefined){
+	                		settings.callback();
+	                	}				        
+				    };
+				    xhr.responseType = 'blob';
+				    
+                	if (settings.target != undefined){
+                		$(settings.target).append('<div class="overlay" style="position:fixed;" ><i class="fa fa-refresh fa-spin loading-img"></i></div>');
+                	} else {
+                		$("#"+settings.id_context+"_wrapper").append('<div class="overlay" style="position:fixed;" id="' + settings.id_context + '_loading"><i class="fa fa-refresh fa-spin loading-img"></i></div>');
+                	}
+                	//Prepare the formdata
+                	var urlEncodedDataPairs = [];
+                	var urlEncodedData = "";
+                	for(var pair of settings.data.entries()) {
+                		urlEncodedDataPairs.push(encodeURIComponent(pair[0]) + '=' + encodeURIComponent(pair[1]));
+                	}                	
+	            	urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
+	            	  
+				    xhr.send(urlEncodedData);
+				}
+				
+				<!-- This function is deprecated -->
+				/*
 				var doSubmit = function(){
 
-						$.ajax({
-								url					: settings.url,
-								type				: settings.method,
-								data				: settings.data,
-								processData	: false,  // tell jQuery not to process the data
-								contentType	: false,  // tell jQuery not to set contentType
-								beforeSend	: function () {
-									if (settings.target != undefined){
-										$(settings.target).append('<div class="overlay"><i class="fa fa-refresh fa-spin loading-img"></i></div>');
-									} else {
-										$("#"+settings.id_context+"_wrapper").append('<div class="overlay" id="' + settings.id_context + '_loading"><i class="fa fa-refresh fa-spin loading-img"></i></div>');
-									}
-								},
-								success			: function (data, status) {
-									if (settings.target != undefined){
-										$(settings.target).html(data);
-									} else {
-										$("#"+settings.id_context+"_loading_wrapper").html(data);
-										$("#"+settings.id_context+"_loading").remove();
+		        	console.log("// Loading "+settings.url+' on '+settings.id_context + " context");
+		            $.ajax({
+		                url		: settings.url,
+		                type	: settings.method,
+		                data	: settings.data,
+		                processData: false,  // tell jQuery not to process the data
+		                contentType: false,   // tell jQuery not to set contentType
+		                beforeSend: function () {
+		                	if (settings.target != undefined){
+		                		$(settings.target).append('<div class="overlay"><i class="fa fa-refresh fa-spin loading-img"></i></div>');
+		                	} else {
+		                		$("#"+settings.id_context+"_wrapper").append('<div class="overlay" id="' + settings.id_context + '_loading"><i class="fa fa-refresh fa-spin loading-img"></i></div>');
+		                	}
+		                },
+		                success	: function (data, status) {
+		                	console.log('SUCCESS');
+		                	console.log(settings.id_context+"_loading_wrapper");
+		                	console.log(settings.target );
+		                	//console.log(settings.url);
+		                	//console.log($("#"+settings.id_context+"_loading_wrapper"));
+		                	if (settings.target != undefined){
+		                		$(settings.target).html(data);
+		                	} else {
+		                		$("#"+settings.id_context+"_loading_wrapper").html(data);
+		                    $("#"+settings.id_context+"_loading").remove();
 
-									}
-									if (settings.callback != undefined){
-										settings.callback();
-									}
-								}
-						});
-				}
+		                	}
+		                	if (settings.callback != undefined){
+		                		settings.callback();
+		                	}
+		                }
+		            });
+		        }*/
+
 
 				if (settings.id_context == undefined || settings.url == undefined){
 					//nothing
@@ -65,7 +142,8 @@
 										label			: "Sim",
 										className	: "btn-success",
 										callback	: function() {
-											doSubmit();
+											//doSubmit();
+											doSubmitHttpRequest();
 										}
 									},
 									main		: {
@@ -83,7 +161,8 @@
 								}
 							});
 					}else{
-						doSubmit();
+						//doSubmit();
+						doSubmitHttpRequest();
 					}
 
 				}
