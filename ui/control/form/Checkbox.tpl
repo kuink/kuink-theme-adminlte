@@ -3,11 +3,6 @@
 	{if $field['value'] != ''}
 		{$value = $field['value']}
 	{/if}
-	<script>
-		$(document).ready(function() {
-			$("#{$form['_guid']} #{$fieldID}").prop("checked",{if $value == 0}false{else}true{/if});
-		});
-	</script>
 	<label>
 		{* to post the checkbox even unchecked*}
 		<input type="hidden" name="{$fieldID}" value="0">

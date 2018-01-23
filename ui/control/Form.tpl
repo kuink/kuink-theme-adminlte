@@ -87,6 +87,10 @@
 				for (var key of __kuink_{$form['_guid']}_inputsNotSubmitted) {
 					formData.delete(key);
 				}
+				
+				for (var pair of formData.entries()) {
+    			console.log(pair[0]+ ', ' + pair[1]); 
+				}
 
 				// disable pressed button
 				if(buttonId!='')
@@ -344,6 +348,7 @@
 						{$insideTab = 1}
 					{/if}
 				{/foreach}
+				<input type="hidden" name="_FORM_LIST_FIELDS" id="_FORM_LIST_FIELDS" value="{$listFormFields}"/>				
 				{if $insideHeader == 1}
 					</div>
 				{/if}
