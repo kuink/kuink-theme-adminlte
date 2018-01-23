@@ -10,7 +10,7 @@
 				rows="{$fieldAttrs['rows']}"
 				cols="{$fieldAttrs['cols']}"
 				{$disabledAttr} maxlength="{$fieldAttrs['maxlength']}">{$field['value']}</textarea>
-		  <span class="add-on"><img src="theme/{$THEME}/css/flags/blank.gif" class="flag flag-{$lang}" alt="{$lang}" /></span>
+		  <span class="add-on"><img src="{$_themeRoot}theme/{$THEME}/assets/css/flags/blank.gif" class="flag flag-{$lang}" alt="{$lang}" /></span>
 		</div>
 	{/foreach}
 {else}

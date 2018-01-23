@@ -306,7 +306,20 @@
 				{assign var="insideColumn" value="0"}
 				{assign var="insideHeader" value="0"}
 				{$insideTab = 0}
+				{$prevFieldAttrs = null}
+				{$fieldIndex = 0} {*Current index*}
+				{$fieldsIndexedArray = null} {*To get prev and next fields*}
+				{foreach $fields as $fieldID=>$field} {* display fields *}
+					{$fieldsIndexedArray[]=$field['attributes']}
+				{/foreach}
 				{foreach from=$fields item="field" name="handleFieldForEach"}
+					{assign var=fieldAttrs value=$field['attributes']}
+					{if $fieldIndex > 0}
+						{assign var=prevFieldAttrs value=$fieldsIndexedArray[$fieldIndex-1]}	
+					{/if}
+					{if $fieldIndex < count($fields)}
+						{assign var=nextFieldAttrs value=$fieldsIndexedArray[$fieldIndex+1]}
+					{/if}
 					{if $field['type'] == 'Tab'}
 						{if $insideTab == 0}
 							{if $hasTabs}
@@ -347,6 +360,7 @@
 						{/if}
 						{$insideTab = 1}
 					{/if}
+					{$fieldIndex = $fieldIndex+1}
 				{/foreach}
 				<input type="hidden" name="_FORM_LIST_FIELDS" id="_FORM_LIST_FIELDS" value="{$listFormFields}"/>				
 				{if $insideHeader == 1}
