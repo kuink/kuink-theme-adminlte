@@ -136,6 +136,10 @@
 				<!-- Bootstrap datepicker -->
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
 
+				<!-- MultiLanguage input support -->
+  				<script type="text/javascript" src="{$_themeRoot}theme/{$THEME}/assets/js/i18n.js"></script>
+  				<!-- /MultiLanguage input support -->
+
 				<!-- Kuink Scripts - Must be the last scripts -->
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_dateFunctions.js" type="text/javascript"></script>
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_formFunctions.js" type="text/javascript"></script>

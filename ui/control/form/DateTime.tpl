@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="form-control" style="border: none;padding: 0;">
 	<input type="hidden" name="{$fieldID}" id="{$fieldID}" value="{$field['value']}"/>
 	<div class='input-group date' id='datetimepicker__{$fieldID}' data-date-format="YYYY/MM/DD HH:mm">
 		<input type='text' class="form-control {$disabledClass}" {$disabledAttr} id="{$fieldID}_visible" name="{$fieldID}_visible"

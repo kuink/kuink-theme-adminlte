@@ -2,7 +2,7 @@
 	</div>
 {/if}
 
-<div id="{$form['_guid']}_{$fieldGuid}" name="{$form['_guid']}_{$fieldName}" class="page-header">
+<div id="{$form['_guid']}_{$fieldGuid}" name="{$form['_guid']}_{$fieldName}" class="page-header" style="clear:both">
 	{if $field['attributes']['collapsible'] == 'true'}
 		<script>
 			$(document).ready(function(){
