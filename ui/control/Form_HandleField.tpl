@@ -29,10 +29,10 @@ and handle the control display
 {if $fieldType == 'Header' || $fieldType == 'Column' || $fieldType == 'Tab'}
 	{include file="./form/$fieldType.tpl"}
 {else}
-	<div class="form-group" id="{$fieldID}CG" style="{if ($prevFieldAttrs['inline']!='false') && ($fieldAttrs['inline']=='false')}clear: left;{/if}{if ($fieldAttrs['inline']!='false') || ($nextFieldAttrs['inline']!='false' && $nextFieldAttrs!=null)}float: left;{/if}">
+	<div class="form-group" id="{$fieldID}CG" style="{if ($prevFieldAttrs['inline']!='false') && ($fieldAttrs['inline']=='false')}clear: left;{/if}{if ($fieldAttrs['inline']!='false') || ($nextFieldAttrs['inline']!='false' && $nextFieldAttrs!=null)}float: left;{/if}margin-left: 10px;">
 		<div class="row">
 			{if $fieldType != 'Checkbox' && $fieldType != 'ActionGroup'}
-			<div class="col-lg-2 col-sm-2 col-xs-3">
+			<div class="col-md-2">
 				{if $fieldType !='Hidden'}
 					<label for="{$fieldGuid}" style="{if $fieldAttrs['inline'] == 'tight'}width: auto; margin:0px 5px 0px 5px;{/if}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label>
 					{if $field['attributes']['help']!=''}
@@ -49,11 +49,11 @@ and handle the control display
 			</div>
 			{/if}
 			{if $fieldType == 'Checkbox'}
-				<div class="col-lg-2 col-sm-2 col-xs-3">
+				<div class="col-md-2">
 				</div>
 			{/if}
 
-			<div class="col-lg-10 col-sm-10 col-xs-12">
+			<div class="col-md-10">
 				{include file="./form/$fieldType.tpl"}
 			</div>
 		</div>
