@@ -12,6 +12,7 @@ $position = Position of controls
 	{/foreach}
 {/function}
 
+{* necessary to display user photos at the navbar *}
 {if ($_imageUrl == '')}
 	{$imageSrc = 'stream.php?type=photo&guid='}
 {else}
