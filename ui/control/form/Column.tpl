@@ -5,7 +5,7 @@
 {if $insideColumn == 1}
 	</div>
 {else}
-	<div class="row kuink-form-column">
+	<div class="row">
 {/if}
 
 {if $columns == ''}
