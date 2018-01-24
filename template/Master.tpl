@@ -20,15 +20,15 @@ $position = Position of controls
 		{include 'Head.tpl'}
 	</head>
 
-	<body class="{if $_environment == 'dev'}skin-yellow{else}skin-blue-light{/if} sidebar-mini wysihtml5-supported">
+	<body class="{if $_environment == 'dev'}skin-yellow{else}skin-blue-light{/if} sidebar-mini wysihtml5-supported sidebar-collapse">
 		<div class="wrapper row-offcanvas row-offcanvas-left">
 			<header class="main-header">
 				<!-- Logo -->
 				<a href="{$breadcrumbEntries[2]['href']}" class="logo">
 					<!-- mini logo for sidebar mini 50x50 pixels -->
-					<span class="logo-mini">K</span>
+					<span class="logo-mini">S</span>
 					<!-- logo for regular state and mobile devices -->
-					<span class="logo-lg">KuinK</span>
+					<span class="logo-lg">CSCM-LX</span>
 				</a>
 
 				{* include the top navbar*}
