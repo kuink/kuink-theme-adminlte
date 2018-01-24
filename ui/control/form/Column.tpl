@@ -8,6 +8,12 @@
 	<div class="row kuink-form-column">
 {/if}
 
-{assign var="columnWidth" value=12/$columns}
+{if $columns == ''}
+	{assign var="columnWidth" value=12/$tabs[$tabIndex]['columns']}
+{else}
+	{assign var="columnWidth" value=12/$columns}
+{/if}
+
 {$converted = settype($columnWidth, 'integer')}
 	<div class="col-md-{$columnWidth}">
+

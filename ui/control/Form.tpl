@@ -87,10 +87,10 @@
 				for (var key of __kuink_{$form['_guid']}_inputsNotSubmitted) {
 					formData.delete(key);
 				}
-				
-				for (var pair of formData.entries()) {
-    			console.log(pair[0]+ ', ' + pair[1]); 
-				}
+
+				//for (var pair of formData.entries()) {
+    		//	console.log(pair[0]+ ', ' + pair[1]);
+				//}
 
 				// disable pressed button
 				if(buttonId!='')
@@ -312,10 +312,11 @@
 				{foreach $fields as $fieldID=>$field} {* display fields *}
 					{$fieldsIndexedArray[]=$field['attributes']}
 				{/foreach}
+				{$tabIndex = -1}
 				{foreach from=$fields item="field" name="handleFieldForEach"}
 					{assign var=fieldAttrs value=$field['attributes']}
 					{if $fieldIndex > 0}
-						{assign var=prevFieldAttrs value=$fieldsIndexedArray[$fieldIndex-1]}	
+						{assign var=prevFieldAttrs value=$fieldsIndexedArray[$fieldIndex-1]}
 					{/if}
 					{if $fieldIndex < count($fields)}
 						{assign var=nextFieldAttrs value=$fieldsIndexedArray[$fieldIndex+1]}
@@ -358,11 +359,12 @@
 						{if $insideColumn == 1}
 							{$insideColumn = 0}
 						{/if}
+						{$tabIndex = $tabIndex + 1}
 						{$insideTab = 1}
 					{/if}
 					{$fieldIndex = $fieldIndex+1}
 				{/foreach}
-				<input type="hidden" name="_FORM_LIST_FIELDS" id="_FORM_LIST_FIELDS" value="{$listFormFields}"/>				
+				<input type="hidden" name="_FORM_LIST_FIELDS" id="_FORM_LIST_FIELDS" value="{$listFormFields}"/>
 				{if $insideHeader == 1}
 					</div>
 				{/if}
@@ -393,3 +395,4 @@
 	</form>
 </div>
 {/if}
+
