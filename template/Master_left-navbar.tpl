@@ -4,15 +4,15 @@
 	<section class="sidebar">
 		<!-- Sidebar user panel -->
 		<div class="user-panel">
-			<div class="pull-left image">
+			<div class="pull-left image" style="text-align:center !important;float:none !important;">
 				{if $_environment == 'dev'}
 					<img src="{$_imageUrl}photo/default.jpg"
 				{else}
-					<img src="{$_imageUrl}photo/{$_user['publicKey']}.jpg"
+					<img src="{$imageSrc}{$_user['publicKey']}{if ($_imageUrl != '')}.jpg{/if}"
 				{/if}
 					class="img-circle" alt="User Image"/>
 			</div>
-			<div class="pull-left info">
+			<div class="pull-left info" style="text-align:center !important;position:static !important;float:none !important;padding-left:5px !important;">
 				<p>{$userDisplayName}</p>
 			</div>
 		</div>

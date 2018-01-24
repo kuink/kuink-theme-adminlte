@@ -3,6 +3,7 @@
 {/if}
 
 {if $insideColumn == 1}
+		</div>
 	</div>
 {/if}
 
@@ -18,3 +19,4 @@
 {/if}
 
 	<div class="tab-pane fade {$active}" id="{$fieldID}">
+
