@@ -85,6 +85,11 @@
 						.badge-inverse:hover {
 							background-color: #1a1a1a;
 						}
+
+						.row .kuink-form-column {
+							margin-left: 0px;
+							margin-right: 0px;
+						}
 					{/literal}
 				</style>
 

@@ -5,7 +5,7 @@
 {if $insideColumn == 1}
 	</div>
 {else}
-	<div class="row">
+	<div class="row kuink-form-column">
 {/if}
 
 {assign var="columnWidth" value=12/$columns}
