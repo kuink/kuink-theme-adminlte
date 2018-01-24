@@ -11,7 +11,7 @@
 				{$urlSuff = "&event={$fieldAttrs['event']}"}
 			{/if}
 
-			result = setFormAction_{$form['_guid']}('{$form["baseUrl"]|html_entity_decode}{$urlSuff}','', '', '');
+			result = setFormAction_{$form['_guid']}('{$form["baseUrl"]|html_entity_decode}{$urlSuff}','', '', '', false);
 			$("#{$form['_guid']}").submit();
 		}
 	</script>

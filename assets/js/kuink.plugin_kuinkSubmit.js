@@ -17,7 +17,7 @@
 				}, options);
 				
 				var doSubmitHttpRequest = function() {
-					//console.log("// Loading "+settings.url+' on '+settings.id_context + " context using "+settings.method+" on target "+settings.target+" with callback: "+settings.callback);
+					console.log("// Loading "+settings.url+' on '+settings.id_context + " context using "+settings.method+" on target "+settings.target+" with callback: "+settings.callback);
 					xhr = new XMLHttpRequest();
 
 				    xhr.open(settings.method, settings.url);

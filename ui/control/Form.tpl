@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
 
-	function setFormAction_{$form['_guid']}(actionUrl, confirm, buttonType, buttonId){
+	function setFormAction_{$form['_guid']}(actionUrl, confirm, buttonType, buttonId, clearFormData){
 		$("#{$form['_guid']}").attr('action', actionUrl);
 		let hasConfirm = false;
 		let confirmMessage = '';
@@ -26,6 +26,8 @@
 		$("#{$form['_guid']}").attr('kuink-data-confirm-message', confirmMessage);
 		$("#{$form['_guid']}").attr('kuink-data-button-pressed', buttonType);
 		$("#{$form['_guid']}").attr('kuink-data-button-pressed-id', buttonId);
+		$("#{$form['_guid']}").attr('kuink-data-actionGroup-clear', (clearFormData == undefined)?false :  clearFormData);
+		
 	};
 
 	// variable to store button's state before submitting
@@ -34,18 +36,15 @@
 	}
 
 	// variable to store field's functions to run
-	if (typeof __kuink_{$form['_guid']}_fieldFunctions === 'undefined') {
 		var __kuink_{$form['_guid']}_fieldFunctions = [];
-	}
 
 	// variable to store the inputs not to be submitted
-	if (typeof __kuink_{$form['_guid']}_inputsNotSubmitted === 'undefined') {
 		var __kuink_{$form['_guid']}_inputsNotSubmitted = [];
-	}
 
 	$(document).ready(function() {
 			$("#{$form['_guid']}").bootstrapValidator({
 				onError: function(e) {
+				console.log('ERROR');
 					var buttonType = $("#{$form['_guid']}").attr('kuink-data-button-pressed');
 					var url = $("#{$form['_guid']}").attr('action');
 					if(buttonType=='cancel') {
@@ -68,6 +67,7 @@
 				var confirm = $("#{$form['_guid']}").attr('kuink-data-confirm');
 				var confirm_message = $("#{$form['_guid']}").attr('kuink-data-confirm-message');
 				var buttonId = $("#{$form['_guid']}").attr('kuink-data-button-pressed-id');
+				var clearFormData = $("#{$form['_guid']}").attr('kuink-data-actionGroup-clear');
 
 				if (confirm!='' && confirm!='false')
 					if (confirm!='true')
@@ -81,21 +81,24 @@
 				});
 
 				// get form data
-				var formData = new FormData(document.querySelector("#{$form['_guid']}"));
-
-				// delete from formData all inputs that are not to be submitted
-				for (var key of __kuink_{$form['_guid']}_inputsNotSubmitted) {
-					formData.delete(key);
+				if (clearFormData == 'false') {
+					var formData = new FormData(document.querySelector("#{$form['_guid']}"));
+					// delete from formData all inputs that are not to be submitted
+					for (var key of __kuink_{$form['_guid']}_inputsNotSubmitted) {
+						formData.delete(key);
+					}			
+				} else {
+					var formData = new FormData();
 				}
 				
+				/*console.log(clearFormData);				
 				for (var pair of formData.entries()) {
     			console.log(pair[0]+ ', ' + pair[1]); 
-				}
+				}*/
 
 				// disable pressed button
 				if(buttonId!='')
 					$("#{$form['_guid']}").find("#"+buttonId).attr('disabled', true);
-
 				$("#{$form['_guid']}").kuinkSubmit({
 					'url' 						: url + '&modal=widget',
 					'id_context'			: '{$_idContext}',

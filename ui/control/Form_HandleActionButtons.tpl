@@ -136,7 +136,7 @@ Handle all thing about form action buttons.
 			confirmMessage = "{$buttonAttrs['confirm']}";
 		{/if}
 		$("#{$form['_guid']} #{$buttonAttrs['id']}").attr("onclick", function() {
-			return "javascript: result = setFormAction_{$form['_guid']}('{$buttonActionUrl}', confirmMessage, '{$buttonType}', '{$buttonAttrs['id']}');";
+			return "javascript: result = setFormAction_{$form['_guid']}('{$buttonActionUrl}', confirmMessage, '{$buttonType}', '{$buttonAttrs['id']}', false);";
 		});
 	});
 </script>
