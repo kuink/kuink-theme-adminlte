@@ -8,7 +8,7 @@
 				{if $_environment == 'dev'}
 					<img src="{$_imageUrl}photo/default.jpg"
 				{else}
-					<img src="{$_imageUrl}photo/{$_user['publicKey']}.jpg"
+					<img src="{$imageSrc}{$_user['publicKey']}{if ($_imageUrl != '')}.jpg{/if}"
 				{/if}
 					class="img-circle" alt="User Image"/>
 			</div>

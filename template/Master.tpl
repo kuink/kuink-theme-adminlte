@@ -12,6 +12,12 @@ $position = Position of controls
 	{/foreach}
 {/function}
 
+{if ($_imageUrl == '')}
+	{$imageSrc = 'stream.php?type=photo&guid='}
+{else}
+	{$imageSrc = $_photoUrl}
+{/if}
+
 
 <!DOCTYPE html>
 <html lang="{$_lang}">
@@ -28,7 +34,7 @@ $position = Position of controls
 					<!-- mini logo for sidebar mini 50x50 pixels -->
 					<span class="logo-mini">S</span>
 					<!-- logo for regular state and mobile devices -->
-					<span class="logo-lg">CSCM-LX</span>
+					<span class="logo-lg">CSCM-Lx</span>
 				</a>
 
 				{* include the top navbar*}
