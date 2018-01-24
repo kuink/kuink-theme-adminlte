@@ -76,10 +76,13 @@
                 	//Prepare the formdata
                 	var urlEncodedDataPairs = [];
                 	var urlEncodedData = "";
-                	for(var pair of settings.data.entries()) {
-                		urlEncodedDataPairs.push(encodeURIComponent(pair[0]) + '=' + encodeURIComponent(pair[1]));
-                	}                	
-	            	urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
+                	//console.log(settings.data);
+                	if (settings.data != undefined && settings.data != '') {
+	                	for(var pair of settings.data.entries()) {
+	                		urlEncodedDataPairs.push(encodeURIComponent(pair[0]) + '=' + encodeURIComponent(pair[1]));
+	                	}                	
+		            	urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
+                	}	            	
 	            	  
 				    xhr.send(urlEncodedData);
 				}
