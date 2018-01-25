@@ -35,7 +35,12 @@
 						reader = new FileReader();
 						var text='';
 						reader.addEventListener('loadend', (e) => {
-							text = e.target.result;
+							// check for IE or Edge
+							if(window.navigator.userAgent.indexOf("MSIE")>-1||window.navigator.userAgent.indexOf("Trident")>-1||window.navigator.userAgent.indexOf("Edge")>-1) {
+								text = e.srcElement.result;
+							} else {
+								text = e.target.result;
+							}
 							// console.log(text);
 							$("#"+settings.id_context+"_loading_wrapper").html(text);
 						});

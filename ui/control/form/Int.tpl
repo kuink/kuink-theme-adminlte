@@ -4,6 +4,5 @@
 	maxlength="{$fieldAttrs['maxlength']}"
 	value="{$field['value']}"
 	{if $field['attributes']['required']=='true'}
-		data-fv-notempty="true"
-		data-fv-notempty-message="{translate app="framework"}requiredField{/translate}"
+		data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"
 	{/if}/>
