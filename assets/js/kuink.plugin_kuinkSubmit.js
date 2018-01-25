@@ -35,7 +35,7 @@
 						reader = new FileReader();
 						var text='';
 						reader.addEventListener('loadend', (e) => {
-							text = e.srcElement.result;
+							text = e.target.result;
 							// console.log(text);
 							$("#"+settings.id_context+"_loading_wrapper").html(text);
 						});
