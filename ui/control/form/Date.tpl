@@ -3,7 +3,7 @@
 	<div class='input-group date' id='datetimepicker__{$fieldID}' data-date-format="YYYY/MM/DD">
 		<input type='text' class="form-control {$disabledClass}" {$disabledAttr} id="{$fieldID}_visible" name="{$fieldID}_visible"
 		{if $field['attributes']['required']=='true'}
-			data-bv-notempty="true" data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"
+			data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"
 		{/if} />
 		<span class="input-group-addon">
 			<span class="fa fa-calendar"></span>
