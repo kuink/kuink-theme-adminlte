@@ -34,16 +34,11 @@
 						// The response is html
 						reader = new FileReader();
 						var text='';
-						reader.addEventListener('loadend', (e) => {
-							// check for IE or Edge
-							if(window.navigator.userAgent.indexOf("MSIE")>-1||window.navigator.userAgent.indexOf("Trident")>-1||window.navigator.userAgent.indexOf("Edge")>-1) {
-								text = e.srcElement.result;
-							} else {
-								text = e.target.result;
-							}
-							// console.log(text);
+						
+						reader.onload = function() {
+							text = reader.result;
 							$("#"+settings.id_context+"_loading_wrapper").html(text);
-						});
+						};
 						reader.readAsText(xhr.response);
 
 					} else {
@@ -83,25 +78,10 @@
 
 			if (settings.method.toUpperCase() == 'GET') {
 				// This is a GET
-				var urlEncodedDataPairs = [];
-				var urlEncodedData = "";
-				// console.log(settings.data);
-				if (settings.data != undefined && settings.data != '') {
-					for(var pair of settings.data.entries()) {
-						urlEncodedDataPairs.push(encodeURIComponent(pair[0]) + '=' + encodeURIComponent(pair[1]));
-					}
-					urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
-					xhr.send(urlEncodedData);
-				}
+				xhr.send(null);
 			} else {
 				//This is a POST
-				var newFormData = new FormData();
-				if(settings.data != undefined && settings.data != '') {
-					for(var pair of settings.data.entries()) {
-						newFormData.append(pair[0],pair[1] );
-					}
-				}
-				xhr.send(newFormData);
+				xhr.send(settings.data);
 
 			}
 		}

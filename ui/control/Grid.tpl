@@ -142,7 +142,6 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 				{/if}
 
 				var __kuink_{$_guid}_fieldFunctions = [];
-				var __kuink_{$_guid}_inputsNotSubmitted = [];
 
 				function gridActionField_{$_guid}(confirm, confirm_message, location, button_id) {
 
@@ -158,12 +157,11 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 					});
 
 					// get form data
+					var notSubmit = $("._kuink_notSubmit");
+						$.each(notSubmit, function(index, value) {
+						value.disabled = 'true';
+					});					
 					var formData = new FormData(document.querySelector("#kuink_{$_guid}"));
-
-					// delete from formData all inputs that are not to be submitted
-					for (var key of __kuink_{$_guid}_inputsNotSubmitted) {
-						formData.delete(key);
-					}
 
 					var reqValidate = validateRequiredFields_{$_guid}();
 					if (!reqValidate)
