@@ -170,7 +170,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 					$("#kuink_{$_guid}").kuinkSubmit({
 						'url' 			: location+'&modal=widget',
 						'id_context'	: '{$_idContext}',
-						'method' 		: 'post',
+						'method' 		: {if $freeze=='false'}'post'{else}'get'{/if},
 						'processData': false,
 						'contentType': false,
 						'data'			: formData,
