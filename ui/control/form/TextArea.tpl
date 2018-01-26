@@ -9,7 +9,9 @@
 				name="{$fieldName}_{$lang}"
 				rows="{$fieldAttrs['rows']}"
 				cols="{$fieldAttrs['cols']}"
-				{$disabledAttr} maxlength="{$fieldAttrs['maxlength']}">{$field['value']}</textarea>
+				{$disabledAttr} maxlength="{$fieldAttrs['maxlength']}" {if $field['attributes']['required']=='true'}
+					data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"
+				{/if}>{$field['value']}</textarea>
 		  <span class="add-on"><img src="{$_themeRoot}theme/{$THEME}/assets/css/flags/blank.gif" class="flag flag-{$lang}" alt="{$lang}" /></span>
 		</div>
 	{/foreach}
@@ -20,5 +22,7 @@
 		name="{$fieldName}"
 		rows="{$fieldAttrs['rows']}"
 		cols="{$fieldAttrs['cols']}"
-		{$disabledAttr} maxlength="{$fieldAttrs['maxlength']}">{$field['value']}</textarea>
+		{$disabledAttr} maxlength="{$fieldAttrs['maxlength']}" {if $field['attributes']['required']=='true'}
+			data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"
+		{/if}>{$field['value']}</textarea>
 {/if}
