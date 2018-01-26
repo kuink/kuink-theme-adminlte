@@ -304,6 +304,7 @@
 							$(document).ready(function(){
 								var html = $("#{$form['_guid']}").find(".btn-group").html();
 								$("#firstButtonGroup{$form['_guid']}").html(html);
+								$("#firstButtonGroup{$form['_guid']}").addClass("btn-group");
 							})
 						</script>
 						<div id="firstButtonGroup{$form['_guid']}" style="float: right;"></div>
