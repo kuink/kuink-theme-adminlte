@@ -38,6 +38,7 @@
 						reader.onload = function() {
 							text = reader.result;
 							$("#"+settings.id_context+"_loading_wrapper").html(text);
+							window.scrollTo(0, 0);
 						};
 						reader.readAsText(xhr.response);
 
