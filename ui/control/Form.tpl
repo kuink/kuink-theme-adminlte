@@ -27,7 +27,7 @@
 		$("#{$form['_guid']}").attr('kuink-data-button-pressed', buttonType);
 		$("#{$form['_guid']}").attr('kuink-data-button-pressed-id', buttonId);
 		$("#{$form['_guid']}").attr('kuink-data-actionGroup-clear', (clearFormData == undefined)?false :  clearFormData);
-		
+
 	};
 
 	// variable to store button's state before submitting
@@ -38,13 +38,9 @@
 	// variable to store field's functions to run
 		var __kuink_{$form['_guid']}_fieldFunctions = [];
 
-	// variable to store the inputs not to be submitted
-	//	var __kuink_{$form['_guid']}_inputsNotSubmitted = [];
-
 	$(document).ready(function() {
 			$("#{$form['_guid']}").bootstrapValidator({
 				onError: function(e) {
-				console.log('ERROR');
 					var buttonType = $("#{$form['_guid']}").attr('kuink-data-button-pressed');
 					var url = $("#{$form['_guid']}").attr('action');
 					if(buttonType=='cancel') {
@@ -62,7 +58,6 @@
 					}
 				},
 			onSuccess: function(e) {
-				console.log('OnSuccess');
 				// Call kuink submit center
 				var url = $("#{$form['_guid']}").attr('action');
 				var confirm = $("#{$form['_guid']}").attr('kuink-data-confirm');
@@ -81,19 +76,17 @@
 					fieldFunction();
 				});
 				// get form data
-				var formData = new FormData();	
-							
+				var formData = new FormData();
+
 				if (clearFormData == 'false') {
-					console.log('In');
-					
 					var notSubmit = $("._kuink_notSubmit");
 					$.each(notSubmit, function(index, value) {
 						value.disabled = 'true';
 					});
-					
+
 					var formData = new FormData(document.querySelector("#{$form['_guid']}"));
-			}				
-								
+			}
+
 
 
 				// disable pressed button
@@ -306,6 +299,15 @@
 			data-disable="false">
 			{if count($fields) > 0}
 				<div class="box-body ">
+					{if ($freeze == '0') && ($buttonsPosition == 'top' || $buttonsPosition == 'both')}
+						<script>
+							$(document).ready(function(){
+								var html = $("#{$form['_guid']}").find(".btn-group").html();
+								$("#firstButtonGroup{$form['_guid']}").html(html);
+							})
+						</script>
+						<div id="firstButtonGroup{$form['_guid']}" style="float: right;"></div>
+					{/if}
 
 				{assign var="insideColumn" value="0"}
 				{assign var="insideHeader" value="0"}
@@ -399,4 +401,3 @@
 	</form>
 </div>
 {/if}
-
