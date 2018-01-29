@@ -14,10 +14,12 @@
 			url 				: undefined,
 			method			: 'post',
 			target			: undefined,
-			callback		: undefined
+			callback		: undefined,
+			formGuid		: undefined
 		}, options);
 
 		var doSubmitHttpRequest = function() {
+			settings.url = settings.url.replace(/&amp;/g, '&');
 			console.log("// Loading "+settings.url+' on '+settings.id_context + " context using "+settings.method+" on target "+settings.target+" with callback: "+settings.callback);
 			xhr = new XMLHttpRequest();
 
@@ -37,6 +39,7 @@
 						
 						reader.onload = function() {
 							text = reader.result;
+							//console.log(text);
 							$("#"+settings.id_context+"_loading_wrapper").html(text);
 							window.scrollTo(0, 0);
 						};
@@ -81,6 +84,7 @@
 				// This is a GET
 				xhr.send(null);
 			} else {
+				console.log('Posting data...');
 				//This is a POST
 				xhr.send(settings.data);
 
@@ -115,6 +119,7 @@
 			// nothing
 		} else {
 			var elem = this;
+			
 			if (settings.confirm == 'true' || settings.confirm == true){
 				var confirmationMessage = 'Tem a certeza que deseja prosseguir?';
 				if (settings.confirm_message != '' && settings.confirm_message != undefined)
@@ -136,7 +141,9 @@
 							label			: "Não",
 							className	: "btn-primary",
 							callback	: function() {
-								// restore form buttons to previous state before
+								//Restore form buttons to previous state before
+								//Get the variable name from the formGuid
+								var __kuink_formButtonsBeforeSubmit = window["__kuink_"+settings.formGuid+"_formButtonsBeforeSubmit"];
 								// submitting
 								if(typeof __kuink_formButtonsBeforeSubmit != 'undefined' && __kuink_formButtonsBeforeSubmit instanceof Array) {
 									$(__kuink_formButtonsBeforeSubmit).each(function() {

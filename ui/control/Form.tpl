@@ -5,19 +5,25 @@
 	function setFormAction_{$form['_guid']}(actionUrl, confirm, buttonType, buttonId, clearFormData){
 		$("#{$form['_guid']}").attr('action', actionUrl);
 		var hasConfirm = false;
+		
 		var confirmMessage = '';
+		
 		if (confirm!='' && confirm!='false'){
 			hasConfirm = true;
 			// get all buttons and store their states
 			var formButtons = $("#{$form['_guid']}").find("button").parent().children();
 			__kuink_{$form['_guid']}_formButtonsBeforeSubmit = [];
+
 			$(formButtons).each(function() {
-				var button = $("#{$form['_guid']}").children().find("#"+this.id);
-				__kuink_{$form['_guid']}_formButtonsBeforeSubmit.push({
-					button:button,
-					value: $(this).attr('disabled')
-				});
+				if (this.id != '') {
+					var button = $("#{$form['_guid']}").children().find("#"+this.id);
+					__kuink_{$form['_guid']}_formButtonsBeforeSubmit.push({
+						button:button,
+						value: $(this).attr('disabled')
+					});
+				}
 			});
+			
 			if (confirm!='true')
 				confirmMessage = confirm;
 		}
@@ -31,9 +37,9 @@
 	};
 
 	// variable to store button's state before submitting
-	if (typeof __kuink_{$form['_guid']}_formButtonsBeforeSubmit === 'undefined') {
+	//if (typeof __kuink_{$form['_guid']}_formButtonsBeforeSubmit === 'undefined') {
 		var __kuink_{$form['_guid']}_formButtonsBeforeSubmit = [];
-	}
+	//}
 
 	// variable to store field's functions to run
 		var __kuink_{$form['_guid']}_fieldFunctions = [];
@@ -108,7 +114,8 @@
 					'data'						: formData,
 					'confirm'					: confirm,
 					'confirm_message'	: confirm_message,
-					'button_id' 			: buttonId
+					'button_id' 			: buttonId,
+					'formGuid' 			  : '{$form['_guid']}'
 				});
 
 				e.preventDefault();

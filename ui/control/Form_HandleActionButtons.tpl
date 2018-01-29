@@ -122,23 +122,24 @@ Handle all thing about form action buttons.
 	$(document).ready(function() {
 		{if $buttonAttrs['confirm'] != 'false' && $buttonAttrs['confirm'] != ''}
 			var confirmMessage = "";
-			{assign var="keywords" value="\n"|explode:$buttonAttrs['confirm']}
-			{$firstChunk = 1}
-			{foreach from=$keywords item=keyword}
-				{if $firstChunk == 1}
-					confirmMessage = "{$keyword}";
-					{$firstChunk = 0}
-				{else}
-					confirmMessage = confirmMessage + "\n{$keyword}";
-				{/if}
-			{/foreach}
+			{$buttonAttrs['confirm'] = $buttonAttrs['confirm']|replace:'"':"'"}
+			{$buttonAttrs['confirm'] = $buttonAttrs['confirm']|replace:'\n':''}
+			//confirmMessage = "{$buttonAttrs['confirm']}";
 		{else}
-			confirmMessage = "{$buttonAttrs['confirm']}";
+			//confirmMessage = "{$buttonAttrs['confirm']}";
 		{/if}
+		
 		$("#{$form['_guid']} #{$buttonAttrs['id']}").attr("onclick", function() {
-			return "javascript: result = setFormAction_{$form['_guid']}('{$buttonActionUrl}', confirmMessage, '{$buttonType}', '{$buttonAttrs['id']}', false);";
+			return "javascript: result = setFormAction_{$form['_guid']}('{$buttonActionUrl}', \"{$buttonAttrs['confirm']}\", '{$buttonType}', '{$buttonAttrs['id']}', false);";
 		});
 	});
 </script>
 
-<button type="{$buttonType}" class="btn-flat {$buttonPrintableClass} {$buttonDefaultClass} {$buttonClass}" id="{$buttonAttrs['id']}" onclick="">{if $buttonIcon != ""}<i class="fa fa-{$buttonIcon} {$iconColor}"></i>{/if}&nbsp;{$buttonAttrs['label']}</button>
+{$disabledClass = ""}
+{$disabledAttr = ""}
+{if $buttonAttrs['disabled']=="true"}
+	{$disabledClass = "disabled"}
+	{$disabledAttr = "disabled"}
+{/if}
+
+<button type="{$buttonType}" class="btn-flat {$buttonPrintableClass} {$buttonDefaultClass} {$buttonClass} {$disabledClass}" {$disabledAttr} id="{$buttonAttrs['id']}" onclick="">{if $buttonIcon != ""}<i class="fa fa-{$buttonIcon} {$iconColor}"></i>{/if}&nbsp;{$buttonAttrs['label']}</button>
