@@ -144,38 +144,36 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 				var __kuink_{$_guid}_fieldFunctions = [];
 
 				function gridActionField_{$_guid}(confirm, confirm_message, location, button_id) {
+					if (confirm == 'true' || confirm == true)
+						__kuink.controlAddKey('{$_idContext}','kuink_{$_guid}', button_id, 'confirm', confirm_message);
 
-					if (confirm!='' && confirm!='false')
-						if (confirm!='true')
-							confirmMessage = confirm;
-						else
-							confirm = true;
-
+					var formButtons = $("#kuink_{$_guid}").find("button").parent().children();
+					$(formButtons).each(function() {
+						if (this.id != '') {
+							var button = $("#kuink_{$_guid}").children().find("#"+this.id);
+							__kuink.controlAddKey('{$_idContext}', 'kuink_{$_guid}', this.id, 'disabled', $(this).attr('disabled'));
+						}
+					});
+					
 					// before getting form data, run all fields internal functions
 					$.each(__kuink_{$_guid}_fieldFunctions, function( index, fieldFunction ) {
 						fieldFunction();
 					});
 
 					// get form data
-					var notSubmit = $("._kuink_notSubmit");
-						$.each(notSubmit, function(index, value) {
-						value.disabled = 'true';
-					});					
-					var formData = new FormData(document.querySelector("#kuink_{$_guid}"));
-
+					
 					var reqValidate = validateRequiredFields_{$_guid}();
 					if (!reqValidate)
 						return false;
-
+											
 					$("#kuink_{$_guid}").kuinkSubmit({
 						'url' 			: location+'&modal=widget',
-						'id_context'	: '{$_idContext}',
+						'idContext'	: '{$_idContext}',
 						'method' 		: {if $freeze=='false'}'post'{else}'get'{/if},
 						'processData': false,
 						'contentType': false,
-						'data'			: formData,
-						'confirm'		: confirm,
-						'confirm_message'	: confirm_message
+						'button_id' : button_id,
+						'formGuid'	: 'kuink_{$_guid}'
 					});
 
 				}
@@ -356,7 +354,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 														{$value['value']}
 													{else}
 														{foreach $value['constructor'] as $actionAttribute}
-															{$actionAttribute['separator']}<a href="javascript: void(0)" {$actionAttribute['tooltip']} class="{$actionAttribute['class']}" onclick="gridActionField_{$_guid}({$actionAttribute['confirm']}, '{$actionAttribute['confirm_message']}', '{$actionAttribute['location']}', '')"><span nowrap="true" style="white-space: nowrap; overflow-x: auto;">{$actionAttribute['label']}</span></a>
+															{$actionAttribute['separator']}<a href="javascript: void(0)" {$actionAttribute['tooltip']} class="{$actionAttribute['class']}" onclick="gridActionField_{$_guid}({$actionAttribute['confirm']}, '{$actionAttribute['confirm_message']}', '{$actionAttribute['location']}', '{$actionAttribute['name']}')"><span nowrap="true" style="white-space: nowrap; overflow-x: auto;">{$actionAttribute['label']}</span></a>
 														{/foreach}
 													{/if}
 												</span>

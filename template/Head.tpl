@@ -141,6 +141,7 @@
   				<!-- /MultiLanguage input support -->
 
 				<!-- Kuink Scripts - Must be the last scripts -->
+				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_globalVariables.js" type="text/javascript"></script>
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_dateFunctions.js" type="text/javascript"></script>
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_formFunctions.js" type="text/javascript"></script>
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink.plugin_kuinkSubmit.js" type="text/javascript"></script>

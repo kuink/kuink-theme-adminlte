@@ -4,11 +4,8 @@
 		//Call kuink submit center
 		$(".box-body").kuinkSubmit({
 			'url' : location+'&modal=widget',
-			'id_context' : '{$_idContext}',
-			'method' : 'post',
-			'data' : '',
-			'confirm'	: confirm,
-			'confirm_message'	: confirm_message,
+			'idContext' : '{$_idContext}',
+			'method' : 'get',
 			'button_id' : button_id
 		});
 	}

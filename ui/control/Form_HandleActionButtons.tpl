@@ -120,17 +120,31 @@ Handle all thing about form action buttons.
 
 <script>
 	$(document).ready(function() {
-		{if $buttonAttrs['confirm'] != 'false' && $buttonAttrs['confirm'] != ''}
-			var confirmMessage = "";
-			{$buttonAttrs['confirm'] = $buttonAttrs['confirm']|replace:'"':"'"}
-			{$buttonAttrs['confirm'] = $buttonAttrs['confirm']|replace:'\n':''}
-			//confirmMessage = "{$buttonAttrs['confirm']}";
+
+		//Handle confirm message
+		var confirmMessage = '';
+		{$buttonAttrs['confirm'] = $buttonAttrs['confirm']|replace:'"':"'"}
+		{if $buttonAttrs['confirm'] != 'false' && $buttonAttrs['confirm'] != ''}			
+			{assign var="keywords" value="\n"|explode:$buttonAttrs['confirm']}
+			{$firstChunk = 1}
+			{foreach from=$keywords item=keyword}
+				{if $firstChunk == 1}
+					confirmMessage = "{$keyword}";
+					{$firstChunk = 0}
+				{else}
+					confirmMessage = confirmMessage + "\n{$keyword}";
+				{/if}
+			{/foreach}		
 		{else}
-			//confirmMessage = "{$buttonAttrs['confirm']}";
+				confirmMessage = "{$buttonAttrs['confirm']}";
 		{/if}
 		
-		$("#{$form['_guid']} #{$buttonAttrs['id']}").attr("onclick", function() {
-			return "javascript: result = setFormAction_{$form['_guid']}('{$buttonActionUrl}', \"{$buttonAttrs['confirm']}\", '{$buttonType}', '{$buttonAttrs['id']}', false);";
+		if (confirmMessage!='' && confirmMessage!='false')
+			__kuink.controlAddKey('{$_idContext}','{$_guid}', '{$buttonAttrs['id']}', 'confirm', confirmMessage);
+		
+		
+		$("#{$_guid} #{$buttonAttrs['id']}").attr("onclick", function() {
+			return "javascript: result = setFormAction_{$form['_guid']}('{$buttonActionUrl}', '', '{$buttonType}', '{$buttonAttrs['id']}', false);";
 		});
 	});
 </script>

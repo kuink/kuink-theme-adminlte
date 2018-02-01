@@ -1,6 +1,7 @@
-<input type="number" id="{$fieldGuid}" name="{$fieldName}" {$disabledAttr}
+<input type="text" id="{$fieldGuid}" name="{$fieldName}" {$disabledAttr}
 	class="form-control {$disabledClass}"
-	data-fv-integer-message="{translate app="framework"}integerField{/translate}"
+	data-bv-integer="true" 
+	data-bv-integer-message="{translate app="framework"}integerField{/translate}"
 	maxlength="{$fieldAttrs['maxlength']}"
 	value="{$field['value']}"
 	{if $field['attributes']['required']=='true'}
