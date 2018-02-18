@@ -32,9 +32,9 @@
         });
         {$fieldID}_editor.setOption("theme", "ambiance");
 
-				__kuink_{$form['_guid']}_fieldFunctions.push(() => {
+				__kuink_{$_guid}_fieldFunctions.push(() => {
 					var codeEditorContent = {$fieldID}_editor.getDoc().getValue();
-					$("#{$form['_guid']} textarea#{$fieldID}").val(codeEditorContent);
+					$("#{$_guid} textarea#{$fieldID}").val(codeEditorContent);
 				});
 
     </script>

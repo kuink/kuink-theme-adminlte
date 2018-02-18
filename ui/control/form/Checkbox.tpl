@@ -10,7 +10,6 @@
 		<input type="checkbox" {$disabledAttr} class="{$disabledClass}"
 			id="{$fieldGuid}" name="{$fieldName}" value="1" {if $field['value'] == '1'}checked{/if}>
 
-		&nbsp;{$field['attributes']['label']}
 		{if $field['attributes']['help']!=''}
 			&nbsp;&nbsp;
 			<a tabindex="-1" data-toggle="tooltip" title=""

@@ -133,6 +133,9 @@
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/input-mask/jquery.inputmask.phone.extensions.js" type="text/javascript"></script>
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/input-mask/jquery.inputmask.regex.extensions.js" type="text/javascript"></script>
 
+				<!-- Snap.svg -->
+    		<script type="text/javascript" src="{$_themeRoot}theme/{$THEME}/assets/js/snap/dist/snap.svg-min.js"></script>	
+    
 				<!-- Bootstrap datepicker -->
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
 
@@ -141,12 +144,14 @@
   				<!-- /MultiLanguage input support -->
 
 				<!-- Kuink Scripts - Must be the last scripts -->
-				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_globalVariables.js" type="text/javascript"></script>
-				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_dateFunctions.js" type="text/javascript"></script>
-				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_formFunctions.js" type="text/javascript"></script>
-				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink.plugin_kuinkSubmit.js" type="text/javascript"></script>
-				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_gridFunctions.js" type="text/javascript"></script>
-				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_ControlRefreshPlugin.js" type="text/javascript"></script>
+				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_Core.Manager.js" type="text/javascript"></script>
+				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_Core.Submit.js" type="text/javascript"></script>				
+				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_Core.Date.js" type="text/javascript"></script>
+				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_Control.Form.js" type="text/javascript"></script>
+				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_Control.Grid.js" type="text/javascript"></script>
+				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_Control.Diagram.js" type="text/javascript"></script>
+				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_Control.RefreshPlugin.js" type="text/javascript"></script>
+				
 				<script type="text/javascript">
 					var applicationContexts = new Array();
 				</script>

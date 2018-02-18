@@ -33,7 +33,7 @@
 				if (xhr.status === 200) {
 					// console.log(xhr.responseText);
 					var contentType = xhr.getResponseHeader("Content-Type");
-
+					console.log(contentType);
 					if (contentType.indexOf("html") != -1) {
 						// The response is html
 						reader = new FileReader();
@@ -49,6 +49,7 @@
 					} else {
 						var filename = "";
 						var disposition = xhr.getResponseHeader('Content-Disposition');
+						
 						if (disposition && disposition.indexOf('filename') !== -1) {
 							var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
 							var matches = filenameRegex.exec(disposition);

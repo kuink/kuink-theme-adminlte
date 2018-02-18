@@ -144,7 +144,7 @@ Handle all thing about form action buttons.
 		
 		
 		$("#{$_guid} #{$buttonAttrs['id']}").attr("onclick", function() {
-			return "javascript: result = setFormAction_{$form['_guid']}('{$buttonActionUrl}', '', '{$buttonType}', '{$buttonAttrs['id']}', false);";
+			return "javascript: result = setFormAction_{$_guid}('{$buttonActionUrl}', '', '{$buttonType}', '{$buttonAttrs['id']}', false);";
 		});
 	});
 </script>
