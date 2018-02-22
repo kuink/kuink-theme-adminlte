@@ -52,10 +52,11 @@ and handle the control display
 			{/if}
 			
 			{if $fieldType != 'ActionGroup'}
+			
 			<div class="col-lg-{$labelSize} col-md-{$labelSize} col-sm-{$labelSize} col-xs-3" style="{if (($fieldAttrs['inline']=='true') || ($nextFieldAttrs['inline']=='true' && $nextFieldAttrs!=null)) }width: 100%;{/if}">
 				{if $fieldType !='Hidden'}
 					<label for="{$fieldGuid}" style="{if $fieldAttrs['inline'] == 'tight'}width: auto; margin:0px 5px 0px 5px;{/if}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label>
-					{if $field['attributes']['help']!=''}
+					{if $field['attributes']['help']!='false' && $field['attributes']['help']!='' && $field['attributes']['help'] != $fieldID}
 						&nbsp;&nbsp;
 						<a tabindex="-1"
 							 data-toggle="tooltip" title=""

@@ -34,6 +34,7 @@
 				onError: function(e) {
 					var buttonType = $("#{$_guid}").attr('kuink-data-button-pressed');
 					var url = $("#{$_guid}").attr('action');
+					var buttonId = __kuink.controlGetKey('{$_idContext}', '{$_guid}', '_buttonPressed', 'id');
 					
 					if(buttonType=='cancel') {
 						$("#{$_guid}").kuinkSubmit({
@@ -48,7 +49,6 @@
 			onSuccess: function(e) {
 				// Call kuink submit center
 				var url = $("#{$_guid}").attr('action');
-				
 				var buttonId = __kuink.controlGetKey('{$_idContext}', '{$_guid}', '_buttonPressed', 'id');
 				
 				var clearFormData = $("#{$_guid}").attr('kuink-data-actionGroup-clear');
