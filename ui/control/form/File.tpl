@@ -10,4 +10,12 @@
 	{if $field['attributes']['required']=='true'}
 		data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"
 	{/if}/>
+	
+	{if $field['attributes']['allowdelete']=="true" && $field['original'] != '' && $field['original'] != null}
+		<input type="checkbox" id="{$fieldID}_delete" name="{$fieldID}_delete" />&nbsp;{translate}delete{/translate}
+	{/if}
+	{if $field['original'] != '' && $field['original'] != null}
+		{$field['value']}
+	{/if}	
+
 </div>
