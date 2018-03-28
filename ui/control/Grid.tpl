@@ -386,7 +386,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 									<td>
 										{if $columnAttributes[$index]['type'] != "static" && $columnAttributes[$index]['type'] != "checkbox"}
 											<div id="div_extendedit-{$columnAttributes[$index]['name']}CG" class="control-group">
-												<textarea class="input-small " id="_extendedit-{$columnAttributes[$index]['name']}" name="_extendedit-{$columnAttributes[$index]['name']}" rows="4" cols="20" ></textarea>
+												<textarea class="input-sma " id="_extendedit-{$columnAttributes[$index]['name']}" name="_extendedit-{$columnAttributes[$index]['name']}" rows="4" cols="20" ></textarea>
 												<div id="tt_extendedit-{$columnAttributes[$index]['name']}">
 												</div>
 											</div>

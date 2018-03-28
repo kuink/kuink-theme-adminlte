@@ -8,10 +8,17 @@
 		<span class="input-group-addon">
 			<span class="fa fa-calendar"></span>
 		</span>
+		<span class="input-group-addon">
+			<span class="glyphicon glyphicon-globe" data-toggle="{$fieldID}Tooltip" data-placement="bottom" title="{$personTimeZone} GMT{if $personTimeZoneOffset < 0 }-{else}+{/if}{$personTimeZoneOffset/3600}"></span>
+		</span>
 	</div>
+	
 </div>
 
 <script type="text/javascript">
+	$(function () {
+	  $('[data-toggle="{$fieldID}Tooltip"]').tooltip()
+	})
 
 	$(function () {
 		{if $field['attributes']['disabled'] != 'true'}
@@ -48,7 +55,6 @@
 
 			$('#{$fieldID}_visible').inputmask('yyyy/mm/dd');
 		{/if}
-
 		{if $field['attributes']['now'] == 'true' || $field['value']}
 			kuink_updateVisibleDate('{$fieldID}',{$personTimeZoneOffset});
 		{/if}
