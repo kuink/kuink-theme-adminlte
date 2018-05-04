@@ -141,8 +141,6 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 					});
 				{/if}
 
-				var __kuink_{$_guid}_fieldFunctions = [];
-
 				function gridActionField_{$_guid}(confirm, confirm_message, location, button_id) {
 					if (confirm == 'true' || confirm == true)
 						__kuink.controlAddKey('{$_idContext}','kuink_{$_guid}', button_id, 'confirm', confirm_message);
@@ -153,11 +151,6 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 							var button = $("#kuink_{$_guid}").children().find("#"+this.id);
 							__kuink.controlAddKey('{$_idContext}', 'kuink_{$_guid}', this.id, 'disabled', $(this).attr('disabled'));
 						}
-					});
-					
-					// before getting form data, run all fields internal functions
-					$.each(__kuink_{$_guid}_fieldFunctions, function( index, fieldFunction ) {
-						fieldFunction();
 					});
 
 					// get form data
@@ -468,7 +461,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 			{if $exportable == 'true'}
 				<div style="float:right; padding:3px">
 					{foreach $exportTypes as $exportType}
-						<a href="{$baseUrl}&action={$action}&exporttype={$exportType}&export={$name}"><span class="label label-info">{$exportType}</span></a>
+						<a href="{$baseUrl}&action={$action}&exporttype={$exportType}&export={$name}&_nocache={$_guid}"><span class="label label-info">{$exportType}</span></a>
 					{/foreach}
 				</div>
 			{/if}

@@ -20,7 +20,6 @@
 </div>
 
 <script>
-
       var {$fieldID}_editor = CodeMirror.fromTextArea(document.getElementById("{$fieldID}"), {
             value: '',
             mode: 'application/xml',
@@ -30,11 +29,13 @@
             foldGutter: true,
             gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
         });
-        {$fieldID}_editor.setOption("theme", "ambiance");
+      {$fieldID}_editor.setOption("theme", "ambiance");
 
-				__kuink_{$_guid}_fieldFunctions.push(() => {
+			__kuink.ajaxExecuteFunctionsBeforeLoad.push(() => {
 					var codeEditorContent = {$fieldID}_editor.getDoc().getValue();
 					$("#{$_guid} textarea#{$fieldID}").val(codeEditorContent);
-				});
-
+			});
+			__kuink.ajaxExecuteFunctionsAfterLoad.push(() => {
+					{$fieldID}_editor.refresh();
+			});
     </script>

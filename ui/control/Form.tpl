@@ -26,9 +26,6 @@
 		$("#{$_guid}").attr('kuink-data-actionGroup-clear', (clearFormData == undefined)?false :  clearFormData);
 	};
 
-	// variable to store field's functions to run
-		var __kuink_{$_guid}_fieldFunctions = [];
-
 	$(document).ready(function() {
 			$("#{$_guid}").bootstrapValidator({
 				onError: function(e) {
@@ -58,11 +55,6 @@
 						confirmMessage = confirm;
 					else
 						confirm = true;
-
-				// before getting form data, run all fields internal functions (some fields have functions to execute like code editors...)
-				$.each(__kuink_{$_guid}_fieldFunctions, function( index, fieldFunction ) {
-					fieldFunction();
-				});
 					
 				$("#{$_guid}").kuinkSubmit({
 					'url' 						: url + '&modal=widget',
@@ -280,8 +272,9 @@
 						<div id="firstButtonGroup{$_guid}" style="float: right;"></div>
 					{/if}
 
-				{assign var="insideColumn" value="0"}
-				{assign var="insideHeader" value="0"}
+				{$insideColumn = 0}
+				{$insideHeader = 0}
+				{$currentColumnGroup = 0}
 				{$insideTab = 0}
 				{$prevFieldAttrs = null}
 				{$fieldIndex = 0} {*Current index*}
@@ -299,19 +292,22 @@
 						{assign var=nextFieldAttrs value=$fieldsIndexedArray[$fieldIndex+1]}
 					{/if}
 					{if $field['type'] == 'Tab'}
+						{$currentColumnGroup = 0} {*Restart the column group of the tab*}					
 						{if $insideTab == 0}
-							{if $hasTabs}
+							{if $hasTabs == 1}
 								{*build the ul for tabs*}
 								<div class="tabbable tabs-{$tabsPosition}" id="{$_guid}Tab">
 									<ul id="{$_guid}TabList" class="nav nav-tabs" style="margin-bottom:10px;">
 									{$firstTab = 1}
-									{foreach $tabs as $tab}
-										{$tabClass = ''}
-										{if $firstTab == 1}
-											{$tabClass = 'active'}
+									{foreach $tabs as $key=>$tab}
+										{if $key != -1}
+											{$tabClass = ''}
+											{if $firstTab == 1}
+												{$tabClass = 'active'}
+											{/if}
+											<li class="{$tabClass}"><a href="#{$tab['id']}" data-toggle="tab">{$tab['label']}</a></li>
+											{$firstTab = 0}
 										{/if}
-										<li class="{$tabClass}"><a href="#{$tab['id']}" data-toggle="tab">{$tab['label']}</a></li>
-										{$firstTab = 0}
 									{/foreach}
 									</ul>
 
@@ -319,7 +315,13 @@
 							{/if}
 						{/if}
 					{/if}
+					{if $field['attributes']['close']=='true'}
+						{$currentColumnGroup = $currentColumnGroup + 1}
+					{/if}					
+
+					{* Render the form field *}
 					{include './Form_HandleField.tpl'}
+
 					{if $field['type'] == 'Header'}
 						{$insideHeader = 1}
 					{/if}
@@ -327,7 +329,12 @@
 						{if $insideHeader == 1}
 							{$insideHeader = 0}
 						{/if}
-						{$insideColumn = 1}
+						{if $field['attributes']['close']=='false'}
+							{$insideColumn = 1}
+						{else}
+							{$insideColumn = 0}
+							{$currentColumnGroup = $currentColumnGroup + 1}
+						{/if}
 					{/if}
 					{if $field['type'] == 'Tab'}
 						{if $insideHeader == 1}

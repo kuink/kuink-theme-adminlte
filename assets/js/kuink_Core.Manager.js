@@ -1,7 +1,33 @@
 
 function KuinkManager() {
 	this.contexts = [];
-	
+	this.ajaxExecuteFunctionsBeforeLoad = []; //Functions to execute before the load of ajax
+	this.ajaxExecuteFunctionsAfterLoad = []; //Functions to execute after the load of ajax
+
+	/*
+		Some functions must be executed before content has been loaded in ajax
+	*/
+	this.executeBeforeLoadFunctions = function() {
+		console.log('Executing before functions...');
+		$.each(this.ajaxExecuteFunctionsBeforeLoad, function( index, fieldFunction ) {
+			fieldFunction();
+		});
+		//Clear the functions
+		this.ajaxExecuteFunctionsBeforeLoad = [];		
+	};
+
+	/*
+		Some functions must be executed after content has been loaded in ajax
+	*/
+	this.executeAfterLoadFunctions = function() {
+		console.log('Executing after functions...');		
+		$.each(this.ajaxExecuteFunctionsAfterLoad, function( index, fieldFunction ) {
+			fieldFunction();
+		});
+		//Clear the functions
+		this.ajaxExecuteFunctionsAfterLoad = [];
+	};
+
 	this.contextAdd = function(context) {
 		if (!(context in this.contexts)) {
 			this.contexts[context] = {};

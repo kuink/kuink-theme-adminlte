@@ -23,6 +23,9 @@
 		var doSubmitHttpRequest = function() {
 			settings.url = settings.url.replace(/&amp;/g, '&');
 			console.log("// Loading "+settings.url+' on '+settings.idContext + " context using "+settings.method+" on target "+settings.target+" with callback: "+settings.callback);
+
+			__kuink.executeBeforeLoadFunctions(); //Execute the pushed functions before the submit
+
 			xhr = new XMLHttpRequest();
 
 			xhr.open(settings.method, settings.url);
@@ -110,6 +113,11 @@
 				__kuink.contextClear(settings.idContext);
 				xhr.send(settings.data);
 			}
+			setTimeout(function (){
+				//This must be delayed because it can only run after the content is loaded in the document
+				__kuink.executeAfterLoadFunctions(); //Execute the pushed functions to run after the submit			
+			}, 1000);
+			
 		} //end function
 
 	

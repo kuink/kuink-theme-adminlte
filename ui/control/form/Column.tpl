@@ -1,19 +1,19 @@
 {if $insideHeader == 1}
 	</div>
 {/if}
-
-{if $insideColumn == 1}
+{if ($insideColumn == 1)}
 	</div>
 {else}
 	<div class="row">
 {/if}
 
-{if $columns == ''}
-	{assign var="columnWidth" value=12/$tabs[$tabIndex]['columns']}
+{if ($tabs[$tabIndex]['columns'][$currentColumnGroup] > 0)}
+	{$columnWidth = 12/$tabs[$tabIndex]['columns'][$currentColumnGroup]}
 {else}
-	{assign var="columnWidth" value=12/$columns}
+	{$columnWidth = 12}
 {/if}
-
-{$converted = settype($columnWidth, 'integer')}
+{* <p>%[{$tabIndex}{$currentColumnGroup}]->{$tabs[$tabIndex]['columns'][$currentColumnGroup]}={$columnWidth}</p> *}
+{if $field['attributes']['close']=='false'}
 	<div class="col-md-{$columnWidth}">
+{/if}
 
