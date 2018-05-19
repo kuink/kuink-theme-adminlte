@@ -119,8 +119,6 @@
 			}, 1000);
 			
 		} //end function
-
-	
 		if (settings.idContext == undefined || settings.url == undefined){
 			// nothing
 		} else {

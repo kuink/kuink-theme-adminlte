@@ -29,7 +29,7 @@
 
 					$("#{$_guid}_wrapper").kuinkSubmit({
 						'url' 			: '{$url}&idcontext={$_guid}',
-						'id_context'	: '{$_guid}',
+						'idContext'	: '{$_guid}',
 						'target'    :'#{$_guid}_loading_wrapper',
 						'method' 		: 'get',
 						'data'			: undefined,
