@@ -10,7 +10,6 @@
 <!-- Main content -->
 
 <div id="{$_idContext}_wrapper" class="box" kuink-guid="{$_idContext}" style="padding: 0px 5px;">
-
 	<div class="box-header with-border" style="cursor: move;">
 		<!-- tools box -->
 		<div class="pull-right box-tools">

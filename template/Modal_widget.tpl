@@ -9,6 +9,12 @@
 {* include the template *}
 <!-- Main content -->
 
+	{* include the template *}
+	{assign var="appTemplateSmarty" value='app/'|cat:$appTemplate}
+	{include $appTemplateSmarty}
+
+{* include the template 
+<!-- Main content -->
 <div id="wrapper" class="toggled">
 	{if !empty($menuEntries)}
 		{assign var="menuIsToggled" value=false}
@@ -26,7 +32,7 @@
 					</div>
 					{/if}
 					<div id="{$_idContext}_content_wrapper" kuink-guid="{$_idContext}">
-						{* include the template *}
+
 						{assign var="appTemplateSmarty" value='app/'|cat:$appTemplate}
 						{include $appTemplateSmarty}
 					</div>
@@ -44,3 +50,5 @@
 		</div>
 	</div><!-- /.row -->
 </div>
+*}
+

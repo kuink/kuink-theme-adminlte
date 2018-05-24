@@ -49,7 +49,7 @@ $position = Position of controls
 			<!-- Right side column. Contains the navbar and content of the page -->
 			<aside class="right-side">
 				<!-- Content Header (Page header) -->
-				{if $widgetContainer!=true}
+				{*if $widgetContainer!=true*}
 					<section class="content-header">
 						<h1>
 							{$breadcrumbEntries[4]['label']}
@@ -61,14 +61,16 @@ $position = Position of controls
 							{/foreach}
 						</ol>
 					</section>
-				{/if}
+				{*/if*}
 
 				<!-- Main content -->
 				{if $widgetContainer==true}
-					{include 'Modal_widget.tpl'}
+						{assign var="appTemplateSmarty" value='app/'|cat:$appTemplate}
+						{include $appTemplateSmarty}
 				{else}
 					{include 'Modal_embed.tpl'}
 				{/if}
+				{*include 'Modal_embed.tpl'*}
 
 				<footer>
 					<div class="pull-right">

@@ -3,7 +3,7 @@
 
 		//Call kuink submit center
 		$(".box-body").kuinkSubmit({
-			'url' : location+'&modal=widget',
+			'url' : location+'&modal=embed',
 			'idContext' : '{$_idContext}',
 			'method' : 'get',
 			'button_id' : button_id

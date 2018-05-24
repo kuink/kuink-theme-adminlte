@@ -160,7 +160,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 						return false;
 											
 					$("#kuink_{$_guid}").kuinkSubmit({
-						'url' 			: location+'&modal=widget',
+						'url' 			: location+'&modal=embed',
 						'idContext'	: '{$_idContext}',
 						'method' 		: {if $freeze=='false'}'post'{else}'get'{/if},
 						'processData': false,

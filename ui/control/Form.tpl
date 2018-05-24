@@ -35,7 +35,7 @@
 					
 					if(buttonType=='cancel') {
 						$("#{$_guid}").kuinkSubmit({
-							'url' 						: url + '&modal=widget',
+							'url' 						: url + '&modal=embed',
 							'idContext'			: '{$_idContext}',
 							'method' 					: 'get',
 							'button_id' 			: buttonId,
@@ -57,7 +57,7 @@
 						confirm = true;
 					
 				$("#{$_guid}").kuinkSubmit({
-					'url' 						: url + '&modal=widget',
+					'url' 						: url + '&modal=embed',
 					'idContext'			: '{$_idContext}',
 					'method' 					: 'post',
 					'processData'			: false,
@@ -87,7 +87,7 @@
 
 		//Call kuink submit center
 		$("#{$_guid}").kuinkSubmit({
-			'url' 						: location + '&modal=widget',
+			'url' 						: location + '&modal=embed',
 			'id_context' 			: '{$_idContext}',
 			'method' 					: 'post',
 			'processData'			: false,

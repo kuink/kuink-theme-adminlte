@@ -20,15 +20,37 @@
 			button_id		: undefined
 		}, options);
 
-		var doSubmitHttpRequest = function() {
-			settings.url = settings.url.replace(/&amp;/g, '&');
-			console.log("// Loading "+settings.url+' on '+settings.idContext + " context using "+settings.method+" on target "+settings.target+" with callback: "+settings.callback);
+		var decodeEntities = (function() {
+			// this prevents any overhead from creating the object each time
+			var element = document.createElement('div');
+		
+			function decodeHTMLEntities (str) {
+				if(str && typeof str === 'string') {
+					// strip script/html tags
+					str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+					str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+					element.innerHTML = str;
+					str = element.textContent;
+					element.textContent = '';
+				}
+		
+				return str;
+			}
+		
+			return decodeHTMLEntities;
+		})();
 
+		var doSubmitHttpRequest = function() {
+			var decodedUrl = decodeEntities(settings.url);
+			//settings.url = settings.url.replace(/amp%3B/g, '');			
+			//settings.url = settings.url.replace(/&amp;/g, '&');
+			console.log("// Loading "+decodedUrl+' on '+settings.idContext + " context using "+settings.method+" on target "+settings.target+" with callback: "+settings.callback);
+			//console.log(settings.url);
 			__kuink.executeBeforeLoadFunctions(); //Execute the pushed functions before the submit
 
 			xhr = new XMLHttpRequest();
 
-			xhr.open(settings.method, settings.url);
+			xhr.open(settings.method, decodedUrl);
 			if (settings.method.toUpperCase() == 'GET')
 				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 				// xhr.setRequestHeader('Content-Type', 'multipart/form-data');
@@ -45,7 +67,10 @@
 						reader.onload = function() {
 							text = reader.result;
 							//console.log(text);
-							$("#"+settings.idContext+"_loading_wrapper").html(text);
+							//$("#"+settings.idContext+"_loading_wrapper").html(text);
+							//console.log("Loading Result: "+settings.target);
+							$("#"+settings.idContext+"_wrapper").html(text);
+
 							window.scrollTo(0, 0);
 						};
 						reader.readAsText(xhr.response);
