@@ -58,8 +58,9 @@
 					
 				$("#{$_guid}").kuinkSubmit({
 					'url' 						: url + '&modal=embed',
-					'idContext'			: '{$_idContext}',
+					'idContext'				: '{$_idContext}',
 					'method' 					: 'post',
+					'target'					: '{$_idContext}_wrapper',
 					'processData'			: false,
 					'contentType'			: false,
 					'button_id' 			: buttonId,

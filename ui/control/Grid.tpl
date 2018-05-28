@@ -141,7 +141,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 					});
 				{/if}
 
-				function gridActionField_{$_guid}(confirm, confirm_message, location, button_id) {
+				function gridActionField_{$_guid}(confirm, confirm_message, location, button_id, extraParams='') {
 					if (confirm == 'true' || confirm == true)
 						__kuink.controlAddKey('{$_idContext}','kuink_{$_guid}', button_id, 'confirm', confirm_message);
 
@@ -260,12 +260,13 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 									{if $columnAttributes[$index]['sortable'] != 'false' && $columnAttributes[$index]['sortable'] != ''}
 
 										<span style="display:inline;">
-											{if $sort[$index]['sort'] == 'asc'}
-												<a href="{$baseUrl}&{$name}_sort={$index}_desc""><i class="fa fa-sort-asc"></i></a>
-											{else if $sort[$index]['sort'] == 'desc'}
-												<a href="{$baseUrl}&{$name}_sort={$index}_rem""><i class="fa fa-sort-desc"></a></i>
+											
+											{if isset($sort[$index]['sort']) && $sort[$index]['sort'] == 'asc'}
+												<a href="javascript: void(0)"  onclick="gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_sort={$index}_desc', '')"><i class="fa fa-sort-asc"></i></a>
+											{else if isset($sort[$index]['sort']) && $sort[$index]['sort'] == 'desc'}
+												<a href="javascript: void(0)"  onclick="gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_sort={$index}_rem', '')"><i class="fa fa-sort-desc"></i></a>
 											{else}
-												<a href="{$baseUrl}&{$name}_sort={$index}_asc"><i class="fa fa-sort"></i></a>
+												<a href="javascript: void(0)"  onclick="gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_sort={$index}_asc', '')"><i class="fa fa-sort"></i></a>
 											{/if}
 										</span>
 									{/if}

@@ -28,6 +28,7 @@ $position = Position of controls
 	</head>
 
 	<body class="{if $_environment == 'dev'}skin-yellow{else}skin-blue-light{/if} sidebar-mini wysihtml5-supported sidebar-collapse">
+
 		<div class="wrapper row-offcanvas row-offcanvas-left">
 			<header class="main-header">
 				<!-- Logo -->
@@ -49,7 +50,6 @@ $position = Position of controls
 			<!-- Right side column. Contains the navbar and content of the page -->
 			<aside class="right-side">
 				<!-- Content Header (Page header) -->
-				{*if $widgetContainer!=true*}
 					<section class="content-header">
 						<h1>
 							{$breadcrumbEntries[4]['label']}
@@ -61,7 +61,6 @@ $position = Position of controls
 							{/foreach}
 						</ol>
 					</section>
-				{*/if*}
 
 				<!-- Main content -->
 				{if $widgetContainer==true}

@@ -24,6 +24,7 @@
 		<a href="{$_refresh}" class="btn btn-success" id="refresh" title="{translate}refresh{/translate}"><i class="fa fa-refresh"></i></a>
 		
 	</div>
+	
 	<div class="box-body">
 		<div id="{$_idContext}_loading_wrapper" kuink-guid="{$_idContext}">
 			<div id="wrapper" class="toggled">
