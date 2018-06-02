@@ -30,7 +30,7 @@
 
                                 <p>{$guardian['title']} {$guardian['display_name']},</p>
 
-                                <p>Informo que o aluno {$student['display_name']} tem as seguintes notas:</p>
+                                <p>Informo que o aluno {$student['display_name']} tem as seguintes faltas por justificar:</p>
                             </td>
                         </tr>
                         <tr>

@@ -69,7 +69,8 @@
 							//console.log(text);
 							//$("#"+settings.idContext+"_loading_wrapper").html(text);
 							//console.log("Loading Result: "+settings.target);
-							$("#"+settings.idContext+"_wrapper").html(text);
+							//$("#"+settings.idContext+"_wrapper").html(text);
+							$("#"+settings.idContext+"_wrapper").replaceWith(text);
 
 							window.scrollTo(0, 0);
 						};
@@ -103,12 +104,12 @@
 				}
 			};
 			xhr.responseType = 'blob';
-
-			if (settings.target != undefined){
-				$(settings.target).append('<div class="overlay" style="position:fixed;" ><i class="fa fa-refresh fa-spin loading-img"></i></div>');
-			} else {
-				$("#"+settings.idContext+"_wrapper").append('<div class="overlay" style="position:fixed;" id="' + settings.idContext + '_loading"><i class="fa fa-refresh fa-spin loading-img"></i></div>');
-			}
+			console.log('target:' + settings.target);
+			//if (settings.target != undefined){
+			//	$(settings.target).append('<div class="overlay" style="position:fixed;" ><i class="fa fa-refresh fa-spin loading-img"></i></div>');
+			//} else {
+			$("#"+settings.idContext+"_wrapper").append('<div class="overlay" style="position:fixed;" id="' + settings.idContext + '_loading"><i class="fa fa-refresh fa-spin loading-img"></i></div>');
+			//}
 
 			if (settings.method.toUpperCase() == 'GET') {
 				// This is a GET
@@ -138,6 +139,16 @@
 				__kuink.contextClear(settings.idContext);
 				xhr.send(settings.data);
 			}
+			//Restore form buttons to previous state before
+			var formButtons = $("#"+settings.formGuid).find("button").parent().children();
+			console.log('Restoring Button states');
+			$(formButtons).each(function() {
+				if (this.id != '') {
+					var disabled = __kuink.controlGetKey(settings.idContext, settings.formGuid, this.id, 'disabled','false');
+					console.log(this.id + '->' + disabled);
+					$(this).attr('disabled', disabled == 'true' ? true : false);
+				}
+			});			
 			setTimeout(function (){
 				//This must be delayed because it can only run after the content is loaded in the document
 				__kuink.executeAfterLoadFunctions(); //Execute the pushed functions to run after the submit			
@@ -169,7 +180,7 @@
 							callback	: function() {
 								//Restore form buttons to previous state before
 								var formButtons = $("#"+settings.formGuid).find("button").parent().children();
-								
+								console.log('Restoring Button states');
 								$(formButtons).each(function() {
 									if (this.id != '') {
 										var disabled = __kuink.controlGetKey(settings.idContext, settings.formGuid, this.id, 'disabled','true');

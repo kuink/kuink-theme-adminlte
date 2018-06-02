@@ -1,12 +1,12 @@
 
-<link rel="stylesheet" href="lib/tools/codemirror/addon/hint/show-hint.css">
-<link rel="stylesheet" href="lib/tools/codemirror/theme/ambiance.css">
-<link rel="stylesheet" href="lib/tools/codemirror/lib/codemirror.css">
-<script src="lib/tools/codemirror/lib/codemirror.js"></script>
-<script src="lib/tools/codemirror/addon/hint/show-hint.js"></script>
-<script src="lib/tools/codemirror/addon/edit/closetag.js"></script>
-<script src="lib/tools/codemirror/addon/hint/xml-hint.js"></script>
-<script src="lib/tools/codemirror/mode/xml/xml.js"></script>
+<link rel="stylesheet" href="kuink-core/lib/tools/codemirror/addon/hint/show-hint.css">
+<link rel="stylesheet" href="kuink-core/lib/tools/codemirror/theme/ambiance.css">
+<link rel="stylesheet" href="kuink-core/lib/tools/codemirror/lib/codemirror.css">
+<script src="kuink-core/lib/tools/codemirror/lib/codemirror.js"></script>
+<script src="kuink-core/lib/tools/codemirror/addon/hint/show-hint.js"></script>
+<script src="kuink-core/lib/tools/codemirror/addon/edit/closetag.js"></script>
+<script src="kuink-core/lib/tools/codemirror/addon/hint/xml-hint.js"></script>
+<script src="kuink-core/lib/tools/codemirror/mode/xml/xml.js"></script>
 
 
 

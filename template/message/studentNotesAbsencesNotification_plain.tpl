@@ -3,7 +3,7 @@ Colégio do Sagrado Coração de Maria - Lisboa
 
 {$guardian['title']} {$guardian['display_name']}
 
-Informo que o aluno {$student['display_name']} tem as seguintes notas:
+Informo que o aluno {$student['display_name']} tem as seguintes faltas por justificar:
 
 {$notesAscii}
 
