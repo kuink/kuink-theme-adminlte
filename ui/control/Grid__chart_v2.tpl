@@ -6,6 +6,7 @@
 	}
 
 
+
 	function draw_chart_{$name}(){literal}{{/literal}
 
 		var name = '{$name}';
@@ -23,12 +24,19 @@
 		/** set chartCategories **/
 		var chartCategories = new Array();
 
-		/** set chartTitle and subtitle **/
-		var chartTitle = dataObj.title;
-		var chartSubtitle = dataObj.subtitle;
+    /** set chartTitle and subtitle **/
+    var chartTitle = dataObj.title;
+    var chartSubtitle = dataObj.subtitle;
 
-		var chartXAxisTitle = dataObj.xAxisTitle;
-		var chartYAxisTitle = dataObj.yAxisTitle;
+    var chartXAxisTitle = dataObj.xAxisTitle;
+    var chartYAxisTitle = dataObj.yAxisTitle;
+    
+    var yAxisMin = (dataObj.yAxisMin == "null") ? null : dataObj.yAxisMin;
+    
+    var yAxisMax = (dataObj.yAxisMax == "null") ? null : dataObj.yAxisMax;
+    var yAxisTickInterval = (dataObj.yAxisTickInterval == "null") ? null : dataObj.yAxisTickInterval;
+    var yAxisAllowDecimals = (dataObj.yAxisAllowDecimals == "true") ? true : false;
+
 
 		var chartType = dataObj.type;
 

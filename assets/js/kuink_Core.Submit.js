@@ -70,7 +70,13 @@
 							//$("#"+settings.idContext+"_loading_wrapper").html(text);
 							//console.log("Loading Result: "+settings.target);
 							//$("#"+settings.idContext+"_wrapper").html(text);
-							$("#"+settings.idContext+"_wrapper").replaceWith(text);
+							$("#"+settings.idContext+"_wrapper").replaceWith(text).promise().done(function(elem){
+								setTimeout(function (){
+									//This must be delayed because it can only run after the content is loaded in the document
+									//We must delay 1000 ms to achieve this
+									__kuink.executeAfterLoadFunctions(); //Execute the pushed functions to run after the submit			
+								}, 1000);
+							});
 
 							window.scrollTo(0, 0);
 						};
@@ -149,10 +155,6 @@
 					$(this).attr('disabled', disabled == 'true' ? true : false);
 				}
 			});			
-			setTimeout(function (){
-				//This must be delayed because it can only run after the content is loaded in the document
-				__kuink.executeAfterLoadFunctions(); //Execute the pushed functions to run after the submit			
-			}, 1000);
 			
 		} //end function
 		if (settings.idContext == undefined || settings.url == undefined){
