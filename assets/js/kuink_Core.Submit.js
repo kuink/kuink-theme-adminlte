@@ -56,7 +56,7 @@
 				// xhr.setRequestHeader('Content-Type', 'multipart/form-data');
 			xhr.onload = function() {
 				if (xhr.status === 200) {
-					// console.log(xhr.responseText);
+					//console.log(xhr.responseText);
 					var contentType = xhr.getResponseHeader("Content-Type");
 					console.log(contentType);
 					if (contentType.indexOf("html") != -1) {
@@ -70,18 +70,35 @@
 							//$("#"+settings.idContext+"_loading_wrapper").html(text);
 							//console.log("Loading Result: "+settings.target);
 							//$("#"+settings.idContext+"_wrapper").html(text);
-							$("#"+settings.idContext+"_wrapper").replaceWith(text).promise().done(function(elem){
-								setTimeout(function (){
-									//This must be delayed because it can only run after the content is loaded in the document
-									//We must delay 1000 ms to achieve this
-									__kuink.executeAfterLoadFunctions(); //Execute the pushed functions to run after the submit			
-								}, 1000);
-							});
+							
+							var targetContainer = settings.idContext+"_wrapper";
+							if (__kuink.modal) {
+								//If the global kuinkModal is active then us it instead of context
+								//Don't replace content because div will not come
+								targetContainer = 'kuinkModalContainer';
+								$("#"+targetContainer).html(text).promise().done(function(elem){
+									setTimeout(function (){
+										//This must be delayed because it can only run after the content is loaded in the document
+										//We must delay 1000 ms to achieve this
+										__kuink.executeAfterLoadFunctions(); //Execute the pushed functions to run after the submit			
+									}, 1000);
+								});
+
+							} else
+								//Replace content because div will come in response
+								$("#"+targetContainer).replaceWith(text).promise().done(function(elem){
+									setTimeout(function (){
+										//This must be delayed because it can only run after the content is loaded in the document
+										//We must delay 1000 ms to achieve this
+										__kuink.executeAfterLoadFunctions(); //Execute the pushed functions to run after the submit			
+									}, 1000);
+								});
 
 							window.scrollTo(0, 0);
 						};
 						reader.readAsText(xhr.response);
 					} else {
+						//This is not html, is a file stream
 						var filename = "";
 						var disposition = xhr.getResponseHeader('Content-Disposition');
 						

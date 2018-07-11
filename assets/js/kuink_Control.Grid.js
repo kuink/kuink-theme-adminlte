@@ -6,7 +6,7 @@ function kuink_loadApplicationContent(url, context, data){
 			'url' 				: url,
 			'id_context'		: context,
 			'method' 			: 'post',
-			'target'			: '#'+context+'_content_wrapper',
+			//'target'			: '#'+context+'_content_wrapper',
 			'data'				: data
 		});
 

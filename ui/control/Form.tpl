@@ -60,7 +60,7 @@
 					'url' 						: url + '&modal=embed',
 					'idContext'				: '{$_idContext}',
 					'method' 					: 'post',
-					'target'					: '{$_idContext}_wrapper',
+					//'target'					: '{$_idContext}_wrapper',
 					'processData'			: false,
 					'contentType'			: false,
 					'button_id' 			: buttonId,

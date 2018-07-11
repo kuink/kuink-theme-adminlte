@@ -34,7 +34,18 @@ function KuinkManager() {
 			this.contexts[context].controls = [];
 		}
 	};
-	
+
+	//Is kuink running in modal mode?
+	this.modalOpen = function() {
+		this.modal = true;
+	};
+
+	//Is kuink running in modal mode?
+	this.modalClose = function() {
+		this.modal = false;
+	};
+
+
 	this.controlAdd = function(context, guid) {
 		//console.log('Adding controls');
 		this.contextAdd(context);
