@@ -40,7 +40,8 @@
                   Save
                 </button>
                 <!-- Launch modal application -->
-                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#kuinkModal" onclick="javascript: launchApplication('ide', 'manageEntity');">Create Entities</button>                
+                <!--button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#kuinkModal" onclick="javascript: launchApplication('ide', 'manageEntity');">Create Entities</button>                
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#kuinkModal" onclick="javascript: launchApplication('ide', 'generator');">Generate</button-->                
                 <span id="openedFileName"></span>
                 <textarea id="code" name="code" style="display: none;">
                 </textarea>
@@ -202,9 +203,10 @@ jQuery("#libraries").select2({
     //The target will be the modal from now on
     __kuink.modalOpen();
 
+    //QuickFix. Launch a new context so it will not interfere with the previous one
     $("#kuink_{$_guid}").kuinkSubmit({
-      'url' 			: '{$baseUrl}&startuc='+process+'&event='+event+'&modal=embed',
-      'idContext'	: '{$_idContext}',
+      'url' 			: '{$baseUrl}a&startuc='+process+'&event='+event+'&modal=embed',
+      'idContext'	: '{$_idContext}a',
       'method' 		: 'get',
       'processData': false,
       'contentType': false,
