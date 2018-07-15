@@ -40,8 +40,8 @@
                   Save
                 </button>
                 <!-- Launch modal application -->
-                <!--button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#kuinkModal" onclick="javascript: launchApplication('ide', 'manageEntity');">Create Entities</button>                
-                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#kuinkModal" onclick="javascript: launchApplication('ide', 'generator');">Generate</button-->                
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#kuinkModal" onclick="javascript: launchApplication('ide', 'manageEntity');">Create Entities</button>                
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#kuinkModal" onclick="javascript: launchApplication('ide', 'generator');">Generate App</button>                
                 <span id="openedFileName"></span>
                 <textarea id="code" name="code" style="display: none;">
                 </textarea>
@@ -202,11 +202,12 @@ jQuery("#libraries").select2({
   function launchApplication(process, event) {
     //The target will be the modal from now on
     __kuink.modalOpen();
-
+    var d = new Date();
+    var mili = d.getMilliseconds();
     //QuickFix. Launch a new context so it will not interfere with the previous one
     $("#kuink_{$_guid}").kuinkSubmit({
-      'url' 			: '{$baseUrl}a&startuc='+process+'&event='+event+'&modal=embed',
-      'idContext'	: '{$_idContext}a',
+      'url' 			: '{$baseUrl}'+mili+'&startuc='+process+'&event='+event+'&modal=embed',
+      'idContext'	: '{$_idContext}'+mili,
       'method' 		: 'get',
       'processData': false,
       'contentType': false,
