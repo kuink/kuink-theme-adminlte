@@ -161,6 +161,11 @@
 											apiUrl = apiUrl.replace(param,paramValue);
 										}
 									}
+									
+									//TODO:Ugly hack find the source of this problem... probably in Form.php
+									apiUrl = apiUrl.replace('mod/kuink/','');
+									apiUrl = apiUrl.replace('mod/neon/','');
+									console.log(apiUrl);
 									$.ajax({
 										url: apiUrl,
 										type: 'get',

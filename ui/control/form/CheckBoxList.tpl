@@ -1,4 +1,3 @@
-
 <div class="controls form-group">
 		{foreach $field['options'] as $optionValue => $optionLabel}
 			{if $optionValue != ''}
