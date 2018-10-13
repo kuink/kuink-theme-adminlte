@@ -7,5 +7,3 @@
 		{include 'Modal_embed.tpl'}
 	</body>
 </html>
-	
-

@@ -22,54 +22,90 @@ and handle the control display
 		{if $item == 'required'}
 			{$fieldRequired = true}
 		{/if}
-  {/foreach}
+	{/foreach}
 
-{assign var=fieldType value=$field['type']}
-{if $fieldType == 'Header'}
-	{if !isset($notFirstHeader)}
-		{assign var=notFirstHeader value=false scope=parent}
+
+{* Calculate the label size xlarge, large, medium, small *}
+{$labelSize=2}
+{if $fieldAttrs['labelsize']=='small'} 
+    {$labelSize=2}
+  {elseif $fieldAttrs['labelsize']=='medium'}
+  	{$labelSize=6}
+  {elseif $fieldAttrs['labelsize']=='large'}
+  	{$labelSize=8}
+  {elseif $fieldAttrs['labelsize']=='xlarge'}
+  	{$labelSize=10}
+ {/if} 
+ {* Inline fields allways have value of 1 *}
+ {if $fieldAttrs['inline']!='false'} 
+	{$labelSize=1}
+{/if}
+
+{$availableSpace = 12}
+{if (($field['attributes']['inline'] == 'false') && ($field['attributes']['_rowLength'] > 1))}
+	{* This is the first of inline fields*}
+	{$fieldSize = ($availableSpace/$field['attributes']['_rowLength']) - $labelSize + 1}
+{else}
+	{if ($field['attributes']['inline'] != 'false') && ($field['attributes']['_rowEnd'] == 1)}
+		{* This is the last of inline fields*}
+		{$fieldSize = ($availableSpace/$field['attributes']['_rowLength']) - $labelSize - 1}
 	{else}
-		{$notFirstHeader=true}
+		{$fieldSize = ($availableSpace/$field['attributes']['_rowLength']) - $labelSize}
 	{/if}
 {/if}
 
-{if $fieldType == 'Header' && $notFirstHeader}
-	{*Close the previous header*}
-		</fieldset>
-	</div>
-</div>
-{/if}
+{* $fieldSize = ($availableSpace/$field['attributes']['_rowLength']) - $labelSize *}
 
-<div class="form-group" id="{$fieldID}CG">
-	<div class="row">
-		{if $fieldType != 'Header' && $fieldType != 'Checkbox' && $fieldType != 'ActionGroup'}
-		<div class="col-lg-2 col-sm-2 col-xs-3">
-			{if $field['attributes']['inline']!='true' && $fieldType !='Hidden'}
-				<label for="{$fieldGuid}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label>
-				{if $field['attributes']['help']!=''}
-					&nbsp;&nbsp;
-					<a
-					   data-toggle="tooltip" title=""
-					   data-original-title="{$field['attributes']['help']}"
-					   data-placement="right"
-					   href="javascript:void(0);">
-							<i class="fieldQuestionMark fa fa-info-circle" ></i>
-					</a>
-				{/if}
+{assign var=fieldType value=$field['type']}
+
+{* $field['attributes']['_rowStart']}|{$field['attributes']['_rowEnd'] *}
+
+{if $fieldType == 'Header' || $fieldType == 'Column' || $fieldType == 'Tab'}
+	{include file="./form/$fieldType.tpl"}
+	{if ($fieldAttrs['close'] == 'true')} {*For closing columns*}
+		</div>
+	{/if}	
+{else}
+	{if $fieldAttrs['_rowStart'] == 1}
+		{* <!--div class="form-group" id="{$fieldID}CG" style="{if ($prevFieldAttrs['inline']!='false') && ($fieldAttrs['inline']=='false')}clear: left;{/if}{if ($fieldAttrs['inline']!='false') || ($nextFieldAttrs['inline']!='false' && $nextFieldAttrs!=null)}float: left;{/if}margin-left: 10px;"-->	*}
+		<div class="form-group" id="{$fieldID}CG" style="margin-left: 10px;">	
+			<div class="row">
+	{/if}
+			{if $fieldAttrs['labelposition'] == 'right'}
+				<div class="col-lg-{$fieldSize} col-md-{$fieldSize} col-sm-{$fieldSize} col-xs-12">
+					{include file="./form/$fieldType.tpl"}
+				</div>			
 			{/if}
-		</div>
-		{/if}
-		{if $fieldType == 'Checkbox'}
-			<div class="col-lg-2 col-sm-2 col-xs-3">
+			
+			{if $fieldType != 'ActionGroup'}
+			
+			<!--div class="col-lg-{$labelSize} col-md-{$labelSize} col-sm-{$labelSize} col-xs-3" style="{if (($fieldAttrs['inline']=='true') || ($nextFieldAttrs['inline']=='true' && $nextFieldAttrs!=null)) }width: 100%;{/if}"-->
+			<div class="col-lg-{$labelSize} col-md-{$labelSize} col-sm-{$labelSize} col-xs-12">
+				{if $fieldType !='Hidden'}
+					{* <label for="{$fieldGuid}" style="{if $fieldAttrs['inline'] == 'tight'}width: auto; margin:0px 5px 0px 5px;{/if}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label> *}
+					<label for="{$fieldGuid}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label>
+					{if $field['attributes']['help']!='false' && $field['attributes']['help']!='' && $field['attributes']['help'] != $fieldID}
+						&nbsp;&nbsp;
+						<a tabindex="-1"
+							 data-toggle="tooltip" title=""
+							 data-original-title="{$field['attributes']['help']}"
+							 data-placement="right"
+							 href="javascript:void(0);">
+								<i class="fieldQuestionMark fa fa-info-circle" ></i>
+						</a>
+					{/if}
+				{/if}
 			</div>
-		{/if}
+			{/if}
 
-		<div class="col-lg-10 col-sm-10 col-xs-12">
-			{include file="./form/$fieldType.tpl"}
+			{if $fieldAttrs['labelposition'] == 'left'}
+				<div class="col-lg-{$fieldSize} col-md-{$fieldSize} col-sm-{$fieldSize} col-xs-12">
+					{include file="./form/$fieldType.tpl"}
+				</div>			
+			{/if}
+	{if ($fieldAttrs['_rowEnd'] == 1)} {*For closing columns*}
+			</div>
 		</div>
-	</div>
-</div>
-{if $fieldType == 'Header'}
-	{*Close the previous header*}
-	<div id="head_{$fieldID}">
+	{/if}
+	
 {/if}

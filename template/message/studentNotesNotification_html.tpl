@@ -27,10 +27,10 @@
                     <table cellpadding="0" cellspacing="0" border="0" align="left" width="100%">
                         <tr>
                             <td colspan="2">
-                                
+
                                 <p>{$guardian['title']} {$guardian['display_name']},</p>
-                                
-                                <p>Informo que o aluno {$student['display_name']} tem as seguintes faltas por justificar:</p>
+
+                                <p>Informo que o aluno {$student['display_name']} tem as seguintes notas:</p>
                             </td>
                         </tr>
                         <tr>
@@ -53,13 +53,13 @@
                                         </tr>
                                     {/foreach}
                                 </table>
-                                    
+
                             </td>
                         </tr>
-                        
-                      
+
+
                                 </table>
-                                
+
                             </td>
                         </tr>
                     </table>
@@ -78,4 +78,3 @@
 
 
 </html>
-

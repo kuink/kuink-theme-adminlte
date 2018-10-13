@@ -5,66 +5,73 @@ $position = Position of controls
 
 *}
 {function hook }          {* short-hand *}
-  {foreach $POSITION[ $position ] as $item}
-  <div class="row-fluid" style="margin-left: 0px">
-      {$item}
-  </div>
-  {/foreach}
+	{foreach $POSITION[ $position ] as $item}
+	<div class="row-fluid" style="margin-left: 0px">
+		{$item}
+	</div>
+	{/foreach}
 {/function}
+
+{* necessary to display user photos at the navbar *}
+{if ($_imageUrl == '')}
+	{$imageSrc = 'stream.php?type=photo&guid='}
+{else}
+	{$imageSrc = $_photoUrl}
+{/if}
 
 
 <!DOCTYPE html>
-<html>
+<html lang="{$_lang}">
 
 	<head>
 		{include 'Head.tpl'}
 	</head>
 
-    <body class="skin-blue-light sidebar-mini wysihtml5-supported">
-        <div class="wrapper row-offcanvas row-offcanvas-left">
-        <header class="main-header">
-        <!-- header logo: style can be found in header.less -->
-        <!-- Logo -->
-        <a href="{$breadcrumbEntries[2]['href']}" class="logo">
-          <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini">K</span>
-          <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg">KuinK</span>
-        </a>
+	<body class="{if $_environment == 'dev'}skin-yellow{else}skin-blue-light{/if} sidebar-mini wysihtml5-supported sidebar-collapse">
 
-			{* include the top navbar*}
-            {include 'Master_top-navbar.tpl'}
+		<div class="wrapper row-offcanvas row-offcanvas-left">
+			<header class="main-header">
+				<!-- Logo -->
+				<a href="{$breadcrumbEntries[2]['href']}" class="logo">
+					<!-- mini logo for sidebar mini 50x50 pixels -->
+					<span class="logo-mini">S</span>
+					<!-- logo for regular state and mobile devices -->
+					<span class="logo-lg">CSCM-Lx</span>
+				</a>
 
+				{* include the top navbar*}
+				{include 'Master_top-navbar.tpl'}
 
-        </header>
+			</header>
 
-		{* include left sidebar *}
-		{include 'Master_left-navbar.tpl'}
+			{* include left sidebar *}
+			{include 'Master_left-navbar.tpl'}
 
-            <!-- Right side column. Contains the navbar and content of the page -->
-            <aside class="right-side">
-                <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <h1>
-                        {$breadcrumbEntries[4]['label']}
-                        <small>{$breadcrumbEntries[3]['label']}</small>
-                    </h1>
-                    <ol class="breadcrumb">
-						{foreach from=$breadcrumbEntries item=breadcrumb}
-							<li><a href="{if $breadcrumb['href']==''}javascript: void(0);{else}{$breadcrumb['href']}{/if}">{$breadcrumb['label']}</a></li>
-						{/foreach}
-                    </ol>
-                </section>
+			<!-- Right side column. Contains the navbar and content of the page -->
+			<aside class="right-side">
+				<!-- Content Header (Page header) -->
+					<section class="content-header">
+						<h1>
+							{$breadcrumbEntries[4]['label']}
+							<small>{$breadcrumbEntries[3]['label']}</small>
+						</h1>
+						<ol class="breadcrumb">
+							{foreach from=$breadcrumbEntries item=breadcrumb}
+								<li><a href="{if $breadcrumb['href']==''}javascript: void(0);{else}{$breadcrumb['href']}{/if}">{$breadcrumb['label']}</a></li>
+							{/foreach}
+						</ol>
+					</section>
 
-                <!-- Main content -->
-				{if $widgetContainer!=true}
-	                {include 'Modal_embed.tpl'}
+				<!-- Main content -->
+				{if $widgetContainer==true}
+						{assign var="appTemplateSmarty" value='app/'|cat:$appTemplate}
+						{include $appTemplateSmarty}
 				{else}
-	                {include 'Modal_widget.tpl'}
+					{include 'Modal_embed.tpl'}
 				{/if}
+				{*include 'Modal_embed.tpl'*}
 
 				<footer>
-
 					<div class="pull-right">
 						<div style="text-align: right">
 							<!-- replace with footer html5 tag -->
@@ -73,12 +80,9 @@ $position = Position of controls
 					</div>
 				</footer>
 
-            </aside><!-- /.right-side -->
-        </div><!-- ./wrapper -->
+			</aside><!-- ./right-side -->
+		</div><!-- ./wrapper -->
 
-		<script>
-
-		</script>
-    </body>
+	</body>
 
 </html>

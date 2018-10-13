@@ -23,9 +23,10 @@ iframe {
     <i class="fa fa-file">&nbsp;</i>
     <h3 class="box-title">{$title}</h3>
   </div>
-  {/if} 
+  {/if}
   <div id="imageBlock" class="imageBlock">
-    <iframe style="float:left" src = "lib/tools/viewerjs/ViewerJS/#../../../../file.php?guid={$fileGuid}" width='566' height='800' allowfullscreen webkitallowfullscreen>
+    <iframe style="float:left" src = "kuink-core/lib/tools/viewerjs/ViewerJS/#../../../../../stream.php?type=file&guid={$fileGuid}" width='566' height='800' allowfullscreen webkitallowfullscreen>
     </iframe>
   </div>
 </div>
+{/nocache}

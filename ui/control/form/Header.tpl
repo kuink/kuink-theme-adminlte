@@ -1,53 +1,44 @@
-{$fieldAttrs = $field['attributes']}
+{if $insideHeader == 1}
+	</div>
+{/if}
 
-<div id="{$fieldAttrs['id']}CG">
-    <fieldset>
-      <legend class="form_legend">{$fieldAttrs['label']}
-          {if $fieldAttrs['collapsible'] == 'true'}
-          <script>
-              //set initial text for this label
-              $(document).ready(function(){
-                  var showText = $("#showHide_{$fieldAttrs['id']}").attr("showText");
-                  var hideText = $("#showHide_{$fieldAttrs['id']}").attr("hideText");
+<div id="{$_guid}_{$fieldGuid}" name="{$_guid}_{$fieldName}" class="page-header" style="clear:both">
+	{if $field['attributes']['collapsible'] == 'true'}
+		<script>
+			$(document).ready(function(){
+				var showText = $("#showHide_{$_guid}_{$fieldGuid}").attr("showText");
+				var hideText = $("#showHide_{$_guid}_{$fieldGuid}").attr("hideText");
 
-                  {if $fieldAttrs['collapsed'] == 'true'}
-                      $("#showHide_{$fieldAttrs['id']}").html(showText);
-                   {else}
-                      $("#showHide_{$fieldAttrs['id']}").html(hideText);
-                  {/if}
-              });
+				{if $field['attributes']['collapsed'] == 'true'}
+					$("#showHide_{$_guid}_{$fieldGuid}").html(showText);
+				{else}
+					$("#showHide_{$_guid}_{$fieldGuid}").html(hideText);
+				{/if}
+			});
 
-              function showHideHeader_{$fieldAttrs['id']}() {
-                  var showText = $("#showHide_{$fieldAttrs['id']}").attr("showText");
-                  var hideText = $("#showHide_{$fieldAttrs['id']}").attr("hideText");
+			function showHideHeader_{$_guid}_{$fieldGuid}() {
+				var showText = $("#showHide_{$_guid}_{$fieldGuid}").attr("showText");
+				var hideText = $("#showHide_{$_guid}_{$fieldGuid}").attr("hideText");
 
+				if( $("#head_{$_guid}_{$fieldGuid}").css("display") == "block") {
+					$("#showHide_{$_guid}_{$fieldGuid}").html(showText);
+					$("#head_{$_guid}_{$fieldGuid}").fadeOut();
+				} else {
+					$("#showHide_{$_guid}_{$fieldGuid}").html(hideText);
+					$("#head_{$_guid}_{$fieldGuid}").fadeIn("slow");
+				}
 
-                  if( $("#head_{$fieldAttrs['id']}").css("display") == "block") {
-                      $("#showHide_{$fieldAttrs['id']}").html(showText);
-                      $("#head_{$fieldAttrs['id']}").fadeOut();
-                  }
-                  else {
-                      $("#showHide_{$fieldAttrs['id']}").html(hideText);
-                      $("#head_{$fieldAttrs['id']}").fadeIn("slow");
-                  }
+			}
+		</script>
+	{/if}
 
-              }
-          </script>
-              <a id="showHide_{$fieldAttrs['id']}" showText="{translate app="framework"}show{/translate}" hideText="{translate app="framework"}hide{/translate}" href="javascript:;" onmousedown='showHideHeader_{$fieldAttrs['id']}();'>
-              </a>
-          {/if}
-      </legend>
-        {$styleDisplay = 'block'}
-        {if $fieldAttrs['collapsed'] == 'true' && $fieldAttrs['collapsible'] == 'true'}
-            {$styleDisplay = 'none'}
-        {/if}
-        <div id="{$fieldGuid}" style="display:{$styleDisplay}"></div>
+	{$styleDisplay = 'block'}
+	{if $field['attributes']['collapsed'] == 'true' && $field['attributes']['collapsible'] == 'true'}
+		{$styleDisplay = 'none'}
+	{/if}
+	<h3>{$field['attributes']['label']} {if $field['attributes']['collapsible'] == 'true'}
+		<small><a id="showHide_{$_guid}_{$fieldGuid}" showText="{translate app="framework"}show{/translate}" hideText="{translate app="framework"}hide{/translate}" href="javascript:void(0);" onmousedown='showHideHeader_{$_guid}_{$fieldGuid}();'></a></small>
+	{/if}</h3>
+</div>
 
-
-	<!--div class="box-header">
-		<h3 class="box-title" id="{$fieldGuid}">{$field['attributes']['label']}</h3>
-		<div class="pull-left box-tools">
-	            <button class="btn btn-info btn-flat btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="{translate app="framework"}hide{/translate}"><i class="fa fa-minus"></i></button>
-	            <button class="btn btn-info btn-flat btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="{translate app="framework"}show{/translate}"><i class="fa fa-plus"></i></button>
-	        </div>
-	</div-->
+<div id="head_{$_guid}_{$fieldGuid}" name="head_{$_guid}_{$fieldName}" style="display:{$styleDisplay}">

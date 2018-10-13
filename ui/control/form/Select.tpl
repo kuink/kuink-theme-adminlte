@@ -5,14 +5,14 @@
 		/**
 		* Action in javascript to submit this select
 		**/
-		function submit_{$fieldID}(){
+		function submit_{$_guid}_{$fieldID}(){
 			{$urlSuff = "&action={$fieldAttrs['action']}"}
 			{if $fieldAttrs['event']!=''}
 				{$urlSuff = "&event={$fieldAttrs['event']}"}
 			{/if}
 
-			setFormAction("{$form['_guid']}", '{$form["baseUrl"]|html_entity_decode}{$urlSuff}','', '', '');
-			$("#{$form['_guid']}").submit();
+			result = setFormAction_{$_guid}('{$form["baseUrl"]|html_entity_decode}{$urlSuff}','', '', '', false);
+			$("#{$_guid}").submit();
 		}
 	</script>
 
@@ -21,17 +21,14 @@
 
 			{assign var=datasourceParams value=","|explode:$fieldAttrs['datasource-params']}
 
-      {$width = 300}
-      {if $inputSize == 'xlarge'}
-        {$width = 500}
-      {/if}
+      {$width = "100%"}
 
 	<script type="text/javascript">
 					jQuery(document).ready(function() {
 					var kuinkFunctionRaw = "{$fieldAttrs['datasource']}";
 					var kuinkFunction = kuinkFunctionRaw.replace("call:", "");
 
-	$("#{$fieldID}").select2({
+	$("#{$_guid} #{$fieldID}").select2({
 		placeholder: '{translate app="framework"}search{/translate}',
 		allowClear: true,
 		ajax: {
@@ -86,13 +83,13 @@
 			cache: true
 		},
 		minimumInputLength: 3,
-		formatResult: formatData{$fieldID},
-		initSelection: initSelection{$fieldID},
-		width: {$width}
+		formatResult: formatData_{$_guid}_{$fieldID},
+		initSelection: initSelection_{$_guid}_{$fieldID},
+		width: "{$width}"
 	});
 					});
 
-		function formatData{$fieldID} (data) {
+		function formatData_{$_guid}_{$fieldID} (data) {
 			var markup = '<div class="clearfix">';
 
 		if (data.image) {
@@ -103,7 +100,7 @@
 			{/if}
 
 			markup += '<div class="">' +
-			'<img src="{$imageSrc}' + data.image + {if ($_imageUrl != '')}'.jpg' + {/if}'" style="max-width: 30%" />' +
+			'<img src="{$imageSrc}' + data.image + {if ($_imageUrl != '')}'.jpg' + {/if}'" style="max-width: 10%" />' +
 			'</div>';
 
 		}
@@ -128,7 +125,7 @@
 			return markup;
 		}
 
-				function initSelection{$fieldID}(element, callback)
+				function initSelection_{$_guid}_{$fieldID}(element, callback)
 				{
 					var kuinkFunctionRaw = "{$fieldAttrs['datasource-initial']}";
 					var kuinkFunction = kuinkFunctionRaw.replace("call:", "");
@@ -144,7 +141,7 @@
 
       {$onchange=""}
       {if $fieldAttrs['action'] != ""}
-        {$onchange="onchange=\"javascript: submit_{$fieldID}();\""}
+        {$onchange="onchange=\"javascript: submit_{$_guid}_{$fieldID}();\""}
       {/if}
 
 			<input type="hidden" id="{$fieldID}" name="{$fieldID}" class="{$disabledClass} select2 select2-offscreen input-{$inputSize}" {$disabledAttr} {$onchange} value="{$field['value']}" />
@@ -155,17 +152,17 @@
 		<!-- only run this code if attribute is setted -->
 		<script type="text/javascript">
 				jQuery(document).ready(function() {
-						jQuery("#{$fieldID}").select2(
+						jQuery("#{$_guid} #{$fieldID}").select2(
 								{
-										width: "200"
+										width: "100%"
 								}
 						);
 				});
 		</script>
 
-	{* onclick="javascript: this.disabled=true; result = submit_form_{$form['_guid']}('{$buttonType}','{$form['_guid']}', '{$form['baseUrl']}', '{$buttonAttrs['action']}', '{$buttonAttrs['event']}'); this.disabled=result; return(result);" *}
+	{* onclick="javascript: this.disabled=true; result = submit_form_{$_guid}('{$buttonType}','{$_guid}', '{$form['baseUrl']}', '{$buttonAttrs['action']}', '{$buttonAttrs['event']}'); this.disabled=result; return(result);" *}
 	{if  $fieldAttrs['action'] != ""}
-				<select id="{$fieldID}" name="{$fieldID}" class="{$disabledClass} select2 select2-offscreen input-{$inputSize} form-control" {$disabledAttr} onchange="javascript: submit_{$fieldID}();" {if $fieldRequired == true}data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"{/if}>
+				<select id="{$fieldID}" name="{$fieldID}" class="{$disabledClass} select2 select2-offscreen input-{$inputSize} form-control" {$disabledAttr} onchange="javascript: submit_{$_guid}_{$fieldID}();" {if $fieldRequired == true}data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"{/if}>
 	{else}
 				<select id="{$fieldID}" name="{$fieldID}" class="{$disabledClass} select2 select2-offscreen input-{$inputSize} form-control" {$disabledAttr} {if $fieldRequired == true}data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"{/if}>
 	{/if}
@@ -173,9 +170,9 @@
 {else}
 
 
-	{* onclick="javascript: this.disabled=true; result = submit_form_{$form['_guid']}('{$buttonType}','{$form['_guid']}', '{$form['baseUrl']}', '{$buttonAttrs['action']}', '{$buttonAttrs['event']}'); this.disabled=result; return(result);" *}
+	{* onclick="javascript: this.disabled=true; result = submit_form_{$_guid}('{$buttonType}','{$_guid}', '{$form['baseUrl']}', '{$buttonAttrs['action']}', '{$buttonAttrs['event']}'); this.disabled=result; return(result);" *}
 	{if  $fieldAttrs['action'] != ""}
-				<select id="{$fieldID}" name="{$fieldID}" class="{$disabledClass} form-control" {$disabledAttr} onchange="javascript: submit_{$fieldID}();" {if $fieldRequired == true}data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"{/if}>
+				<select id="{$fieldID}" name="{$fieldID}" class="{$disabledClass} form-control" {$disabledAttr} onchange="javascript: submit_{$_guid}_{$fieldID}();" {if $fieldRequired == true}data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"{/if}>
 	{else}
 				<select id="{$fieldID}" name="{$fieldID}" class="{$disabledClass} form-control" {$disabledAttr} {if $fieldRequired == true}data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"{/if}>
 	{/if}

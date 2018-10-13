@@ -1,1 +1,1 @@
- <textarea class="input-medium {$disabledClass}" {$disabledAttr} id="{$id}{$multiSeparator}{$fieldAttrs['name']}" name="{$id}{$multiSeparator}{$fieldAttrs['name']}" rows="{$fieldAttrs['rows']}" cols="{$fieldAttrs['cols']}" onchange='{$onChange}'>{$value['value']}</textarea>
+<textarea class="input-medium {$disabledClass}" {$disabledAttr} id="{$id}{$multiSeparator}{$fieldAttrs['name']}" name="{$id}{$multiSeparator}{$fieldAttrs['name']}" rows="{$fieldAttrs['rows']}" cols="{$fieldAttrs['cols']}" onchange='{$onChange}'>{$value['value']}</textarea>

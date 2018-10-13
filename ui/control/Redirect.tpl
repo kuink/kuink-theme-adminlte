@@ -3,3 +3,4 @@
 <script>
 	window.location.replace('{$url}');
 </script>
+{/nocache}

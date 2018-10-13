@@ -29,6 +29,7 @@ iframe {
     <img src="{$_streamUrl}?type={$type}&guid={$guid}"/>
   </div>
 </div>
+{/nocache}
 
 
 

@@ -38,7 +38,7 @@ Handle all thing about form action buttons.
   	          {$buttonClass = "btn btn-primary"}
   	      {elseif $buttonType == "delete"}
   	       	  {$buttonType = "submit"}
-  	       	  {$buttonIcon = "eraser"}
+  	       	  {$buttonIcon = "remove"}
   	          {$iconColor = "icon-white"}
   	          {$buttonClass = "btn btn-danger"}
   	      {elseif $buttonType == "search"}
@@ -118,5 +118,42 @@ Handle all thing about form action buttons.
 	{$buttonActionUrl = "{$form['baseUrl']}&event={$buttonAttrs['event']}"}
 {/if}
 
-<button type="{$buttonType}" class="btn-flat {$buttonPrintableClass} {$buttonDefaultClass} {$buttonClass}" id="{$buttonAttrs['id']}"
-		onclick="result = setFormAction('{$form['_guid']}', '{$buttonActionUrl}','{$buttonAttrs['confirm']|escape:'htmlall'}', '{$buttonType}', '{$buttonAttrs['id']}');">{if $buttonIcon != ""}<i class="fa fa-{$buttonIcon} {$iconColor}"></i>{/if}&nbsp;{$buttonAttrs['label']}</button>
+<script>
+	$(document).ready(function() {
+
+		//Handle confirm message
+		var confirmMessage = '';
+		{$buttonAttrs['confirm'] = $buttonAttrs['confirm']|replace:'"':"'"}
+		{if $buttonAttrs['confirm'] != 'false' && $buttonAttrs['confirm'] != ''}			
+			{assign var="keywords" value="\n"|explode:$buttonAttrs['confirm']}
+			{$firstChunk = 1}
+			{foreach from=$keywords item=keyword}
+				{if $firstChunk == 1}
+					confirmMessage = "{$keyword}";
+					{$firstChunk = 0}
+				{else}
+					confirmMessage = confirmMessage + "\n{$keyword}";
+				{/if}
+			{/foreach}		
+		{else}
+				confirmMessage = "{$buttonAttrs['confirm']}";
+		{/if}
+		
+		if (confirmMessage!='' && confirmMessage!='false')
+			__kuink.controlAddKey('{$_idContext}','{$_guid}', '{$buttonAttrs['id']}', 'confirm', confirmMessage);
+		
+		
+		$("#{$_guid} #{$buttonAttrs['id']}").attr("onclick", function() {
+			return "javascript: result = setFormAction_{$_guid}('{$buttonActionUrl}', '', '{$buttonType}', '{$buttonAttrs['id']}', false);";
+		});
+	});
+</script>
+
+{$disabledClass = ""}
+{$disabledAttr = ""}
+{if $buttonAttrs['disabled']=="true"}
+	{$disabledClass = "disabled"}
+	{$disabledAttr = "disabled"}
+{/if}
+
+<button type="{$buttonType}" class="btn-flat {$buttonPrintableClass} {$buttonDefaultClass} {$buttonClass} {$disabledClass}" {$disabledAttr} id="{$buttonAttrs['id']}" onclick="">{if $buttonIcon != ""}<i class="fa fa-{$buttonIcon} {$iconColor}"></i>{/if}&nbsp;{$buttonAttrs['label']}</button>

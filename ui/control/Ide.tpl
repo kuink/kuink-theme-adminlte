@@ -1,18 +1,18 @@
-<!--link href="lib/tools/bootstrap-3/css/bootstrap.css" rel="stylesheet"-->
-<!--link href="lib/tools/bootstrap-3/css/bootstrap-theme.css" rel="stylesheet"-->
+<!--link href="kuink-core/lib/tools/bootstrap-3/css/bootstrap.css" rel="stylesheet"-->
+<!--link href="kuink-core/lib/tools/bootstrap-3/css/bootstrap-theme.css" rel="stylesheet"-->
 
-<link rel="stylesheet" type="text/css" href="lib/tools/bootstrap-gtreetable/dist/bootstrap-gtreetable.min.css" />
+<link rel="stylesheet" type="text/css" href="kuink-core/lib/tools/bootstrap-gtreetable/dist/bootstrap-gtreetable.min.css" />
 
-<link rel="stylesheet" href="lib/tools/codemirror/lib/codemirror.css">
-<link rel="stylesheet" href="lib/tools/codemirror/addon/hint/show-hint.css">
-<link rel="stylesheet" href="lib/tools/codemirror/theme/ambiance.css">
-<script src="lib/tools/codemirror/lib/codemirror.js"></script>
-<script src="lib/tools/codemirror/addon/edit/closetag.js"></script>
-<script src="lib/tools/codemirror/addon/hint/show-hint.js"></script>
-<script src="lib/tools/codemirror/addon/hint/xml-hint.js"></script>
-<script src="lib/tools/codemirror/mode/xml/xml.js"></script>
+<link rel="stylesheet" href="kuink-core/lib/tools/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="kuink-core/lib/tools/codemirror/addon/hint/show-hint.css">
+<link rel="stylesheet" href="kuink-core/lib/tools/codemirror/theme/ambiance.css">
+<script src="kuink-core/lib/tools/codemirror/lib/codemirror.js"></script>
+<script src="kuink-core/lib/tools/codemirror/addon/edit/closetag.js"></script>
+<script src="kuink-core/lib/tools/codemirror/addon/hint/show-hint.js"></script>
+<script src="kuink-core/lib/tools/codemirror/addon/hint/xml-hint.js"></script>
+<script src="kuink-core/lib/tools/codemirror/mode/xml/xml.js"></script>
 
-<link href="theme/default/css/simple-sidebar/simple-sidebar.css" rel="stylesheet">
+<link href="{$_themeRoot}theme/{$THEME}/assets/css/simple-sidebar/simple-sidebar.css" rel="stylesheet">
 
 <style type="text/css">
   .CodeMirror { border: 1px solid #eee; width: 99%; height: auto }
@@ -20,25 +20,28 @@
 </style>
 
 
-<script type="text/javascript" src="lib/tools/bootstrap-gtreetable/dist/bootstrap-gtreetable.js"></script>
+<script type="text/javascript" src="kuink-core/lib/tools/bootstrap-gtreetable/dist/bootstrap-gtreetable.js"></script>
 
-<div id="wrapper">
+<div id="ss_wrapper">
 <!-- Sidebar -->
 
-<div id="sidebar-wrapper">
+<div id="ss_sidebar-wrapper">
   <table class="table gtreetable" id="gtreetable"><thead><tr><th>Apps</th></tr></thead></table>
 </div>
 
-<div id="page-content-wrapper">
+<div id="ss_page-content-wrapper">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-9">
               <form id="codeEditor">
-                <a href="#menu-toggle" class="btn btn-default btn-small" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+                <a href="#menu-toggle" class="btn btn-default btn-sm" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
                 <button id="saveButtonTop" type="button" class="btn btn-primary btn-sm" onclick="javascript: saveFile();">
                   <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
                   Save
                 </button>
+                <!-- Launch modal application -->
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#kuinkModal" onclick="javascript: launchApplication('ide', 'manageEntity');">Create Entities</button>                
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#kuinkModal" onclick="javascript: launchApplication('ide', 'generator');">Generate App</button>                
                 <span id="openedFileName"></span>
                 <textarea id="code" name="code" style="display: none;">
                 </textarea>
@@ -53,41 +56,109 @@
               </form>
 
               <h4>Last opened files:</h4>
-              <ul id="openedFiles">
+              <ul id="openedFiles-">
                   <!-- <li><a href="#">Filename</a></li> -->
               </ul>
+              <div class="row">
+                <div class="col-lg-4">
+                  <h4>Nodes</h4>
+                <ul id="openedFiles-node"></ul>
 
+                </div>
+                <div class="col-lg-4">
+                  <div class="col-lg-4">
+                    <h4>Libraries</h4>
+                    <ul id="openedFiles-lib"></ul>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="col-lg-4">
+                    <h4>Data Access</h4>
+                    <ul id="openedFiles-dataaccess"></ul>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4">
+                  <h4>Data Definition</h4>
+                  <ul id="openedFiles-dd"></ul>
+                </div>
+                <div class="col-lg-4">
+                  <div class="col-lg-4">
+                    <h4>Lang</h4>
+                    <ul id="openedFiles-lang"></ul>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="col-lg-4">
+                    <h4>Templates</h4>
+                    <ul id="openedFiles-template"></ul>
+                  </div>
+                </div>
+              </div> 
+              <div class="row">
+                <div class="col-lg-4">
+                  <h4>Process</h4>
+                  <ul id="openedFiles-process"></ul>
+                </div>
+                <div class="col-lg-4">
+                  <div class="col-lg-4">
+                    <h4>Application</h4>
+                    <ul id="openedFiles-application"></ul>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="col-lg-4">
+                  </div>
+                </div>
+              </div>              
             </div>
-            <div class="row">
-              <div class="col-lg-4">
-                <h4>Nodes</h4>
-              </div>
-              <div class="col-lg-4">
-                <div class="col-lg-4">
-                  <h4>Liraries</h4>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="col-lg-4">
-                  <h4>Data Access</h4>
-                </div>
-              </div>
+            <div class="col-lg-3">
+              <!-- Library search -->
+              <h5><strong>API</strong></h5>
+              <input type="hidden" id="libraries" name="libraries" class="select2 select2-offscreen input-large" value="" />
+              <!-- Functions list -->
+              <ul id="kuinkFunctions">
+              </ul>              
+              <!-- Library search -->
+              <h5><strong>OUTLINE</strong></h5>
+              <!-- Functions list -->
+              <ul id="kuinkOutline">
+              </ul>              
 
             </div>
         </div>
     </div>
-</div>
+  </div>
 </div>
 
-
+<!-- Kuink Modal - Applications will be launched here...-->
+<div class="modal fade" id="kuinkModal" tabindex="-1" role="dialog" aria-labelledby="kuinkModalTitle">
+  <div class="modal-dialog" role="document" style="width: 90%">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="__kuink.modalClose();"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="kuinkModalTitle">App Launcher</h4>
+      </div>
+      <div class="modal-body">
+        <div id="kuinkModalContainer">
+          //Application will be launched here
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="__kuink.modalClose();">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- /#page-content-wrapper -->
 
-<input type="hidden" id="libraries" name="libraries" class="select2 select2-offscreen input-large" value="" />
+
 <!-- Test search -->
 <script type="text/javascript">
-        jQuery(document).ready(function() {
-        var kuinkFunctionRaw = "framework,ide,api,searchLibrary";
-        var kuinkFunction = kuinkFunctionRaw;
+  jQuery(document).ready(function() {
+  var kuinkFunctionRaw = "framework,ide,api,searchLibrary";
+  var kuinkFunction = kuinkFunctionRaw;
 
 jQuery("#libraries").select2({
   placeholder: "{translate app="framework"}search{/translate}",
@@ -126,7 +197,25 @@ jQuery("#libraries").select2({
   initSelection: initSelectionlibraries,
   width: 200
 });
-        });
+});
+
+  function launchApplication(process, event) {
+    //The target will be the modal from now on
+    __kuink.modalOpen();
+    var d = new Date();
+    var mili = d.getMilliseconds();
+    //QuickFix. Launch a new context so it will not interfere with the previous one
+    $("#kuink_{$_guid}").kuinkSubmit({
+      'url' 			: '{$baseUrl}'+mili+'&startuc='+process+'&event='+event+'&modal=embed',
+      'idContext'	: '{$_idContext}'+mili,
+      'method' 		: 'get',
+      'processData': false,
+      'contentType': false,
+      'button_id' : null,
+      'target' : 'kuinkModalContainer',
+      'formGuid'	: 'kuink_{$_guid}'
+    });
+  }
 
   function formatDatalibraries (data) {
     var markup = '<div class="clearfix">';
@@ -196,8 +285,6 @@ jQuery("#libraries").select2({
     </script>
 
 
-<ul id="kuinkFunctions">
-</ul>
 <div class="row">
   <div class="span3">
   </div>
@@ -210,7 +297,7 @@ jQuery("#libraries").select2({
 <script>
 $("#menu-toggle").click(function(e) {
     e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
+    $("#ss_wrapper").toggleClass("toggled");
 });
 
 window.setTimeout("saveFile();", 30000);
@@ -305,21 +392,24 @@ document.getElementById("saveButtonTop").disabled = true;
   }
 
   function getFileType( fileName ) {
-    var resultData = '';
+    
     var fileType = $.ajax({
         dataType: "json",
         url: 'api.php?idcontext={$_idContext}&neonfunction=framework,ide,api,getFileType',
         data: { 'path': fileName},
+        async: false,
         success: function(data){
           document.getElementById("codeEditorFileType").value = data;
-          console.log('FILE TYPE:: '+data);
+          __kuink.controlAddKey('{$_idContext}', '{$_guid}', 'codeEditorfile', 'type', data);
+
         },
         error: function(XMLHttpRequest) {
           //alert(XMLHttpRequest.status+': '+XMLHttpRequest.responseText);
           console.log('ERROR');
+          __kuink.controlAddKey('{$_idContext}', '{$_guid}', 'codeEditorfile', 'type', 'error');
         }
       });
-
+      return(__kuink.controlGetKey('{$_idContext}', '{$_guid}', 'codeEditorfile', 'type'));
   }
 
 
@@ -341,9 +431,30 @@ document.getElementById("saveButtonTop").disabled = true;
   }
 
 
+  function outlineRefresh( ) {
+    var content = editor.getValue();
+
+    parser = new DOMParser();
+    xmlDoc = parser.parseFromString(content,"text/xml");
+    actions = xmlDoc.getElementsByTagName("Action");
+    outline = $('#kuinkOutline');
+    for (i = 0; i < actions.length; i++) {
+       var html = '<li><a href="#">' + actions[i].getAttribute('name') + '</a></li>';
+       console.log(actions[i].getAttribute('name'));
+       outline.append(html);
+      
+      //console.log(actions[action].getAttribute('name'));
+    };
+    //alert(xmlDoc.getElementsByTagName("Action")[0].childNodes[0].nodeValue);
+
+  }
+
+
   function loadFile( fileName ) {
     saveFile();
     getFileType(fileName);
+    var kuinkFileType = __kuink.controlGetKey('{$_idContext}', '{$_guid}', 'codeEditorfile', 'type');
+    
     var fileContent = $.ajax({
         dataType: "json",
         url: 'api.php?idcontext={$_idContext}&neonfunction=framework,ide,api,getFileContent',
@@ -355,20 +466,37 @@ document.getElementById("saveButtonTop").disabled = true;
             document.getElementById("saveButtonBottom").disabled = true;
             document.getElementById("saveButtonTop").disabled = true;
             editor.getDoc().setValue(data);
-            var html = '<li><a href="#" onclick="javascript: loadFile(\''+ fileName +'\');">' + fileName + '</a></li>';
+            
+            //Compress the file name for visibilty
+            var splitedFileName = fileName.split('/');
+            var fileNameCompressed = '::';
+            if (kuinkFileType == 'application')
+              fileNameCompressed = splitedFileName[2];
+            else if(kuinkFileType == 'process' || kuinkFileType == 'lang')
+              fileNameCompressed = splitedFileName[2] + '::' + splitedFileName[4];
+            else
+              fileNameCompressed = splitedFileName[2] + '::' + splitedFileName[6];
+
+            var html = '<li><a href="#" onclick="javascript: loadFile(\''+ fileName +'\');">' + fileNameCompressed + '</a></li>';
+
+            var kuinkOpenedFilesTarget = $('#openedFiles-'+kuinkFileType);
 
             //Remove duplicates
-            $('#openedFiles').find('li').each(function () {
+            kuinkOpenedFilesTarget.find('li').each(function () {
                 var value = $(this);
 
                 if (value[0].outerHTML == html) {
                     value[0].remove();
                 }
             });
+
             //Add at top
-            $('#openedFiles').prepend(html);
-            $('#openedFiles li:last').fadeIn('slow');
+            kuinkOpenedFilesTarget.prepend(html);
+            //$('#openedFiles-'+kuinkFileType+' li:last').fadeIn('slow');
             $('#openedFileName').html('<strong>'+fileName+'</strong>');
+
+            //Refresh the outline
+            outlineRefresh();
         },
         error: function(XMLHttpRequest) {
           //alert(XMLHttpRequest.status+': '+XMLHttpRequest.responseText);
@@ -382,15 +510,19 @@ document.getElementById("saveButtonTop").disabled = true;
 
 <script type="text/javascript">
 jQuery(document).ready(function () {
-
+	
   jQuery('#gtreetable').gtreetable({
     'source': function (id) {
+        path = String(id);
+        path = path.replace('null', '');
+        console.log(path);
         return {
           type: 'GET',
           url: 'api.php?idcontext={$_idContext}&neonfunction=framework,ide,api,getDirContent',
-          data: { 'path': id},
+          data: { 'path': path},
           dataType: 'json',
           error: function(XMLHttpRequest) {
+            console.log(XMLHttpRequest);
             alert(XMLHttpRequest.status+': '+XMLHttpRequest.responseText);
           }
         }

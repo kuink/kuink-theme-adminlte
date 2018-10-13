@@ -1,1 +1,4 @@
-<span id="{$fieldGuid}" name="{$fieldName}" class="form-control staticField">{$field['value']}</span>
+<!-- <label class="control-label" for="{$fieldName}">{$field['value']}</label> -->
+<span>{$field['value']}</span>
+<input id="{$fieldGuid}" name="{$fieldName}" type="hidden" disabled="true" value="{$field['original']|escape}"/>
+

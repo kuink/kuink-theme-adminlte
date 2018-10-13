@@ -5146,3 +5146,11 @@ fieldset[disabled] .btn-yahoo.active {
     white-space: normal!important;
   }
 }
+/*
+ * Custom: custom
+ * -------------------
+ */
+.kuink-grid {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
