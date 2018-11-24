@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-11-02 10:22:14
+/* Smarty version 3.1.30, created on 2018-11-24 03:27:57
   from "/opt/kuink-dev/kuink-bridge-moodle/theme/adminlte/template/Head.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5bdc2556b71418_28752847',
+  'unifunc' => 'content_5bf8c53d6b3314_41502110',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '985e8c7bd93f908db39c775a782c7a9b05235b12' => 
     array (
       0 => '/opt/kuink-dev/kuink-bridge-moodle/theme/adminlte/template/Head.tpl',
-      1 => 1517615229,
+      1 => 1543030070,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bdc2556b71418_28752847 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bf8c53d6b3314_41502110 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 				<meta charset="UTF-8">
 				<title>KuinK</title>
@@ -35,9 +35,13 @@ theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
 /assets/css/bootstrap-datetimepicker.min.css"/>
 
 				<!-- Theme style -->
+				<!-- link href="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
+theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
+/assets/css/AdminLTE.min.css" rel="stylesheet" type="text/css" / -->
 				<link href="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
 theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
-/assets/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+/assets/vendor/almasaeed2010/adminlte/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+
 				<!-- select2 bootstrap -->
 				<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
 theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
@@ -203,8 +207,7 @@ theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
 				<?php echo '</script'; ?>
 >
 				<!-- AdminLTE App -->
-				<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
+				<!--script src="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
 theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
 /assets/js/app.min.js" type="text/javascript"><?php echo '</script'; ?>
 >
@@ -217,7 +220,24 @@ theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
  src="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
 theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
 /assets/js/fastclick/fastclick.min.js" type="text/javascript"><?php echo '</script'; ?>
+-->
+
+				<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
+theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
+/assets/vendor/almasaeed2010/adminlte/dist/js/adminlte.min.js" type="text/javascript"><?php echo '</script'; ?>
 >
+				<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
+theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
+/assets/vendor/almasaeed2010/adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"><?php echo '</script'; ?>
+>
+				<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
+theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
+/assets/vendor/almasaeed2010/adminlte/bower_components/fastclick/lib/fastclick.js" type="text/javascript"><?php echo '</script'; ?>
+>
+
 
 				<!-- InputMask -->
 				<?php echo '<script'; ?>
@@ -277,37 +297,37 @@ theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
 				<?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
 theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
-/assets/js/kuink_Core.Manager.js" type="text/javascript"><?php echo '</script'; ?>
+/assets/vendor/kuink/dist/js/kuink_Core.Manager.js" type="text/javascript"><?php echo '</script'; ?>
 >
 				<?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
 theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
-/assets/js/kuink_Core.Submit.js" type="text/javascript"><?php echo '</script'; ?>
+/assets/vendor/kuink/dist/js/kuink_Core.Submit.js" type="text/javascript"><?php echo '</script'; ?>
 >				
 				<?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
 theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
-/assets/js/kuink_Core.Date.js" type="text/javascript"><?php echo '</script'; ?>
+/assets/vendor/kuink/dist/js/kuink_Core.Date.js" type="text/javascript"><?php echo '</script'; ?>
 >
 				<?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
 theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
-/assets/js/kuink_Control.Form.js" type="text/javascript"><?php echo '</script'; ?>
+/assets/vendor/kuink/dist/js/kuink_Control.Form.js" type="text/javascript"><?php echo '</script'; ?>
 >
 				<?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
 theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
-/assets/js/kuink_Control.Grid.js" type="text/javascript"><?php echo '</script'; ?>
+/assets/vendor/kuink/dist/js/kuink_Control.Grid.js" type="text/javascript"><?php echo '</script'; ?>
 >
 				<?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
 theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
-/assets/js/kuink_Control.Diagram.js" type="text/javascript"><?php echo '</script'; ?>
+/assets/vendor/kuink/dist/js/kuink_Control.Diagram.js" type="text/javascript"><?php echo '</script'; ?>
 >
 				<?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>
 theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
-/assets/js/kuink_Control.RefreshPlugin.js" type="text/javascript"><?php echo '</script'; ?>
+/assets/vendor/kuink/dist/js/kuink_Control.RefreshPlugin.js" type="text/javascript"><?php echo '</script'; ?>
 >
 				
 				<?php echo '<script'; ?>

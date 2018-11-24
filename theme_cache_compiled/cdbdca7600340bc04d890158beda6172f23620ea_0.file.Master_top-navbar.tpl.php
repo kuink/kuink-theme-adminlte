@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-11-02 10:22:14
+/* Smarty version 3.1.30, created on 2018-11-24 03:18:16
   from "/opt/kuink-dev/kuink-bridge-moodle/theme/adminlte/template/Master_top-navbar.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5bdc2556bdc0d1_30551960',
+  'unifunc' => 'content_5bf8c2f87c1779_08321188',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cdbdca7600340bc04d890158beda6172f23620ea' => 
     array (
       0 => '/opt/kuink-dev/kuink-bridge-moodle/theme/adminlte/template/Master_top-navbar.tpl',
-      1 => 1516813824,
+      1 => 1543029455,
       2 => 'file',
     ),
   ),
@@ -20,17 +20,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bdc2556bdc0d1_30551960 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bf8c2f87c1779_08321188 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Header Navbar: style can be found in header.less -->
 <nav class="navbar navbar-static-top" role="navigation">
 	<!-- Sidebar toggle button-->
-	<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-		<span class="sr-only">Toggle navigation</span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-	</a>
+	<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+  </a>	
 	<div class="navbar-right">
 		<ul class="nav navbar-nav">
 

@@ -7,7 +7,9 @@
 				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/css/bootstrap-datetimepicker.min.css"/>
 
 				<!-- Theme style -->
-				<link href="{$_themeRoot}theme/{$THEME}/assets/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+				<!-- link href="{$_themeRoot}theme/{$THEME}/assets/css/AdminLTE.min.css" rel="stylesheet" type="text/css" / -->
+				<link href="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+
 				<!-- select2 bootstrap -->
 				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/css/select2/select2.css"/>
 				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/css/select2/select2-bootstrap.css"/>
@@ -121,9 +123,14 @@
 						});
 				</script>
 				<!-- AdminLTE App -->
-				<script src="{$_themeRoot}theme/{$THEME}/assets/js/app.min.js" type="text/javascript"></script>
+				<!--script src="{$_themeRoot}theme/{$THEME}/assets/js/app.min.js" type="text/javascript"></script>
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-				<script src="{$_themeRoot}theme/{$THEME}/assets/js/fastclick/fastclick.min.js" type="text/javascript"></script>
+				<script src="{$_themeRoot}theme/{$THEME}/assets/js/fastclick/fastclick.min.js" type="text/javascript"></script-->
+
+				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/dist/js/adminlte.min.js" type="text/javascript"></script>
+				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/fastclick/lib/fastclick.js" type="text/javascript"></script>
+
 
 				<!-- InputMask -->
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/input-mask/jquery.inputmask.js" type="text/javascript"></script>
@@ -144,13 +151,13 @@
   				<!-- /MultiLanguage input support -->
 
 				<!-- Kuink Scripts - Must be the last scripts -->
-				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_Core.Manager.js" type="text/javascript"></script>
-				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_Core.Submit.js" type="text/javascript"></script>				
-				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_Core.Date.js" type="text/javascript"></script>
-				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_Control.Form.js" type="text/javascript"></script>
-				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_Control.Grid.js" type="text/javascript"></script>
-				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_Control.Diagram.js" type="text/javascript"></script>
-				<script src="{$_themeRoot}theme/{$THEME}/assets/js/kuink_Control.RefreshPlugin.js" type="text/javascript"></script>
+				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/kuink/dist/js/kuink_Core.Manager.js" type="text/javascript"></script>
+				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/kuink/dist/js/kuink_Core.Submit.js" type="text/javascript"></script>				
+				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/kuink/dist/js/kuink_Core.Date.js" type="text/javascript"></script>
+				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/kuink/dist/js/kuink_Control.Form.js" type="text/javascript"></script>
+				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/kuink/dist/js/kuink_Control.Grid.js" type="text/javascript"></script>
+				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/kuink/dist/js/kuink_Control.Diagram.js" type="text/javascript"></script>
+				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/kuink/dist/js/kuink_Control.RefreshPlugin.js" type="text/javascript"></script>
 				
 				<script type="text/javascript">
 					var applicationContexts = new Array();

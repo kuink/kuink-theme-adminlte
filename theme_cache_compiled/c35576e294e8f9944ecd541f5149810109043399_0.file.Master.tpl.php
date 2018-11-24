@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-11-02 10:22:14
+/* Smarty version 3.1.30, created on 2018-11-24 03:18:16
   from "/opt/kuink-dev/kuink-bridge-moodle/theme/adminlte/template/Master.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5bdc2556aacc13_13686588',
+  'unifunc' => 'content_5bf8c2f877b544_21824550',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c35576e294e8f9944ecd541f5149810109043399' => 
     array (
       0 => '/opt/kuink-dev/kuink-bridge-moodle/theme/adminlte/template/Master.tpl',
-      1 => 1527150549,
+      1 => 1543029482,
       2 => 'file',
     ),
   ),
@@ -24,13 +24,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:Modal_embed.tpl' => 1,
   ),
 ),false)) {
-function content_5bdc2556aacc13_13686588 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bf8c2f877b544_21824550 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
   'hook' => 
   array (
     'compiled_filepath' => '/opt/kuink-dev/kuink-bridge-moodle/theme/adminlte/theme_cache_compiled/c35576e294e8f9944ecd541f5149810109043399_0.file.Master.tpl.php',
     'uid' => 'c35576e294e8f9944ecd541f5149810109043399',
-    'call_name' => 'smarty_template_function_hook_3296560235bdc2556a98a28_53612927',
+    'call_name' => 'smarty_template_function_hook_10485895955bf8c2f86878a1_75062133',
   ),
 ));
 ?>
@@ -81,7 +81,7 @@ $_smarty_tpl->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
 
 
 			<!-- Right side column. Contains the navbar and content of the page -->
-			<aside class="right-side">
+			<div class="content-wrapper">
 				<!-- Content Header (Page header) -->
 					<section class="content-header">
 						<h1>
@@ -162,16 +162,16 @@ array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
 					</div>
 				</footer>
 
-			</aside><!-- ./right-side -->
+			</div><!-- ./right-side -->
 		</div><!-- ./wrapper -->
 
 	</body>
 
 </html>
 <?php }
-/* smarty_template_function_hook_3296560235bdc2556a98a28_53612927 */
-if (!function_exists('smarty_template_function_hook_3296560235bdc2556a98a28_53612927')) {
-function smarty_template_function_hook_3296560235bdc2556a98a28_53612927($_smarty_tpl,$params) {
+/* smarty_template_function_hook_10485895955bf8c2f86878a1_75062133 */
+if (!function_exists('smarty_template_function_hook_10485895955bf8c2f86878a1_75062133')) {
+function smarty_template_function_hook_10485895955bf8c2f86878a1_75062133($_smarty_tpl,$params) {
 foreach ($params as $key => $value) {
 $_smarty_tpl->tpl_vars[$key] = new Smarty_Variable($value, $_smarty_tpl->isRenderingCache);
 }?>          
@@ -192,5 +192,5 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 
 <?php
 }}
-/*/ smarty_template_function_hook_3296560235bdc2556a98a28_53612927 */
+/*/ smarty_template_function_hook_10485895955bf8c2f86878a1_75062133 */
 }
