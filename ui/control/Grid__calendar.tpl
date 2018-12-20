@@ -1,4 +1,9 @@
 <!--script type='text/javascript' src='lib/tools/fullcalendar/src/_loader.js'></script-->
+<link rel="stylesheet" href="../../assets/vendor/almaseed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.min.css">
+<link rel="stylesheet" href="../../assets/vendor/almaseed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+
+<script src="../../bower_components/moment/moment.js"></script>
+<script src="../../assets/vendor/almaseed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 
 <script type='text/javascript'>
 
@@ -71,7 +76,7 @@
 
 </script>
 
-<style type='text/css'>
+<!-- style type='text/css'>
 	#calendar {
 		width: 90%;
 		margin: 0 auto;
@@ -79,10 +84,11 @@
 	.fc-event-title {
 		font-weight: bold;
 	}
-</style>
+</style -->
 
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div id='calendar'></div>
 	</div>
 </div>
+

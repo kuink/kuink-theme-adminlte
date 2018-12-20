@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-01 02:20:29
-  from "/opt/kuink-dev/kuink-bridge-moodle/theme/adminlte/template/Head.tpl" */
+/* Smarty version 3.1.30, created on 2018-12-01 14:34:45
+  from "/var/www/html/kuink/theme/adminlte/template/Head.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5c01efedec78a8_28617050',
+  'unifunc' => 'content_5c029c052fba29_91218152',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '985e8c7bd93f908db39c775a782c7a9b05235b12' => 
+    '24ce4a726f6398466a0605a7384487eedf142354' => 
     array (
-      0 => '/opt/kuink-dev/kuink-bridge-moodle/theme/adminlte/template/Head.tpl',
+      0 => '/var/www/html/kuink/theme/adminlte/template/Head.tpl',
       1 => 1543620592,
       2 => 'file',
     ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c01efedec78a8_28617050 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c029c052fba29_91218152 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 				<meta charset="UTF-8">
 				<title>KuinK</title>

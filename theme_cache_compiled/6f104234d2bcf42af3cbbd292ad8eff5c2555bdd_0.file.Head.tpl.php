@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-01 02:20:29
-  from "/opt/kuink-dev/kuink-bridge-moodle/theme/adminlte/template/Head.tpl" */
+/* Smarty version 3.1.30, created on 2018-12-11 16:13:15
+  from "/opt/moodle/mod/kuink/theme/adminlte/template/Head.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5c01efedec78a8_28617050',
+  'unifunc' => 'content_5c0fe21b0b2a58_45651265',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '985e8c7bd93f908db39c775a782c7a9b05235b12' => 
+    '6f104234d2bcf42af3cbbd292ad8eff5c2555bdd' => 
     array (
-      0 => '/opt/kuink-dev/kuink-bridge-moodle/theme/adminlte/template/Head.tpl',
-      1 => 1543620592,
+      0 => '/opt/moodle/mod/kuink/theme/adminlte/template/Head.tpl',
+      1 => 1544544789,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c01efedec78a8_28617050 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c0fe21b0b2a58_45651265 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 				<meta charset="UTF-8">
 				<title>KuinK</title>
@@ -50,7 +50,8 @@ theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
 theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
 /assets/css/select2/select2-bootstrap.css"/>
 				<!-- Font Awesome -->
-				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+				<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"-->
+				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 				<!-- Ionicons -->
 				<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 				<!-- Bootstrap Validator -->
