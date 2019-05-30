@@ -48,7 +48,7 @@ $position = Position of controls
 			{include 'Master_left-navbar.tpl'}
 
 			<!-- Right side column. Contains the navbar and content of the page -->
-			<aside class="right-side">
+			<div class="content-wrapper">
 				<!-- Content Header (Page header) -->
 					<section class="content-header">
 						<h1>
@@ -80,7 +80,7 @@ $position = Position of controls
 					</div>
 				</footer>
 
-			</aside><!-- ./right-side -->
+			</div><!-- ./right-side -->
 		</div><!-- ./wrapper -->
 
 	</body>

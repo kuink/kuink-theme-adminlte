@@ -25,21 +25,25 @@ and handle the control display
 	{/foreach}
 
 
-{* Calculate the label size xlarge, large, medium, small *}
-{$labelSize=2}
-{if $fieldAttrs['labelsize']=='small'} 
-    {$labelSize=2}
-  {elseif $fieldAttrs['labelsize']=='medium'}
+	{* Calculate the label size xlarge, large, medium, small *}
+	{* Default size for small fields *}
+	{if ($field['attributes']['_rowLength'] > 1) || ($insideColumn == 1)}
+		{$labelSize=2} {* Label was too small when field is inside column or in a row with fields *}
+	{else}
+		{$labelSize=2}
+	{/if}
+	
+  {if $fieldAttrs['labelsize']=='medium'}
   	{$labelSize=6}
   {elseif $fieldAttrs['labelsize']=='large'}
   	{$labelSize=8}
   {elseif $fieldAttrs['labelsize']=='xlarge'}
   	{$labelSize=10}
- {/if} 
+ 	{/if} 
  {* Inline fields allways have value of 1 *}
- {if $fieldAttrs['inline']!='false'} 
-	{$labelSize=1}
-{/if}
+ 	{* if $fieldAttrs['inline']!='false'} 
+		{$labelSize=1}
+	{/if *}
 
 {$availableSpace = 12}
 {if (($field['attributes']['inline'] == 'false') && ($field['attributes']['_rowLength'] > 1))}
@@ -57,8 +61,13 @@ and handle the control display
 {* $fieldSize = ($availableSpace/$field['attributes']['_rowLength']) - $labelSize *}
 
 {assign var=fieldType value=$field['type']}
-
 {* $field['attributes']['_rowStart']}|{$field['attributes']['_rowEnd'] *}
+
+{$labelClassComplement = ''}
+{if $fieldType=='Checkbox'}
+	{* $labelClassComplement = 'font-weight: normal;' *}
+	{$labelClassComplement = ''}
+{/if}
 
 {if $fieldType == 'Header' || $fieldType == 'Column' || $fieldType == 'Tab'}
 	{include file="./form/$fieldType.tpl"}
@@ -71,31 +80,37 @@ and handle the control display
 		<div class="form-group" id="{$fieldID}CG" style="margin-left: 10px;">	
 			<div class="row">
 	{/if}
+
 			{if $fieldAttrs['labelposition'] == 'right'}
+				{* In the special case of the checkbox, the field size is allways 1 *}
+				{if $fieldType=='Checkbox'}
+					{$fieldSize = 1}
+					{$labelSize = $availableSpace/$field['attributes']['_rowLength'] - 1}
+				{/if}
+
 				<div class="col-lg-{$fieldSize} col-md-{$fieldSize} col-sm-{$fieldSize} col-xs-12">
 					{include file="./form/$fieldType.tpl"}
 				</div>			
 			{/if}
 			
 			{if $fieldType != 'ActionGroup'}
-			
-			<!--div class="col-lg-{$labelSize} col-md-{$labelSize} col-sm-{$labelSize} col-xs-3" style="{if (($fieldAttrs['inline']=='true') || ($nextFieldAttrs['inline']=='true' && $nextFieldAttrs!=null)) }width: 100%;{/if}"-->
-			<div class="col-lg-{$labelSize} col-md-{$labelSize} col-sm-{$labelSize} col-xs-12">
-				{if $fieldType !='Hidden'}
-					{* <label for="{$fieldGuid}" style="{if $fieldAttrs['inline'] == 'tight'}width: auto; margin:0px 5px 0px 5px;{/if}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label> *}
-					<label for="{$fieldGuid}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label>
-					{if $field['attributes']['help']!='false' && $field['attributes']['help']!='' && $field['attributes']['help'] != $fieldID}
-						&nbsp;&nbsp;
-						<a tabindex="-1"
-							 data-toggle="tooltip" title=""
-							 data-original-title="{$field['attributes']['help']}"
-							 data-placement="right"
-							 href="javascript:void(0);">
-								<i class="fieldQuestionMark fa fa-info-circle" ></i>
-						</a>
+				<!--div class="col-lg-{$labelSize} col-md-{$labelSize} col-sm-{$labelSize} col-xs-3" style="{if (($fieldAttrs['inline']=='true') || ($nextFieldAttrs['inline']=='true' && $nextFieldAttrs!=null)) }width: 100%;{/if}"-->
+				<div class="col-lg-{$labelSize} col-md-{$labelSize} col-sm-{$labelSize} col-xs-12">
+					{if $fieldType !='Hidden'}
+						{* <label for="{$fieldGuid}" style="{if $fieldAttrs['inline'] == 'tight'}width: auto; margin:0px 5px 0px 5px;{/if}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label> *}
+						<label style="margin-top: 8px; {$labelClassComplement}" for="{$fieldGuid}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label>
+						{if $field['attributes']['help']!='false' && $field['attributes']['help']!='' && $field['attributes']['help'] != $fieldID}
+							&nbsp;&nbsp;
+							<a tabindex="-1"
+								data-toggle="tooltip" title=""
+								data-original-title="{$field['attributes']['help']}"
+								data-placement="right"
+								href="javascript:void(0);">
+									<i class="fieldQuestionMark fa fa-info-circle" ></i>
+							</a>
+						{/if}
 					{/if}
-				{/if}
-			</div>
+				</div>
 			{/if}
 
 			{if $fieldAttrs['labelposition'] == 'left'}

@@ -18,7 +18,6 @@
 
 	{if $fieldAttrs['searchable']=="dynamic" }
 		{*Dinamycally call the api via ajax*}
-
 			{assign var=datasourceParams value=","|explode:$fieldAttrs['datasource-params']}
 
       {$width = "100%"}
@@ -27,7 +26,6 @@
 					jQuery(document).ready(function() {
 					var kuinkFunctionRaw = "{$fieldAttrs['datasource']}";
 					var kuinkFunction = kuinkFunctionRaw.replace("call:", "");
-
 	$("#{$_guid} #{$fieldID}").select2({
 		placeholder: '{translate app="framework"}search{/translate}',
 		allowClear: true,
