@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-01 15:26:31
+/* Smarty version 3.1.30, created on 2019-01-16 14:42:38
   from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/Form_HandleField.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5c02a82786d5a7_48675732',
+  'unifunc' => 'content_5c3f42de7ba0e6_00944059',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd932153d0102cd34a85005fb9668a14af363652e' => 
     array (
       0 => '/opt/moodle/mod/kuink/theme/adminlte/ui/control/Form_HandleField.tpl',
-      1 => 1540821053,
+      1 => 1547648788,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./form/".((string)$_smarty_tpl->tpl_vars[\'fieldType\']->value).".tpl' => 3,
   ),
 ),false)) {
-function content_5c02a82786d5a7_48675732 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c3f42de7ba0e6_00944059 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 

@@ -87,7 +87,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 			<h3 class="box-title">{$title}</h3>
 		</div>
 
-		<div class="gridBlock_{$name} kuink-grid">
+		<div class="gridBlock_{$name} kuink-grid" style="overflow-x: auto">
 
 			{$multiSeparator = '-'}
 
@@ -233,7 +233,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 			</script>
 
-			<table id="{$name}" class="{if $tree == 'true'}tree{/if} table table-striped table-condensed table-bordered table-hover kuink-control-grid">
+			<table id="{$name}" class="{if $tree == 'true'}tree{/if} table table-striped table-condensed table-bordered table-hover datatable kuink-control-grid">
 				<thead>
 					<tr>
 						{$index = 0}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-01 15:26:31
+/* Smarty version 3.1.30, created on 2019-02-05 16:48:19
   from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Select.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5c02a82793df11_28492625',
+  'unifunc' => 'content_5c59be533b96b6_05308458',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fcaece826749829fb3a1c4898e741318bcdb4862' => 
     array (
       0 => '/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Select.tpl',
-      1 => 1538043398,
+      1 => 1549385202,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c02a82793df11_28492625 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c59be533b96b6_05308458 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_block_translate')) require_once '/opt/kuink-dev/kuink-core/lib/tools/smarty/plugins/block.translate.php';
 $_smarty_tpl->_assignInScope('fieldAttrs', $_smarty_tpl->tpl_vars['field']->value['attributes']);
 ?>
@@ -53,7 +53,6 @@ echo $_smarty_tpl->tpl_vars['urlSuff']->value;?>
 
 	<?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['searchable'] == "dynamic") {?>
 		
-
 			<?php $_smarty_tpl->_assignInScope('datasourceParams', explode(",",$_smarty_tpl->tpl_vars['fieldAttrs']->value['datasource-params']));
 ?>
 
@@ -66,7 +65,6 @@ echo $_smarty_tpl->tpl_vars['urlSuff']->value;?>
 					var kuinkFunctionRaw = "<?php echo $_smarty_tpl->tpl_vars['fieldAttrs']->value['datasource'];?>
 ";
 					var kuinkFunction = kuinkFunctionRaw.replace("call:", "");
-
 	$("#<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
  #<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
 ").select2({

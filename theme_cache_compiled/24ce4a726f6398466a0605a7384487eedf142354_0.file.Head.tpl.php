@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-01 14:34:45
+/* Smarty version 3.1.30, created on 2019-04-02 16:37:46
   from "/var/www/html/kuink/theme/adminlte/template/Head.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5c029c052fba29_91218152',
+  'unifunc' => 'content_5ca38fda94e5a8_87920597',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '24ce4a726f6398466a0605a7384487eedf142354' => 
     array (
       0 => '/var/www/html/kuink/theme/adminlte/template/Head.tpl',
-      1 => 1543620592,
+      1 => 1544544789,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c029c052fba29_91218152 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ca38fda94e5a8_87920597 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 				<meta charset="UTF-8">
 				<title>KuinK</title>
@@ -50,7 +50,8 @@ theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
 theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
 /assets/css/select2/select2-bootstrap.css"/>
 				<!-- Font Awesome -->
-				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+				<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"-->
+				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 				<!-- Ionicons -->
 				<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 				<!-- Bootstrap Validator -->

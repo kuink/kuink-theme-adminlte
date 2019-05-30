@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-01 14:53:39
+/* Smarty version 3.1.30, created on 2019-05-30 10:38:29
   from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/Grid.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5c02a073250451_87228414',
+  'unifunc' => 'content_5cefb2a581b296_64683375',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '121df584ec12df1fde6820e7842682dc447598eb' => 
     array (
       0 => '/opt/moodle/mod/kuink/theme/adminlte/ui/control/Grid.tpl',
-      1 => 1527261111,
+      1 => 1559212703,
       2 => 'file',
     ),
   ),
@@ -21,13 +21,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./grid/".((string)$_smarty_tpl->tpl_vars[\'colType\']->value).".tpl' => 1,
   ),
 ),false)) {
-function content_5c02a073250451_87228414 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cefb2a581b296_64683375 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
   'helpModal' => 
   array (
     'compiled_filepath' => '/opt/moodle/mod/kuink/theme/adminlte/theme_cache_compiled/121df584ec12df1fde6820e7842682dc447598eb_0.file.Grid.tpl.php',
     'uid' => '121df584ec12df1fde6820e7842682dc447598eb',
-    'call_name' => 'smarty_template_function_helpModal_20060220735c02a0731174c7_93875687',
+    'call_name' => 'smarty_template_function_helpModal_8477664685cefb2a55b55f5_72469628',
   ),
 ));
 if (!is_callable('smarty_block_translate')) require_once '/opt/kuink-dev/kuink-core/lib/tools/smarty/plugins/block.translate.php';
@@ -166,7 +166,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 		</div>
 
 		<div class="gridBlock_<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
- kuink-grid">
+ kuink-grid" style="overflow-x: auto">
 
 			<?php $_smarty_tpl->_assignInScope('multiSeparator', '-');
 ?>
@@ -390,7 +390,7 @@ SELECTED";
 >
 
 			<table id="<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
-" class="<?php if ($_smarty_tpl->tpl_vars['tree']->value == 'true') {?>tree<?php }?> table table-striped table-condensed table-bordered table-hover kuink-control-grid">
+" class="<?php if ($_smarty_tpl->tpl_vars['tree']->value == 'true') {?>tree<?php }?> table table-striped table-condensed table-bordered table-hover datatable kuink-control-grid">
 				<thead>
 					<tr>
 						<?php $_smarty_tpl->_assignInScope('index', 0);
@@ -1064,9 +1064,9 @@ array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
 >
 <?php }
 }
-/* smarty_template_function_helpModal_20060220735c02a0731174c7_93875687 */
-if (!function_exists('smarty_template_function_helpModal_20060220735c02a0731174c7_93875687')) {
-function smarty_template_function_helpModal_20060220735c02a0731174c7_93875687($_smarty_tpl,$params) {
+/* smarty_template_function_helpModal_8477664685cefb2a55b55f5_72469628 */
+if (!function_exists('smarty_template_function_helpModal_8477664685cefb2a55b55f5_72469628')) {
+function smarty_template_function_helpModal_8477664685cefb2a55b55f5_72469628($_smarty_tpl,$params) {
 foreach ($params as $key => $value) {
 $_smarty_tpl->tpl_vars[$key] = new Smarty_Variable($value, $_smarty_tpl->isRenderingCache);
 }?>          
@@ -1086,5 +1086,5 @@ $_smarty_tpl->tpl_vars[$key] = new Smarty_Variable($value, $_smarty_tpl->isRende
 	</div>
 <?php
 }}
-/*/ smarty_template_function_helpModal_20060220735c02a0731174c7_93875687 */
+/*/ smarty_template_function_helpModal_8477664685cefb2a55b55f5_72469628 */
 }
