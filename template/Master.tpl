@@ -36,7 +36,7 @@ $position = Position of controls
 					<!-- mini logo for sidebar mini 50x50 pixels -->
 					<span class="logo-mini">S</span>
 					<!-- logo for regular state and mobile devices -->
-					<span class="logo-lg">CSCM-Lx</span>
+					<span class="logo-lg">KuinK</span>
 				</a>
 
 				{* include the top navbar*}
