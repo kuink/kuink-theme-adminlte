@@ -241,7 +241,7 @@
 	}
 </script>
 
-{if (count($buttonActions) > 0) || ($form['title'] != '') || (count($fields) > 0)}
+{if (!empty($buttonActions)) || ($form['title'] != '') || !empty($fields)}
 <div class="box">
 	{*check if this form has a title*}
 	{if $form['title'] != ''}
@@ -265,7 +265,7 @@
 			data-bv-feedbackicons-validating=""
 			data-bv-live="enabled"
 			data-disable="false">
-			{if count($fields) > 0}
+			{if !empty($fields)}
 				<div class="box-body ">
 					{if ($freeze == '0') && ($buttonsPosition == 'top' || $buttonsPosition == 'both')}
 						<script>
@@ -294,7 +294,7 @@
 					{if $fieldIndex > 0}
 						{assign var=prevFieldAttrs value=$fieldsIndexedArray[$fieldIndex-1]}
 					{/if}
-					{if $fieldIndex < count($fields)}
+					{if is_array($fields) && $fieldIndex < count($fields)}
 						{assign var=nextFieldAttrs value=$fieldsIndexedArray[$fieldIndex+1]}
 					{/if}
 					{if $field['type'] == 'Tab'}
@@ -372,7 +372,7 @@
 			{/if}
 		{/if}
 		<!-- /.box-body -->
-		{if count($buttonActions) > 0}
+		{if !empty($buttonActions)}
 			<div style="clear:both"></div>
 			<div class="box-footer">
 				<div class="btn-group">

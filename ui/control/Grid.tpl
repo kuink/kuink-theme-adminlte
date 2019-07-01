@@ -344,7 +344,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 												{include file="./grid/$colType.tpl"}
 											{else}
 												<span style="overflow-x: auto;">
-													{if count($value['constructor']) == 0}
+													{if empty($value['constructor'])}
 														{$value['value']}
 													{else}
 														{foreach $value['constructor'] as $actionAttribute}
