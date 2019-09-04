@@ -58,9 +58,11 @@
 					<div id="debugMessages" class="noPrint">
 						{call hook position='debugMessages'}
 					</div>
-					<div id="kuinkTrace">
-						{call hook position='trace'}
-					</div>
+					{if $noDebug != 1}
+						<div id="kuinkTrace">
+							{call hook position='trace'}
+						</div>
+					{/if}
 				</div><!-- /.row -->
 			</div>
 		</div>
