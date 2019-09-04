@@ -10,29 +10,30 @@
 <!-- Main content -->
 
 <div id="{$_idContext}_wrapper" class="box" kuink-guid="{$_idContext}" style="padding: 0px 5px;">
+	{if $onlyApp != 1}
 	<div class="box-header with-border" style="cursor: move;">
-		<!-- tools box -->
 		<div class="pull-right box-tools">
 			<button id="collapseWidgetButton" class="btn btn-danger btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="{translate}toggleApp{/translate}"><i class="fa fa-minus"></i></button>
-		</div><!-- ./ tools -->
+		</div>
 		<i class="fa fa-cube"></i>
 		<h3 class="box-title">{$appName}</h3>
 		<div style="display:inline-block;white-space: nowrap;">
 			{if !empty($menuEntries)}<a href="#sidebarMenu" class="btn btn-default" id="sidebarMenu" data-toggle="tooltip" data-placement="right" title="{translate}toggleMenu{/translate}"><i class="fa fa-bars"></i></a>{/if}
-			{*include 'app_dropdownMenu.tpl'*}
 		</div>
 		<a href="javascript: menuAppAction(false, '', '{$_refresh}', '');" class="btn btn-success" id="refresh" title="{translate}refresh{/translate}"><i class="fa fa-sync"></i></a>
-
+		{/if}
 	</div>
 	
 	<div class="box-body">
 		<div id="{$_idContext}_loading_wrapper" kuink-guid="{$_idContext}">
 			<div id="wrapper" class="toggled">
+				{if $onlyApp != 1}
 				{if !empty($menuEntries)}
 					{assign var="menuIsToggled" value=false}
 					{include 'app_toggleMenu.tpl'}
 					{assign var="menuIsToggled" value=true}
 					{include 'app_toggleMenu.tpl'}
+				{/if}
 				{/if}
 				<!-- Page Content -->
 				<div style="overflow: auto;overflow-x: hidden;">
