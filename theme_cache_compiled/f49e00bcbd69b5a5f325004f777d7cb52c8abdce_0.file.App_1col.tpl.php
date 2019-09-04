@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-01 14:38:43
-  from "/opt/moodle/mod/kuink/theme/adminlte/template/app/App_1col.tpl" */
+/* Smarty version 3.1.33, created on 2019-06-19 08:48:00
+  from '/opt/moodle/mod/kuink/theme/adminlte/template/app/App_1col.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c029cf3b23e72_65194053',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d09f6c055fa51_12901541',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,9 +20,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c029cf3b23e72_65194053 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'left'), true);?>
+function content_5d09f6c055fa51_12901541 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'left'), true);?>
 
-<?php $_smarty_tpl->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'default'), true);
+<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'default'), true);
 }
 }

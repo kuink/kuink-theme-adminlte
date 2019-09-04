@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2019-01-22 17:03:36
-  from "/opt/moodledata/neon/apps/gecol/gecol.common/process/person/templates/personBlockMedium.tpl" */
+/* Smarty version 3.1.33, created on 2019-07-02 13:23:11
+  from '/opt/moodledata/neon/apps/gecol/gecol.common/process/person/templates/personBlockMedium.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c474ce8d22b03_66956751',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d1b5abf2ebde0_44196204',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,9 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c474ce8d22b03_66956751 (Smarty_Internal_Template $_smarty_tpl) {
-?>
-<style>
+function content_5d1b5abf2ebde0_44196204 (Smarty_Internal_Template $_smarty_tpl) {
+?><style>
     .personBlock_<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
  {
 position: relative;

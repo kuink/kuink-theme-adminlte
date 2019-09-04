@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-01 14:38:43
-  from "/opt/moodle/mod/kuink/theme/adminlte/template/app_menuInclude.tpl" */
+/* Smarty version 3.1.33, created on 2019-06-19 08:48:00
+  from '/opt/moodle/mod/kuink/theme/adminlte/template/app_menuInclude.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c029cf3a8a551_26436853',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d09f6c04d5e38_47351091',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c029cf3a8a551_26436853 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
+function content_5d09f6c04d5e38_47351091 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->smarty->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
   'createLeftMenu' => 
   array (
     'compiled_filepath' => '/opt/moodle/mod/kuink/theme/adminlte/theme_cache_compiled/0249dbfdd64bdad39930452c4a43e84cfa6772c7_0.file.app_menuInclude.tpl.php',
     'uid' => '0249dbfdd64bdad39930452c4a43e84cfa6772c7',
-    'call_name' => 'smarty_template_function_createLeftMenu_17246953835c029cf3a66a09_18662190',
+    'call_name' => 'smarty_template_function_createLeftMenu_1162068825d09f6c0444720_63042548',
   ),
 ));
 echo '<script'; ?>
@@ -48,34 +48,33 @@ echo '<script'; ?>
 
 
 <?php }
-/* smarty_template_function_createLeftMenu_17246953835c029cf3a66a09_18662190 */
-if (!function_exists('smarty_template_function_createLeftMenu_17246953835c029cf3a66a09_18662190')) {
-function smarty_template_function_createLeftMenu_17246953835c029cf3a66a09_18662190($_smarty_tpl,$params) {
+/* smarty_template_function_createLeftMenu_1162068825d09f6c0444720_63042548 */
+if (!function_exists('smarty_template_function_createLeftMenu_1162068825d09f6c0444720_63042548')) {
+function smarty_template_function_createLeftMenu_1162068825d09f6c0444720_63042548(Smarty_Internal_Template $_smarty_tpl,$params) {
 $params = array_merge(array('menu'=>false,'submenu'=>false,'menuType'=>'toggle'), $params);
 foreach ($params as $key => $value) {
 $_smarty_tpl->tpl_vars[$key] = new Smarty_Variable($value, $_smarty_tpl->isRenderingCache);
-}?>
+}
+?>
+
 	<?php if (!is_array($_smarty_tpl->tpl_vars['menu']->value['child'])) {?>
-		
-		<li>
+				<li>
 			<a target="<?php echo $_smarty_tpl->tpl_vars['menu']->value['target'];?>
 " href="javascript: menuAppAction(false, '', '<?php echo $_smarty_tpl->tpl_vars['menu']->value['href'];?>
 ', '');" style="color: #777;"
 			<?php if ($_smarty_tpl->tpl_vars['menuType']->value == 'toggled' && $_smarty_tpl->tpl_vars['submenu']->value != true) {?>data-tt="tooltip" title="<?php if ($_smarty_tpl->tpl_vars['menu']->value['label']) {
 echo $_smarty_tpl->tpl_vars['menu']->value['label'];
 } else {
-$_block_plugin1 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
-if (!is_callable($_block_plugin1)) {
+$_block_plugin10 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
+if (!is_callable($_block_plugin10)) {
 throw new SmartyException('block tag \'translate\' not callable or registered');
 }
 $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());
-$_block_repeat1=true;
-echo $_block_plugin1(array(), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-noLabel<?php $_block_repeat1=false;
-echo $_block_plugin1(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo $_block_plugin10(array(), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>noLabel<?php $_block_repeat=false;
+echo $_block_plugin10(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);
 }?>"<?php }?>>
@@ -87,18 +86,16 @@ if (!$_smarty_tpl->tpl_vars['submenu']->value) {?>th-list<?php }
 				<?php if ($_smarty_tpl->tpl_vars['menuType']->value != 'toggled' || $_smarty_tpl->tpl_vars['submenu']->value == true) {?><span><?php if ($_smarty_tpl->tpl_vars['menu']->value['label']) {
 echo $_smarty_tpl->tpl_vars['menu']->value['label'];
 } else {
-$_block_plugin1 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
-if (!is_callable($_block_plugin1)) {
+$_block_plugin11 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
+if (!is_callable($_block_plugin11)) {
 throw new SmartyException('block tag \'translate\' not callable or registered');
 }
 $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());
-$_block_repeat1=true;
-echo $_block_plugin1(array(), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-noLabel<?php $_block_repeat1=false;
-echo $_block_plugin1(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo $_block_plugin11(array(), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>noLabel<?php $_block_repeat=false;
+echo $_block_plugin11(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);
 }?></span><?php }?>
@@ -119,18 +116,16 @@ if (!$_smarty_tpl->tpl_vars['submenu']->value) {?>th-list<?php }
 			<?php if ($_smarty_tpl->tpl_vars['menuType']->value != 'toggled' || $_smarty_tpl->tpl_vars['submenu']->value == true) {?><span><?php if ($_smarty_tpl->tpl_vars['menu']->value['label']) {
 echo $_smarty_tpl->tpl_vars['menu']->value['label'];
 } else {
-$_block_plugin1 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
-if (!is_callable($_block_plugin1)) {
+$_block_plugin12 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
+if (!is_callable($_block_plugin12)) {
 throw new SmartyException('block tag \'translate\' not callable or registered');
 }
 $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());
-$_block_repeat1=true;
-echo $_block_plugin1(array(), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-noLabel<?php $_block_repeat1=false;
-echo $_block_plugin1(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo $_block_plugin12(array(), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>noLabel<?php $_block_repeat=false;
+echo $_block_plugin12(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);
 }?></span><?php }?>
@@ -142,14 +137,12 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['submenu']->value) {
 ?>
-						<?php $_smarty_tpl->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'createLeftMenu', array('menu'=>$_smarty_tpl->tpl_vars['submenu']->value,'submenu'=>true,'menuType'=>$_smarty_tpl->tpl_vars['menuType']->value), true);?>
+						<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'createLeftMenu', array('menu'=>$_smarty_tpl->tpl_vars['submenu']->value,'submenu'=>true,'menuType'=>$_smarty_tpl->tpl_vars['menuType']->value), true);?>
 
 					<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 			<?php }?>
 			</li>
 		<?php } else { ?>
@@ -158,18 +151,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 				<?php if ($_smarty_tpl->tpl_vars['menuType']->value == 'toggled' && $_smarty_tpl->tpl_vars['submenu']->value != true) {?>data-tt="tooltip" title="<?php if ($_smarty_tpl->tpl_vars['menu']->value['label']) {
 echo $_smarty_tpl->tpl_vars['menu']->value['label'];
 } else {
-$_block_plugin1 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
-if (!is_callable($_block_plugin1)) {
+$_block_plugin13 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
+if (!is_callable($_block_plugin13)) {
 throw new SmartyException('block tag \'translate\' not callable or registered');
 }
 $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());
-$_block_repeat1=true;
-echo $_block_plugin1(array(), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-noLabel<?php $_block_repeat1=false;
-echo $_block_plugin1(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo $_block_plugin13(array(), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>noLabel<?php $_block_repeat=false;
+echo $_block_plugin13(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);
 }?>"<?php }?>>
@@ -187,19 +178,17 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['submenu']->value) {
 ?>
-								<?php $_smarty_tpl->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'createLeftMenu', array('menu'=>$_smarty_tpl->tpl_vars['submenu']->value,'submenu'=>true,'menuType'=>$_smarty_tpl->tpl_vars['menuType']->value), true);?>
+								<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'createLeftMenu', array('menu'=>$_smarty_tpl->tpl_vars['submenu']->value,'submenu'=>true,'menuType'=>$_smarty_tpl->tpl_vars['menuType']->value), true);?>
 
 							<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 					</ul>
 				<?php }?>
 			</li>
 		<?php }?>
 	<?php }
 }}
-/*/ smarty_template_function_createLeftMenu_17246953835c029cf3a66a09_18662190 */
+/*/ smarty_template_function_createLeftMenu_1162068825d09f6c0444720_63042548 */
 }

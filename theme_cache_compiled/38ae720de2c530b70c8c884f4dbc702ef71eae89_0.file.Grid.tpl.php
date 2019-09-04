@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-01 14:45:44
-  from "/opt/kuink-dev/kuink-bridge-moodle/theme/adminlte/ui/control/Grid.tpl" */
+/* Smarty version 3.1.33, created on 2019-07-23 07:42:21
+  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/Grid.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c029e980d33f9_84265179',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d36ba5d856026_70493375',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '04a5fccc768e996f784a7db16fba1cd88241ba49' => 
+    '38ae720de2c530b70c8c884f4dbc702ef71eae89' => 
     array (
-      0 => '/opt/kuink-dev/kuink-bridge-moodle/theme/adminlte/ui/control/Grid.tpl',
-      1 => 1527261111,
+      0 => '/opt/moodle/mod/kuink/theme/adminlte/ui/control/Grid.tpl',
+      1 => 1563867579,
       2 => 'file',
     ),
   ),
@@ -21,18 +21,17 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./grid/".((string)$_smarty_tpl->tpl_vars[\'colType\']->value).".tpl' => 1,
   ),
 ),false)) {
-function content_5c029e980d33f9_84265179 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
+function content_5d36ba5d856026_70493375 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->smarty->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
   'helpModal' => 
   array (
-    'compiled_filepath' => '/opt/moodle/mod/kuink/theme/adminlte/theme_cache_compiled/04a5fccc768e996f784a7db16fba1cd88241ba49_0.file.Grid.tpl.php',
-    'uid' => '04a5fccc768e996f784a7db16fba1cd88241ba49',
-    'call_name' => 'smarty_template_function_helpModal_7834483385c029e97f1e319_48199616',
+    'compiled_filepath' => '/opt/moodle/mod/kuink/theme/adminlte/theme_cache_compiled/38ae720de2c530b70c8c884f4dbc702ef71eae89_0.file.Grid.tpl.php',
+    'uid' => '38ae720de2c530b70c8c884f4dbc702ef71eae89',
+    'call_name' => 'smarty_template_function_helpModal_12958782615d36ba5d5a3c78_64369676',
   ),
 ));
-if (!is_callable('smarty_block_translate')) require_once '/opt/kuink-dev/kuink-core/lib/tools/smarty/plugins/block.translate.php';
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/opt/kuink-dev/kuink-core/lib/tools/smarty/plugins/block.translate.php','function'=>'smarty_block_translate',),));
 ?>
-
 
 
 <?php if ($_smarty_tpl->tpl_vars['freeze']->value == 'true') {?>
@@ -65,37 +64,29 @@ _hidden" <?php if ($_smarty_tpl->tpl_vars['colAttr']->value['hidden'] != 'true')
 						<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 					</ul>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal"><?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());
-$_block_repeat1=true;
-echo smarty_block_translate(array(), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-back<?php $_block_repeat1=false;
-echo smarty_block_translate(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array(), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>back<?php $_block_repeat=false;
+echo smarty_block_translate(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-</button>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?></button>
 					<button type="button" class="btn btn-primary" onclick=" var hidden=''; $('.<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
 _hidden').each(function(){ if (!this.checked) hidden=hidden+this.id+';'; }); window.location = '<?php echo $_smarty_tpl->tpl_vars['baseUrl']->value;?>
 &<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
 _hidden='+hidden;"><?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());
-$_block_repeat1=true;
-echo smarty_block_translate(array(), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-save<?php $_block_repeat1=false;
-echo smarty_block_translate(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array(), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>save<?php $_block_repeat=false;
+echo smarty_block_translate(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-</button>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?></button>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
@@ -108,8 +99,7 @@ array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
 		<div class="box-header">
 			<div class="pull-right box-tools">
 
-				<?php $_smarty_tpl->_assignInScope('count', 0);
-?>
+				<?php $_smarty_tpl->_assignInScope('count', 0);?>
 				<?php if ($_smarty_tpl->tpl_vars['freeze']->value != 'true') {?>
 					<?php if ($_smarty_tpl->tpl_vars['globalActions']->value) {?>
 						<?php
@@ -118,13 +108,10 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['action_name']->value => $_smarty_tpl->tpl_vars['action_desc']->value) {
 ?>
 
-							<?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-small");
-?>
+							<?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-small");?>
 							<?php if ($_smarty_tpl->tpl_vars['count']->value == 0) {?>
-								<?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-small btn-primary");
-?>
-								<?php $_smarty_tpl->_assignInScope('count', $_smarty_tpl->tpl_vars['count']->value+1);
-?>
+								<?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-small btn-primary");?>
+								<?php $_smarty_tpl->_assignInScope('count', $_smarty_tpl->tpl_vars['count']->value+1);?>
 								<div class="btn-group">
 							<?php }?>
 							<button type="submit" class="<?php echo $_smarty_tpl->tpl_vars['buttonClass']->value;?>
@@ -144,9 +131,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['action_name']->value => $_smarty_tpl-
 						<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 						<?php if ($_smarty_tpl->tpl_vars['count']->value > 0) {?>
 							</div>
 						<?php }?>
@@ -166,13 +151,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 		</div>
 
 		<div class="gridBlock_<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
- kuink-grid">
+ kuink-grid" style="overflow-x: auto">
 
-			<?php $_smarty_tpl->_assignInScope('multiSeparator', '-');
-?>
+			<?php $_smarty_tpl->_assignInScope('multiSeparator', '-');?>
 
 			
-
 			<!-- Handle required fields -->
 
 			<?php echo '<script'; ?>
@@ -194,8 +177,7 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['row']->value) {
 ?>
-								<?php $_smarty_tpl->_assignInScope('id', $_smarty_tpl->tpl_vars['row']->value['id']['value']);
-?>
+								<?php $_smarty_tpl->_assignInScope('id', $_smarty_tpl->tpl_vars['row']->value['id']['value']);?>
 								<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['row']->value, 'value');
 if ($_from !== null) {
@@ -236,21 +218,15 @@ CG").removeClass("has-error");
 								<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 						<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 					<?php }?>
 					$(reqFocus).focus();
 
@@ -390,28 +366,22 @@ SELECTED";
 >
 
 			<table id="<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
-" class="<?php if ($_smarty_tpl->tpl_vars['tree']->value == 'true') {?>tree<?php }?> table table-striped table-condensed table-bordered table-hover kuink-control-grid">
+" class="<?php if ($_smarty_tpl->tpl_vars['tree']->value == 'true') {?>tree<?php }?> table table-striped table-condensed table-bordered table-hover datatable kuink-control-grid">
 				<thead>
 					<tr>
-						<?php $_smarty_tpl->_assignInScope('index', 0);
-?>
-						<?php $_smarty_tpl->_assignInScope('numInlines', 0);
-?>
-						<?php $_smarty_tpl->_assignInScope('countHeaders', 0);
-?>
+						<?php $_smarty_tpl->_assignInScope('index', 0);?>
+						<?php $_smarty_tpl->_assignInScope('numInlines', 0);?>
+						<?php $_smarty_tpl->_assignInScope('countHeaders', 0);?>
 						<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['headers']->value, 'header');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['header']->value) {
 ?>
-							<?php $_smarty_tpl->_assignInScope('countHeaders', $_smarty_tpl->tpl_vars['countHeaders']->value+1);
-?>
+							<?php $_smarty_tpl->_assignInScope('countHeaders', $_smarty_tpl->tpl_vars['countHeaders']->value+1);?>
 						<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 						<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['headers']->value, 'header');
 if ($_from !== null) {
@@ -419,8 +389,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['header']->value) {
 ?>
 							<?php
  while (($_smarty_tpl->tpl_vars['columnAttributes']->value[$_smarty_tpl->tpl_vars['index']->value]['inline'] == 'true')) {?>
-								<?php $_smarty_tpl->_assignInScope('index', $_smarty_tpl->tpl_vars['index']->value+1);
-?>
+								<?php $_smarty_tpl->_assignInScope('index', $_smarty_tpl->tpl_vars['index']->value+1);?>
 							<?php }?>
 
 							<?php if ($_smarty_tpl->tpl_vars['columnAttributes']->value[$_smarty_tpl->tpl_vars['index']->value]['hidden'] != "true") {?>
@@ -470,9 +439,8 @@ _asc', '')"><i class="fa fa-sort"></i></a>
 									<?php }?>
 
 									<?php if ($_smarty_tpl->tpl_vars['columnAttributes']->value[$_smarty_tpl->tpl_vars['index']->value]['help'] != '') {?>
-										<?php $_smarty_tpl->_assignInScope('modalData', array('fieldID'=>$_smarty_tpl->tpl_vars['columnAttributes']->value[$_smarty_tpl->tpl_vars['index']->value]['name'],'helpText'=>$_smarty_tpl->tpl_vars['columnAttributes']->value[$_smarty_tpl->tpl_vars['index']->value]['help']));
-?>
-										<?php $_smarty_tpl->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'helpModal', array('modalData'=>$_smarty_tpl->tpl_vars['modalData']->value), true);?>
+										<?php $_smarty_tpl->_assignInScope('modalData', array('fieldID'=>$_smarty_tpl->tpl_vars['columnAttributes']->value[$_smarty_tpl->tpl_vars['index']->value]['name'],'helpText'=>$_smarty_tpl->tpl_vars['columnAttributes']->value[$_smarty_tpl->tpl_vars['index']->value]['help']));?>
+										<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'helpModal', array('modalData'=>$_smarty_tpl->tpl_vars['modalData']->value), true);?>
 
 
 										<a data-toggle="modal" href="#helpModal_<?php echo $_smarty_tpl->tpl_vars['columnAttributes']->value[$_smarty_tpl->tpl_vars['index']->value]['name'];?>
@@ -480,14 +448,11 @@ _asc', '')"><i class="fa fa-sort"></i></a>
 									<?php }?>
 								</th>
 							<?php }?>
-							<?php $_smarty_tpl->_assignInScope('index', $_smarty_tpl->tpl_vars['index']->value+1);
-?>
+							<?php $_smarty_tpl->_assignInScope('index', $_smarty_tpl->tpl_vars['index']->value+1);?>
 						<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 					</tr>
 				</thead>
 				<tbody>
@@ -501,56 +466,43 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['row']->value) {
 ?>
-							<?php $_smarty_tpl->_assignInScope('tr_active_class', '');
-?>
+							<?php $_smarty_tpl->_assignInScope('tr_active_class', '');?>
 							<?php if ($_smarty_tpl->tpl_vars['row']->value['__active'] == 1) {?>
-								<?php $_smarty_tpl->_assignInScope('tr_active_class', 'row-highlight');
-?>
+								<?php $_smarty_tpl->_assignInScope('tr_active_class', 'row-highlight');?>
 							<?php }?>
 
-							<?php $_smarty_tpl->_assignInScope('first', null);
-?>
+							<?php $_smarty_tpl->_assignInScope('first', null);?>
 							<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['row']->value, 'value');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['value']->value) {
 ?>
-								<?php $_smarty_tpl->_assignInScope('first', $_smarty_tpl->tpl_vars['value']->value);
-?>
+								<?php $_smarty_tpl->_assignInScope('first', $_smarty_tpl->tpl_vars['value']->value);?>
 								<?php break 1;?>
 							<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 							<tr class="<?php if ($_smarty_tpl->tpl_vars['tree']->value == 'true') {?>treegrid-<?php echo $_smarty_tpl->tpl_vars['first']->value['attributes']['treeid'];?>
  <?php if ($_smarty_tpl->tpl_vars['first']->value['attributes']['treeparentid'] != '') {?>treegrid-parent-<?php echo $_smarty_tpl->tpl_vars['first']->value['attributes']['treeparentid'];
 }
 }?>">
-								<?php $_smarty_tpl->_assignInScope('index', 0);
-?>
-								<?php $_smarty_tpl->_assignInScope('id', $_smarty_tpl->tpl_vars['row']->value['id']['value']);
-?>
+								<?php $_smarty_tpl->_assignInScope('index', 0);?>
+								<?php $_smarty_tpl->_assignInScope('id', $_smarty_tpl->tpl_vars['row']->value['id']['value']);?>
 
 								<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['row']->value, 'value');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['value']->value) {
 ?>
-									<?php $_smarty_tpl->_assignInScope('fieldAttrs', $_smarty_tpl->tpl_vars['value']->value['attributes']);
-?>
-									<?php $_smarty_tpl->_assignInScope('onChange', "javascript: setChanged(".((string)$_smarty_tpl->tpl_vars['id']->value).");");
-?>
-									<?php $_smarty_tpl->_assignInScope('onPick', "javascript: setPick(".((string)$_smarty_tpl->tpl_vars['id']->value).", this.checked);");
-?>
+									<?php $_smarty_tpl->_assignInScope('fieldAttrs', $_smarty_tpl->tpl_vars['value']->value['attributes']);?>
+									<?php $_smarty_tpl->_assignInScope('onChange', "javascript: setChanged(".((string)$_smarty_tpl->tpl_vars['id']->value).");");?>
+									<?php $_smarty_tpl->_assignInScope('onPick', "javascript: setPick(".((string)$_smarty_tpl->tpl_vars['id']->value).", this.checked);");?>
 
-									<?php $_smarty_tpl->_assignInScope('colType', $_smarty_tpl->tpl_vars['value']->value['attributes']['type']);
-?>
+									<?php $_smarty_tpl->_assignInScope('colType', $_smarty_tpl->tpl_vars['value']->value['attributes']['type']);?>
 
-									
-									<?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['hidden'] != "true") {?>
+																		<?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['hidden'] != "true") {?>
 										<?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['nowrap'] == "true") {?>
 											<td nowrap="true" style="white-space: nowrap; overflow-x: auto;">
 										<?php } else { ?>
@@ -564,34 +516,26 @@ foreach ($_from as $_smarty_tpl->tpl_vars['value']->value) {
 										<?php }?>
 
 
-										<?php $_smarty_tpl->_assignInScope('disabledClass', '');
-?>
-										<?php $_smarty_tpl->_assignInScope('disabledAttr', '');
-?>
+										<?php $_smarty_tpl->_assignInScope('disabledClass', '');?>
+										<?php $_smarty_tpl->_assignInScope('disabledAttr', '');?>
 
 										<?php if ($_smarty_tpl->tpl_vars['value']->value['attributes']['disabled'] == 'true') {?>
-											<?php $_smarty_tpl->_assignInScope('disabledClass', 'disabled');
-?>
-											<?php $_smarty_tpl->_assignInScope('disabledAttr', 'disabled');
-?>
+											<?php $_smarty_tpl->_assignInScope('disabledClass', 'disabled');?>
+											<?php $_smarty_tpl->_assignInScope('disabledAttr', 'disabled');?>
 										<?php } else { ?>
 											<?php if ($_smarty_tpl->tpl_vars['value']->value['attributes']['conditionalfield'] != '') {?>
 												<?php if ($_smarty_tpl->tpl_vars['row']->value[$_smarty_tpl->tpl_vars['value']->value['attributes']['conditionalfield']] == $_smarty_tpl->tpl_vars['value']->value['attributes']['conditionalvalue']) {?>
-													<?php $_smarty_tpl->_assignInScope('disabledClass', 'disabled');
-?>
-													<?php $_smarty_tpl->_assignInScope('disabledAttr', 'disabled');
-?>
+													<?php $_smarty_tpl->_assignInScope('disabledClass', 'disabled');?>
+													<?php $_smarty_tpl->_assignInScope('disabledAttr', 'disabled');?>
 												<?php }?>
 											<?php }?>
 										<?php }?>
 
 										<?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['visible'] == "true" || $_smarty_tpl->tpl_vars['fieldAttrs']->value['visible'] == '') {?>
 											<?php if ($_smarty_tpl->tpl_vars['colType']->value != '') {?>
-												<?php $_smarty_tpl->_assignInScope('inputSize', $_smarty_tpl->tpl_vars['value']->value['attributes']['inputsize']);
-?>
+												<?php $_smarty_tpl->_assignInScope('inputSize', $_smarty_tpl->tpl_vars['value']->value['attributes']['inputsize']);?>
 												<?php $_smarty_tpl->_subTemplateRender("file:./grid/".((string)$_smarty_tpl->tpl_vars['colType']->value).".tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
-
 											<?php } else { ?>
 												<span style="overflow-x: auto;">
 													<?php if (count($_smarty_tpl->tpl_vars['value']->value['constructor']) == 0) {?>
@@ -616,9 +560,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['actionAttribute']->value) {
 														<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 													<?php }?>
 												</span>
 											<?php }?>
@@ -626,8 +568,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 										</td>
 									<?php }?>
 
-									
-									<?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['post'] == "true") {?>
+																		<?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['post'] == "true") {?>
 										<input type="hidden" id="<?php echo $_smarty_tpl->tpl_vars['id']->value;
 echo $_smarty_tpl->tpl_vars['multiSeparator']->value;
 echo $_smarty_tpl->tpl_vars['fieldAttrs']->value['name'];?>
@@ -638,14 +579,11 @@ echo $_smarty_tpl->tpl_vars['fieldAttrs']->value['name'];?>
 "/>
 									<?php }?>
 
-									<?php $_smarty_tpl->_assignInScope('index', $_smarty_tpl->tpl_vars['index']->value+1);
-?>
+									<?php $_smarty_tpl->_assignInScope('index', $_smarty_tpl->tpl_vars['index']->value+1);?>
 								<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 								<?php if ($_smarty_tpl->tpl_vars['supressChangedField']->value != 1) {?>
 									<input type="hidden" id="<?php echo $_smarty_tpl->tpl_vars['id']->value;
 echo $_smarty_tpl->tpl_vars['multiSeparator']->value;?>
@@ -662,25 +600,19 @@ SELECTED" value="0"/>
 						<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 					<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 					<?php if ($_smarty_tpl->tpl_vars['extendEdit']->value == 'true') {?>
-						<?php $_smarty_tpl->_assignInScope('index', 0);
-?>
+						<?php $_smarty_tpl->_assignInScope('index', 0);?>
 						<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['headers']->value, 'header');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['header']->value) {
 ?>
-							
-							<?php if ($_smarty_tpl->tpl_vars['columnAttributes']->value[$_smarty_tpl->tpl_vars['index']->value]['hidden'] != "true") {?>
+														<?php if ($_smarty_tpl->tpl_vars['columnAttributes']->value[$_smarty_tpl->tpl_vars['index']->value]['hidden'] != "true") {?>
 								<?php if ($_smarty_tpl->tpl_vars['columnAttributes']->value[$_smarty_tpl->tpl_vars['index']->value]['inline'] != "true") {?>
 									<td>
 										<?php if ($_smarty_tpl->tpl_vars['columnAttributes']->value[$_smarty_tpl->tpl_vars['index']->value]['type'] != "static" && $_smarty_tpl->tpl_vars['columnAttributes']->value[$_smarty_tpl->tpl_vars['index']->value]['type'] != "checkbox") {?>
@@ -700,16 +632,12 @@ CG" class="control-group">
 								<?php }?>
 							<?php }?>
 
-							<?php $_smarty_tpl->_assignInScope('index', $_smarty_tpl->tpl_vars['index']->value+1);
-?>
+							<?php $_smarty_tpl->_assignInScope('index', $_smarty_tpl->tpl_vars['index']->value+1);?>
 						<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
-						
-						<td>
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+												<td>
 							<?php echo '<script'; ?>
 >
 								//Expand values to fields in the grid
@@ -793,9 +721,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['exportType']->value) {
 					<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 				</div>
 			<?php }?>
 
@@ -803,21 +729,17 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 				<?php if ($_smarty_tpl->tpl_vars['globalActions']->value) {?>
 					<div class="form-actions">
 						<div class="btn-group">
-							<?php $_smarty_tpl->_assignInScope('count', 0);
-?>
+							<?php $_smarty_tpl->_assignInScope('count', 0);?>
 							<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['globalActions']->value, 'action_desc', false, 'action_name');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['action_name']->value => $_smarty_tpl->tpl_vars['action_desc']->value) {
 ?>
 
-								<?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-small");
-?>
+								<?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-small");?>
 								<?php if ($_smarty_tpl->tpl_vars['count']->value == 0) {?>
-									<?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-small btn-primary");
-?>
-									<?php $_smarty_tpl->_assignInScope('count', $_smarty_tpl->tpl_vars['count']->value+1);
-?>
+									<?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-small btn-primary");?>
+									<?php $_smarty_tpl->_assignInScope('count', $_smarty_tpl->tpl_vars['count']->value+1);?>
 									<div class="btn-group">
 								<?php }?>
 
@@ -838,9 +760,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['action_name']->value => $_smarty_tpl-
 							<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							<?php if ($_smarty_tpl->tpl_vars['count']->value > 0) {?>
 								</div>
 							<?php }?>
@@ -858,32 +778,26 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 &<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
 _page=<?php echo $_smarty_tpl->tpl_vars['pageCurrent']->value-1;?>
 ', '');"><?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-previous<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>previous<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-</a></li>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?></a></li>
 							<li><a href="javascript: gridActionField_<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
 (false, '', '<?php echo $_smarty_tpl->tpl_vars['baseUrl']->value;?>
 &<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
 _page=0', '');">1</a></li>
 						<?php } else { ?>
 							<li class=""><a disabled="disabled" href="javascript:void(0);"><?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-previous<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>previous<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-</a></li>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?></a></li>
 							<li class="active"><a disabled="disabled" href="javascript:void(0);">1</a></li>
 						<?php }?>
 
@@ -891,25 +805,21 @@ array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
 							<li class=""><a disabled="disabled" href="javascript:void(0);">...</a></li>
 						<?php }?>
 
-						<?php $_smarty_tpl->_assignInScope('start', "2");
-?>
-						<?php $_smarty_tpl->_assignInScope('end', ((string)$_smarty_tpl->tpl_vars['pageTotal']->value));
-?>
+						<?php $_smarty_tpl->_assignInScope('start', "2");?>
+						<?php $_smarty_tpl->_assignInScope('end', ((string)$_smarty_tpl->tpl_vars['pageTotal']->value));?>
 						<?php if ($_smarty_tpl->tpl_vars['pageCurrent']->value > 5 && $_smarty_tpl->tpl_vars['pageTotal']->value > 10) {?>
-							<?php $_smarty_tpl->_assignInScope('start', $_smarty_tpl->tpl_vars['pageCurrent']->value-2);
-?>
+							<?php $_smarty_tpl->_assignInScope('start', $_smarty_tpl->tpl_vars['pageCurrent']->value-2);?>
 						<?php }?>
 
 						<?php if ($_smarty_tpl->tpl_vars['pageCurrent']->value < $_smarty_tpl->tpl_vars['pageTotal']->value-5 && $_smarty_tpl->tpl_vars['pageTotal']->value > 10) {?>
-							<?php $_smarty_tpl->_assignInScope('end', $_smarty_tpl->tpl_vars['pageCurrent']->value+5);
-?>
+							<?php $_smarty_tpl->_assignInScope('end', $_smarty_tpl->tpl_vars['pageCurrent']->value+5);?>
 						<?php }?>
 
 						<?php
 $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['end']->value-1+1 - ($_smarty_tpl->tpl_vars['start']->value) : $_smarty_tpl->tpl_vars['start']->value-($_smarty_tpl->tpl_vars['end']->value-1)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
 if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = $_smarty_tpl->tpl_vars['start']->value, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
-$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
 							<?php if ($_smarty_tpl->tpl_vars['pageCurrent']->value+1 == $_smarty_tpl->tpl_vars['i']->value) {?>
 								<li class="active"><a disabled="disabled" href="javascript:void(0);"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
 </a></li>
@@ -924,7 +834,6 @@ _page=<?php echo $_smarty_tpl->tpl_vars['i']->value-1;?>
 						<?php }
 }
 ?>
-
 
 						<?php if ($_smarty_tpl->tpl_vars['pageTotal']->value > 10 && $_smarty_tpl->tpl_vars['pageCurrent']->value < $_smarty_tpl->tpl_vars['pageTotal']->value-5) {?>
 							<li class=""><a disabled="disabled" href="javascript:void(0);">...</a></li>
@@ -944,16 +853,13 @@ _page=<?php echo $_smarty_tpl->tpl_vars['pageTotal']->value-1;?>
 &<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
 _page=<?php echo $_smarty_tpl->tpl_vars['pageCurrent']->value+1;?>
 ', '');"><?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-next<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>next<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-</a></li>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?></a></li>
 						<?php } else { ?>
 							<?php if ($_smarty_tpl->tpl_vars['pageTotal']->value != 1) {?>
 								<li class="active">&nbsp;<a href="javascript: gridActionField_<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
@@ -964,16 +870,13 @@ _page=<?php echo $_smarty_tpl->tpl_vars['pageTotal']->value-1;?>
 </a></li>
 							<?php }?>
 							<li class=""><a disabled="disabled" href="javascript:void(0);"><?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-next<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>next<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-</a></li>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?></a></li>
 						<?php }?>
 
 						<li>&nbsp;
@@ -998,51 +901,41 @@ _pageselector option[value=<?php echo $_smarty_tpl->tpl_vars['pageSize']->value;
 
 						<li class="active">
 							<a disabled="disabled"><?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-total<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>total<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-:&nbsp;<?php echo $_smarty_tpl->tpl_vars['recordsTotal']->value;?>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>:&nbsp;<?php echo $_smarty_tpl->tpl_vars['recordsTotal']->value;?>
 </a>
 						</li>
 					</ul>
 				</div>
 			<?php } else { ?>
 				<span class="label label-default"><?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-total<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>total<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-: <?php echo $_smarty_tpl->tpl_vars['recordsTotal']->value;?>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>: <?php echo $_smarty_tpl->tpl_vars['recordsTotal']->value;?>
 </span>
 			<?php }?>
 			<?php if ($_smarty_tpl->tpl_vars['legend']->value != '') {?>
 				<strong><?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-legend<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>legend<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-</strong>: <?php echo $_smarty_tpl->tpl_vars['legend']->value;?>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?></strong>: <?php echo $_smarty_tpl->tpl_vars['legend']->value;?>
 
 			<?php }?>
 
-			
-		</div>
+					</div>
 	</form>
 </div>
 
@@ -1064,13 +957,14 @@ array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
 >
 <?php }
 }
-/* smarty_template_function_helpModal_7834483385c029e97f1e319_48199616 */
-if (!function_exists('smarty_template_function_helpModal_7834483385c029e97f1e319_48199616')) {
-function smarty_template_function_helpModal_7834483385c029e97f1e319_48199616($_smarty_tpl,$params) {
+/* smarty_template_function_helpModal_12958782615d36ba5d5a3c78_64369676 */
+if (!function_exists('smarty_template_function_helpModal_12958782615d36ba5d5a3c78_64369676')) {
+function smarty_template_function_helpModal_12958782615d36ba5d5a3c78_64369676(Smarty_Internal_Template $_smarty_tpl,$params) {
 foreach ($params as $key => $value) {
 $_smarty_tpl->tpl_vars[$key] = new Smarty_Variable($value, $_smarty_tpl->isRenderingCache);
-}?>          
-	<div class="modal hide" id="helpModal_<?php echo $_smarty_tpl->tpl_vars['modalData']->value['fieldID'];?>
+}
+?>
+          	<div class="modal hide" id="helpModal_<?php echo $_smarty_tpl->tpl_vars['modalData']->value['fieldID'];?>
 ">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal">×</button>
@@ -1086,5 +980,5 @@ $_smarty_tpl->tpl_vars[$key] = new Smarty_Variable($value, $_smarty_tpl->isRende
 	</div>
 <?php
 }}
-/*/ smarty_template_function_helpModal_7834483385c029e97f1e319_48199616 */
+/*/ smarty_template_function_helpModal_12958782615d36ba5d5a3c78_64369676 */
 }

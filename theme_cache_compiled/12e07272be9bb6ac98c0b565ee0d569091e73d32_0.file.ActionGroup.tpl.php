@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-03 12:55:10
-  from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/ActionGroup.tpl" */
+/* Smarty version 3.1.33, created on 2019-07-03 09:25:26
+  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/ActionGroup.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c0527ae2bbdd6_56798779',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d1c7486749ea5_26247312',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,16 +20,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c0527ae2bbdd6_56798779 (Smarty_Internal_Template $_smarty_tpl) {
-?>
-<div class="controls">
+function content_5d1c7486749ea5_26247312 (Smarty_Internal_Template $_smarty_tpl) {
+?><div class="controls">
 	<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['field']->value['options'], 'url', false, 'label');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['label']->value => $_smarty_tpl->tpl_vars['url']->value) {
 ?>
-	   		<?php $_smarty_tpl->_assignInScope('href', $_smarty_tpl->tpl_vars['url']->value['url']);
-?>
+	   		<?php $_smarty_tpl->_assignInScope('href', $_smarty_tpl->tpl_vars['url']->value['url']);?>
 		    <a href="#" onclick="javascript: result = setFormAction_<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
 ('<?php echo $_smarty_tpl->tpl_vars['href']->value;?>
 ','', '',  '', true); $('#<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
@@ -44,9 +42,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['label']->value => $_smarty_tpl->tpl_v
 	<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </div>
 <?php }
 }

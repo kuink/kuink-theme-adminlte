@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-11 10:05:18
-  from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/grid/textarea.tpl" */
+/* Smarty version 3.1.33, created on 2019-07-08 09:25:38
+  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/grid/textarea.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c0f8bde7b3811_12704294',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d230c1205e514_53006336',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,9 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c0f8bde7b3811_12704294 (Smarty_Internal_Template $_smarty_tpl) {
-?>
-<textarea class="input-medium <?php echo $_smarty_tpl->tpl_vars['disabledClass']->value;?>
+function content_5d230c1205e514_53006336 (Smarty_Internal_Template $_smarty_tpl) {
+?><textarea class="input-medium <?php echo $_smarty_tpl->tpl_vars['disabledClass']->value;?>
 " <?php echo $_smarty_tpl->tpl_vars['disabledAttr']->value;?>
  id="<?php echo $_smarty_tpl->tpl_vars['id']->value;
 echo $_smarty_tpl->tpl_vars['multiSeparator']->value;

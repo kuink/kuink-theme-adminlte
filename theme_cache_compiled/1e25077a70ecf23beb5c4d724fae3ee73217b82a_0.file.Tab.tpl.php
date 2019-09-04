@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2019-01-16 13:58:54
-  from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Tab.tpl" */
+/* Smarty version 3.1.33, created on 2019-07-23 10:15:39
+  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Tab.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c3f389eafcb15_89278927',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d36de4b0b97a7_29919898',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c3f389eafcb15_89278927 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d36de4b0b97a7_29919898 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['insideHeader']->value == 1) {?>
 	</div>
 <?php }?>
@@ -31,10 +31,8 @@ if ($_smarty_tpl->tpl_vars['insideHeader']->value == 1) {?>
 <?php }?>
 
 <?php if ($_smarty_tpl->tpl_vars['insideTab']->value == 1) {?>
-  
-	</div>
+  	</div>
 <?php }?>
-
 
 <?php $_smarty_tpl->_assignInScope('active', '');
 if ($_smarty_tpl->tpl_vars['insideTab']->value == 0) {?>

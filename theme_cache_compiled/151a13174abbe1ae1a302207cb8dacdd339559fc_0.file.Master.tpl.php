@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-01 14:38:43
-  from "/opt/moodle/mod/kuink/theme/adminlte/template/Master.tpl" */
+/* Smarty version 3.1.33, created on 2019-06-19 08:48:00
+  from '/opt/moodle/mod/kuink/theme/adminlte/template/Master.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c029cf390b6d6_82172431',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d09f6c02bf847_66750597',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,19 +24,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:Modal_embed.tpl' => 1,
   ),
 ),false)) {
-function content_5c029cf390b6d6_82172431 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
+function content_5d09f6c02bf847_66750597 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->smarty->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
   'hook' => 
   array (
     'compiled_filepath' => '/opt/moodle/mod/kuink/theme/adminlte/theme_cache_compiled/151a13174abbe1ae1a302207cb8dacdd339559fc_0.file.Master.tpl.php',
     'uid' => '151a13174abbe1ae1a302207cb8dacdd339559fc',
-    'call_name' => 'smarty_template_function_hook_21309650165c029cf38a8a90_05402063',
+    'call_name' => 'smarty_template_function_hook_19985500565d09f6c025feb2_66527231',
   ),
 ));
 ?>
-
-
-
 
 <?php if (($_smarty_tpl->tpl_vars['_imageUrl']->value == '')) {?>
 	<?php $_smarty_tpl->_assignInScope('imageSrc', 'stream.php?type=photo&guid=');
@@ -50,9 +47,8 @@ $_smarty_tpl->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
 ">
 
 	<head>
-		<?php $_smarty_tpl->_subTemplateRender("file:Head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+		<?php $_smarty_tpl->_subTemplateRender('file:Head.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-
 	</head>
 
 	<body class="<?php if ($_smarty_tpl->tpl_vars['_environment']->value == 'dev') {?>skin-yellow<?php } else { ?>skin-blue-light<?php }?> sidebar-mini wysihtml5-supported sidebar-collapse">
@@ -68,17 +64,13 @@ $_smarty_tpl->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
 					<span class="logo-lg">CSCM-Lx</span>
 				</a>
 
-				
-				<?php $_smarty_tpl->_subTemplateRender("file:Master_top-navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+								<?php $_smarty_tpl->_subTemplateRender('file:Master_top-navbar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-
 
 			</header>
 
-			
-			<?php $_smarty_tpl->_subTemplateRender("file:Master_left-navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+						<?php $_smarty_tpl->_subTemplateRender('file:Master_left-navbar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-
 
 			<!-- Right side column. Contains the navbar and content of the page -->
 			<div class="content-wrapper">
@@ -103,26 +95,20 @@ echo $_smarty_tpl->tpl_vars['breadcrumb']->value['href'];
 							<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 						</ol>
 					</section>
 
 				<!-- Main content -->
 				<?php if ($_smarty_tpl->tpl_vars['widgetContainer']->value == true) {?>
-						<?php $_smarty_tpl->_assignInScope('appTemplateSmarty', ('app/').($_smarty_tpl->tpl_vars['appTemplate']->value));
-?>
+						<?php $_smarty_tpl->_assignInScope('appTemplateSmarty', ('app/').($_smarty_tpl->tpl_vars['appTemplate']->value));?>
 						<?php $_smarty_tpl->_subTemplateRender($_smarty_tpl->tpl_vars['appTemplateSmarty']->value, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
-
 				<?php } else { ?>
-					<?php $_smarty_tpl->_subTemplateRender("file:Modal_embed.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+					<?php $_smarty_tpl->_subTemplateRender('file:Modal_embed.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-
 				<?php }?>
 				
-
 				<footer>
 					<div class="pull-right">
 						<div style="text-align: right">
@@ -132,31 +118,25 @@ if (!is_callable($_block_plugin1)) {
 throw new SmartyException('block tag \'translate\' not callable or registered');
 }
 $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo $_block_plugin1(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-applicationsVersion<?php $_block_repeat1=false;
-echo $_block_plugin1(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo $_block_plugin1(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>applicationsVersion<?php $_block_repeat=false;
+echo $_block_plugin1(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
- | <?php echo $_smarty_tpl->tpl_vars['_appsVersion']->value;?>
-</span>&nbsp;&nbsp;&nbsp;<span class="version label label-primary" style="white-space: pre-wrap;"><?php $_block_plugin1 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
-if (!is_callable($_block_plugin1)) {
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?> | <?php echo $_smarty_tpl->tpl_vars['_appsVersion']->value;?>
+</span>&nbsp;&nbsp;&nbsp;<span class="version label label-primary" style="white-space: pre-wrap;"><?php $_block_plugin2 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
+if (!is_callable($_block_plugin2)) {
 throw new SmartyException('block tag \'translate\' not callable or registered');
 }
 $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo $_block_plugin1(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-frameworkVersion<?php $_block_repeat1=false;
-echo $_block_plugin1(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo $_block_plugin2(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>frameworkVersion<?php $_block_repeat=false;
+echo $_block_plugin2(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
- | <?php echo $_smarty_tpl->tpl_vars['_frameworkVersion']->value;?>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?> | <?php echo $_smarty_tpl->tpl_vars['_frameworkVersion']->value;?>
 </span>&nbsp;&nbsp;
 						</div>
 					</div>
@@ -169,13 +149,14 @@ array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
 
 </html>
 <?php }
-/* smarty_template_function_hook_21309650165c029cf38a8a90_05402063 */
-if (!function_exists('smarty_template_function_hook_21309650165c029cf38a8a90_05402063')) {
-function smarty_template_function_hook_21309650165c029cf38a8a90_05402063($_smarty_tpl,$params) {
+/* smarty_template_function_hook_19985500565d09f6c025feb2_66527231 */
+if (!function_exists('smarty_template_function_hook_19985500565d09f6c025feb2_66527231')) {
+function smarty_template_function_hook_19985500565d09f6c025feb2_66527231(Smarty_Internal_Template $_smarty_tpl,$params) {
 foreach ($params as $key => $value) {
 $_smarty_tpl->tpl_vars[$key] = new Smarty_Variable($value, $_smarty_tpl->isRenderingCache);
-}?>          
-	<?php
+}
+?>
+          	<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['POSITION']->value[$_smarty_tpl->tpl_vars['position']->value], 'item');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
@@ -187,10 +168,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
 	<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
-<?php
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 }}
-/*/ smarty_template_function_hook_21309650165c029cf38a8a90_05402063 */
+/*/ smarty_template_function_hook_19985500565d09f6c025feb2_66527231 */
 }

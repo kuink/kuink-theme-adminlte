@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2019-02-05 16:48:19
-  from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Select.tpl" */
+/* Smarty version 3.1.33, created on 2019-06-19 11:40:35
+  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Select.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c59be533b96b6_05308458',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d0a1f33a98b03_80879411',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,10 +20,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c59be533b96b6_05308458 (Smarty_Internal_Template $_smarty_tpl) {
-if (!is_callable('smarty_block_translate')) require_once '/opt/kuink-dev/kuink-core/lib/tools/smarty/plugins/block.translate.php';
-$_smarty_tpl->_assignInScope('fieldAttrs', $_smarty_tpl->tpl_vars['field']->value['attributes']);
-?>
+function content_5d0a1f33a98b03_80879411 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/opt/kuink-dev/kuink-core/lib/tools/smarty/plugins/block.translate.php','function'=>'smarty_block_translate',),));
+$_smarty_tpl->_assignInScope('fieldAttrs', $_smarty_tpl->tpl_vars['field']->value['attributes']);?>
 
 <div class="controls">
 	<?php echo '<script'; ?>
@@ -34,11 +33,9 @@ $_smarty_tpl->_assignInScope('fieldAttrs', $_smarty_tpl->tpl_vars['field']->valu
 		function submit_<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
 _<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
 (){
-			<?php $_smarty_tpl->_assignInScope('urlSuff', "&action=".((string)$_smarty_tpl->tpl_vars['fieldAttrs']->value['action']));
-?>
+			<?php $_smarty_tpl->_assignInScope('urlSuff', "&action=".((string)$_smarty_tpl->tpl_vars['fieldAttrs']->value['action']));?>
 			<?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['event'] != '') {?>
-				<?php $_smarty_tpl->_assignInScope('urlSuff', "&event=".((string)$_smarty_tpl->tpl_vars['fieldAttrs']->value['event']));
-?>
+				<?php $_smarty_tpl->_assignInScope('urlSuff', "&event=".((string)$_smarty_tpl->tpl_vars['fieldAttrs']->value['event']));?>
 			<?php }?>
 
 			result = setFormAction_<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
@@ -52,12 +49,9 @@ echo $_smarty_tpl->tpl_vars['urlSuff']->value;?>
 >
 
 	<?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['searchable'] == "dynamic") {?>
-		
-			<?php $_smarty_tpl->_assignInScope('datasourceParams', explode(",",$_smarty_tpl->tpl_vars['fieldAttrs']->value['datasource-params']));
-?>
+					<?php $_smarty_tpl->_assignInScope('datasourceParams', explode(",",$_smarty_tpl->tpl_vars['fieldAttrs']->value['datasource-params']));?>
 
-      <?php $_smarty_tpl->_assignInScope('width', "100%");
-?>
+      <?php $_smarty_tpl->_assignInScope('width', "100%");?>
 
 	<?php echo '<script'; ?>
  type="text/javascript">
@@ -69,16 +63,13 @@ echo $_smarty_tpl->tpl_vars['urlSuff']->value;?>
  #<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
 ").select2({
 		placeholder: '<?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-search<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>search<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-',
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>',
 		allowClear: true,
 		ajax: {
 			url: "<?php echo $_smarty_tpl->tpl_vars['_apiCompleteUrl']->value;?>
@@ -157,11 +148,9 @@ _<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
 
 		if (data.image) {
 			<?php if (($_smarty_tpl->tpl_vars['_imageUrl']->value == '')) {?>
-				<?php $_smarty_tpl->_assignInScope('imageSrc', 'stream.php?type=photo&guid=');
-?>
+				<?php $_smarty_tpl->_assignInScope('imageSrc', 'stream.php?type=photo&guid=');?>
 			<?php } else { ?>
-				<?php $_smarty_tpl->_assignInScope('imageSrc', $_smarty_tpl->tpl_vars['_photoUrl']->value);
-?>
+				<?php $_smarty_tpl->_assignInScope('imageSrc', $_smarty_tpl->tpl_vars['_photoUrl']->value);?>
 			<?php }?>
 
 			markup += '<div class="">' +
@@ -213,11 +202,9 @@ _<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
 			<?php echo '</script'; ?>
 >
 
-      <?php $_smarty_tpl->_assignInScope('onchange', '');
-?>
+      <?php $_smarty_tpl->_assignInScope('onchange', '');?>
       <?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['action'] != '') {?>
-        <?php $_smarty_tpl->_assignInScope('onchange', "onchange=\"javascript: submit_".((string)$_smarty_tpl->tpl_vars['_guid']->value)."_".((string)$_smarty_tpl->tpl_vars['fieldID']->value)."();\"");
-?>
+        <?php $_smarty_tpl->_assignInScope('onchange', "onchange=\"javascript: submit_".((string)$_smarty_tpl->tpl_vars['_guid']->value)."_".((string)$_smarty_tpl->tpl_vars['fieldID']->value)."();\"");?>
       <?php }?>
 
 			<input type="hidden" id="<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
@@ -247,8 +234,7 @@ _<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
 		<?php echo '</script'; ?>
 >
 
-	
-	<?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['action'] != '') {?>
+		<?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['action'] != '') {?>
 				<select id="<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
 " name="<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
 " class="<?php echo $_smarty_tpl->tpl_vars['disabledClass']->value;?>
@@ -257,16 +243,13 @@ _<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
  onchange="javascript: submit_<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
 _<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
 ();" <?php if ($_smarty_tpl->tpl_vars['fieldRequired']->value == true) {?>data-bv-notempty data-bv-notempty-message="<?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-requiredField<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>requiredField<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-"<?php }?>>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>"<?php }?>>
 	<?php } else { ?>
 				<select id="<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
 " name="<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
@@ -274,23 +257,19 @@ array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
  select2 select2-offscreen input-<?php echo $_smarty_tpl->tpl_vars['inputSize']->value;?>
  form-control" <?php echo $_smarty_tpl->tpl_vars['disabledAttr']->value;?>
  <?php if ($_smarty_tpl->tpl_vars['fieldRequired']->value == true) {?>data-bv-notempty data-bv-notempty-message="<?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-requiredField<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>requiredField<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-"<?php }?>>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>"<?php }?>>
 	<?php }?>
 
 <?php } else { ?>
 
 
-	
-	<?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['action'] != '') {?>
+		<?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['action'] != '') {?>
 				<select id="<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
 " name="<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
 " class="<?php echo $_smarty_tpl->tpl_vars['disabledClass']->value;?>
@@ -298,37 +277,29 @@ array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
  onchange="javascript: submit_<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
 _<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
 ();" <?php if ($_smarty_tpl->tpl_vars['fieldRequired']->value == true) {?>data-bv-notempty data-bv-notempty-message="<?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-requiredField<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>requiredField<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-"<?php }?>>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>"<?php }?>>
 	<?php } else { ?>
 				<select id="<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
 " name="<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>
 " class="<?php echo $_smarty_tpl->tpl_vars['disabledClass']->value;?>
  form-control" <?php echo $_smarty_tpl->tpl_vars['disabledAttr']->value;?>
  <?php if ($_smarty_tpl->tpl_vars['fieldRequired']->value == true) {?>data-bv-notempty data-bv-notempty-message="<?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-requiredField<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>requiredField<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-"<?php }?>>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>"<?php }?>>
 	<?php }?>
 
-<?php }?>
-
-<?php
+<?php }
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['field']->value['options'], 'optionLabel', false, 'optionValue');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['optionValue']->value => $_smarty_tpl->tpl_vars['optionLabel']->value) {
@@ -343,9 +314,7 @@ if (isset($_smarty_tpl->tpl_vars['field']->value['value']) && $_smarty_tpl->tpl_
 <?php }
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </select>
 <?php }?>
 

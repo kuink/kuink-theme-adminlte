@@ -1,15 +1,15 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-03 12:55:10
-  from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/HtmlContainer.tpl" */
+/* Smarty version 3.1.33, created on 2019-06-19 11:40:35
+  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/HtmlContainer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c0527ae097157_79004296',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d0a1f33ba1ba5_14582782',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'd82fd2ed0327df9d49d61fb6c3ac7a612a2a5d83' => 
+    '36be03e6c3f514324f173e09c4b3e309f9d91010' => 
     array (
       0 => '/opt/moodle/mod/kuink/theme/adminlte/ui/control/HtmlContainer.tpl',
       1 => 1511567056,
@@ -20,9 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c0527ae097157_79004296 (Smarty_Internal_Template $_smarty_tpl) {
-?>
-<style>
+function content_5d0a1f33ba1ba5_14582782 (Smarty_Internal_Template $_smarty_tpl) {
+?><style>
     .form-horizontal h4 {
         margin-top: 15px;
      }

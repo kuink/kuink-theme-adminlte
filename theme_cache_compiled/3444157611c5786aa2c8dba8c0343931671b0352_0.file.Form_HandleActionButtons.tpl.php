@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-01 15:26:31
-  from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/Form_HandleActionButtons.tpl" */
+/* Smarty version 3.1.33, created on 2019-06-19 08:47:59
+  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/Form_HandleActionButtons.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c02a827b02ea9_00606654',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d09f6bff131e0_36568567',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,185 +20,113 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c02a827b02ea9_00606654 (Smarty_Internal_Template $_smarty_tpl) {
-if (!is_callable('smarty_modifier_replace')) require_once '/opt/kuink-dev/kuink-core/lib/tools/smarty/plugins/modifier.replace.php';
+function content_5d09f6bff131e0_36568567 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/opt/kuink-dev/kuink-core/lib/tools/smarty/plugins/modifier.replace.php','function'=>'smarty_modifier_replace',),));
 ?>
-
-
 
 
 <?php $_smarty_tpl->_assignInScope('buttonAttrs', $_smarty_tpl->tpl_vars['button']->value['attributes']);
 $_smarty_tpl->_assignInScope('buttonType', $_smarty_tpl->tpl_vars['buttonAttrs']->value['type']);
 $_smarty_tpl->_assignInScope('buttonIcon', $_smarty_tpl->tpl_vars['buttonAttrs']->value['icon']);
-$_smarty_tpl->_assignInScope('group', $_smarty_tpl->tpl_vars['buttonAttrs']->value['group']);
-?>
+$_smarty_tpl->_assignInScope('group', $_smarty_tpl->tpl_vars['buttonAttrs']->value['group']);?>
 
 <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-$_smarty_tpl->_assignInScope('buttonClass', "btn");
-?>
+$_smarty_tpl->_assignInScope('buttonClass', "btn");?>
 
 <?php if ($_smarty_tpl->tpl_vars['buttonType']->value == "submit" || $_smarty_tpl->tpl_vars['buttonAttrs']->value['decoration'] == "primary") {?>
 	<?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");
 }?>
 
 	      	<?php if ($_smarty_tpl->tpl_vars['buttonType']->value == "cancel") {?>
-		        <?php $_smarty_tpl->_assignInScope('buttonClass', "btn");
-?>
-		        <?php $_smarty_tpl->_assignInScope('iconColor', '');
-?>
+		        <?php $_smarty_tpl->_assignInScope('buttonClass', "btn");?>
+		        <?php $_smarty_tpl->_assignInScope('iconColor', '');?>
   	      <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "add") {?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");
-?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "plus");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-success");
-?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "plus");?>
+  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
+  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-success");?>
   	      <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "execute") {?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");
-?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "play");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");
-?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "play");?>
+  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
+  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>
   	      <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "save") {?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");
-?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "check");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");
-?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "check");?>
+  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
+  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>
   	      <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "delete") {?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");
-?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "remove");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-danger");
-?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "remove");?>
+  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
+  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-danger");?>
   	      <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "search") {?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");
-?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "search");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");
-?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "search");?>
+  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
+  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>
           <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "back") {?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "cancel");
-?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "chevron-left");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('iconColor', '');
-?>
-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn");
-?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "cancel");?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "chevron-left");?>
+  	          <?php $_smarty_tpl->_assignInScope('iconColor', '');?>
+  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn");?>
           <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "continue") {?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");
-?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "chevron-right");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");
-?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "chevron-right");?>
+  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
+  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>
           <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "list") {?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");
-?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "list");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");
-?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "list");?>
+  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
+  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>
           <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "view") {?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");
-?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "file");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");
-?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "file");?>
+  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
+  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>
           <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "update") {?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");
-?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "pencil");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");
-?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "pencil");?>
+  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
+  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>
           <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "send") {?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");
-?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "arrow-right");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-danger");
-?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "arrow-right");?>
+  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
+  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-danger");?>
   	      <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "validate") {?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");
-?>
-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "ok");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-success");
-?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "ok");?>
+  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
+  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-success");?>
           <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "refresh") {?>
-              <?php $_smarty_tpl->_assignInScope('buttonType', "submit");
-?>
-              <?php $_smarty_tpl->_assignInScope('buttonIcon', "refresh");
-?>
-              <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
-              <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-warning");
-?>
+              <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>
+              <?php $_smarty_tpl->_assignInScope('buttonIcon', "refresh");?>
+              <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
+              <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-warning");?>
           <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "print") {?>
-              <?php $_smarty_tpl->_assignInScope('buttonType', "cancel");
-?>
-              <?php $_smarty_tpl->_assignInScope('buttonIcon', "print");
-?>
-              <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
-              <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");
-?>
+              <?php $_smarty_tpl->_assignInScope('buttonType', "cancel");?>
+              <?php $_smarty_tpl->_assignInScope('buttonIcon', "print");?>
+              <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
+              <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>
 	      <?php }?>
 
         <?php if ($_smarty_tpl->tpl_vars['buttonAttrs']->value['decoration'] == "secundary") {?>
-          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-info");
-?>
-          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
+          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-info");?>
+          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
         <?php } elseif ($_smarty_tpl->tpl_vars['buttonAttrs']->value['decoration'] == "success") {?>
-          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-success");
-?>
-          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
+          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-success");?>
+          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
         <?php } elseif ($_smarty_tpl->tpl_vars['buttonAttrs']->value['decoration'] == "warning") {?>
-          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-warning");
-?>
-          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
+          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-warning");?>
+          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
         <?php } elseif ($_smarty_tpl->tpl_vars['buttonAttrs']->value['decoration'] == "danger") {?>
-          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-danger");
-?>
-          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
+          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-danger");?>
+          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
         <?php } elseif ($_smarty_tpl->tpl_vars['buttonAttrs']->value['decoration'] == "inverse") {?>
-          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-inverse");
-?>
-          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");
-?>
+          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-inverse");?>
+          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
         <?php }?>
 
 <?php $_smarty_tpl->_assignInScope('buttonActionUrl', ((string)$_smarty_tpl->tpl_vars['form']->value['baseUrl']));
@@ -220,13 +148,10 @@ if (!is_array($_tmp_array) || $_tmp_array instanceof ArrayAccess) {
 settype($_tmp_array, 'array');
 }
 $_tmp_array['confirm'] = smarty_modifier_replace($_smarty_tpl->tpl_vars['buttonAttrs']->value['confirm'],'"',"'");
-$_smarty_tpl->_assignInScope('buttonAttrs', $_tmp_array);
-?>
+$_smarty_tpl->_assignInScope('buttonAttrs', $_tmp_array);?>
 		<?php if ($_smarty_tpl->tpl_vars['buttonAttrs']->value['confirm'] != 'false' && $_smarty_tpl->tpl_vars['buttonAttrs']->value['confirm'] != '') {?>			
-			<?php $_smarty_tpl->_assignInScope('keywords', explode("\n",$_smarty_tpl->tpl_vars['buttonAttrs']->value['confirm']));
-?>
-			<?php $_smarty_tpl->_assignInScope('firstChunk', 1);
-?>
+			<?php $_smarty_tpl->_assignInScope('keywords', explode("\n",$_smarty_tpl->tpl_vars['buttonAttrs']->value['confirm']));?>
+			<?php $_smarty_tpl->_assignInScope('firstChunk', 1);?>
 			<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['keywords']->value, 'keyword');
 if ($_from !== null) {
@@ -235,8 +160,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['keyword']->value) {
 				<?php if ($_smarty_tpl->tpl_vars['firstChunk']->value == 1) {?>
 					confirmMessage = "<?php echo $_smarty_tpl->tpl_vars['keyword']->value;?>
 ";
-					<?php $_smarty_tpl->_assignInScope('firstChunk', 0);
-?>
+					<?php $_smarty_tpl->_assignInScope('firstChunk', 0);?>
 				<?php } else { ?>
 					confirmMessage = confirmMessage + "\n<?php echo $_smarty_tpl->tpl_vars['keyword']->value;?>
 ";
@@ -244,9 +168,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['keyword']->value) {
 			<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-		
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>		
 		<?php } else { ?>
 				confirmMessage = "<?php echo $_smarty_tpl->tpl_vars['buttonAttrs']->value['confirm'];?>
 ";
@@ -275,8 +197,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 <?php $_smarty_tpl->_assignInScope('disabledClass', '');
 $_smarty_tpl->_assignInScope('disabledAttr', '');
 if ($_smarty_tpl->tpl_vars['buttonAttrs']->value['disabled'] == "true") {?>
-	<?php $_smarty_tpl->_assignInScope('disabledClass', "disabled");
-?>
+	<?php $_smarty_tpl->_assignInScope('disabledClass', "disabled");?>
 	<?php $_smarty_tpl->_assignInScope('disabledAttr', "disabled");
 }?>
 

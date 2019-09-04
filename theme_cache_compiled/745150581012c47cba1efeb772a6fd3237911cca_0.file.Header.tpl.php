@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-04 15:36:09
-  from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Header.tpl" */
+/* Smarty version 3.1.33, created on 2019-06-19 11:43:30
+  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c069ee9882e63_76595524',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d0a1fe2310da6_64553416',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c069ee9882e63_76595524 (Smarty_Internal_Template $_smarty_tpl) {
-if (!is_callable('smarty_block_translate')) require_once '/opt/kuink-dev/kuink-core/lib/tools/smarty/plugins/block.translate.php';
+function content_5d0a1fe2310da6_64553416 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/opt/kuink-dev/kuink-core/lib/tools/smarty/plugins/block.translate.php','function'=>'smarty_block_translate',),));
 if ($_smarty_tpl->tpl_vars['insideHeader']->value == 1) {?>
 	</div>
 <?php }?>
@@ -86,37 +86,29 @@ _<?php echo $_smarty_tpl->tpl_vars['fieldGuid']->value;?>
 >
 	<?php }?>
 
-	<?php $_smarty_tpl->_assignInScope('styleDisplay', 'block');
-?>
+	<?php $_smarty_tpl->_assignInScope('styleDisplay', 'block');?>
 	<?php if ($_smarty_tpl->tpl_vars['field']->value['attributes']['collapsed'] == 'true' && $_smarty_tpl->tpl_vars['field']->value['attributes']['collapsible'] == 'true') {?>
-		<?php $_smarty_tpl->_assignInScope('styleDisplay', 'none');
-?>
+		<?php $_smarty_tpl->_assignInScope('styleDisplay', 'none');?>
 	<?php }?>
 	<h3><?php echo $_smarty_tpl->tpl_vars['field']->value['attributes']['label'];?>
  <?php if ($_smarty_tpl->tpl_vars['field']->value['attributes']['collapsible'] == 'true') {?>
 		<small><a id="showHide_<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
 _<?php echo $_smarty_tpl->tpl_vars['fieldGuid']->value;?>
 " showText="<?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-show<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>show<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-" hideText="<?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-hide<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>" hideText="<?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>hide<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-" href="javascript:void(0);" onmousedown='showHideHeader_<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>" href="javascript:void(0);" onmousedown='showHideHeader_<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
 _<?php echo $_smarty_tpl->tpl_vars['fieldGuid']->value;?>
 ();'></a></small>
 	<?php }?></h3>

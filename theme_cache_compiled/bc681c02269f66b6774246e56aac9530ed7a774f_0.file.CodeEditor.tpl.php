@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-04 14:53:14
-  from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/CodeEditor.tpl" */
+/* Smarty version 3.1.33, created on 2019-06-20 08:45:05
+  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/CodeEditor.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c0694da72ff00_77639793',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d0b4791155c38_31956121',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,9 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c0694da72ff00_77639793 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d0b4791155c38_31956121 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
-
 <link rel="stylesheet" href="kuink-core/lib/tools/codemirror/addon/hint/show-hint.css">
 <link rel="stylesheet" href="kuink-core/lib/tools/codemirror/theme/ambiance.css">
 <link rel="stylesheet" href="kuink-core/lib/tools/codemirror/lib/codemirror.css">

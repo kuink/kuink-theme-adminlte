@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-04 17:35:26
-  from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/CheckBoxList.tpl" */
+/* Smarty version 3.1.33, created on 2019-07-08 09:21:09
+  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/CheckBoxList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c06badee91f44_56611396',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d230b051dae92_15391291',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,9 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c06badee91f44_56611396 (Smarty_Internal_Template $_smarty_tpl) {
-?>
-<div class="controls form-group">
+function content_5d230b051dae92_15391291 (Smarty_Internal_Template $_smarty_tpl) {
+?><div class="controls form-group">
 		<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['field']->value['options'], 'optionLabel', false, 'optionValue');
 if ($_from !== null) {
@@ -50,9 +49,7 @@ _<?php echo $_smarty_tpl->tpl_vars['optionValue']->value;?>
 		<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </div>
 <?php }
 }

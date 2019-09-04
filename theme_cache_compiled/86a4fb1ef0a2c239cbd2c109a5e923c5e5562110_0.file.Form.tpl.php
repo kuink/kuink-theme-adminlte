@@ -1,15 +1,15 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-01 15:26:31
-  from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/Form.tpl" */
+/* Smarty version 3.1.33, created on 2019-06-19 08:48:03
+  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/Form.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c02a8277db314_99757794',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d09f6c35fab55_69369855',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '681c08e237a32e58d4e91e7fdfff3c694e58cc26' => 
+    '86a4fb1ef0a2c239cbd2c109a5e923c5e5562110' => 
     array (
       0 => '/opt/moodle/mod/kuink/theme/adminlte/ui/control/Form.tpl',
       1 => 1538044454,
@@ -22,8 +22,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./Form_HandleActionButtons.tpl' => 1,
   ),
 ),false)) {
-function content_5c02a8277db314_99757794 (Smarty_Internal_Template $_smarty_tpl) {
-if (!is_callable('smarty_block_translate')) require_once '/opt/kuink-dev/kuink-core/lib/tools/smarty/plugins/block.translate.php';
+function content_5d09f6c35fab55_69369855 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/opt/kuink-dev/kuink-core/lib/tools/smarty/plugins/block.translate.php','function'=>'smarty_block_translate',),));
 ?>
 
 
@@ -338,8 +338,7 @@ _rules(changedId);
 
 <?php if ((count($_smarty_tpl->tpl_vars['buttonActions']->value) > 0) || ($_smarty_tpl->tpl_vars['form']->value['title'] != '') || (count($_smarty_tpl->tpl_vars['fields']->value) > 0)) {?>
 <div class="box">
-	
-	<?php if ($_smarty_tpl->tpl_vars['form']->value['title'] != '') {?>
+		<?php if ($_smarty_tpl->tpl_vars['form']->value['title'] != '') {?>
 	<div class="box-header">
 		<i class="fa fa-th-large">&nbsp;</i>
 		<h3 class="box-title"><?php echo $_smarty_tpl->tpl_vars['form']->value['title'];?>
@@ -347,8 +346,7 @@ _rules(changedId);
 	</div>
 	<?php }?>
 	<?php if (!isset($_smarty_tpl->tpl_vars['hasRequiredFields']->value)) {?>
-		<?php $_smarty_tpl->_assignInScope('hasRequiredFields', false);
-?>
+		<?php $_smarty_tpl->_assignInScope('hasRequiredFields', false);?>
 	<?php }?>
 
 	<!-- /.box-header -->
@@ -359,16 +357,13 @@ _rules(changedId);
 "
 			method="post" enctype="multipart/form-data"
 			data-bv-message="<?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-requiredField<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>requiredField<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
-"
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>"
 			data-bv-feedbackicons-valid=""
 			data-bv-feedbackicons-invalid=""
 			data-bv-feedbackicons-validating=""
@@ -393,94 +388,69 @@ array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
 " style="float: right;"></div>
 					<?php }?>
 
-				<?php $_smarty_tpl->_assignInScope('insideColumn', 0);
-?>
-				<?php $_smarty_tpl->_assignInScope('insideHeader', 0);
-?>
-				<?php $_smarty_tpl->_assignInScope('currentColumnGroup', 0);
-?>
-				<?php $_smarty_tpl->_assignInScope('insideTab', 0);
-?>
-				<?php $_smarty_tpl->_assignInScope('prevFieldAttrs', null);
-?>
-				<?php $_smarty_tpl->_assignInScope('fieldIndex', 0);
-?> 
-				<?php $_smarty_tpl->_assignInScope('fieldsIndexedArray', null);
-?> 
-				<?php
+				<?php $_smarty_tpl->_assignInScope('insideColumn', 0);?>
+				<?php $_smarty_tpl->_assignInScope('insideHeader', 0);?>
+				<?php $_smarty_tpl->_assignInScope('currentColumnGroup', 0);?>
+				<?php $_smarty_tpl->_assignInScope('insideTab', 0);?>
+				<?php $_smarty_tpl->_assignInScope('prevFieldAttrs', null);?>
+				<?php $_smarty_tpl->_assignInScope('fieldIndex', 0);?> 				<?php $_smarty_tpl->_assignInScope('fieldsIndexedArray', null);?> 				<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['fields']->value, 'field', false, 'fieldID');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['fieldID']->value => $_smarty_tpl->tpl_vars['field']->value) {
-?> 
-					<?php $_tmp_array = isset($_smarty_tpl->tpl_vars['fieldsIndexedArray']) ? $_smarty_tpl->tpl_vars['fieldsIndexedArray']->value : array();
+?> 					<?php $_tmp_array = isset($_smarty_tpl->tpl_vars['fieldsIndexedArray']) ? $_smarty_tpl->tpl_vars['fieldsIndexedArray']->value : array();
 if (!is_array($_tmp_array) || $_tmp_array instanceof ArrayAccess) {
 settype($_tmp_array, 'array');
 }
 $_tmp_array[] = $_smarty_tpl->tpl_vars['field']->value['attributes'];
-$_smarty_tpl->_assignInScope('fieldsIndexedArray', $_tmp_array);
-?>
+$_smarty_tpl->_assignInScope('fieldsIndexedArray', $_tmp_array);?>
 				<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
-				<?php $_smarty_tpl->_assignInScope('tabIndex', -1);
-?>
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+				<?php $_smarty_tpl->_assignInScope('tabIndex', -1);?>
 				<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['fields']->value, 'field', false, NULL, 'handleFieldForEach', array (
 ));
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['field']->value) {
 ?>
-					<?php $_smarty_tpl->_assignInScope('fieldAttrs', $_smarty_tpl->tpl_vars['field']->value['attributes']);
-?>
+					<?php $_smarty_tpl->_assignInScope('fieldAttrs', $_smarty_tpl->tpl_vars['field']->value['attributes']);?>
 					<?php if ($_smarty_tpl->tpl_vars['fieldIndex']->value > 0) {?>
-						<?php $_smarty_tpl->_assignInScope('prevFieldAttrs', $_smarty_tpl->tpl_vars['fieldsIndexedArray']->value[$_smarty_tpl->tpl_vars['fieldIndex']->value-1]);
-?>
+						<?php $_smarty_tpl->_assignInScope('prevFieldAttrs', $_smarty_tpl->tpl_vars['fieldsIndexedArray']->value[$_smarty_tpl->tpl_vars['fieldIndex']->value-1]);?>
 					<?php }?>
 					<?php if ($_smarty_tpl->tpl_vars['fieldIndex']->value < count($_smarty_tpl->tpl_vars['fields']->value)) {?>
-						<?php $_smarty_tpl->_assignInScope('nextFieldAttrs', $_smarty_tpl->tpl_vars['fieldsIndexedArray']->value[$_smarty_tpl->tpl_vars['fieldIndex']->value+1]);
-?>
+						<?php $_smarty_tpl->_assignInScope('nextFieldAttrs', $_smarty_tpl->tpl_vars['fieldsIndexedArray']->value[$_smarty_tpl->tpl_vars['fieldIndex']->value+1]);?>
 					<?php }?>
 					<?php if ($_smarty_tpl->tpl_vars['field']->value['type'] == 'Tab') {?>
-						<?php $_smarty_tpl->_assignInScope('currentColumnGroup', 0);
-?> 					
+						<?php $_smarty_tpl->_assignInScope('currentColumnGroup', 0);?> 					
 						<?php if ($_smarty_tpl->tpl_vars['insideTab']->value == 0) {?>
 							<?php if ($_smarty_tpl->tpl_vars['hasTabs']->value == 1) {?>
-								
-								<div class="tabbable tabs-<?php echo $_smarty_tpl->tpl_vars['tabsPosition']->value;?>
+																<div class="tabbable tabs-<?php echo $_smarty_tpl->tpl_vars['tabsPosition']->value;?>
 " id="<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
 Tab">
 									<ul id="<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
 TabList" class="nav nav-tabs" style="margin-bottom:10px;">
-									<?php $_smarty_tpl->_assignInScope('firstTab', 1);
-?>
+									<?php $_smarty_tpl->_assignInScope('firstTab', 1);?>
 									<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['tabs']->value, 'tab', false, 'key');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['tab']->value) {
 ?>
 										<?php if ($_smarty_tpl->tpl_vars['key']->value != -1) {?>
-											<?php $_smarty_tpl->_assignInScope('tabClass', '');
-?>
+											<?php $_smarty_tpl->_assignInScope('tabClass', '');?>
 											<?php if ($_smarty_tpl->tpl_vars['firstTab']->value == 1) {?>
-												<?php $_smarty_tpl->_assignInScope('tabClass', 'active');
-?>
+												<?php $_smarty_tpl->_assignInScope('tabClass', 'active');?>
 											<?php }?>
 											<li class="<?php echo $_smarty_tpl->tpl_vars['tabClass']->value;?>
 "><a href="#<?php echo $_smarty_tpl->tpl_vars['tab']->value['id'];?>
 " data-toggle="tab"><?php echo $_smarty_tpl->tpl_vars['tab']->value['label'];?>
 </a></li>
-											<?php $_smarty_tpl->_assignInScope('firstTab', 0);
-?>
+											<?php $_smarty_tpl->_assignInScope('firstTab', 0);?>
 										<?php }?>
 									<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 									</ul>
 
 									<div id="<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
@@ -489,56 +459,41 @@ TabContent" class="tab-content">
 						<?php }?>
 					<?php }?>
 					<?php if ($_smarty_tpl->tpl_vars['field']->value['attributes']['close'] == 'true') {?>
-						<?php $_smarty_tpl->_assignInScope('currentColumnGroup', $_smarty_tpl->tpl_vars['currentColumnGroup']->value+1);
-?>
+						<?php $_smarty_tpl->_assignInScope('currentColumnGroup', $_smarty_tpl->tpl_vars['currentColumnGroup']->value+1);?>
 					<?php }?>					
 
-					
-					<?php $_smarty_tpl->_subTemplateRender("file:./Form_HandleField.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+										<?php $_smarty_tpl->_subTemplateRender('file:./Form_HandleField.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
-
 
 					<?php if ($_smarty_tpl->tpl_vars['field']->value['type'] == 'Header') {?>
-						<?php $_smarty_tpl->_assignInScope('insideHeader', 1);
-?>
+						<?php $_smarty_tpl->_assignInScope('insideHeader', 1);?>
 					<?php }?>
 					<?php if ($_smarty_tpl->tpl_vars['field']->value['type'] == 'Column') {?>
 						<?php if ($_smarty_tpl->tpl_vars['insideHeader']->value == 1) {?>
-							<?php $_smarty_tpl->_assignInScope('insideHeader', 0);
-?>
+							<?php $_smarty_tpl->_assignInScope('insideHeader', 0);?>
 						<?php }?>
 						<?php if ($_smarty_tpl->tpl_vars['field']->value['attributes']['close'] == 'false') {?>
-							<?php $_smarty_tpl->_assignInScope('insideColumn', 1);
-?>
+							<?php $_smarty_tpl->_assignInScope('insideColumn', 1);?>
 						<?php } else { ?>
-							<?php $_smarty_tpl->_assignInScope('insideColumn', 0);
-?>
-							<?php $_smarty_tpl->_assignInScope('currentColumnGroup', $_smarty_tpl->tpl_vars['currentColumnGroup']->value+1);
-?>
+							<?php $_smarty_tpl->_assignInScope('insideColumn', 0);?>
+							<?php $_smarty_tpl->_assignInScope('currentColumnGroup', $_smarty_tpl->tpl_vars['currentColumnGroup']->value+1);?>
 						<?php }?>
 					<?php }?>
 					<?php if ($_smarty_tpl->tpl_vars['field']->value['type'] == 'Tab') {?>
 						<?php if ($_smarty_tpl->tpl_vars['insideHeader']->value == 1) {?>
-							<?php $_smarty_tpl->_assignInScope('insideHeader', 0);
-?>
+							<?php $_smarty_tpl->_assignInScope('insideHeader', 0);?>
 						<?php }?>
 						<?php if ($_smarty_tpl->tpl_vars['insideColumn']->value == 1) {?>
-							<?php $_smarty_tpl->_assignInScope('insideColumn', 0);
-?>
+							<?php $_smarty_tpl->_assignInScope('insideColumn', 0);?>
 						<?php }?>
-						<?php $_smarty_tpl->_assignInScope('tabIndex', $_smarty_tpl->tpl_vars['tabIndex']->value+1);
-?>
-						<?php $_smarty_tpl->_assignInScope('insideTab', 1);
-?>
+						<?php $_smarty_tpl->_assignInScope('tabIndex', $_smarty_tpl->tpl_vars['tabIndex']->value+1);?>
+						<?php $_smarty_tpl->_assignInScope('insideTab', 1);?>
 					<?php }?>
-					<?php $_smarty_tpl->_assignInScope('fieldIndex', $_smarty_tpl->tpl_vars['fieldIndex']->value+1);
-?>
+					<?php $_smarty_tpl->_assignInScope('fieldIndex', $_smarty_tpl->tpl_vars['fieldIndex']->value+1);?>
 				<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 				<input type="hidden" name="_FORM_LIST_FIELDS" id="_FORM_LIST_FIELDS" value="<?php echo $_smarty_tpl->tpl_vars['listFormFields']->value;?>
 "/>
 				<?php if ($_smarty_tpl->tpl_vars['insideHeader']->value == 1) {?>
@@ -555,16 +510,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 			</div>
 			<?php if ($_smarty_tpl->tpl_vars['hasRequiredFields']->value == true) {?>
 				<span class="badge"><?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));
-$_block_repeat1=true;
-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat1);
-while ($_block_repeat1) {
-ob_start();
-?>
-requiredFieldsMessage<?php $_block_repeat1=false;
-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat1);
+$_block_repeat=true;
+echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>requiredFieldsMessage<?php $_block_repeat=false;
+echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
- <?php echo $_smarty_tpl->tpl_vars['sRequiredString']->value;?>
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?> <?php echo $_smarty_tpl->tpl_vars['sRequiredString']->value;?>
 </span>
 			<?php }?>
 		<?php }?>
@@ -578,15 +530,12 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['buttonID']->value => $_smarty_tpl->tpl_vars['button']->value) {
 ?>
-						<?php $_smarty_tpl->_subTemplateRender("file:./Form_HandleActionButtons.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+						<?php $_smarty_tpl->_subTemplateRender('file:./Form_HandleActionButtons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
-
 					<?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 				</div>
 			</div>
 		<?php }?>

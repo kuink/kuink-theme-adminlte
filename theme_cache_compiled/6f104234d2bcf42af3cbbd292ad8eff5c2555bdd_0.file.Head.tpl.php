@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-11 16:13:15
-  from "/opt/moodle/mod/kuink/theme/adminlte/template/Head.tpl" */
+/* Smarty version 3.1.33, created on 2019-06-19 08:48:00
+  from '/opt/moodle/mod/kuink/theme/adminlte/template/Head.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c0fe21b0b2a58_45651265',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d09f6c032e6b7_55865332',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,9 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c0fe21b0b2a58_45651265 (Smarty_Internal_Template $_smarty_tpl) {
-?>
-				<meta charset="UTF-8">
+function content_5d09f6c032e6b7_55865332 (Smarty_Internal_Template $_smarty_tpl) {
+?>				<meta charset="UTF-8">
 				<title>KuinK</title>
 				<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 				<!-- bootstrap 3.3.5 -->
