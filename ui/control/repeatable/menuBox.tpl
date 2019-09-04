@@ -8,7 +8,7 @@
         <div class="icon">
         <i class="ion ion-{$menu[$icon]}"></i>
         </div>
-        <a href="{$menu[$url]}" target="_blank" class="small-box-footer">{$menu[$label]}<i class="fas fa-arrow-circle-right"></i></a>
+        <a href="{$menu[$url]}" target="_blank" class="small-box-footer" {if $tooltip != ''}data-toggle="tooltip" data-placement="bottom" title="{$menu[$tooltip]}" {/if}>{$menu[$label]}<i class="fas fa-arrow-circle-right"></i></a>
     </div>
 </div>
 <!-- ./col -->    
