@@ -1,4 +1,4 @@
-<div class="col-lg-{12/$cols} col-6">
+<div class="col-sm-{12/$cols}">
     <!-- small box -->
     <div class="small-box alert-{$menu[$type]}">
         <div class="inner">
