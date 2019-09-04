@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2019-01-31 13:59:32
-  from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Separator.tpl" */
+/* Smarty version 3.1.33, created on 2019-07-08 09:21:08
+  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Separator.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c52ff44076859_15060704',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d230b04f34fe4_60997458',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,8 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c52ff44076859_15060704 (Smarty_Internal_Template $_smarty_tpl) {
-?>
-<hr/>
+function content_5d230b04f34fe4_60997458 (Smarty_Internal_Template $_smarty_tpl) {
+?><hr/>
 <?php }
 }

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-01 15:26:31
-  from "/opt/moodle/mod/kuink/theme/adminlte/template/UserMessages.tpl" */
+/* Smarty version 3.1.33, created on 2019-06-19 11:40:41
+  from '/opt/moodle/mod/kuink/theme/adminlte/template/UserMessages.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c02a827b40f92_52042195',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d0a1f39e6ed72_88368866',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,40 +20,28 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c02a827b40f92_52042195 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d0a1f39e6ed72_88368866 (Smarty_Internal_Template $_smarty_tpl) {
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['userMessages']->value, 'message');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['message']->value) {
 ?>
-	<?php $_smarty_tpl->_assignInScope('messageClass', "alert-info");
-?>
-	<?php $_smarty_tpl->_assignInScope('messageIcon', 'info');
-?>
+	<?php $_smarty_tpl->_assignInScope('messageClass', "alert-info");?>
+	<?php $_smarty_tpl->_assignInScope('messageIcon', 'info');?>
 	<?php if ($_smarty_tpl->tpl_vars['message']->value['type'] == "error") {?>
-		<?php $_smarty_tpl->_assignInScope('messageClass', "alert-danger");
-?>
-		<?php $_smarty_tpl->_assignInScope('messageIcon', 'ban');
-?>
+		<?php $_smarty_tpl->_assignInScope('messageClass', "alert-danger");?>
+		<?php $_smarty_tpl->_assignInScope('messageIcon', 'ban');?>
 	<?php } elseif ($_smarty_tpl->tpl_vars['message']->value['type'] == "information") {?>
-		<?php $_smarty_tpl->_assignInScope('messageClass', "alert-info");
-?>
-		<?php $_smarty_tpl->_assignInScope('messageIcon', 'info');
-?>
+		<?php $_smarty_tpl->_assignInScope('messageClass', "alert-info");?>
+		<?php $_smarty_tpl->_assignInScope('messageIcon', 'info');?>
 	<?php } elseif ($_smarty_tpl->tpl_vars['message']->value['type'] == "success") {?>
-		<?php $_smarty_tpl->_assignInScope('messageClass', "alert-success");
-?>
-		<?php $_smarty_tpl->_assignInScope('messageIcon', 'check');
-?>
+		<?php $_smarty_tpl->_assignInScope('messageClass', "alert-success");?>
+		<?php $_smarty_tpl->_assignInScope('messageIcon', 'check');?>
 	<?php } elseif ($_smarty_tpl->tpl_vars['message']->value['type'] == "warning") {?>
-		<?php $_smarty_tpl->_assignInScope('messageClass', "alert-warning");
-?>
-		<?php $_smarty_tpl->_assignInScope('messageIcon', 'warning');
-?>
+		<?php $_smarty_tpl->_assignInScope('messageClass', "alert-warning");?>
+		<?php $_smarty_tpl->_assignInScope('messageIcon', 'warning');?>
 	<?php } elseif ($_smarty_tpl->tpl_vars['message']->value['type'] == "exception") {?>
-		<?php $_smarty_tpl->_assignInScope('messageClass', "alert-error");
-?>
-		<?php $_smarty_tpl->_assignInScope('messageIcon', 'danger');
-?>
+		<?php $_smarty_tpl->_assignInScope('messageClass', "alert-error");?>
+		<?php $_smarty_tpl->_assignInScope('messageIcon', 'danger');?>
 	<?php }?>
 
 
@@ -68,8 +56,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['message']->value) {
 <?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
-<?php }
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
+}
 }

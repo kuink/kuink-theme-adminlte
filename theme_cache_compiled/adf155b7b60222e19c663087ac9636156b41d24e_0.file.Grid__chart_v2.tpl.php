@@ -1,15 +1,15 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-03 12:58:35
-  from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/Grid__chart_v2.tpl" */
+/* Smarty version 3.1.33, created on 2019-07-03 15:56:56
+  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/Grid__chart_v2.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c05287bb4a8e1_92724452',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d1cc2385a5556_96881535',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '70fe585826cda67bfee6572d2db4655489276cd6' => 
+    'adf155b7b60222e19c663087ac9636156b41d24e' => 
     array (
       0 => '/opt/moodle/mod/kuink/theme/adminlte/ui/control/Grid__chart_v2.tpl',
       1 => 1528124293,
@@ -20,10 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c05287bb4a8e1_92724452 (Smarty_Internal_Template $_smarty_tpl) {
-?>
-
-<?php echo '<script'; ?>
+function content_5d1cc2385a5556_96881535 (Smarty_Internal_Template $_smarty_tpl) {
+echo '<script'; ?>
 >
 
 	function isInteger(string) {

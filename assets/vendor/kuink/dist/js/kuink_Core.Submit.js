@@ -86,6 +86,8 @@
 
 							} else
 								//Replace content because div will come in response
+								console.log('Target');
+								console.log(targetContainer);
 								$("#"+targetContainer).replaceWith(text).promise().done(function(elem){
 									setTimeout(function (){
 										//This must be delayed because it can only run after the content is loaded in the document

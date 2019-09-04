@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-03 12:58:49
-  from "/opt/moodle/mod/kuink/theme/adminlte/template/app/App_2x1col_5x7.tpl" */
+/* Smarty version 3.1.33, created on 2019-07-02 13:23:11
+  from '/opt/moodle/mod/kuink/theme/adminlte/template/app/App_2x1col_5x7.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c0528897d6193_87267129',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d1b5abf6d62e8_97120973',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,23 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c0528897d6193_87267129 (Smarty_Internal_Template $_smarty_tpl) {
-?>
-<div class="container-fluid" style="zoom:100%">
+function content_5d1b5abf6d62e8_97120973 (Smarty_Internal_Template $_smarty_tpl) {
+?><div class="container-fluid" style="zoom:100%">
 	<div class="row-fluid" style="margin-top: 10px;clear:both;">
 		<div class="col-md-5">
-		<?php $_smarty_tpl->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'left'), true);?>
+		<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'left'), true);?>
 
 		</div>
 		<div class="col-md-7">
-		<?php $_smarty_tpl->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'right'), true);?>
+		<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'right'), true);?>
 
 		</div>
 	</div>
 	<div class="row-fluid" style="margin-top: 10px;clear:both;">
-		<?php $_smarty_tpl->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'bottom'), true);?>
+		<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'bottom'), true);?>
 
-		<?php $_smarty_tpl->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'default'), true);?>
+		<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'default'), true);?>
 
 	</div>
 </div>

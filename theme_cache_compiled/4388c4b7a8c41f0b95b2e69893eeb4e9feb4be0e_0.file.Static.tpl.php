@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-12-01 15:32:13
-  from "/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Static.tpl" */
+/* Smarty version 3.1.33, created on 2019-06-28 14:44:25
+  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Static.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5c02a97dcc4857_79688142',
+  'version' => '3.1.33',
+  'unifunc' => 'content_5d1619b9983509_08196504',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,9 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c02a97dcc4857_79688142 (Smarty_Internal_Template $_smarty_tpl) {
-?>
-<!-- <label class="control-label" for="<?php echo $_smarty_tpl->tpl_vars['fieldName']->value;?>
+function content_5d1619b9983509_08196504 (Smarty_Internal_Template $_smarty_tpl) {
+?><!-- <label class="control-label" for="<?php echo $_smarty_tpl->tpl_vars['fieldName']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['field']->value['value'];?>
 </label> -->
 <span><?php echo $_smarty_tpl->tpl_vars['field']->value['value'];?>
