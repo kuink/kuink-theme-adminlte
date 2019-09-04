@@ -1,3 +1,4 @@
+<div class="container">
 {$item=0}
 {foreach $data as $bind}
     {foreach $bind as $menu}
@@ -8,14 +9,14 @@
         {include file="./repeatable/$template.tpl"}
 
         {if ($item % $cols == $cols-1)}
-            </div>
+            </div> <!-- .row -->
         {/if}
         {$item = $item + 1}
     {/foreach}
 {/foreach}
 
-        {if ($item % $cols != $cols-1)}
-            </div>
-        {/if}
+{if ($item % $cols != $cols-1)}
+    </div> <!-- .row -->
+{/if}
 
-</div>
+</div> <!-- .container -->
