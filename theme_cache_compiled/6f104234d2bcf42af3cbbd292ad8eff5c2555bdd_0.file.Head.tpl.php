@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-19 08:48:00
+/* Smarty version 3.1.33, created on 2019-09-17 11:30:20
   from '/opt/moodle/mod/kuink/theme/adminlte/template/Head.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d09f6c032e6b7_55865332',
+  'unifunc' => 'content_5d80b5bc4054c1_52091876',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6f104234d2bcf42af3cbbd292ad8eff5c2555bdd' => 
     array (
       0 => '/opt/moodle/mod/kuink/theme/adminlte/template/Head.tpl',
-      1 => 1544544789,
+      1 => 1568650282,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5d09f6c032e6b7_55865332 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d80b5bc4054c1_52091876 (Smarty_Internal_Template $_smarty_tpl) {
 ?>				<meta charset="UTF-8">
 				<title>KuinK</title>
 				<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
@@ -50,7 +50,9 @@ theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>
 /assets/css/select2/select2-bootstrap.css"/>
 				<!-- Font Awesome -->
 				<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"-->
-				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+				<!--link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"-->
+				<!--link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"-->
+				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-0c38nfCMzF8w8DBI+9nTWzApOpr1z0WuyswL4y6x/2ZTtmj/Ki5TedKeUcFusC/k" crossorigin="anonymous">				
 				<!-- Ionicons -->
 				<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 				<!-- Bootstrap Validator -->
