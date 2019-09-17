@@ -1,3 +1,19 @@
+  <span>
+    {if ($menu[$url] != null && $menu[$url] != '')}
+      <a href="{$menu[$url]}" target="_blank" style="width: 200px" class="btn btn-sq-lg btn-{$menu[$type]}" {if $tooltip != ''}data-toggle="tooltip" data-placement="bottom" title="{$menu[$tooltip]}" {/if}>
+    {else}
+      <div class="btn btn-sq-lg {if ($menu[$type] != '')}btn-{$menu[$type]}{/if}" style="width: 200px" {if $tooltip != ''}data-toggle="tooltip" data-placement="bottom" title="{$menu[$tooltip]}" {/if}>
+    {/if}
+        <i class="{$menu[$icon]} fa-5x"></i><br/>
+        <strong>{$menu[$label]}</strong>&nbsp;<i class="fas fa-arrow-circle-right"></i>
+    {if ($menu[$url] != null && $menu[$url] != '')}
+      </a>
+    {else}
+      </div>
+    {/if}
+  </span>
+
+{*
 <div class="col-sm-{12/$cols}">
     <!-- small box -->
     <div class="small-box alert-{$menu[$type]}">
@@ -12,3 +28,4 @@
     </div>
 </div>
 <!-- ./col -->    
+*}
