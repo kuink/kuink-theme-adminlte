@@ -4150,7 +4150,7 @@ S2.define('select2/dropdown/minimumResultsForSearch',[
   }
 
   MinimumResultsForSearch.prototype.showSearch = function (decorated, params) {
-    if (countResults(params.data.results) < this.minimumResultsForSearch) {
+    if (sizeofResults(params.data.results) < this.minimumResultsForSearch) {
       return false;
     }
 
