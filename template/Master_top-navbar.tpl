@@ -1,9 +1,7 @@
 <!-- Header Navbar: style can be found in header.less -->
 <nav class="navbar navbar-static-top" role="navigation">
 	<!-- Sidebar toggle button-->
-	<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-  </a>	
+	<a href="#" class="sidebar-button" data-toggle="push-menu" role="button"><i class="fa fa-bars"></i></a>	
 	<div class="navbar-right">
 		<ul class="nav navbar-nav">
 
@@ -50,20 +48,9 @@
 							<small>**</small>
 						</p>
 					</li>
-					<!-- Menu Body -->
-					<li class="user-footer">
-						<!--div class="col-xs-4 text-center"-->
-							<a href="{$baseurl}/user/profile.php?id={$userId}" class="btn btn-default btn-flat">{translate app="framework"}profile{/translate}</a>
-						<!--/div-->
-					</li>
 					<!-- Menu Footer-->
 					<li class="user-footer">
-						<!--div class="pull-left">
-							<a href="{$breadcrumbEntries[1]['href']}" class="btn btn-default btn-flat">{translate app="framework"}backToMoodleCourse{/translate}</a>
-						</div>
-						<div class="pull-right"-->
-							<a href="{$baseurl}/login/logout.php?sesskey={$sessKey}" class="btn btn-default btn-flat">{translate app="framework"}sign-out{/translate}</a>
-						<!--/div-->
+						
 					</li>
 				</ul>
 			</li>
