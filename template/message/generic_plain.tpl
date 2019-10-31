@@ -1,3 +1,0 @@
-{$message_plain}
-
-{$signature}
