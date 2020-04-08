@@ -15,7 +15,12 @@
 {/if}
 
 <div class="cover-container">
-    <a href="http://www.plantuml.com/plantuml/{$format}/{$encoded}" target="_blank">
-        <img class="cover-item" src="http://www.plantuml.com/plantuml/{$format}/{$encoded}" width="100%"/>
-    </a>
+    {if $format != 'svg'}
+        <a href="http://www.plantuml.com/plantuml/{$format}/{$encoded}" target="_blank"-->
+            <img class="cover-item" src="http://www.plantuml.com/plantuml/{$format}/{$encoded}"/>
+        </a>
+    {else}
+        <object type="image/svg+xml" data="http://www.plantuml.com/plantuml/{$format}/{$encoded}"></object>
+    {/if}
+
 </div>

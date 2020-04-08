@@ -243,13 +243,6 @@
 
 {if (count($buttonActions) > 0) || ($form['title'] != '') || (count($fields) > 0)}
 <div class="box">
-	{*check if this form has a title*}
-	{if $form['title'] != ''}
-	<div class="box-header">
-		<i class="fa fa-th-large">&nbsp;</i>
-		<h3 class="box-title">{$form['title']}</h3>
-	</div>
-	{/if}
 	{if !isset($hasRequiredFields)}
 		{assign var=hasRequiredFields value=false}
 	{/if}
@@ -265,19 +258,27 @@
 			data-bv-feedbackicons-validating=""
 			data-bv-live="enabled"
 			data-disable="false">
+
+			{*check if this form has a title*}
+			{if $form['title'] != ''}
+			<div class="box-header">
+				<i class="fa fa-th-large">&nbsp;</i>
+				<h3 class="box-title">{$form['title']}</h3>
+				{if ($freeze == '0') && ($buttonsPosition == 'top' || $buttonsPosition == 'both')}
+					<script>
+						$(document).ready(function(){
+							var html = $("#{$_guid}").find(".btn-group").html();
+							$("#firstButtonGroup{$_guid}").html(html);
+							$("#firstButtonGroup{$_guid}").addClass("btn-group");
+						})
+					</script>
+					<div id="firstButtonGroup{$_guid}" style="float: right;"></div>
+				{/if}
+			</div>
+			{/if}
+
 			{if count($fields) > 0}
 				<div class="box-body ">
-					{if ($freeze == '0') && ($buttonsPosition == 'top' || $buttonsPosition == 'both')}
-						<script>
-							$(document).ready(function(){
-								var html = $("#{$_guid}").find(".btn-group").html();
-								$("#firstButtonGroup{$_guid}").html(html);
-								$("#firstButtonGroup{$_guid}").addClass("btn-group");
-							})
-						</script>
-						<div id="firstButtonGroup{$_guid}" style="float: right;"></div>
-					{/if}
-
 				{$insideColumn = 0}
 				{$insideHeader = 0}
 				{$currentColumnGroup = 0}
