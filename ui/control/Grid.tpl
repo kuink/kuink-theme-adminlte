@@ -260,11 +260,10 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 									{if $columnAttributes[$index]['sortable'] != 'false' && $columnAttributes[$index]['sortable'] != ''}
 
 										<span style="display:inline;">
-											
 											{if isset($sort[$index]['sort']) && $sort[$index]['sort'] == 'asc'}
-												<a href="javascript: void(0)"  onclick="gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_sort={$index}_desc', '')"><i class="fa fa-sort-asc"></i></a>
+												<a href="javascript: void(0)"  onclick="gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_sort={$index}_desc', '')"><i class="fa fa-sort-down"></i></a>
 											{else if isset($sort[$index]['sort']) && $sort[$index]['sort'] == 'desc'}
-												<a href="javascript: void(0)"  onclick="gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_sort={$index}_rem', '')"><i class="fa fa-sort-desc"></i></a>
+												<a href="javascript: void(0)"  onclick="gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_sort={$index}_rem', '')"><i class="fa fa-sort-up"></i></a>
 											{else}
 												<a href="javascript: void(0)"  onclick="gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_sort={$index}_asc', '')"><i class="fa fa-sort"></i></a>
 											{/if}

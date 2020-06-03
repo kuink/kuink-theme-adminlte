@@ -26,6 +26,11 @@ Handle all thing about form action buttons.
   	       	  {$buttonIcon = "plus"}
   	          {$iconColor = "icon-white"}
   	          {$buttonClass = "btn btn-success"}
+  	      {elseif $buttonType == "download"}
+  	       	  {$buttonType = "submit"}
+  	       	  {$buttonIcon = "download"}
+  	          {$iconColor = "icon-white"}
+  	          {$buttonClass = "btn btn-success"}				
   	      {elseif $buttonType == "execute"}
   	       	  {$buttonType = "submit"}
   	       	  {$buttonIcon = "play"}

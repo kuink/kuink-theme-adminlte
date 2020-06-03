@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-19 11:57:08
+/* Smarty version 3.1.33, created on 2020-06-03 08:00:21
   from '/media/sf_local-development/code/kuink-bridge-standalone/vendor/kuink/kuink-theme-adminlte/template/Master_top-navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dfb65942001a9_59094870',
+  'unifunc' => 'content_5ed75895a80f56_38312175',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dfb65942001a9_59094870 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed75895a80f56_38312175 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Header Navbar: style can be found in header.less -->
 <nav class="navbar navbar-static-top" role="navigation">
 	<!-- Sidebar toggle button-->

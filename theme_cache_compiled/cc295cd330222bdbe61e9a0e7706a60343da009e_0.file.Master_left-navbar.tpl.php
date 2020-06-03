@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-19 11:57:08
+/* Smarty version 3.1.33, created on 2020-06-03 08:00:21
   from '/media/sf_local-development/code/kuink-bridge-standalone/vendor/kuink/kuink-theme-adminlte/template/Master_left-navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dfb659424e9b2_80587159',
+  'unifunc' => 'content_5ed75895af1b76_50275352',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dfb659424e9b2_80587159 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed75895af1b76_50275352 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
 	<!-- sidebar: style can be found in sidebar.less -->

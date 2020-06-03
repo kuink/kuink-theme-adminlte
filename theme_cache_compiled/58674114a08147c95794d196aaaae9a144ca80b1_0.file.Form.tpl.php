@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-18 19:17:37
+/* Smarty version 3.1.33, created on 2020-06-02 15:45:13
   from '/media/sf_local-development/code/kuink-bridge-standalone/vendor/kuink/kuink-theme-adminlte/ui/control/Form.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dfa7b51bcdc03_89819463',
+  'unifunc' => 'content_5ed67409c43fb9_14285683',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '58674114a08147c95794d196aaaae9a144ca80b1' => 
     array (
       0 => '/media/sf_local-development/code/kuink-bridge-standalone/vendor/kuink/kuink-theme-adminlte/ui/control/Form.tpl',
-      1 => 1576688252,
+      1 => 1586337178,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./Form_HandleActionButtons.tpl' => 1,
   ),
 ),false)) {
-function content_5dfa7b51bcdc03_89819463 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed67409c43fb9_14285683 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/media/sf_local-development/code/kuink-core/tools/smarty/plugins/block.translate.php','function'=>'smarty_block_translate',),));
 ?>
 
@@ -338,13 +338,6 @@ _rules(changedId);
 
 <?php if ((count($_smarty_tpl->tpl_vars['buttonActions']->value) > 0) || ($_smarty_tpl->tpl_vars['form']->value['title'] != '') || (count($_smarty_tpl->tpl_vars['fields']->value) > 0)) {?>
 <div class="box">
-		<?php if ($_smarty_tpl->tpl_vars['form']->value['title'] != '') {?>
-	<div class="box-header">
-		<i class="fa fa-th-large">&nbsp;</i>
-		<h3 class="box-title"><?php echo $_smarty_tpl->tpl_vars['form']->value['title'];?>
-</h3>
-	</div>
-	<?php }?>
 	<?php if (!isset($_smarty_tpl->tpl_vars['hasRequiredFields']->value)) {?>
 		<?php $_smarty_tpl->_assignInScope('hasRequiredFields', false);?>
 	<?php }?>
@@ -369,25 +362,33 @@ array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>"
 			data-bv-feedbackicons-validating=""
 			data-bv-live="enabled"
 			data-disable="false">
+
+						<?php if ($_smarty_tpl->tpl_vars['form']->value['title'] != '') {?>
+			<div class="box-header">
+				<i class="fa fa-th-large">&nbsp;</i>
+				<h3 class="box-title"><?php echo $_smarty_tpl->tpl_vars['form']->value['title'];?>
+</h3>
+				<?php if (($_smarty_tpl->tpl_vars['freeze']->value == '0') && ($_smarty_tpl->tpl_vars['buttonsPosition']->value == 'top' || $_smarty_tpl->tpl_vars['buttonsPosition']->value == 'both')) {?>
+					<?php echo '<script'; ?>
+>
+						$(document).ready(function(){
+							var html = $("#<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
+").find(".btn-group").html();
+							$("#firstButtonGroup<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
+").html(html);
+							$("#firstButtonGroup<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
+").addClass("btn-group");
+						})
+					<?php echo '</script'; ?>
+>
+					<div id="firstButtonGroup<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
+" style="float: right;"></div>
+				<?php }?>
+			</div>
+			<?php }?>
+
 			<?php if (count($_smarty_tpl->tpl_vars['fields']->value) > 0) {?>
 				<div class="box-body ">
-					<?php if (($_smarty_tpl->tpl_vars['freeze']->value == '0') && ($_smarty_tpl->tpl_vars['buttonsPosition']->value == 'top' || $_smarty_tpl->tpl_vars['buttonsPosition']->value == 'both')) {?>
-						<?php echo '<script'; ?>
->
-							$(document).ready(function(){
-								var html = $("#<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
-").find(".btn-group").html();
-								$("#firstButtonGroup<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
-").html(html);
-								$("#firstButtonGroup<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
-").addClass("btn-group");
-							})
-						<?php echo '</script'; ?>
->
-						<div id="firstButtonGroup<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>
-" style="float: right;"></div>
-					<?php }?>
-
 				<?php $_smarty_tpl->_assignInScope('insideColumn', 0);?>
 				<?php $_smarty_tpl->_assignInScope('insideHeader', 0);?>
 				<?php $_smarty_tpl->_assignInScope('currentColumnGroup', 0);?>

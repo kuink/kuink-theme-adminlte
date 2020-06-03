@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-18 19:17:37
+/* Smarty version 3.1.33, created on 2020-06-02 15:45:14
   from '/media/sf_local-development/code/kuink-bridge-standalone/vendor/kuink/kuink-theme-adminlte/ui/control/Form_HandleActionButtons.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dfa7b51c45643_92429230',
+  'unifunc' => 'content_5ed6740a00b921_14233065',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5f2922243d0c0b487facdb55fc15ea52edd87c13' => 
     array (
       0 => '/media/sf_local-development/code/kuink-bridge-standalone/vendor/kuink/kuink-theme-adminlte/ui/control/Form_HandleActionButtons.tpl',
-      1 => 1575365758,
+      1 => 1588951991,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dfa7b51c45643_92429230 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed6740a00b921_14233065 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/media/sf_local-development/code/kuink-core/tools/smarty/plugins/modifier.replace.php','function'=>'smarty_modifier_replace',),));
 ?>
 
@@ -45,6 +45,11 @@ $_smarty_tpl->_assignInScope('buttonClass', "btn");?>
   	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "plus");?>
   	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
   	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-success");?>
+  	      <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "download") {?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>
+  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "download");?>
+  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>
+  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-success");?>				
   	      <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "execute") {?>
   	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>
   	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "play");?>

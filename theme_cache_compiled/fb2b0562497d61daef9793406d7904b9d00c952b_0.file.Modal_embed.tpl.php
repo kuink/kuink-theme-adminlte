@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-19 11:57:08
+/* Smarty version 3.1.33, created on 2020-06-03 11:59:52
   from '/media/sf_local-development/code/kuink-bridge-standalone/vendor/kuink/kuink-theme-adminlte/template/Modal_embed.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dfb65942bbb59_69154138',
+  'unifunc' => 'content_5ed790b800eae5_08272775',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -23,13 +23,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:UserMessages.tpl' => 1,
   ),
 ),false)) {
-function content_5dfb65942bbb59_69154138 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ed790b800eae5_08272775 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->smarty->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
   'hook' => 
   array (
     'compiled_filepath' => '/media/sf_local-development/code/kuink-bridge-standalone/vendor/kuink/kuink-theme-adminlte/theme_cache_compiled/fb2b0562497d61daef9793406d7904b9d00c952b_0.file.Modal_embed.tpl.php',
     'uid' => 'fb2b0562497d61daef9793406d7904b9d00c952b',
-    'call_name' => 'smarty_template_function_hook_13509599755dfb65942887a1_56419378',
+    'call_name' => 'smarty_template_function_hook_5814141725ed790b7f121b7_93785586',
   ),
 ));
 ?>
@@ -45,16 +45,16 @@ _wrapper" class="box" kuink-guid="<?php echo $_smarty_tpl->tpl_vars['_idContext'
 	<?php if ($_smarty_tpl->tpl_vars['onlyApp']->value != 1) {?>
 	<div class="box-header with-border" style="cursor: move;">
 		<div class="pull-right box-tools">
-			<button id="collapseWidgetButton" class="btn btn-danger btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="<?php $_block_plugin7 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
-if (!is_callable($_block_plugin7)) {
+			<button id="collapseWidgetButton" class="btn btn-danger btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="<?php $_block_plugin1 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
+if (!is_callable($_block_plugin1)) {
 throw new SmartyException('block tag \'translate\' not callable or registered');
 }
 $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());
 $_block_repeat=true;
-echo $_block_plugin7(array(), null, $_smarty_tpl, $_block_repeat);
+echo $_block_plugin1(array(), null, $_smarty_tpl, $_block_repeat);
 while ($_block_repeat) {
 ob_start();?>toggleApp<?php $_block_repeat=false;
-echo $_block_plugin7(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);
+echo $_block_plugin1(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>"><i class="fa fa-minus"></i></button>
 		</div>
@@ -62,30 +62,30 @@ array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>"><i class="fa fa-minus"
 		<h3 class="box-title"><?php echo $_smarty_tpl->tpl_vars['appName']->value;?>
 </h3>
 		<div style="display:inline-block;white-space: nowrap;">
-			<?php if (!empty($_smarty_tpl->tpl_vars['menuEntries']->value)) {?><a href="#sidebarMenu" class="btn btn-default" id="sidebarMenu" data-toggle="tooltip" data-placement="right" title="<?php $_block_plugin8 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
-if (!is_callable($_block_plugin8)) {
+			<?php if (!empty($_smarty_tpl->tpl_vars['menuEntries']->value)) {?><a href="#sidebarMenu" class="btn btn-default" id="sidebarMenu" data-toggle="tooltip" data-placement="right" title="<?php $_block_plugin2 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
+if (!is_callable($_block_plugin2)) {
 throw new SmartyException('block tag \'translate\' not callable or registered');
 }
 $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());
 $_block_repeat=true;
-echo $_block_plugin8(array(), null, $_smarty_tpl, $_block_repeat);
+echo $_block_plugin2(array(), null, $_smarty_tpl, $_block_repeat);
 while ($_block_repeat) {
 ob_start();?>toggleMenu<?php $_block_repeat=false;
-echo $_block_plugin8(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);
+echo $_block_plugin2(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>"><i class="fa fa-bars"></i></a><?php }?>
 		</div>
 		<a href="javascript: menuAppAction(false, '', '<?php echo $_smarty_tpl->tpl_vars['_refresh']->value;?>
-', '');" class="btn btn-success" id="refresh" title="<?php $_block_plugin9 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
-if (!is_callable($_block_plugin9)) {
+', '');" class="btn btn-success" id="refresh" title="<?php $_block_plugin3 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;
+if (!is_callable($_block_plugin3)) {
 throw new SmartyException('block tag \'translate\' not callable or registered');
 }
 $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());
 $_block_repeat=true;
-echo $_block_plugin9(array(), null, $_smarty_tpl, $_block_repeat);
+echo $_block_plugin3(array(), null, $_smarty_tpl, $_block_repeat);
 while ($_block_repeat) {
 ob_start();?>refresh<?php $_block_repeat=false;
-echo $_block_plugin9(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);
+echo $_block_plugin3(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>"><i class="fa fa-sync"></i></a>
 		<?php }?>
@@ -196,9 +196,9 @@ _wrapper").hasClass("collapsed-box")){
 <?php echo '</script'; ?>
 >
 <?php }
-/* smarty_template_function_hook_13509599755dfb65942887a1_56419378 */
-if (!function_exists('smarty_template_function_hook_13509599755dfb65942887a1_56419378')) {
-function smarty_template_function_hook_13509599755dfb65942887a1_56419378(Smarty_Internal_Template $_smarty_tpl,$params) {
+/* smarty_template_function_hook_5814141725ed790b7f121b7_93785586 */
+if (!function_exists('smarty_template_function_hook_5814141725ed790b7f121b7_93785586')) {
+function smarty_template_function_hook_5814141725ed790b7f121b7_93785586(Smarty_Internal_Template $_smarty_tpl,$params) {
 foreach ($params as $key => $value) {
 $_smarty_tpl->tpl_vars[$key] = new Smarty_Variable($value, $_smarty_tpl->isRenderingCache);
 }
@@ -215,5 +215,5 @@ foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 }}
-/*/ smarty_template_function_hook_13509599755dfb65942887a1_56419378 */
+/*/ smarty_template_function_hook_5814141725ed790b7f121b7_93785586 */
 }
