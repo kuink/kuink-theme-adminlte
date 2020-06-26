@@ -12,7 +12,10 @@
 			{/if}
 
 			result = setFormAction_{$_guid}('{$form["baseUrl"]|html_entity_decode}{$urlSuff}','', '', '', false);
+
 			$("#{$_guid}").submit();
+			
+			//Call kuink submit center
 		}
 	</script>
 

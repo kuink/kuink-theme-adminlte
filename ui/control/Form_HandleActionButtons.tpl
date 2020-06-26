@@ -125,7 +125,6 @@ Handle all thing about form action buttons.
 
 <script>
 	$(document).ready(function() {
-
 		//Handle confirm message
 		var confirmMessage = '';
 		{$buttonAttrs['confirm'] = $buttonAttrs['confirm']|replace:'"':"'"}
@@ -151,6 +150,7 @@ Handle all thing about form action buttons.
 		$("#{$_guid} #{$buttonAttrs['id']}").attr("onclick", function() {
 			return "javascript: result = setFormAction_{$_guid}('{$buttonActionUrl}', '', '{$buttonType}', '{$buttonAttrs['id']}', false);";
 		});
+		//alert($("#{$_guid} #{$buttonAttrs['id']}").attr("onclick"));
 	});
 </script>
 
