@@ -101,7 +101,7 @@
 			{/if}
 
 			markup += '<div class="">' +
-			'<img src="{$imageSrc}' + data.image + {if ($_imageUrl != '')}'.jpg' + {/if}'" style="max-width: 10%" />' +
+			'<img src="{$imageSrc}' + data.image + {if ($_imageUrl != '')}'.jpg' + {/if}'" style="max-width: 5%" />' +
 			'</div>';
 
 		}
