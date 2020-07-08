@@ -103,7 +103,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 					reqErrors = false;
 					var reqFocus;
 					reqFocus = '';
-					{if $requiredColumns|@count gt 0}
+					{if ($requiredColumns != null) && (count($requiredColumns) > 0)}
 						{foreach $data as $block}
 							{foreach $block as $row}
 								{$id = $row['id']['value']}

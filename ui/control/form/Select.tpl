@@ -13,9 +13,18 @@
 
 			result = setFormAction_{$_guid}('{$form["baseUrl"]|html_entity_decode}{$urlSuff}','', '', '', false);
 
-			$("#{$_guid}").submit();
-			
+			//$("#{$_guid}").submit();
 			//Call kuink submit center
+			$("#{$_guid}").kuinkSubmit({
+				'url' 						: '{$form["baseUrl"]|html_entity_decode}{$urlSuff}' + '&modal=embed',
+				'idContext'				: '{$_idContext}',
+				'method' 					: 'post',
+				//'target'					: '{$_idContext}_wrapper',
+				'processData'			: false,
+				'contentType'			: false,
+				'button_id' 			: {$fieldID},
+				'formGuid' 			  : '{$_guid}'
+			});			
 		}
 	</script>
 

@@ -241,7 +241,7 @@
 	}
 </script>
 
-{if (count($buttonActions) > 0) || ($form['title'] != '') || (count($fields) > 0)}
+{if (($buttonActions != null) && (count($buttonActions) > 0)) || ($form['title'] != '') || (count($fields) > 0)}
 <div class="box">
 	{if !isset($hasRequiredFields)}
 		{assign var=hasRequiredFields value=false}
@@ -373,15 +373,17 @@
 			{/if}
 		{/if}
 		<!-- /.box-body -->
-		{if count($buttonActions) > 0}
-			<div style="clear:both"></div>
-			<div class="box-footer">
-				<div class="btn-group">
-					{foreach $buttonActions as $buttonID=>$button}
-						{include './Form_HandleActionButtons.tpl'}
-					{/foreach}
+		{if $buttonActions != null}
+			{if count($buttonActions) > 0}
+				<div style="clear:both"></div>
+				<div class="box-footer">
+					<div class="btn-group">
+						{foreach $buttonActions as $buttonID=>$button}
+							{include './Form_HandleActionButtons.tpl'}
+						{/foreach}
+					</div>
 				</div>
-			</div>
+			{/if}
 		{/if}
 	</form>
 </div>
