@@ -34,9 +34,9 @@ $position = Position of controls
 				<!-- Logo -->
 				<a href="{$breadcrumbEntries[2]['href']}" class="logo">
 					<!-- mini logo for sidebar mini 50x50 pixels -->
-					<span class="logo-mini">S</span>
+					<span class="logo-mini">K</span>
 					<!-- logo for regular state and mobile devices -->
-					<span class="logo-lg">CSCM-Lx</span>
+					<span class="logo-lg">Kuink</span>
 				</a>
 
 				{* include the top navbar*}
