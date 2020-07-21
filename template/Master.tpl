@@ -20,6 +20,13 @@ $position = Position of controls
 {/if}
 
 
+{foreach from=$_userCompanies item=COMPANY}
+	{if $_userCompany == $COMPANY.id}
+		{$_userCompanyData = $COMPANY}							
+	{/if}
+{/foreach}
+
+
 <!DOCTYPE html>
 <html lang="{$_lang}">
 
@@ -34,9 +41,9 @@ $position = Position of controls
 				<!-- Logo -->
 				<a href="{$breadcrumbEntries[2]['href']}" class="logo">
 					<!-- mini logo for sidebar mini 50x50 pixels -->
-					<span class="logo-mini">K</span>
+					<span class="logo-mini">{$_userCompanyData.code[0]}</span>
 					<!-- logo for regular state and mobile devices -->
-					<span class="logo-lg">Kuink</span>
+					<span class="logo-lg">{$_userCompanyData.code}</span>
 				</a>
 
 				{* include the top navbar*}

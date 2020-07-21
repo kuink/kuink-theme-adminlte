@@ -363,7 +363,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 									{$index = $index + 1}
 								{/foreach}
-								{if $supressChangedField != 1}
+								{if ($freeze == 'false') && ($id != '') }
 									<input type="hidden" id="{$id}{$multiSeparator}CHANGED" name="{$id}{$multiSeparator}CHANGED" value="0"/>
 									<input type="hidden" id="{$id}{$multiSeparator}SELECTED" name="{$id}{$multiSeparator}SELECTED" value="0"/>
 								{/if}
