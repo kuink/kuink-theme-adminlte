@@ -93,26 +93,27 @@ and handle the control display
 				</div>			
 			{/if}
 			
+			{* Place the label *}
 			{if $fieldType != 'ActionGroup'}
 				<!--div class="col-lg-{$labelSize} col-md-{$labelSize} col-sm-{$labelSize} col-xs-3" style="{if (($fieldAttrs['inline']=='true') || ($nextFieldAttrs['inline']=='true' && $nextFieldAttrs!=null)) }width: 100%;{/if}"-->
 				<div class="col-lg-{$labelSize} col-md-{$labelSize} col-sm-{$labelSize} col-xs-12">
 					{if $fieldType !='Hidden'}
 						{* <label for="{$fieldGuid}" style="{if $fieldAttrs['inline'] == 'tight'}width: auto; margin:0px 5px 0px 5px;{/if}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label> *}
 						<label style="margin-top: 8px; {$labelClassComplement}" for="{$fieldGuid}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label>
-						{if $field['attributes']['help']!='false' && $field['attributes']['help']!='' && $field['attributes']['help'] != $fieldID}
+						{if $field['attributes']['help']!='false' && $field['attributes']['help']!='' && $field['attributes']['help'] != $field['attributes']['id']}
 							&nbsp;&nbsp;
-							<a tabindex="-1"
-								data-toggle="tooltip" title=""
-								data-original-title="{$field['attributes']['help']}"
-								data-placement="right"
-								href="javascript:void(0);">
-									<i class="fieldQuestionMark fa fa-info-circle" ></i>
+							<a tabindex="-1" role="button" data-toggle="popover" data-trigger="focus" title="{$field['attributes']['label']} - {translate app="framework"}help{/translate}" data-html="true" data-content="{$field['attributes']['help']}" href="javascript:void(0);">
+								<i class="fieldQuestionMark fa fa-info-circle" ></i>
 							</a>
+							<script>
+								$('[data-toggle="popover"]').popover()
+							</script>
 						{/if}
 					{/if}
 				</div>
 			{/if}
 
+			{* Place the field *}
 			{if $fieldAttrs['labelposition'] == 'left'}
 				<div class="col-lg-{$fieldSize} col-md-{$fieldSize} col-sm-{$fieldSize} col-xs-12">
 					{include file="./form/$fieldType.tpl"}
