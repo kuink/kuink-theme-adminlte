@@ -89,6 +89,7 @@ $position = Position of controls
 
 			</div><!-- ./right-side -->
 		</div><!-- ./wrapper -->
+
 		<div id="adminPerformance"></div>
 	</body>
 
