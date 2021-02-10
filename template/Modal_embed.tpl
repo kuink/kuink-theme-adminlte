@@ -54,6 +54,11 @@
 				</div>
 			</div>
 			<div class="box-footer" style="clear:both;">
+				<div class="row" id="adminPerformance">
+					<div class="span12">
+						{$_executionTime}
+					</div>
+				</div>
 				<div class="row">
 					<div id="debugMessages" class="noPrint">
 						{call hook position='debugMessages'}
