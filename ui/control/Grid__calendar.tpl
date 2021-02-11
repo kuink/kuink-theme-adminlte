@@ -6,6 +6,27 @@
 <script>
 	//Add this control to the manager
 	__kuink.controlAdd('{$_idContext}', '{$_guid}');
+
+
+	function validateRequiredFields_{$_guid}() {
+	}
+
+	function gridActionField_{$_guid}(confirm, confirm_message, location, button_id, extraParams='') {
+		if (confirm == 'true' || confirm == true)
+			__kuink.controlAddKey('{$_idContext}','kuink_{$_guid}', button_id, 'confirm', confirm_message);
+
+							
+		$("#kuink_{$_guid}").kuinkSubmit({
+			'url' 			: location+'&modal=embed',
+			'idContext'	: '{$_idContext}',
+			'method' 		: {if $freeze=='false'}'post'{else}'get'{/if},
+			'processData': false,
+			'contentType': false,
+			'button_id' : button_id,
+			'formGuid'	: 'kuink_{$_guid}'
+		});
+	}
+
 </script>
 
 <script type='text/javascript'>
@@ -38,36 +59,46 @@
 
     init_events($('#external-events div.external-event'))
 
-		var date = new Date();
-		var d = date.getDate();
-		var m = date.getMonth();
-		var y = date.getFullYear();
+	var date = new Date();
+	var d = date.getDate();
+	var m = date.getMonth();
+	var y = date.getFullYear();
 
-		$('#{$_guid}').fullCalendar({
-
-			header: {
-				left: 'today prev,next',
-				center: 'title',
-				right: 'agendaWeek, agendaDay'
-			},
-			defaultView: 'agendaWeek',
-			allDaySlot: false,
-			axisFormat: 'H:mm',
-			locale: 'pt',
-			events: [
-			{foreach $data as $data_bind}
-				{foreach $data_bind as $data_row}
-				{literal}{{/literal}
-						title: "{$data_row['subject']['value']}",
-						start: new Date({$data_row['start_date']['value']}*1000 ),
-						end: new Date({$data_row['end_date']['value']}*1000 ),
-						allDay: false,
-						timeFormat: "H:mm",
-					{literal}},{/literal}
-				{/foreach}
-			{/foreach}		
-			]
-		});
+	$('#{$_guid}').fullCalendar({
+		eventClick: function(eventObj) {
+			console.log(eventObj);
+			console.log('{$baseUrl}'+eventObj.action);
+			gridActionField_{$_guid}(false, '', '{$baseUrl}'+eventObj.action+'&actionvalue='+eventObj.idfull, eventObj.action);			
+		},
+		header: {
+			left: 'today prev,next',
+			center: 'title',
+			right: 'agendaWeek, agendaDay'
+		},
+		defaultView: 'agendaWeek',
+		allDaySlot: false,
+		axisFormat: 'H:mm',
+		locale: 'pt',
+		events: [
+		{foreach $data as $data_bind}
+			{foreach $data_bind as $data_row}
+			{literal}{{/literal}
+					title: "{$data_row['subject']['value']}",
+					description: "{$data_row['subject']['value']}",
+					start: new Date({$data_row['start_date']['value']}*1000 ),
+					end: new Date({$data_row['end_date']['value']}*1000 ),
+					color: "{$data_row['color']['value']}",
+					type: "{$data_row['type']['value']}",
+					action: "{$data_row['action']['value']}",
+					id: "{$data_row['id']['value']}",
+					idfull: "{$data_row['type']['value']}:{$data_row['id']['value']}",
+					allDay: false,
+					timeFormat: "H:mm",
+				{literal}},{/literal}
+			{/foreach}
+		{/foreach}		
+		]
+	});
 
 	});
 
