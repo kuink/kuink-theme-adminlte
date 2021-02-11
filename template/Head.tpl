@@ -28,7 +28,6 @@
 
 				<link rel="icon" type="image/png" href="favicon.png" sizes="16x16">
 
-
 				<style>
 					{literal}
 						.treegrid-indent {width:16px; height: 16px; display: inline-block; position: relative;}
@@ -126,6 +125,10 @@
 						});
 				</script>
 				<!-- AdminLTE App -->
+				<!-- FullCalendar -->
+				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.min.css">
+				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+
 				<!--script src="{$_themeRoot}theme/{$THEME}/assets/js/app.min.js" type="text/javascript"></script>
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/fastclick/fastclick.min.js" type="text/javascript"></script-->
