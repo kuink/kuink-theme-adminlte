@@ -70,21 +70,37 @@
 			console.log('{$baseUrl}'+eventObj.action);
 			gridActionField_{$_guid}(false, '', '{$baseUrl}'+eventObj.action+'&actionvalue='+eventObj.idfull, eventObj.action);			
 		},
+		eventRender: function(event, element, view) {
+			//Title: bold
+			//var title = $(element).find(".fc-title").val();
+			//console.log(title);
+    		//$(element).find(".fc-title").html("<b>"+title+"</b>");
+			//Tooltip
+			//element.find('.fc-event-title').html(event.title);
+			//console.log($(view.el[0]).find(".fc-event-title").html());
+			//element.find(".fc-event-title").append("<br/>" + "AAA");
+    		$(element).tooltip({literal}{{/literal}title: event.tooltip{literal}}{/literal});
+		},
 		header: {
 			left: 'today prev,next',
 			center: 'title',
-			right: 'agendaWeek, agendaDay'
+			right: 'month,agendaWeek, agendaDay'			
 		},
 		defaultView: 'agendaWeek',
 		allDaySlot: false,
-		axisFormat: 'H:mm',
+		slotLabelFormat: 'H:mm',
 		locale: 'pt',
+		scrollTime: '08:00:00',
+		slotDuration: '00:15:00',
+		slotLabelInterval: '00:30:00',
+		weekends: false,
+		//contentHeight: 500,
 		events: [
 		{foreach $data as $data_bind}
 			{foreach $data_bind as $data_row}
 			{literal}{{/literal}
-					title: "{$data_row['subject']['value']}",
-					description: "{$data_row['subject']['value']}",
+					title: "{$data_row['subject']['value']} \n {$data_row['description']['value']}",
+					tooltip: "{$data_row['tooltip']['value']}",
 					start: new Date({$data_row['start_date']['value']}*1000 ),
 					end: new Date({$data_row['end_date']['value']}*1000 ),
 					color: "{$data_row['color']['value']}",
