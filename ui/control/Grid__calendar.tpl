@@ -26,7 +26,6 @@
 			'formGuid'	: 'kuink_{$_guid}'
 		});
 	}
-
 </script>
 
 <script type='text/javascript'>
@@ -55,75 +54,165 @@
         })
 
       })
-    }
+    };
 
-    init_events($('#external-events div.external-event'))
+    init_events($('#external-events div.external-event'));
 
-	var date = new Date();
-	var d = date.getDate();
-	var m = date.getMonth();
-	var y = date.getFullYear();
+
+		/* 
+		 * Function to adapt the events to the fullcalendar object 
+		 */
+		function transformCalendarEvents{$_guid}(events) {
+			transformedEvents = [];
+			for (const [eventKey, eventValue] of Object.entries(events)) {
+				startDate = new Date(Object.getOwnPropertyDescriptor(eventValue, '{$calendarOptions['startDate']}').value*1000);
+				endDate = new Date(Object.getOwnPropertyDescriptor(eventValue, '{$calendarOptions['endDate']}').value*1000);
+				
+				//Apply the correct names to this Object
+				eventValue['start'] = startDate;
+				eventValue['end'] = endDate;
+				eventValue['title'] = Object.getOwnPropertyDescriptor(eventValue, '{$calendarOptions['title']}').value;
+				eventValue['id'] = Object.getOwnPropertyDescriptor(eventValue, '{$calendarOptions['id']}').value;
+
+				transformedEvents.push(eventValue);
+			}
+			return transformedEvents;
+		}	
 
 	$('#{$_guid}').fullCalendar({
+		header: {
+			{if $calendarOptions['headerLeft'] != ''}
+						left: '{$calendarOptions['headerLeft']}',
+			{/if}
+			{if $calendarOptions['headerCenter'] != ''}
+						center: '{$calendarOptions['headerCenter']}',
+			{/if}
+			{if $calendarOptions['headerRight'] != ''}
+						right: '{$calendarOptions['headerRight']}',
+			{/if}
+		},
+		{if $calendarOptions['defaultView'] != ''}
+			defaultView: '{$calendarOptions['defaultView']}',
+		{/if}
+		{if $calendarOptions['allDaySlot'] != ''}
+			allDaySlot: {$calendarOptions['allDaySlot']},
+		{/if}
+		{if $calendarOptions['slotLabelFormat'] != ''}
+			slotLabelFormat: '{$calendarOptions['slotLabelFormat']}',
+		{/if}
+		{if $calendarOptions['locale'] != ''}
+			locale: '{$calendarOptions['locale']}',
+		{/if}
+		{if $calendarOptions['minTime'] != ''}
+			minTime: '{$calendarOptions['minTime']}',
+		{/if}
+		{if $calendarOptions['maxTime'] != ''}
+			maxTime: '{$calendarOptions['maxTime']}',
+		{/if}
+		{if $calendarOptions['maxTime'] != ''}
+			maxTime: '{$calendarOptions['maxTime']}',
+		{/if}
+		{if $calendarOptions['slotDuration'] != ''}
+			slotDuration: '{$calendarOptions['slotDuration']}',
+		{/if}
+		{if $calendarOptions['slotLabelInterval'] != ''}
+			slotLabelInterval: '{$calendarOptions['slotLabelInterval']}',
+		{/if}
+		{if $calendarOptions['weekends'] != ''}
+			weekends: {$calendarOptions['weekends']},
+		{/if}
+		{if $calendarOptions['editable'] != ''}
+			editable: {$calendarOptions['editable']},
+		{/if}
+		{if $calendarOptions['contentHeight'] != ''}
+			contentHeight: '{$calendarOptions['contentHeight']}',
+		{/if}						
+
 		eventClick: function(eventObj) {
-			console.log(eventObj);
-			console.log('{$baseUrl}'+eventObj.action);
-			gridActionField_{$_guid}(false, '', '{$baseUrl}'+eventObj.action+'&actionvalue='+eventObj.idfull, eventObj.action);			
+			gridActionField_{$_guid}(false, '', '{$baseUrl}{$calendarOptions['action']}'+'&actionvalue='+Object.getOwnPropertyDescriptor(eventObj, '{$calendarOptions['actionValue']}').value, {$calendarOptions['action']});			
 		},
 		eventRender: function(event, element, view) {
-			//Title: bold
-			//var title = $(element).find(".fc-title").val();
-			//console.log(title);
-    		//$(element).find(".fc-title").html("<b>"+title+"</b>");
-			//Tooltip
-			//element.find('.fc-event-title').html(event.title);
-			//console.log($(view.el[0]).find(".fc-event-title").html());
-			//element.find(".fc-event-title").append("<br/>" + "AAA");
     		$(element).tooltip({literal}{{/literal}title: event.tooltip{literal}}{/literal});
 		},
-		header: {
-			left: 'today prev,next',
-			center: 'title',
-			right: 'month,agendaWeek, agendaDay'			
-		},
-		defaultView: 'agendaWeek',
-		allDaySlot: false,
-		slotLabelFormat: 'H:mm',
-		locale: 'pt',
-		scrollTime: '08:00:00',
-		slotDuration: '00:15:00',
-		slotLabelInterval: '00:30:00',
-		weekends: false,
-		//contentHeight: 500,
-		events: [
-		{foreach $data as $data_bind}
-			{foreach $data_bind as $data_row}
-			{literal}{{/literal}
-					title: "{$data_row['subject']['value']} \n {$data_row['description']['value']}",
-					tooltip: "{$data_row['tooltip']['value']}",
-					start: new Date({$data_row['start_date']['value']}*1000 ),
-					end: new Date({$data_row['end_date']['value']}*1000 ),
-					color: "{$data_row['color']['value']}",
-					type: "{$data_row['type']['value']}",
-					action: "{$data_row['action']['value']}",
-					id: "{$data_row['id']['value']}",
-					idfull: "{$data_row['type']['value']}:{$data_row['id']['value']}",
-					allDay: false,
-					timeFormat: "H:mm",
-				{literal}},{/literal}
-			{/foreach}
-		{/foreach}		
-		]
+
+		{* If there's an API defined use a function to fetch the events dynamically *}
+		{if $calendarOptions['api'] != ''}
+			events: function(start, end, timezone, callback) {
+				view = $('#{$_guid}').fullCalendar('getView');
+				apiCompleteUrl = '{$_apiCompleteUrl}{$calendarOptions['api']}&{$calendarOptions['apiParamStart']}='+start.unix()+'&{$calendarOptions['apiParamEnd']}='+end.unix();
+
+				$.ajax({
+					url: apiCompleteUrl,
+					type: "GET",
+					dataType: "json",
+					contentType: "application/json; charset=utf-8",                
+					success: function (result) {
+						console.log("success");
+						transformedEvents = transformCalendarEvents{$_guid}(result);
+						console.log('ajax transformedEvents:', transformedEvents);
+						callback( transformedEvents );
+					},
+					error: function (result) {
+						console.log("error");
+					}
+				});			
+			},		
+		{else}
+			{* Else, use the bind events *}
+			events: [
+				{foreach $data as $data_bind}
+					{foreach $data_bind as $data_row}
+					{literal}{{/literal}
+							title: "{$data_row['subject']['value']} \n {$data_row['description']['value']}",
+							tooltip: "{$data_row['tooltip']['value']}",
+							start: new Date({$data_row['start_date']['value']}*1000 ),
+							end: new Date({$data_row['end_date']['value']}*1000 ),
+							color: "{$data_row['color']['value']}",
+							type: "{$data_row['type']['value']}",
+							action: "{$data_row['action']['value']}",
+							id: "{$data_row['id']['value']}",
+							idfull: "{$data_row['type']['value']}:{$data_row['id']['value']}",
+							allDay: false,
+							timeFormat: "H:mm",
+						{literal}},{/literal}
+					{/foreach}
+				{/foreach}		
+			]
+		{/if}
 	});
 
 	});
 
 </script>
 
-
 <div class="container-fluid">
 	<div class="row-fluid">
-		<div class="testing"  id='{$_guid}'></div>
+		<div id='{$_guid}'></div>
 	</div>
 </div>
+
+
+{* 
+	EXPERIMENTAL THINGS
+
+	function addCalendarEvent{$_guid}(id, start, end, title) {
+		console.log('Adding event:', id, start, end, title);
+		eventObject = {
+			id: id,
+			start: start,
+			end: end,
+			title: title
+		};
+		$('#{$_guid}').fullCalendar('renderEvent', eventObject, true);
+	}	
+
+	$('#addEvent').on('click', function() {
+		var id = Math.random().toString(26).substring(2, 7); // Random event id for demo...
+		addCalendarEvent{$_guid}( id, '2021-02-16 09:30', '2021-02-16 10:00', 'An added event ' + id);
+	});
+
+	<input id='addEvent' type="button" value='Add Event' />	
+
+*}
+
 

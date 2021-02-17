@@ -3,6 +3,8 @@ function KuinkManager() {
 	this.contexts = [];
 	this.ajaxExecuteFunctionsBeforeLoad = []; //Functions to execute before the load of ajax
 	this.ajaxExecuteFunctionsAfterLoad = []; //Functions to execute after the load of ajax
+	this.apiUrl = '';  //Internal api Url to be set
+
 
 	/*
 		Some functions must be executed before content has been loaded in ajax
@@ -127,15 +129,38 @@ function KuinkManager() {
 			delete this.contexts[context];
 		}
 	};
+
+	//Calls a kuink api and returns the json object
+	this.callApi = function(api, params, callback) {
+		//build the url params
+		var urlParams;
+		urlParams = '';
+		for (const [key, value] of Object.entries(params)) {
+			urlParams = urlParams+'&'+key+'='+value;
+		}
+		var urlComplete = this.apiUrl+api+urlParams;
+		console.log('calling API: ' + urlComplete);
+
+		$.ajax({
+			url: urlComplete,
+			type: "GET",
+			dataType: "json",
+			contentType: "application/json; charset=utf-8",                
+			success: function (result) {
+				console.log("success");
+				//console.log('result:', result);
+				callback(result);
+			},
+			error: function (result) {
+				console.log("error");
+			}
+		});
+
+	};
 };
 
 class KuinkTools {
 	static multilineString() {
 	};
 };
-
-
-
-var __kuink = new KuinkManager();  //Global variable with kuink specific data
-
 

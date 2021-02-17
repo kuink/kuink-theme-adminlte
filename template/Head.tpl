@@ -176,5 +176,7 @@
 				
 				<script type="text/javascript">
 					var applicationContexts = new Array();
+					var __kuink = new KuinkManager();  //Global variable with kuink specific data
+					__kuink.apiUrl = '{$_apiCompleteUrl}';
 				</script>
 				<!-- End Kuink Scripts -->
