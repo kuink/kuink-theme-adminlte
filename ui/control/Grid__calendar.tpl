@@ -163,16 +163,13 @@
 				{foreach $data as $data_bind}
 					{foreach $data_bind as $data_row}
 					{literal}{{/literal}
-							title: "{$data_row['subject']['value']} \n {$data_row['description']['value']}",
-							tooltip: "{$data_row['tooltip']['value']}",
-							start: new Date({$data_row['start_date']['value']}*1000 ),
-							end: new Date({$data_row['end_date']['value']}*1000 ),
-							color: "{$data_row['color']['value']}",
-							type: "{$data_row['type']['value']}",
-							action: "{$data_row['action']['value']}",
-							id: "{$data_row['id']['value']}",
-							idfull: "{$data_row['type']['value']}:{$data_row['id']['value']}",
-							allDay: false,
+							title: "{$data_row[$calendarOptions['title']]['value']}",
+							start: new Date({$data_row[$calendarOptions['startDate']]['value']}*1000 ),
+							end: new Date({$data_row[$calendarOptions['endDate']]['value']}*1000 ),
+							id: "{$data_row[$calendarOptions['id']]['value']}",
+							{if $calendarOptions['color'] != '' }
+								color: "{$data_row[$calendarOptions['color']]['value']}",
+							{/if}
 							timeFormat: "H:mm",
 						{literal}},{/literal}
 					{/foreach}
@@ -184,7 +181,6 @@
 	});
 
 </script>
-
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div id='{$_guid}'></div>
