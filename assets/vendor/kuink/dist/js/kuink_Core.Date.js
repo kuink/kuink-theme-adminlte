@@ -76,7 +76,7 @@ function kuink_updateHiddenDate(fieldId, offset){
 		//var timestampUTC = ( moment.utc(dateTimeStr, "YYYY/MM/DD").valueOf() / 1000.0 )-(offset);
 		
 		//var timestampUTC = ( moment.utc(dateTimeStr, "YYYY/MM/DD").valueOf() / 1000.0 );
-		var timestampUTC = ( moment(dateTimeStr, "YYYY/MM/DD").valueOf() / 1000.0 );
+		var timestampUTC = ( moment.utc(dateTimeStr, "YYYY/MM/DD").valueOf() / 1000.0 );
 		//console.log(dateTimeStr);
 			
 		$(hiddenField).val(timestampUTC);
@@ -93,7 +93,7 @@ function kuink_updateVisibleDate(fieldId, offset){
 	var visibleField = '#'+fieldId+"_visible";
 	var timestamp = $(hiddenField).attr('value');
 	//var date = (timestamp != '') ? moment.utc( (timestamp*1000) + ((offset)*1000) ) : moment.utc(moment.utc()+((offset)*1000));
-	var date = (timestamp != '') ? moment( timestamp*1000 ) : moment();
+	var date = (timestamp != '') ? moment.utc( timestamp*1000 ) : moment();
 		
 	var dateStr = date.format("YYYY/MM/DD");
 	//var timeStr = date.format("HH:mm");
