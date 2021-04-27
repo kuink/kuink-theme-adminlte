@@ -14,6 +14,22 @@
 				{else}
 					$("#showHide_{$_guid}_{$fieldGuid}").html(hideText);
 				{/if}
+
+				//update head summary
+				var headerResume=[]; 
+				//checkboxList
+				$("#head_{$_guid}_{$fieldGuid} input:checkbox").each( function(index){ if ($(this).attr('checked')) headerResume.push( $(this).parent().text().trim() ) }); 
+				//selects
+				$("#head_{$_guid}_{$fieldGuid} select").each( function(index){ 
+					var selectLabel = $("label[for='" + $(this).attr('id') + "']");
+					if ( $(this).children("option:selected").text().trim() != '')
+						headerResume.push( selectLabel.text() + ':' + $(this).children("option:selected").text().trim()); 
+				});				
+
+ 				var headerValue = headerResume.join('').trim();
+				//console.log('HEADER VALUE(' + headerValue + ')');
+				if (headerValue != '')
+					$("#head_{$_guid}_{$fieldGuid}_summary").text('['+headerResume.join(' | ')+']');				
 			});
 
 			function showHideHeader_{$_guid}_{$fieldGuid}() {
@@ -36,9 +52,13 @@
 	{if $field['attributes']['collapsed'] == 'true' && $field['attributes']['collapsible'] == 'true'}
 		{$styleDisplay = 'none'}
 	{/if}
-	<h3>{$field['attributes']['label']} {if $field['attributes']['collapsible'] == 'true'}
+	<h3>
+		{$field['attributes']['label']} {if $field['attributes']['collapsible'] == 'true'}
 		<small><a id="showHide_{$_guid}_{$fieldGuid}" showText="{translate app="framework"}show{/translate}" hideText="{translate app="framework"}hide{/translate}" href="javascript:void(0);" onmousedown='showHideHeader_{$_guid}_{$fieldGuid}();'></a></small>
-	{/if}</h3>
+		<span><small id="head_{$_guid}_{$fieldGuid}_summary"></small></span>
+	{/if}
+	</h3>
 </div>
 
 <div id="head_{$_guid}_{$fieldGuid}" name="head_{$_guid}_{$fieldName}" style="display:{$styleDisplay}">
+
