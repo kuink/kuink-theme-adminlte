@@ -79,12 +79,15 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 				{/if}
 
 				<!-- Hide/Show grid not editable columns -->
-				{if $freeze == 'true'}
+				{if ($freeze == 'true') && ($showColumns == 'true')}
 					<a href="#properties_{$_guid}" class="btn btn-default" data-toggle="modal" data-target="#properties_{$_guid}"><i class="fa fa-bars"></i></a>
 				{/if}
 			</div>
-			<i class="fa fa-table">&nbsp;</i>
-			<h3 class="box-title">{$title}</h3>
+			{if ($title != '')}
+				<i class="fa fa-table">&nbsp;</i>
+				<h3 class="box-title">{$title}</h3>
+			{/if}
+			
 		</div>
 
 		<div class="gridBlock_{$name} kuink-grid" style="overflow-x: auto">
@@ -234,6 +237,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 			</script>
 
 			<table id="{$name}" class="{if $tree == 'true'}tree{/if} table table-striped table-condensed table-bordered table-hover datatable kuink-control-grid">
+				{if $showColumns == 'true'}
 				<thead>
 					<tr>
 						{$index = 0}
@@ -282,6 +286,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 						{/foreach}
 					</tr>
 				</thead>
+				{/if}
 				<tbody>
 					{foreach $data as $block}
 						{foreach $block as $row}

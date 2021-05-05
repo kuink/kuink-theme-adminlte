@@ -12,6 +12,17 @@ function callAction_{$_guid}(location, action, actionvalue) {
 }
 </script>
 
+{*check if this form has a title*}
+<div class="box">
+{if $title != ''}
+	<div class="box-header">
+		<i class="fa fa-map">&nbsp;</i>
+		<h3 class="box-title">{$title}</h3>
+	</div>
+{/if}
+</div>
+
+
 <ol id="kuink_{$_guid}" class="breadcrumb">
 {foreach $entries as $bindData}
 {foreach $bindData as $entry}
