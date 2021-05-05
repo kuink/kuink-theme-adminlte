@@ -264,7 +264,7 @@
 			<div class="box-header">
 				<i class="fa fa-th-large">&nbsp;</i>
 				<h3 class="box-title">{$form['title']}</h3>
-				{if ($freeze == '0') && ($buttonsPosition == 'top' || $buttonsPosition == 'both')}
+				{if ($buttonsPosition == 'top' || $buttonsPosition == 'both')}
 					<script>
 						$(document).ready(function(){
 							var html = $("#{$_guid}").find(".btn-group").html();
