@@ -145,6 +145,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 				{/if}
 
 				function gridActionField_{$_guid}(confirm, confirm_message, location, button_id, extraParams='') {
+					//console.log( confirm );
 					if (confirm == 'true' || confirm == true)
 						__kuink.controlAddKey('{$_idContext}','kuink_{$_guid}', button_id, 'confirm', confirm_message);
 
