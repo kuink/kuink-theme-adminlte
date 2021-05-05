@@ -270,6 +270,13 @@
 							var html = $("#{$_guid}").find(".btn-group").html();
 							$("#firstButtonGroup{$_guid}").html(html);
 							$("#firstButtonGroup{$_guid}").addClass("btn-group");
+							$("#firstButtonGroup{$_guid}").addClass("btn-group-top");
+							{if ($buttonsPosition == 'top')}
+								//Hide the buttom buttongroup if it's only top
+								//Find all btn-group class that are not btn-group-top, this was a way to get this right
+								$("#{$_guid}").find(".btn-group").not(".btn-group-top").hide();
+							{/if}
+							
 						})
 					</script>
 					<div id="firstButtonGroup{$_guid}" style="float: right;"></div>
