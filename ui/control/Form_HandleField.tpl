@@ -5,6 +5,39 @@ and handle the control display
 
 *}
 
+	<script type="text/javascript">
+		/**
+		* Create an submit function for each field
+		**/
+		function submit_{$_guid}_field( fieldId, action, event='' ){
+			var urlSuff;
+			if (action != '')
+				urlSuff = "&action=" + action;
+
+			if (event != '')
+				urlSuff = "&event=" + event;
+
+			var urlComplete = '{$form["baseUrl"]|html_entity_decode}'+urlSuff;
+			result = setFormAction_{$_guid}(urlComplete, '', '', '', false);
+
+			//$("#{$_guid}").submit();
+			//Call kuink submit center
+			$("#{$_guid}").kuinkSubmit({
+				'url' 						: urlComplete + '&modal=embed',
+				'idContext'				: '{$_idContext}',
+				'method' 					: 'post',
+				//'target'					: '{$_idContext}_wrapper',
+				'processData'			: false,
+				'contentType'			: false,
+				'button_id' 			: fieldId,
+				'formGuid' 			  : '{$_guid}'
+			});			
+		}
+	</script>
+
+
+
+
 {*Define things*}
 {if $field['attributes']['disabled']=="true"}
 	{$disabledClass = "disabled"}

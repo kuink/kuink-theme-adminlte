@@ -1,33 +1,6 @@
 {$fieldAttrs = $field['attributes']}
 
 <div class="controls">
-	<script type="text/javascript">
-		/**
-		* Action in javascript to submit this select
-		**/
-		function submit_{$_guid}_{$fieldID}(){
-			{$urlSuff = "&action={$fieldAttrs['action']}"}
-			{if $fieldAttrs['event']!=''}
-				{$urlSuff = "&event={$fieldAttrs['event']}"}
-			{/if}
-
-			result = setFormAction_{$_guid}('{$form["baseUrl"]|html_entity_decode}{$urlSuff}','', '', '', false);
-
-			//$("#{$_guid}").submit();
-			//Call kuink submit center
-			$("#{$_guid}").kuinkSubmit({
-				'url' 						: '{$form["baseUrl"]|html_entity_decode}{$urlSuff}' + '&modal=embed',
-				'idContext'				: '{$_idContext}',
-				'method' 					: 'post',
-				//'target'					: '{$_idContext}_wrapper',
-				'processData'			: false,
-				'contentType'			: false,
-				'button_id' 			: {$fieldID},
-				'formGuid' 			  : '{$_guid}'
-			});			
-		}
-	</script>
-
 	{if $fieldAttrs['searchable']=="dynamic" }
 		{*Dinamycally call the api via ajax*}
 			{assign var=datasourceParams value=","|explode:$fieldAttrs['datasource-params']}
@@ -151,7 +124,7 @@
 
       {$onchange=""}
       {if $fieldAttrs['action'] != ""}
-        {$onchange="onchange=\"javascript: submit_{$_guid}_{$fieldID}();\""}
+        {$onchange="onchange=\"javascript: submit_{$_guid}_field('{$fieldID}', '{$fieldAttrs['action']}');\""}
       {/if}
 
 			<input type="hidden" id="{$fieldID}" name="{$fieldID}" class="{$disabledClass} select2 select2-offscreen input-{$inputSize}" {$disabledAttr} {$onchange} value="{$field['value']}" />
@@ -172,7 +145,7 @@
 
 	{* onclick="javascript: this.disabled=true; result = submit_form_{$_guid}('{$buttonType}','{$_guid}', '{$form['baseUrl']}', '{$buttonAttrs['action']}', '{$buttonAttrs['event']}'); this.disabled=result; return(result);" *}
 	{if  $fieldAttrs['action'] != ""}
-				<select id="{$fieldID}" name="{$fieldID}" class="{$disabledClass} select2 select2-offscreen input-{$inputSize} form-control" {$disabledAttr} onchange="javascript: submit_{$_guid}_{$fieldID}();" {if $fieldRequired == true}data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"{/if}>
+				<select id="{$fieldID}" name="{$fieldID}" class="{$disabledClass} select2 select2-offscreen input-{$inputSize} form-control" {$disabledAttr} onchange="javascript: submit_{$_guid}_field('{$fieldID}', '{$fieldAttrs['action']}');" {if $fieldRequired == true}data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"{/if}>
 	{else}
 				<select id="{$fieldID}" name="{$fieldID}" class="{$disabledClass} select2 select2-offscreen input-{$inputSize} form-control" {$disabledAttr} {if $fieldRequired == true}data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"{/if}>
 	{/if}
@@ -182,7 +155,7 @@
 
 	{* onclick="javascript: this.disabled=true; result = submit_form_{$_guid}('{$buttonType}','{$_guid}', '{$form['baseUrl']}', '{$buttonAttrs['action']}', '{$buttonAttrs['event']}'); this.disabled=result; return(result);" *}
 	{if  $fieldAttrs['action'] != ""}
-				<select id="{$fieldID}" name="{$fieldID}" class="{$disabledClass} form-control" {$disabledAttr} onchange="javascript: submit_{$_guid}_{$fieldID}();" {if $fieldRequired == true}data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"{/if}>
+				<select id="{$fieldID}" name="{$fieldID}" class="{$disabledClass} form-control" {$disabledAttr} onchange="javascript: submit_{$_guid}_field('{$fieldID}', '{$fieldAttrs['action']}');" {if $fieldRequired == true}data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"{/if}>
 	{else}
 				<select id="{$fieldID}" name="{$fieldID}" class="{$disabledClass} form-control" {$disabledAttr} {if $fieldRequired == true}data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"{/if}>
 	{/if}
