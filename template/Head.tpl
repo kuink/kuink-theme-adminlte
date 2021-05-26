@@ -103,6 +103,9 @@
 
 				<!-- jQuery 2.0.2 -->
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/jQuery/jQuery-2.1.4.min.js" type="text/javascript"></script>
+				<!-- jQuery.Cookie 1.4.1 https://www.cdnpkg.com/jquery-cookie/file/jquery.cookie.min.js/-->
+				<script src="{$_themeRoot}theme/{$THEME}/assets/js/jQuery.cookie/jquery.cookie.min" type="text/javascript"></script>
+
 				<!-- Bootstrap -->
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/bootstrap.min.js" type="text/javascript"></script>
 				<!-- Bootstrap Validator -->

@@ -581,7 +581,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.tree[id={$name}]').treegrid({
-
+				'saveState': 'cookie',
 				{if $treecollapsed == 'true'}
 					'initialState': 'collapsed'
 				{else}
