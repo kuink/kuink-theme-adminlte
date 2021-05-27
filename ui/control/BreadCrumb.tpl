@@ -1,6 +1,6 @@
 <script>
 function callAction_{$_guid}(location, action, actionvalue) {   
-  $("#kuink_{$_guid}").kuinkSubmit({
+  $("#{$_guid}").kuinkSubmit({
     'url' 			: location+'&action='+action+'&actionvalue='+actionvalue+'&modal=embed',
     'idContext'	: '{$_idContext}',
     'method' 		: 'get',
@@ -23,7 +23,7 @@ function callAction_{$_guid}(location, action, actionvalue) {
 </div>
 
 
-<ol id="kuink_{$_guid}" class="breadcrumb">
+<ol id="{$_guid}" class="breadcrumb">
 {foreach $entries as $bindData}
 {foreach $bindData as $entry}
     <li><a onclick="javascript: callAction_{$_guid}('{$baseUrl}', '{$action}', '{$entry[$actionvalueField]}');">{$entry[$labelField]}</a></li>

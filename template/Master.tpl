@@ -86,10 +86,8 @@ $position = Position of controls
 						</div>
 					</div>
 				</footer>
-
 			</div><!-- ./right-side -->
 		</div><!-- ./wrapper -->
-
 	</body>
 
 </html>

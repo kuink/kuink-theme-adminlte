@@ -205,7 +205,7 @@ jQuery("#libraries").select2({
     var d = new Date();
     var mili = d.getMilliseconds();
     //QuickFix. Launch a new context so it will not interfere with the previous one
-    $("#kuink_{$_guid}").kuinkSubmit({
+    $("#{$_guid}").kuinkSubmit({
       'url' 			: '{$baseUrl}'+mili+'&startuc='+process+'&event='+event+'&modal=embed',
       'idContext'	: '_{$_idContext}', //temporary context starts with an underscore
       'method' 		: 'get',
@@ -213,7 +213,7 @@ jQuery("#libraries").select2({
       'contentType': false,
       'button_id' : null,
       'target' : 'kuinkModalContainer',
-      'formGuid'	: 'kuink_{$_guid}'
+      'formGuid'	: '{$_guid}'
     });
   }
 

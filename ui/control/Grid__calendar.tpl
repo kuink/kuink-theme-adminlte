@@ -13,17 +13,17 @@
 
 	function gridActionField_{$_guid}(confirm, confirm_message, location, button_id, extraParams='') {
 		if (confirm == 'true' || confirm == true)
-			__kuink.controlAddKey('{$_idContext}','kuink_{$_guid}', button_id, 'confirm', confirm_message);
+			__kuink.controlAddKey('{$_idContext}','{$_guid}', button_id, 'confirm', confirm_message);
 
 							
-		$("#kuink_{$_guid}").kuinkSubmit({
+		$("#{$_guid}").kuinkSubmit({
 			'url' 			: location+'&modal=embed',
 			'idContext'	: '{$_idContext}',
 			'method' 		: {if $freeze=='false'}'post'{else}'get'{/if},
 			'processData': false,
 			'contentType': false,
 			'button_id' : button_id,
-			'formGuid'	: 'kuink_{$_guid}'
+			'formGuid'	: '{$_guid}'
 		});
 	}
 </script>

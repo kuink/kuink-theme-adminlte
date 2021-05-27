@@ -50,7 +50,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 {/if}
 
 <div class="box">
-	<form class="form-horizontal" id="kuink_{$_guid}" action="" method="post" enctype="multipart/form-data">
+	<form class="form-horizontal" id="{$_guid}" action="" method="post" enctype="multipart/form-data">
 		<div class="box-header">
 			<div class="pull-right box-tools">
 
@@ -147,13 +147,13 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 				function gridActionField_{$_guid}(confirm, confirm_message, location, button_id, extraParams='') {
 					//console.log( confirm );
 					if (confirm == 'true' || confirm == true)
-						__kuink.controlAddKey('{$_idContext}','kuink_{$_guid}', button_id, 'confirm', confirm_message);
+						__kuink.controlAddKey('{$_idContext}','{$_guid}', button_id, 'confirm', confirm_message);
 
-					var formButtons = $("#kuink_{$_guid}").find("button").parent().children();
+					var formButtons = $("#{$_guid}").find("button").parent().children();
 					$(formButtons).each(function() {
 						if (this.id != '') {
-							var button = $("#kuink_{$_guid}").children().find("#"+this.id);
-							__kuink.controlAddKey('{$_idContext}', 'kuink_{$_guid}', this.id, 'disabled', $(this).attr('disabled'));
+							var button = $("#{$_guid}").children().find("#"+this.id);
+							__kuink.controlAddKey('{$_idContext}', '{$_guid}', this.id, 'disabled', $(this).attr('disabled'));
 						}
 					});
 
@@ -163,20 +163,20 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 					if (!reqValidate)
 						return false;
 											
-					$("#kuink_{$_guid}").kuinkSubmit({
+					$("#{$_guid}").kuinkSubmit({
 						'url' 			: location+'&modal=embed',
 						'idContext'	: '{$_idContext}',
 						'method' 		: {if $freeze=='false'}'post'{else}'get'{/if},
 						'processData': false,
 						'contentType': false,
 						'button_id' : button_id,
-						'formGuid'	: 'kuink_{$_guid}'
+						'formGuid'	: '{$_guid}'
 					});
 
 				}
 
 				$(document).ready(function() {
-					$("#kuink_{$_guid}").submit(function(e){
+					$("#{$_guid}").submit(function(e){
 						return false;
 					});
 				});
@@ -196,7 +196,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 				//Function to toggle all the pick checkboxes
 				function {$name}ToggleChecked2(status, style) {
-					$("#kuink_{$_guid} ."+style).each( function() {
+					$("#{$_guid} ."+style).each( function() {
 						$(this).attr("checked",status);
 						var id = $(this).attr("id");
 						var idParts = id.split("{$multiSeparator}"); //id is number-fieldname, ans we need just the number
@@ -359,6 +359,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 												</span>
 											{/if}
 										{/if}
+								
 										</td>
 									{/if}
 

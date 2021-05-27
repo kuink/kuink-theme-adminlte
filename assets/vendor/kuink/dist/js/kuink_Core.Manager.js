@@ -1,6 +1,7 @@
 
 function KuinkManager() {
 	this.contexts = [];
+	this.focusIdControl = '';
 	this.ajaxExecuteFunctionsBeforeLoad = []; //Functions to execute before the load of ajax
 	this.ajaxExecuteFunctionsAfterLoad = []; //Functions to execute after the load of ajax
 	this.apiUrl = '';  //Internal api Url to be set
@@ -26,6 +27,15 @@ function KuinkManager() {
 		$.each(this.ajaxExecuteFunctionsAfterLoad, function( index, fieldFunction ) {
 			fieldFunction();
 		});
+		
+		//Set the focus automatically to the selected control
+		if ((this.focusIdControl != '') && ($('#'+this.focusIdControl).length) ) {
+			console.log("Setting focus to: " + this.focusIdControl);
+			$('html, body').animate({
+				scrollTop: $('#'+this.focusIdControl).offset().top
+			}, 'fast');
+		}
+
 		//Clear the functions
 		this.ajaxExecuteFunctionsAfterLoad = [];
 	};
@@ -36,6 +46,11 @@ function KuinkManager() {
 			this.contexts[context].controls = [];
 		}
 	};
+
+	this.setFocusToControl = function(idControl) {
+		if (idControl != '')
+			this.focusIdControl = idControl;
+	};	
 
 	//Launch application in a Modal (floating applications)
 	/* 

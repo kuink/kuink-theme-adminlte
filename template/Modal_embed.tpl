@@ -105,6 +105,13 @@ $(document).ready(function(){
 });
 </script>
 
+<script>
+{if $_focus != '' && $_focus != null }
+	__kuink.setFocusToControl('{$_focus}');
+{/if}
+</script>		
+
+
 <!-- Menu Toggle Script -->
 <script>
 	if(typeof toggleMenuIsVisible === 'undefined')
