@@ -28,6 +28,23 @@
 	z-index:100;  
 	}
 
+/**To keep upscaled images visible on mobile, 
+increase left & right margins a bit**/  
+/**
+@media only screen and (max-width: 768px) {   
+	.kuinkZoom {      
+	margin-left: 15vw;       
+	margin-right: 15vw;
+	}
+**/
+/**TIP: Easy escape for touch screens,
+give gallery's parent container a cursor: pointer.**/
+/** .DivName {cursor: pointer}
+} **/
+	
+	
+	
+
 	
 	
 	
