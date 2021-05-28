@@ -42,6 +42,27 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 					{$buttonAttrs['id'] = $action_name}
 					<script>
+						//Handle confirm message
+						var confirmMessage = '';
+						{$buttonAttrs['confirm'] = $buttonAttrs['confirm']|replace:'"':"'"}
+						{if $buttonAttrs['confirm'] != 'false' && $buttonAttrs['confirm'] != ''}			
+							{assign var="keywords" value="\n"|explode:$buttonAttrs['confirm']}
+							{$firstChunk = 1}
+							{foreach from=$keywords item=keyword}
+								{if $firstChunk == 1}
+									confirmMessage = "{$keyword}";
+									{$firstChunk = 0}
+								{else}
+									confirmMessage = confirmMessage + "\n{$keyword}";
+								{/if}
+							{/foreach}		
+						{else}
+								confirmMessage = "{$buttonAttrs['confirm']}";
+						{/if}
+						
+						if (confirmMessage!='' && confirmMessage!='false')
+							__kuink.controlAddKey('{$_idContext}','{$_guid}', '{$buttonAttrs['id']}', 'confirm', confirmMessage);
+											
 						$("#{$_guid} #{$buttonAttrs['id']}").attr("onclick", function() {
 							return "javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;";
 						});
@@ -496,7 +517,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 			{if $freeze != 'true'}
 				{call name="addGlobalActionButtons"}		
 			{/if}
-			
+
 			{if $isPageable == "true"}
 				<div class="pull-left" style="margin: 5px 5px 5px 5px">
 
