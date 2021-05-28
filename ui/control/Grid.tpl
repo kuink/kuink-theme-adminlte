@@ -4,6 +4,9 @@ Create a help modal.
 $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 *}
+
+{include './_aux/html.fields.tpl'}
+
 {function helpModal }          {* short-hand *}
 	<div class="modal hide" id="helpModal_{$modalData['fieldID']}">
 		<div class="modal-header">
@@ -18,6 +21,43 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 		</div>
 	</div>
 {/function}
+
+
+{function addGlobalActionButtons}
+	{if $globalActions}
+		<div class="form-actions">
+			<div class="btn-group">
+				{$count = 0}
+				{foreach $globalActions as $action_name=>$buttonAttrs}
+
+					{if $buttonAttrs['type'] == '' }
+						{$buttonType = "submit"}
+					{else}
+						{$buttonType = $buttonAttrs['type']}
+					{/if}
+					{if $count == 0}
+						{$count = $count+1}
+						<div class="btn-group">
+					{/if}
+
+					{$buttonAttrs['id'] = $action_name}
+					<script>
+						$("#{$_guid} #{$buttonAttrs['id']}").attr("onclick", function() {
+							return "javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;";
+						});
+					</script>
+
+					{call name="addButton" buttonType=$buttonType buttonAttrs=$buttonAttrs}
+
+				{/foreach}
+				{if $count > 0}
+					</div>
+				{/if}
+			</div>
+		</div>
+	{/if}			
+{/function}
+
 
 {if $freeze == 'true'}
 	<div id="properties_{$_guid}" class="modal fade" tabindex="-1" role="dialog">
@@ -54,28 +94,8 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 		<div class="box-header">
 			<div class="pull-right box-tools">
 
-				{$count = 0}
 				{if $freeze != 'true'}
-					{if $globalActions}
-						{foreach $globalActions as $action_name=>$action_desc}
-
-							{$buttonClass = "btn btn-small"}
-							{if $count == 0}
-								{$buttonClass = "btn btn-small btn-primary"}
-								{$count = $count+1}
-								<div class="btn-group">
-							{/if}
-							<button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;">
-								{if $buttonAttrs['icon']!=""}
-									<i class="fa fa-{$buttonAttrs['icon']}" ></i>
-								{/if}
-								{$action_desc}
-							</button>
-						{/foreach}
-						{if $count > 0}
-							</div>
-						{/if}
-					{/if}
+					{call name="addGlobalActionButtons"}
 				{/if}
 
 				<!-- Hide/Show grid not editable columns -->
@@ -474,33 +494,9 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 			{/if}
 
 			{if $freeze != 'true'}
-				{if $globalActions}
-					<div class="form-actions">
-						<div class="btn-group">
-							{$count = 0}
-							{foreach $globalActions as $action_name=>$action_desc}
-
-								{$buttonClass = "btn btn-small"}
-								{if $count == 0}
-									{$buttonClass = "btn btn-small btn-primary"}
-									{$count = $count+1}
-									<div class="btn-group">
-								{/if}
-
-								<button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;">
-									{if $buttonAttrs['icon']!=""}
-										<i class="fa fa-{$buttonAttrs['icon']}" ></i>
-									{/if}
-									{$action_desc}
-								</button>
-							{/foreach}
-							{if $count > 0}
-								</div>
-							{/if}
-						</div>
-					</div>
-				{/if}
+				{call name="addGlobalActionButtons"}		
 			{/if}
+			
 			{if $isPageable == "true"}
 				<div class="pull-left" style="margin: 5px 5px 5px 5px">
 
