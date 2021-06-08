@@ -520,7 +520,6 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 			{if $isPageable == "true"}
 				<div class="pull-left" style="margin: 5px 5px 5px 5px">
-
 					<ul style="width: 100%" class="pagination pagination-sm no-margin pull-right">
 						{if $pageCurrent > 0}
 							<li><a href="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_page={$pageCurrent-1}', '');">{translate app="framework"}previous{/translate}</a></li>
@@ -534,14 +533,14 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 							<li class=""><a disabled="disabled" href="javascript:void(0);">...</a></li>
 						{/if}
 
-						{assign var="start" value="2"}
-						{assign var="end" value="$pageTotal"}
+						{$start = 2}
+						{$end = $pageTotal}
 						{if $pageCurrent > 5 && $pageTotal > 10}
-							{assign var="start" value=$pageCurrent - 2}
+							{$start = $pageCurrent - 2}
 						{/if}
 
 						{if $pageCurrent < $pageTotal - 5  && $pageTotal > 10}
-							{assign var="end" value=$pageCurrent + 5}
+							{$end = $pageCurrent + 5}
 						{/if}
 
 						{for $i=$start to $end-1}
@@ -599,8 +598,8 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.tree[id={$name}]').treegrid({
-				'saveState': 'cookie',
 				{if $treecollapsed == 'true'}
+					'saveState': 'cookie',				
 					'initialState': 'collapsed'
 				{else}
 					'initialState': 'expanded'

@@ -34,6 +34,27 @@
 				// alter the remote JSON data
 				var results = [];
         var dataToProcess = data;
+				
+				
+				var image = "{$fieldAttrs['bindimage']}";
+				image = image.split(":");
+				var imageField = '';
+				var imageType = 'photo';
+				var imageExt = 'jpg';
+				if (image.length == 1)
+					imageField = image[0];
+				if (image.length == 2) {
+					imageType = image[0];
+					imageField = image[1];
+				}
+				if (image.length == 3) {
+					imageType = image[0];
+					imageField = image[1];
+					imageExt = image[2];
+				}
+
+				{* If bindimage has : then it will crash so clean it up *}
+				{* $fieldAttrs['bindimage'] = $fieldAttrs['bindimage']|replace:':':'' *}
 
         if (typeof data.records != 'undefined')
           dataToProcess = data.records;
@@ -48,7 +69,9 @@
 							id: item.{$fieldAttrs['bindid']},
 							text: item.{$fieldAttrs['bindvalue']}
 							{if $fieldAttrs['bindimage']}
-							,image: item.{$fieldAttrs['bindimage']}
+							,image: item[imageField]
+							,imageType: imageType
+							,imageExt: imageExt
 							{/if}
 							{if $fieldAttrs['bindresults']}
 							,results: fields
@@ -69,21 +92,19 @@
 		formatResult: formatData_{$_guid}_{$fieldID},
 		initSelection: initSelection_{$_guid}_{$fieldID},
 		width: "{$width}"
+		});
 	});
-					});
 
 		function formatData_{$_guid}_{$fieldID} (data) {
 			var markup = '<div class="clearfix">';
-
 		if (data.image) {
-			{if ($_imageUrl == '')}
-				{$imageSrc = 'stream.php?type=photo&guid='}
-			{else}
-				{$imageSrc = $_photoUrl}
-			{/if}
+			var imageSource = '{$_photoUrl}';
+			if (data.imageType != 'photo' || imageSource == '')
+				imageSource ='stream.php?idcontext={$_idContext}&type=' + data.imageType + '&guid=';
+			imageSource = imageSource + data.image;
 
 			markup += '<div class="">' +
-			'<img src="{$imageSrc}' + data.image + {if ($_imageUrl != '')}'.jpg' + {/if}'" style="max-width: 5%" />' +
+			'<img src="'+ imageSource + {if ($_imageUrl != '')}'.'+ data.imageExt + {/if}'" style="max-width: 5%" />' +
 			'</div>';
 
 		}
