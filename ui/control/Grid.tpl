@@ -228,10 +228,14 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 						$(this).attr("checked",status);
 						var id = $(this).attr("id");
 						var idParts = id.split("{$multiSeparator}"); //id is number-fieldname, ans we need just the number
-						if( $(this).attr("checked") == "checked")
+						if( $(this).attr("checked") == "checked") {
 							$("#"+idParts[0]+"{$multiSeparator}SELECTED").val(1);
-						else
+							document.getElementById($(this).attr("id")).checked = true;
+						}
+						else {
 							$("#"+idParts[0]+"{$multiSeparator}SELECTED").val(0);
+							document.getElementById($(this).attr("id")).checked = false;
+						}
 					})
 				}
 
