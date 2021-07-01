@@ -384,7 +384,7 @@
 			{if count($buttonActions) > 0}
 				<div style="clear:both"></div>
 				<div class="box-footer">
-					<div class="btn-group">
+					<div class="btn-group {if ($buttonsAlign=='right')}pull-right{/if}" style="{if ($buttonsAlign=='center')}display: flex; justify-content: center; align-items: center;{/if}">
 						{foreach $buttonActions as $buttonID=>$button}
 							{include './Form_HandleActionButtons.tpl'}
 						{/foreach}

@@ -25,4 +25,16 @@
 		{$disabledAttr} maxlength="{$fieldAttrs['maxlength']}" {if $field['attributes']['required']=='true'}
 			data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"
 		{/if}>{$field['value']}</textarea>
+		<span id='{$fieldGuid}_remaining'></span>
+{/if}
+
+{if $fieldAttrs['maxlength'] != ''}
+	<script>
+		$("#{$fieldGuid}").keyup(function(){
+				if(this.value.length > {$fieldAttrs['maxlength']}){
+						return false;
+				}
+				$("#{$fieldGuid}_remaining").html("{translate app="framework"}remainingChars{/translate} : " + ({$fieldAttrs['maxlength']} - this.value.length));
+		});
+	</script>
 {/if}
