@@ -54,11 +54,16 @@
 			{$buttonIcon = "chevron-left"}
 			{$iconColor = ""}
 			{$buttonClass = "btn"}
-		{elseif $buttonType == "continue"}
+		{elseif (($buttonType == "continue") || ($buttonType == "next"))}
 			{$buttonType = "submit"}
 			{$buttonIcon = "chevron-right"}
 			{$iconColor = "icon-white"}
 			{$buttonClass = "btn btn-primary"}
+		{elseif ($buttonType == "previous")}
+			{$buttonType = "submit"}
+			{$buttonIcon = "chevron-left"}
+			{$iconColor = "icon-white"}
+			{$buttonClass = "btn btn-primary"}			
 		{elseif $buttonType == "list"}
 			{$buttonType = "submit"}
 			{$buttonIcon = "list"}
