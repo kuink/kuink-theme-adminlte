@@ -2,17 +2,28 @@
 <html lang="{$_lang}">
 
 	<head>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">	
-		{include 'Head.tpl'}
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">	
+	{include 'Head.tpl'}
+
+	{literal}
+		<style>
+			h1 {color: white; font-size: 60px; font-family: 'Montserrat'; }
+			h2 {color: white; font-size: 35px; font-family: 'Montserrat'; line-height:  60px; }
+			.cms-clock {color:#246c96; font-size: 25px; text-align:center; width:160px; font-family: 'Montserrat';}
+			.cms-date {color:#246c96; font-size: 20px; text-align:center; width:160px; font-family: 'Montserrat';}
+		</style>
+	{/literal}
+
+
 	</head>
 
 
-{function hook }          {* short-hand *}
-	{foreach $POSITION[ $position ] as $item}
-					{$item}
-	{/foreach}
-{/function}
-{* include the template *}
+	{function hook }          {* short-hand *}
+		{foreach $POSITION[ $position ] as $item}
+						{$item}
+		{/foreach}
+	{/function}
+	{* include the template *}
 
 		{if $userMessages|@count > 0}
 			<div class="kuink-user-messages">
