@@ -7,8 +7,10 @@
 
 	{literal}
 		<style>
+
 			h1 {color: white; font-size: 60px; font-family: 'Montserrat'; }
 			h2 {color: white; font-size: 35px; font-family: 'Montserrat'; line-height:  60px; }
+			body {color: white; font-size: 35px; font-family: 'Montserrat'; }
 			.cms-clock {color:#246c96; font-size: 35px; text-align:center; width:160px; font-family: 'Montserrat';}
 			.cms-date {color:#246c96; font-size: 20px; text-align:center; width:160px; font-family: 'Montserrat';}
 		</style>
