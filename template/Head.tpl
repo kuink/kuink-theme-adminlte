@@ -27,7 +27,8 @@
 				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/css/simple-sidebar/simple-sidebar.css">
 
 				<link rel="icon" type="image/png" href="favicon.png" sizes="16x16">
-
+				<!-- Flags for multilang fields -->
+				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/css/flags/flags.css" rel="stylesheet">
 				<style>
 					{literal}
 						.treegrid-indent {width:16px; height: 16px; display: inline-block; position: relative;}

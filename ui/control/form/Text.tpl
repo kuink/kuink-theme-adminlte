@@ -4,12 +4,17 @@
 		<!-- This is multilang: load languages from _lang datasource-->	
 		{foreach $_languages as $language}
 			{$lang = $language['country']}
-			<div class="input-append">
-				<input type="text" {$disabledAttr} class="form-control {$disabledClass} popover-dismiss" 
-					id="{$fieldGuid}_{$lang}" name="{$fieldName}_{$lang}" 
-					value="{$field['value'][$lang]}" maxlength="{$fieldAttrs['maxlength']}"/>
-				<span class="add-on"><img src="{$_themeRoot}theme/{$THEME}/assets/css/flags/blank.gif" class="flag flag-{$lang}" alt="{$lang}" /></span>
-			</div>
+
+				<div class="input-group">
+					<div class="input-group-addon">
+						<!-- i class="fa fa-laptop"></-->
+						<span id="{$fieldGuid}_flag" class="add-on"><img src="{$_themeRoot}theme/{$THEME}/assets/css/flags/blank.gif" class="flag flag-{$lang}" alt="{$lang}" /></span>
+					</div>				
+
+					<input type="text" {$disabledAttr} class="form-control {$disabledClass} popover-dismiss" 
+						id="{$fieldGuid}_{$lang}" name="{$fieldName}_{$lang}" 
+						value="{$field['value'][$lang]}" maxlength="{$fieldAttrs['maxlength']}" />
+				</div>
 		{/foreach}
 	{else}
 		{if $field['attributes']['icon']!=""}

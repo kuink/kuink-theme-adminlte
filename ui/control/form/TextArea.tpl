@@ -2,7 +2,12 @@
 	<!-- This is multilang: load languages from _lang datasource-->
 	{foreach $_languages as $language}
 		{$lang = $language['country']}
-		<div class="controls">
+		<div class="input-group">
+			<div class="input-group-addon">
+				<!-- i class="fa fa-laptop"></-->
+				<span id="{$fieldGuid}_flag" class="add-on"><img src="{$_themeRoot}theme/{$THEME}/assets/css/flags/blank.gif" class="flag flag-{$lang}" alt="{$lang}" /></span>
+			</div>				
+
 			<textarea
 				class="form-control {$disabledClass}" style="display:table-cell"
 				id="{$fieldGuid}_{$lang}"
@@ -11,8 +16,7 @@
 				cols="{$fieldAttrs['cols']}"
 				{$disabledAttr} maxlength="{$fieldAttrs['maxlength']}" {if $field['attributes']['required']=='true'}
 					data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"
-				{/if}>{$field['value']}</textarea>
-		  <span class="add-on"><img src="{$_themeRoot}theme/{$THEME}/assets/css/flags/blank.gif" class="flag flag-{$lang}" alt="{$lang}" /></span>
+				{/if}>{$field['value'][$lang]}</textarea>
 		</div>
 	{/foreach}
 {else}
