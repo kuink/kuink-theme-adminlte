@@ -28,7 +28,7 @@
 
     <div class="box-tools pull-right">
       {* Only show the collapsible button if the variable $collapsible is set to the string 'true' *}
-      {if $collapsible=='true'}<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>{/if}
+      {if $collapsible=='true'}<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>{/if}
       {* Only show the removable button if the variable $removable is set to the string 'true' *}
       {if $removable=='true'}<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>{/if}
     </div>

@@ -163,7 +163,7 @@
 				{foreach $data as $data_bind}
 					{foreach $data_bind as $data_row}
 					{literal}{{/literal}
-							title: "{$data_row[$calendarOptions['title']]['value']}",
+							title: "{$data_row[$calendarOptions['title']]['value']|escape:javascript}",
 							start: new Date({$data_row[$calendarOptions['startDate']]['value']}*1000 ),
 							end: new Date({$data_row[$calendarOptions['endDate']]['value']}*1000 ),
 							id: "{$data_row[$calendarOptions['id']]['value']}",
