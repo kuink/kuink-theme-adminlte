@@ -1,7 +1,7 @@
 <div class="controls">
   {* $field['value'] *}
-  <img id="img{$fieldID}" src="lib/tools/securimage/securimage_show.php" alt="CAPTCHA Image" />
-  <a href="#" onclick="document.getElementById('img{$fieldID}').src = 'lib/tools/securimage/securimage_show.php?' + Math.random(); return false"><i class="fa fa-sync"></i></a>
+  <img id="img{$fieldID}" src="kuink-core/lib/tools/securimage/securimage_show.php" alt="CAPTCHA Image" />
+  <a href="#" onclick="document.getElementById('img{$fieldID}').src = 'kuink-core/lib/tools/securimage/securimage_show.php?' + Math.random(); return false"><i class="fa fa-sync"></i></a>
   <br/>
 
   {if $field['attributes']['icon']!=""}
