@@ -308,7 +308,6 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 									{$header}
 
 									{if $columnAttributes[$index]['sortable'] != 'false' && $columnAttributes[$index]['sortable'] != ''}
-
 										<span style="display:inline;">
 											{if isset($sort[$index]['sort']) && $sort[$index]['sort'] == 'asc'}
 												<a href="javascript: void(0)"  onclick="gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_sort={$index}_desc', '')"><i class="fa fa-sort-down"></i></a>
@@ -321,10 +320,18 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 									{/if}
 
 									{if $columnAttributes[$index]['help']!=""}
+										&nbsp;&nbsp;
+										<a tabindex="-1" role="button" data-toggle="popover" data-trigger="focus" title="{$columnAttributes[$index]['label']} - {translate app="framework"}help{/translate}" data-html="true" data-content="{$columnAttributes[$index]['help']}" href="javascript:void(0);">
+											<i class="fieldQuestionMark fa fa-info-circle" ></i>
+										</a>
+										<script>
+											$('[data-toggle="popover"]').popover()
+										</script>
+										{*
 										{$modalData = ['fieldID' => $columnAttributes[$index]['name'], 'helpText' => $columnAttributes[$index]['help']]}
 										{call name=helpModal modalData=$modalData}
 
-										<a data-toggle="modal" href="#helpModal_{$columnAttributes[$index]['name']}" ><i class="icon icon-question-sign"></i></a>
+										<a data-toggle="modal" href="#helpModal_{$columnAttributes[$index]['name']}" ><i class="icon icon-question-sign"></i></a>*}
 									{/if}
 								</th>
 							{/if}
