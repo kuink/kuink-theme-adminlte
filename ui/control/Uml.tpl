@@ -16,7 +16,7 @@
 
 <div class="cover-container">
     {if $format != 'svg'}
-        <a href="http://www.plantuml.com/plantuml/{$format}/{$encoded}" target="_blank"-->
+        <a href="http://www.plantuml.com/plantuml/{$format}/{$encoded}" target="_blank">
             <img class="cover-item" src="http://www.plantuml.com/plantuml/{$format}/{$encoded}"/>
         </a>
     {else}

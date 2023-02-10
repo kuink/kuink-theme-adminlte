@@ -52,12 +52,12 @@
 	{if $field['attributes']['collapsed'] == 'true' && $field['attributes']['collapsible'] == 'true'}
 		{$styleDisplay = 'none'}
 	{/if}
-	<h3>
+	<h{if $field['attributes']['size'] == ''}3{else}{$field['attributes']['size']}{/if}>
 		{$field['attributes']['label']} {if $field['attributes']['collapsible'] == 'true'}
 		<small><a id="showHide_{$_guid}_{$fieldGuid}" showText="{translate app="framework"}show{/translate}" hideText="{translate app="framework"}hide{/translate}" href="javascript:void(0);" onmousedown='showHideHeader_{$_guid}_{$fieldGuid}();'></a></small>
 		<span><small id="head_{$_guid}_{$fieldGuid}_summary"></small></span>
 	{/if}
-	</h3>
+	</h{if $field['attributes']['size'] == ''}3{else}{$field['attributes']['size']}{/if}>
 </div>
 
 <div id="head_{$_guid}_{$fieldGuid}" name="head_{$_guid}_{$fieldName}" style="display:{$styleDisplay}">
