@@ -54,6 +54,11 @@
 				</div>
 			</div>
 			<div class="box-footer" style="clear:both;">
+				<div class="row" id="adminPerformance">
+					<div class="span12">
+						{$_executionTime}
+					</div>
+				</div>
 				<div class="row">
 					<div id="debugMessages" class="noPrint">
 						{call hook position='debugMessages'}
@@ -68,6 +73,44 @@
 		</div>
 	</div>
 </div>
+
+<!-- Kuink Modal - Applications will be launched here...-->
+<div class="modal fade" id="kuinkModal" tabindex="-1" role="dialog" aria-labelledby="kuinkModalTitle">
+<div class="modal-dialog" role="document" style="width: 90%">
+	<div class="modal-content">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="__kuink.modalClose();"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title" id="kuinkModalTitle">App Launcher</h4>
+	</div>
+	<div class="modal-body">
+		<div id="kuinkModalContainer">
+		//Application will be launched here
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal" onclick="__kuink.modalClose();">Close</button>
+	</div>
+	</div>
+</div>
+</div>		
+
+<!-- Detect when global modal is closed -->
+<script>
+$(document).ready(function(){
+  $("#kuinkModal").on('hide.bs.modal', function(){
+	//Inform kuink that this modal is closed
+	console.log('Inform kuink that this modal is closed');
+    __kuink.modalClose();
+  });
+});
+</script>
+
+<script>
+{if $_focus != '' && $_focus != null }
+	__kuink.setFocusToControl('{$_focus}');
+{/if}
+</script>		
+
 
 <!-- Menu Toggle Script -->
 <script>

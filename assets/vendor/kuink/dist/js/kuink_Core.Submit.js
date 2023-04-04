@@ -70,24 +70,28 @@
 							//$("#"+settings.idContext+"_loading_wrapper").html(text);
 							//console.log("Loading Result: "+settings.target);
 							//$("#"+settings.idContext+"_wrapper").html(text);
-							
-							var targetContainer = settings.idContext+"_wrapper";
+
+							console.log('Is Modal ON?');
 							if (__kuink.modal) {
-								//If the global kuinkModal is active then us it instead of context
+								//If the global kuinkModal is active then use it instead of context
 								//Don't replace content because div will not come
-								targetContainer = 'kuinkModalContainer';
-								$("#"+targetContainer).html(text).promise().done(function(elem){
-									setTimeout(function (){
-										//This must be delayed because it can only run after the content is loaded in the document
-										//We must delay 1000 ms to achieve this
-										__kuink.executeAfterLoadFunctions(); //Execute the pushed functions to run after the submit			
-									}, 1000);
-								});
+								var targetContainer = 'kuinkModalContainer';
+								console.log('Global kuink modal found');
+								console.log($("#"+targetContainer));
+								//Clear the modal content
+								var $today = new Date();
+								var $date = $today.getFullYear()+'-'+($today.getMonth()+1)+'-'+$today.getDate();
+								var $time = $today.getHours() + ":" + $today.getMinutes() + ":" + $today.getSeconds();
+								var $dateTime = $date+' '+$time;
+								//console.log(text);
+								//$("#"+targetContainer).html($dateTime);
+								$('#kuinkModal').modal('hide');
+								$('#kuinkModal').modal('show');
 
 							} else
 								//Replace content because div will come in response
-								console.log('Target');
-								console.log(targetContainer);
+								var targetContainer = settings.idContext+"_wrapper";
+								//console.log(targetContainer);
 								$("#"+targetContainer).replaceWith(text).promise().done(function(elem){
 									setTimeout(function (){
 										//This must be delayed because it can only run after the content is loaded in the document
@@ -138,6 +142,7 @@
 
 			if (settings.method.toUpperCase() == 'GET') {
 				// This is a GET
+				console.log('Getting data...');
 				//clear the context data in the __kuink global object
 				__kuink.contextClear(settings.idContext);
 				xhr.send(null);

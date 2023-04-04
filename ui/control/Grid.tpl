@@ -4,6 +4,9 @@ Create a help modal.
 $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 *}
+
+{include './_aux/html.fields.tpl'}
+
 {function helpModal }          {* short-hand *}
 	<div class="modal hide" id="helpModal_{$modalData['fieldID']}">
 		<div class="modal-header">
@@ -18,6 +21,64 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 		</div>
 	</div>
 {/function}
+
+
+{function addGlobalActionButtons}
+	{if $globalActions}
+		<div class="form-actions">
+			<div class="btn-group">
+				{$count = 0}
+				{foreach $globalActions as $action_name=>$buttonAttrs}
+
+					{if $buttonAttrs['type'] == '' }
+						{$buttonType = "submit"}
+					{else}
+						{$buttonType = $buttonAttrs['type']}
+					{/if}
+					{if $count == 0}
+						{$count = $count+1}
+						<div class="btn-group">
+					{/if}
+
+					{$buttonAttrs['id'] = $action_name}
+					<script>
+						//Handle confirm message
+						var confirmMessage = '';
+						{$buttonAttrs['confirm'] = $buttonAttrs['confirm']|replace:'"':"'"}
+						{if $buttonAttrs['confirm'] != 'false' && $buttonAttrs['confirm'] != ''}			
+							{assign var="keywords" value="\n"|explode:$buttonAttrs['confirm']}
+							{$firstChunk = 1}
+							{foreach from=$keywords item=keyword}
+								{if $firstChunk == 1}
+									confirmMessage = "{$keyword}";
+									{$firstChunk = 0}
+								{else}
+									confirmMessage = confirmMessage + "\n{$keyword}";
+								{/if}
+							{/foreach}		
+						{else}
+								confirmMessage = "{$buttonAttrs['confirm']}";
+						{/if}
+						
+						if (confirmMessage!='' && confirmMessage!='false')
+							__kuink.controlAddKey('{$_idContext}','{$_guid}', '{$buttonAttrs['id']}', 'confirm', confirmMessage);
+											
+						$("#{$_guid} #{$buttonAttrs['id']}").attr("onclick", function() {
+							return "javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;";
+						});
+					</script>
+
+					{call name="addButton" buttonType=$buttonType buttonAttrs=$buttonAttrs}
+
+				{/foreach}
+				{if $count > 0}
+					</div>
+				{/if}
+			</div>
+		</div>
+	{/if}			
+{/function}
+
 
 {if $freeze == 'true'}
 	<div id="properties_{$_guid}" class="modal fade" tabindex="-1" role="dialog">
@@ -50,41 +111,24 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 {/if}
 
 <div class="box">
-	<form class="form-horizontal" id="kuink_{$_guid}" action="" method="post" enctype="multipart/form-data">
+	<form class="form-horizontal" id="{$_guid}" action="" method="post" enctype="multipart/form-data">
 		<div class="box-header">
 			<div class="pull-right box-tools">
 
-				{$count = 0}
 				{if $freeze != 'true'}
-					{if $globalActions}
-						{foreach $globalActions as $action_name=>$action_desc}
-
-							{$buttonClass = "btn btn-small"}
-							{if $count == 0}
-								{$buttonClass = "btn btn-small btn-primary"}
-								{$count = $count+1}
-								<div class="btn-group">
-							{/if}
-							<button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;">
-								{if $buttonAttrs['icon']!=""}
-									<i class="fa fa-{$buttonAttrs['icon']}" ></i>
-								{/if}
-								{$action_desc}
-							</button>
-						{/foreach}
-						{if $count > 0}
-							</div>
-						{/if}
-					{/if}
+					{call name="addGlobalActionButtons"}
 				{/if}
 
 				<!-- Hide/Show grid not editable columns -->
-				{if $freeze == 'true'}
+				{if ($freeze == 'true') && ($showColumns == 'true')}
 					<a href="#properties_{$_guid}" class="btn btn-default" data-toggle="modal" data-target="#properties_{$_guid}"><i class="fa fa-bars"></i></a>
 				{/if}
 			</div>
-			<i class="fa fa-table">&nbsp;</i>
-			<h3 class="box-title">{$title}</h3>
+			{if ($title != '')}
+				<i class="fa fa-table">&nbsp;</i>
+				<h3 class="box-title">{$title}</h3>
+			{/if}
+			
 		</div>
 
 		<div class="gridBlock_{$name} kuink-grid" style="overflow-x: auto">
@@ -103,7 +147,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 					reqErrors = false;
 					var reqFocus;
 					reqFocus = '';
-					{if $requiredColumns|@count gt 0}
+					{if ($requiredColumns != null) && (count($requiredColumns) > 0)}
 						{foreach $data as $block}
 							{foreach $block as $row}
 								{$id = $row['id']['value']}
@@ -142,14 +186,15 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 				{/if}
 
 				function gridActionField_{$_guid}(confirm, confirm_message, location, button_id, extraParams='') {
+					//console.log( confirm );
 					if (confirm == 'true' || confirm == true)
-						__kuink.controlAddKey('{$_idContext}','kuink_{$_guid}', button_id, 'confirm', confirm_message);
+						__kuink.controlAddKey('{$_idContext}','{$_guid}', button_id, 'confirm', confirm_message);
 
-					var formButtons = $("#kuink_{$_guid}").find("button").parent().children();
+					var formButtons = $("#{$_guid}").find("button").parent().children();
 					$(formButtons).each(function() {
 						if (this.id != '') {
-							var button = $("#kuink_{$_guid}").children().find("#"+this.id);
-							__kuink.controlAddKey('{$_idContext}', 'kuink_{$_guid}', this.id, 'disabled', $(this).attr('disabled'));
+							var button = $("#{$_guid}").children().find("#"+this.id);
+							__kuink.controlAddKey('{$_idContext}', '{$_guid}', this.id, 'disabled', $(this).attr('disabled'));
 						}
 					});
 
@@ -159,20 +204,20 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 					if (!reqValidate)
 						return false;
 											
-					$("#kuink_{$_guid}").kuinkSubmit({
+					$("#{$_guid}").kuinkSubmit({
 						'url' 			: location+'&modal=embed',
 						'idContext'	: '{$_idContext}',
 						'method' 		: {if $freeze=='false'}'post'{else}'get'{/if},
 						'processData': false,
 						'contentType': false,
 						'button_id' : button_id,
-						'formGuid'	: 'kuink_{$_guid}'
+						'formGuid'	: '{$_guid}'
 					});
 
 				}
 
 				$(document).ready(function() {
-					$("#kuink_{$_guid}").submit(function(e){
+					$("#{$_guid}").submit(function(e){
 						return false;
 					});
 				});
@@ -183,16 +228,20 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 						$(this).attr("checked",status);
 						var id = $(this).attr("id");
 						var idParts = id.split("{$multiSeparator}"); //id is number-fieldname, ans we need just the number
-						if( $(this).attr("checked") == "checked")
+						if( $(this).attr("checked") == "checked") {
 							$("#"+idParts[0]+"{$multiSeparator}SELECTED").val(1);
-						else
+							document.getElementById($(this).attr("id")).checked = true;
+						}
+						else {
 							$("#"+idParts[0]+"{$multiSeparator}SELECTED").val(0);
+							document.getElementById($(this).attr("id")).checked = false;
+						}
 					})
 				}
 
 				//Function to toggle all the pick checkboxes
 				function {$name}ToggleChecked2(status, style) {
-					$("#kuink_{$_guid} ."+style).each( function() {
+					$("#{$_guid} ."+style).each( function() {
 						$(this).attr("checked",status);
 						var id = $(this).attr("id");
 						var idParts = id.split("{$multiSeparator}"); //id is number-fieldname, ans we need just the number
@@ -234,6 +283,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 			</script>
 
 			<table id="{$name}" class="{if $tree == 'true'}tree{/if} table table-striped table-condensed table-bordered table-hover datatable kuink-control-grid">
+				{if $showColumns == 'true'}
 				<thead>
 					<tr>
 						{$index = 0}
@@ -247,7 +297,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 								{$index = $index + 1}
 							{/while}
 							{if $columnAttributes[$index]['hidden'] != "true"}
-								<th class="col_{$columnAttributes[$index]['name']}">
+								<th class="col_{$columnAttributes[$index]['name']} col-{$columnAttributes[$index]['colsize']} col-xs-{$columnAttributes[$index]['colsize']} col-sm-{$columnAttributes[$index]['colsize']} col-md-{$columnAttributes[$index]['colsize']} col-lg-{$columnAttributes[$index]['colsize']}">
 									{if $columnAttributes[$index]['type'] == 'pick'}
 										<input type="checkbox" class="input-medium" id="{$name}_selectall" name="{$name}_selectall" onclick="{$name}ToggleChecked(this.checked);" value="0">
 									{/if}
@@ -258,13 +308,11 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 									{$header}
 
 									{if $columnAttributes[$index]['sortable'] != 'false' && $columnAttributes[$index]['sortable'] != ''}
-
 										<span style="display:inline;">
-											
 											{if isset($sort[$index]['sort']) && $sort[$index]['sort'] == 'asc'}
-												<a href="javascript: void(0)"  onclick="gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_sort={$index}_desc', '')"><i class="fa fa-sort-asc"></i></a>
+												<a href="javascript: void(0)"  onclick="gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_sort={$index}_desc', '')"><i class="fa fa-sort-down"></i></a>
 											{else if isset($sort[$index]['sort']) && $sort[$index]['sort'] == 'desc'}
-												<a href="javascript: void(0)"  onclick="gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_sort={$index}_rem', '')"><i class="fa fa-sort-desc"></i></a>
+												<a href="javascript: void(0)"  onclick="gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_sort={$index}_rem', '')"><i class="fa fa-sort-up"></i></a>
 											{else}
 												<a href="javascript: void(0)"  onclick="gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_sort={$index}_asc', '')"><i class="fa fa-sort"></i></a>
 											{/if}
@@ -272,10 +320,18 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 									{/if}
 
 									{if $columnAttributes[$index]['help']!=""}
+										&nbsp;&nbsp;
+										<a tabindex="-1" role="button" data-toggle="popover" data-trigger="focus" title="{$columnAttributes[$index]['label']} - {translate app="framework"}help{/translate}" data-html="true" data-content="{$columnAttributes[$index]['help']}" href="javascript:void(0);">
+											<i class="fieldQuestionMark fa fa-info-circle" ></i>
+										</a>
+										<script>
+											$('[data-toggle="popover"]').popover()
+										</script>
+										{*
 										{$modalData = ['fieldID' => $columnAttributes[$index]['name'], 'helpText' => $columnAttributes[$index]['help']]}
 										{call name=helpModal modalData=$modalData}
 
-										<a data-toggle="modal" href="#helpModal_{$columnAttributes[$index]['name']}" ><i class="icon icon-question-sign"></i></a>
+										<a data-toggle="modal" href="#helpModal_{$columnAttributes[$index]['name']}" ><i class="icon icon-question-sign"></i></a>*}
 									{/if}
 								</th>
 							{/if}
@@ -283,6 +339,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 						{/foreach}
 					</tr>
 				</thead>
+				{/if}
 				<tbody>
 					{foreach $data as $block}
 						{foreach $block as $row}
@@ -344,7 +401,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 												{include file="./grid/$colType.tpl"}
 											{else}
 												<span style="overflow-x: auto;">
-													{if count($value['constructor']) == 0}
+													{if ($value['constructor'] == null) || count($value['constructor']) == 0}
 														{$value['value']}
 													{else}
 														{foreach $value['constructor'] as $actionAttribute}
@@ -354,6 +411,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 												</span>
 											{/if}
 										{/if}
+								
 										</td>
 									{/if}
 
@@ -364,7 +422,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 									{$index = $index + 1}
 								{/foreach}
-								{if $supressChangedField != 1}
+								{if ($freeze == 'false') && ($id != '') }
 									<input type="hidden" id="{$id}{$multiSeparator}CHANGED" name="{$id}{$multiSeparator}CHANGED" value="0"/>
 									<input type="hidden" id="{$id}{$multiSeparator}SELECTED" name="{$id}{$multiSeparator}SELECTED" value="0"/>
 								{/if}
@@ -468,36 +526,11 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 			{/if}
 
 			{if $freeze != 'true'}
-				{if $globalActions}
-					<div class="form-actions">
-						<div class="btn-group">
-							{$count = 0}
-							{foreach $globalActions as $action_name=>$action_desc}
-
-								{$buttonClass = "btn btn-small"}
-								{if $count == 0}
-									{$buttonClass = "btn btn-small btn-primary"}
-									{$count = $count+1}
-									<div class="btn-group">
-								{/if}
-
-								<button type="submit" class="{$buttonClass}" id="{$action_name}" onclick="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&action={$action_name}', '{$action_name}');return false;">
-									{if $buttonAttrs['icon']!=""}
-										<i class="fa fa-{$buttonAttrs['icon']}" ></i>
-									{/if}
-									{$action_desc}
-								</button>
-							{/foreach}
-							{if $count > 0}
-								</div>
-							{/if}
-						</div>
-					</div>
-				{/if}
+				{call name="addGlobalActionButtons"}		
 			{/if}
+
 			{if $isPageable == "true"}
 				<div class="pull-left" style="margin: 5px 5px 5px 5px">
-
 					<ul style="width: 100%" class="pagination pagination-sm no-margin pull-right">
 						{if $pageCurrent > 0}
 							<li><a href="javascript: gridActionField_{$_guid}(false, '', '{$baseUrl}&{$name}_page={$pageCurrent-1}', '');">{translate app="framework"}previous{/translate}</a></li>
@@ -511,14 +544,14 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 							<li class=""><a disabled="disabled" href="javascript:void(0);">...</a></li>
 						{/if}
 
-						{assign var="start" value="2"}
-						{assign var="end" value="$pageTotal"}
+						{$start = 2}
+						{$end = $pageTotal}
 						{if $pageCurrent > 5 && $pageTotal > 10}
-							{assign var="start" value=$pageCurrent - 2}
+							{$start = $pageCurrent - 2}
 						{/if}
 
 						{if $pageCurrent < $pageTotal - 5  && $pageTotal > 10}
-							{assign var="end" value=$pageCurrent + 5}
+							{$end = $pageCurrent + 5}
 						{/if}
 
 						{for $i=$start to $end-1}
@@ -576,8 +609,8 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.tree[id={$name}]').treegrid({
-
 				{if $treecollapsed == 'true'}
+					'saveState': 'cookie',				
 					'initialState': 'collapsed'
 				{else}
 					'initialState': 'expanded'

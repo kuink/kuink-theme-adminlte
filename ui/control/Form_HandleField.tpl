@@ -5,6 +5,39 @@ and handle the control display
 
 *}
 
+	<script type="text/javascript">
+		/**
+		* Create an submit function for each field
+		**/
+		function submit_{$_guid}_field( fieldId, action, event='' ){
+			var urlSuff;
+			if (action != '')
+				urlSuff = "&action=" + action;
+
+			if (event != '')
+				urlSuff = "&event=" + event;
+
+			var urlComplete = '{$form["baseUrl"]|html_entity_decode}'+urlSuff;
+			result = setFormAction_{$_guid}(urlComplete, '', '', '', false);
+
+			//$("#{$_guid}").submit();
+			//Call kuink submit center
+			$("#{$_guid}").kuinkSubmit({
+				'url' 						: urlComplete + '&modal=embed',
+				'idContext'				: '{$_idContext}',
+				'method' 					: 'post',
+				//'target'					: '{$_idContext}_wrapper',
+				'processData'			: false,
+				'contentType'			: false,
+				'button_id' 			: fieldId,
+				'formGuid' 			  : '{$_guid}'
+			});			
+		}
+	</script>
+
+
+
+
 {*Define things*}
 {if $field['attributes']['disabled']=="true"}
 	{$disabledClass = "disabled"}
@@ -33,11 +66,11 @@ and handle the control display
 		{$labelSize=2}
 	{/if}
 	
-  {if $fieldAttrs['labelsize']=='medium'}
+  {if $fieldAttrs['label-size']=='medium'}
   	{$labelSize=6}
-  {elseif $fieldAttrs['labelsize']=='large'}
+  {elseif $fieldAttrs['label-size']=='large'}
   	{$labelSize=8}
-  {elseif $fieldAttrs['labelsize']=='xlarge'}
+  {elseif $fieldAttrs['label-size']=='xlarge'}
   	{$labelSize=10}
  	{/if} 
  {* Inline fields allways have value of 1 *}
@@ -81,7 +114,7 @@ and handle the control display
 			<div class="row">
 	{/if}
 
-			{if $fieldAttrs['labelposition'] == 'right'}
+			{if $fieldAttrs['label-position'] == 'right'}
 				{* In the special case of the checkbox, the field size is allways 1 *}
 				{if $fieldType=='Checkbox'}
 					{$fieldSize = 1}
@@ -93,27 +126,33 @@ and handle the control display
 				</div>			
 			{/if}
 			
+			{* Place the label *}
 			{if $fieldType != 'ActionGroup'}
 				<!--div class="col-lg-{$labelSize} col-md-{$labelSize} col-sm-{$labelSize} col-xs-3" style="{if (($fieldAttrs['inline']=='true') || ($nextFieldAttrs['inline']=='true' && $nextFieldAttrs!=null)) }width: 100%;{/if}"-->
 				<div class="col-lg-{$labelSize} col-md-{$labelSize} col-sm-{$labelSize} col-xs-12">
 					{if $fieldType !='Hidden'}
 						{* <label for="{$fieldGuid}" style="{if $fieldAttrs['inline'] == 'tight'}width: auto; margin:0px 5px 0px 5px;{/if}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label> *}
-						<label style="margin-top: 8px; {$labelClassComplement}" for="{$fieldGuid}">{$field['attributes']['label']}{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}</label>
-						{if $field['attributes']['help']!='false' && $field['attributes']['help']!='' && $field['attributes']['help'] != $fieldID}
+								
+						<label style="margin-top: 8px; {$labelClassComplement}" for="{$fieldGuid}">{$field['attributes']['label']}
+							{if $field['attributes']['label-url'] != ''}<a target="_blank" href="{$field['attributes']['label-url']}" onclick="$('#{$fieldGuid}').prop('checked', true );">{$field['attributes']['label-url-description']}</a>{/if}
+							{if $fieldRequired == true}{$hasRequiredFields=true scope=parent}&nbsp;<font style="color:red">{$sRequiredString}</font>{/if}
+						</label>
+
+						{if $field['attributes']['help']!='false' && $field['attributes']['help']!='' && $field['attributes']['help'] != $field['attributes']['id']}
 							&nbsp;&nbsp;
-							<a tabindex="-1"
-								data-toggle="tooltip" title=""
-								data-original-title="{$field['attributes']['help']}"
-								data-placement="right"
-								href="javascript:void(0);">
-									<i class="fieldQuestionMark fa fa-info-circle" ></i>
+							<a tabindex="-1" role="button" data-toggle="popover" data-trigger="focus" title="{$field['attributes']['label']} - {translate app="framework"}help{/translate}" data-html="true" data-content="{$field['attributes']['help']}" href="javascript:void(0);">
+								<i class="fieldQuestionMark fa fa-info-circle" ></i>
 							</a>
+							<script>
+								$('[data-toggle="popover"]').popover()
+							</script>
 						{/if}
 					{/if}
 				</div>
 			{/if}
 
-			{if $fieldAttrs['labelposition'] == 'left'}
+			{* Place the field *}
+			{if $fieldAttrs['label-position'] == 'left'}
 				<div class="col-lg-{$fieldSize} col-md-{$fieldSize} col-sm-{$fieldSize} col-xs-12">
 					{include file="./form/$fieldType.tpl"}
 				</div>			

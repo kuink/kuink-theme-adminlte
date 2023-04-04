@@ -1,5 +1,5 @@
 				<meta charset="UTF-8">
-				<title>KuinK</title>
+				<title>{$_userCompanyData.code}</title>
 				<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 				<!-- bootstrap 3.3.5 -->
 				<link href="{$_themeRoot}theme/{$THEME}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -17,7 +17,7 @@
 				<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"-->
 				<!--link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"-->
 				<!--link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"-->
-				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-0c38nfCMzF8w8DBI+9nTWzApOpr1z0WuyswL4y6x/2ZTtmj/Ki5TedKeUcFusC/k" crossorigin="anonymous">				
+				<!--link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-0c38nfCMzF8w8DBI+9nTWzApOpr1z0WuyswL4y6x/2ZTtmj/Ki5TedKeUcFusC/k" crossorigin="anonymous"-->
 				<!-- Ionicons -->
 				<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 				<!-- Bootstrap Validator -->
@@ -27,8 +27,8 @@
 				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/css/simple-sidebar/simple-sidebar.css">
 
 				<link rel="icon" type="image/png" href="favicon.png" sizes="16x16">
-
-
+				<!-- Flags for multilang fields -->
+				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/css/flags/flags.css" rel="stylesheet">
 				<style>
 					{literal}
 						.treegrid-indent {width:16px; height: 16px; display: inline-block; position: relative;}
@@ -104,6 +104,9 @@
 
 				<!-- jQuery 2.0.2 -->
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/jQuery/jQuery-2.1.4.min.js" type="text/javascript"></script>
+				<!-- jQuery.Cookie 1.4.1 https://www.cdnpkg.com/jquery-cookie/file/jquery.cookie.min.js/-->
+				<script src="{$_themeRoot}theme/{$THEME}/assets/js/jQuery.cookie/jquery.cookie.min.js" type="text/javascript"></script>
+
 				<!-- Bootstrap -->
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/bootstrap.min.js" type="text/javascript"></script>
 				<!-- Bootstrap Validator -->
@@ -126,6 +129,10 @@
 						});
 				</script>
 				<!-- AdminLTE App -->
+				<!-- FullCalendar -->
+				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.min.css">
+				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+
 				<!--script src="{$_themeRoot}theme/{$THEME}/assets/js/app.min.js" type="text/javascript"></script>
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/fastclick/fastclick.min.js" type="text/javascript"></script-->
@@ -134,11 +141,11 @@
 				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
 				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/fastclick/lib/fastclick.js" type="text/javascript"></script>
 
-				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.min.css"/>
-				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print"/>
+				<!-- link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.min.css"/ -->
+				<!-- link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print"/ -->
 
 				<!-- script src="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/moment/moment.js"></script -->
-				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+				<!-- script src="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.min.js"></script-->
 
 
 				<!-- InputMask -->
@@ -159,6 +166,9 @@
   				<script type="text/javascript" src="{$_themeRoot}theme/{$THEME}/assets/js/i18n.js"></script>
   				<!-- /MultiLanguage input support -->
 
+				<!-- Font Awesome -->
+				<script src="https://kit.fontawesome.com/0779454afb.js" crossorigin="anonymous"></script>
+
 				<!-- Kuink Scripts - Must be the last scripts -->
 				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/kuink/dist/js/kuink_Core.Manager.js" type="text/javascript"></script>
 				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/kuink/dist/js/kuink_Core.Submit.js" type="text/javascript"></script>				
@@ -170,5 +180,7 @@
 				
 				<script type="text/javascript">
 					var applicationContexts = new Array();
+					var __kuink = new KuinkManager();  //Global variable with kuink specific data
+					__kuink.apiUrl = '{$_apiCompleteUrl}';
 				</script>
 				<!-- End Kuink Scripts -->

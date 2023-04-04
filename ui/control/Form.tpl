@@ -241,15 +241,8 @@
 	}
 </script>
 
-{if (count($buttonActions) > 0) || ($form['title'] != '') || (count($fields) > 0)}
+{if (($buttonActions != null) && (count($buttonActions) > 0)) || ($form['title'] != '') || (count($fields) > 0)}
 <div class="box">
-	{*check if this form has a title*}
-	{if $form['title'] != ''}
-	<div class="box-header">
-		<i class="fa fa-th-large">&nbsp;</i>
-		<h3 class="box-title">{$form['title']}</h3>
-	</div>
-	{/if}
 	{if !isset($hasRequiredFields)}
 		{assign var=hasRequiredFields value=false}
 	{/if}
@@ -265,19 +258,34 @@
 			data-bv-feedbackicons-validating=""
 			data-bv-live="enabled"
 			data-disable="false">
+
+			{*check if this form has a title*}
+			{if $form['title'] != ''}
+			<div class="box-header">
+				<i class="fa fa-th-large">&nbsp;</i>
+				<h3 class="box-title">{$form['title']}</h3>
+				{if ($buttonsPosition == 'top' || $buttonsPosition == 'both')}
+					<script>
+						$(document).ready(function(){
+							var html = $("#{$_guid}").find(".btn-group").html();
+							$("#firstButtonGroup{$_guid}").html(html);
+							$("#firstButtonGroup{$_guid}").addClass("btn-group");
+							$("#firstButtonGroup{$_guid}").addClass("btn-group-top");
+							{if ($buttonsPosition == 'top')}
+								//Hide the buttom buttongroup if it's only top
+								//Find all btn-group class that are not btn-group-top, this was a way to get this right
+								$("#{$_guid}").find(".btn-group").not(".btn-group-top").hide();
+							{/if}
+							
+						})
+					</script>
+					<div id="firstButtonGroup{$_guid}" style="float: right;"></div>
+				{/if}
+			</div>
+			{/if}
+
 			{if count($fields) > 0}
 				<div class="box-body ">
-					{if ($freeze == '0') && ($buttonsPosition == 'top' || $buttonsPosition == 'both')}
-						<script>
-							$(document).ready(function(){
-								var html = $("#{$_guid}").find(".btn-group").html();
-								$("#firstButtonGroup{$_guid}").html(html);
-								$("#firstButtonGroup{$_guid}").addClass("btn-group");
-							})
-						</script>
-						<div id="firstButtonGroup{$_guid}" style="float: right;"></div>
-					{/if}
-
 				{$insideColumn = 0}
 				{$insideHeader = 0}
 				{$currentColumnGroup = 0}
@@ -372,15 +380,17 @@
 			{/if}
 		{/if}
 		<!-- /.box-body -->
-		{if count($buttonActions) > 0}
-			<div style="clear:both"></div>
-			<div class="box-footer">
-				<div class="btn-group">
-					{foreach $buttonActions as $buttonID=>$button}
-						{include './Form_HandleActionButtons.tpl'}
-					{/foreach}
+		{if $buttonActions != null}
+			{if count($buttonActions) > 0}
+				<div style="clear:both"></div>
+				<div class="box-footer">
+					<div class="btn-group {if ($buttonsAlign=='right')}pull-right{/if}" style="{if ($buttonsAlign=='center')}display: flex; justify-content: center; align-items: center;{/if}">
+						{foreach $buttonActions as $buttonID=>$button}
+							{include './Form_HandleActionButtons.tpl'}
+						{/foreach}
+					</div>
 				</div>
-			</div>
+			{/if}
 		{/if}
 	</form>
 </div>

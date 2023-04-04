@@ -18,8 +18,8 @@
 						<!-- Inner Menu: contains the companies -->
 						<ul class="menu">
 							<li>
-								{foreach from=$KUINK_USER_COMPANIES item=COMPANY}
-									{if $KUINK_USER_COMPANY == $COMPANY.id}
+								{foreach from=$_userCompanies item=COMPANY}
+									{if $_userCompany == $COMPANY.id}
 										<a href="#"><i class="fa fa-caret-right"></i>{$COMPANY.name}</a>
 									{else}
 										<a href="#" id="kuink_company_{$COMPANY.id}" onclick="javascript: window.location = window.location + '&idCompany={$COMPANY.id}';">

@@ -19,6 +19,7 @@
 	{/if}
 
 
+  {* Use navbar-fixed-top to fix it on top *}
 	<div class="alert {$messageClass} alert-dismissable">
 		<i class="fa fa-{$messageIcon}"></i>
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>

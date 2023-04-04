@@ -1,0 +1,1519 @@
+[1mdiff --git a/template/Head.tpl b/template/Head.tpl[m
+[1mindex 2f04050..509ee71 100644[m
+[1m--- a/template/Head.tpl[m
+[1m+++ b/template/Head.tpl[m
+[36m@@ -138,7 +138,7 @@[m
+ 				<!-- link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print"/ -->[m
+ [m
+ 				<!-- script src="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/moment/moment.js"></script -->[m
+[31m-				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>[m
+[32m+[m				[32m<!-- script src="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/bower_components/fullcalendar/dist/fullcalendar.min.js"></script-->[m
+ [m
+ [m
+ 				<!-- InputMask -->[m
+[1mdiff --git a/theme_cache_compiled/0249dbfdd64bdad39930452c4a43e84cfa6772c7_0.file.app_menuInclude.tpl.php b/theme_cache_compiled/0249dbfdd64bdad39930452c4a43e84cfa6772c7_0.file.app_menuInclude.tpl.php[m
+[1mdeleted file mode 100644[m
+[1mindex 29b9a0f..0000000[m
+[1m--- a/theme_cache_compiled/0249dbfdd64bdad39930452c4a43e84cfa6772c7_0.file.app_menuInclude.tpl.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,194 +0,0 @@[m
+[31m-<?php[m
+[31m-/* Smarty version 3.1.33, created on 2019-06-19 08:48:00[m
+[31m-  from '/opt/moodle/mod/kuink/theme/adminlte/template/app_menuInclude.tpl' */[m
+[31m-[m
+[31m-/* @var Smarty_Internal_Template $_smarty_tpl */[m
+[31m-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array ([m
+[31m-  'version' => '3.1.33',[m
+[31m-  'unifunc' => 'content_5d09f6c04d5e38_47351091',[m
+[31m-  'has_nocache_code' => false,[m
+[31m-  'file_dependency' => [m
+[31m-  array ([m
+[31m-    '0249dbfdd64bdad39930452c4a43e84cfa6772c7' => [m
+[31m-    array ([m
+[31m-      0 => '/opt/moodle/mod/kuink/theme/adminlte/template/app_menuInclude.tpl',[m
+[31m-      1 => 1527122597,[m
+[31m-      2 => 'file',[m
+[31m-    ),[m
+[31m-  ),[m
+[31m-  'includes' => [m
+[31m-  array ([m
+[31m-  ),[m
+[31m-),false)) {[m
+[31m-function content_5d09f6c04d5e38_47351091 (Smarty_Internal_Template $_smarty_tpl) {[m
+[31m-$_smarty_tpl->smarty->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array ([m
+[31m-  'createLeftMenu' => [m
+[31m-  array ([m
+[31m-    'compiled_filepath' => '/opt/moodle/mod/kuink/theme/adminlte/theme_cache_compiled/0249dbfdd64bdad39930452c4a43e84cfa6772c7_0.file.app_menuInclude.tpl.php',[m
+[31m-    'uid' => '0249dbfdd64bdad39930452c4a43e84cfa6772c7',[m
+[31m-    'call_name' => 'smarty_template_function_createLeftMenu_1162068825d09f6c0444720_63042548',[m
+[31m-  ),[m
+[31m-));[m
+[31m-echo '<script'; ?>[m
+[31m->[m
+[31m-	function menuAppAction(confirm, confirm_message, location, button_id) {[m
+[31m-[m
+[31m-		//Call kuink submit center[m
+[31m-		$(".box-body").kuinkSubmit({[m
+[31m-			'url' : location+'&modal=embed',[m
+[31m-			'idContext' : '<?php echo $_smarty_tpl->tpl_vars['_idContext']->value;?>[m
+[31m-',[m
+[31m-			'method' : 'get',[m
+[31m-			'button_id' : button_id[m
+[31m-		});[m
+[31m-	}[m
+[31m-[m
+[31m-<?php echo '</script'; ?>[m
+[31m->[m
+[31m-[m
+[31m-[m
+[31m-<?php }[m
+[31m-/* smarty_template_function_createLeftMenu_1162068825d09f6c0444720_63042548 */[m
+[31m-if (!function_exists('smarty_template_function_createLeftMenu_1162068825d09f6c0444720_63042548')) {[m
+[31m-function smarty_template_function_createLeftMenu_1162068825d09f6c0444720_63042548(Smarty_Internal_Template $_smarty_tpl,$params) {[m
+[31m-$params = array_merge(array('menu'=>false,'submenu'=>false,'menuType'=>'toggle'), $params);[m
+[31m-foreach ($params as $key => $value) {[m
+[31m-$_smarty_tpl->tpl_vars[$key] = new Smarty_Variable($value, $_smarty_tpl->isRenderingCache);[m
+[31m-}[m
+[31m-?>[m
+[31m-[m
+[31m-	<?php if (!is_array($_smarty_tpl->tpl_vars['menu']->value['child'])) {?>[m
+[31m-				<li>[m
+[31m-			<a target="<?php echo $_smarty_tpl->tpl_vars['menu']->value['target'];?>[m
+[31m-" href="javascript: menuAppAction(false, '', '<?php echo $_smarty_tpl->tpl_vars['menu']->value['href'];?>[m
+[31m-', '');" style="color: #777;"[m
+[31m-			<?php if ($_smarty_tpl->tpl_vars['menuType']->value == 'toggled' && $_smarty_tpl->tpl_vars['submenu']->value != true) {?>data-tt="tooltip" title="<?php if ($_smarty_tpl->tpl_vars['menu']->value['label']) {[m
+[31m-echo $_smarty_tpl->tpl_vars['menu']->value['label'];[m
+[31m-} else {[m
+[31m-$_block_plugin10 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;[m
+[31m-if (!is_callable($_block_plugin10)) {[m
+[31m-throw new SmartyException('block tag \'translate\' not callable or registered');[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());[m
+[31m-$_block_repeat=true;[m
+[31m-echo $_block_plugin10(array(), null, $_smarty_tpl, $_block_repeat);[m
+[31m-while ($_block_repeat) {[m
+[31m-ob_start();?>noLabel<?php $_block_repeat=false;[m
+[31m-echo $_block_plugin10(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);[m
+[31m-}[m
+[31m-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);[m
+[31m-}?>"<?php }?>>[m
+[31m-				<i class="fa fa-<?php if ($_smarty_tpl->tpl_vars['menu']->value['icon'] && $_smarty_tpl->tpl_vars['menu']->value['icon'] != 'circle') {[m
+[31m-echo $_smarty_tpl->tpl_vars['menu']->value['icon'];[m
+[31m-} else {[m
+[31m-if (!$_smarty_tpl->tpl_vars['submenu']->value) {?>th-list<?php }[m
+[31m-}?>"></i>[m
+[31m-				<?php if ($_smarty_tpl->tpl_vars['menuType']->value != 'toggled' || $_smarty_tpl->tpl_vars['submenu']->value == true) {?><span><?php if ($_smarty_tpl->tpl_vars['menu']->value['label']) {[m
+[31m-echo $_smarty_tpl->tpl_vars['menu']->value['label'];[m
+[31m-} else {[m
+[31m-$_block_plugin11 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;[m
+[31m-if (!is_callable($_block_plugin11)) {[m
+[31m-throw new SmartyException('block tag \'translate\' not callable or registered');[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());[m
+[31m-$_block_repeat=true;[m
+[31m-echo $_block_plugin11(array(), null, $_smarty_tpl, $_block_repeat);[m
+[31m-while ($_block_repeat) {[m
+[31m-ob_start();?>noLabel<?php $_block_repeat=false;[m
+[31m-echo $_block_plugin11(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);[m
+[31m-}[m
+[31m-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);[m
+[31m-}?></span><?php }?>[m
+[31m-			</a>[m
+[31m-		</li>[m
+[31m-	<?php } else { ?>[m
+[31m-		<?php if ($_smarty_tpl->tpl_vars['menuType']->value != 'toggled') {?>[m
+[31m-			<?php if ($_smarty_tpl->tpl_vars['menuType']->value == 'dropdown') {?>[m
+[31m-				<li class="treeview dropdown-header">[m
+[31m-			<?php } else { ?>[m
+[31m-				<li style="background-color:#EEEEEE;">[m
+[31m-			<?php }?>[m
+[31m-			<i class="fa fa-<?php if ($_smarty_tpl->tpl_vars['menu']->value['icon'] && $_smarty_tpl->tpl_vars['menu']->value['icon'] != 'circle') {[m
+[31m-echo $_smarty_tpl->tpl_vars['menu']->value['icon'];[m
+[31m-} else {[m
+[31m-if (!$_smarty_tpl->tpl_vars['submenu']->value) {?>th-list<?php }[m
+[31m-}?>"></i>[m
+[31m-			<?php if ($_smarty_tpl->tpl_vars['menuType']->value != 'toggled' || $_smarty_tpl->tpl_vars['submenu']->value == true) {?><span><?php if ($_smarty_tpl->tpl_vars['menu']->value['label']) {[m
+[31m-echo $_smarty_tpl->tpl_vars['menu']->value['label'];[m
+[31m-} else {[m
+[31m-$_block_plugin12 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;[m
+[31m-if (!is_callable($_block_plugin12)) {[m
+[31m-throw new SmartyException('block tag \'translate\' not callable or registered');[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());[m
+[31m-$_block_repeat=true;[m
+[31m-echo $_block_plugin12(array(), null, $_smarty_tpl, $_block_repeat);[m
+[31m-while ($_block_repeat) {[m
+[31m-ob_start();?>noLabel<?php $_block_repeat=false;[m
+[31m-echo $_block_plugin12(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);[m
+[31m-}[m
+[31m-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);[m
+[31m-}?></span><?php }?>[m
+[31m-			</li>[m
+[31m-			<li>[m
+[31m-			<?php if ($_smarty_tpl->tpl_vars['menu']->value['child']) {?>[m
+[31m-					<?php[m
+[31m-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['menu']->value['child'], 'submenu');[m
+[31m-if ($_from !== null) {[m
+[31m-foreach ($_from as $_smarty_tpl->tpl_vars['submenu']->value) {[m
+[31m-?>[m
+[31m-						<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'createLeftMenu', array('menu'=>$_smarty_tpl->tpl_vars['submenu']->value,'submenu'=>true,'menuType'=>$_smarty_tpl->tpl_vars['menuType']->value), true);?>[m
+[31m-[m
+[31m-					<?php[m
+[31m-}[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>[m
+[31m-			<?php }?>[m
+[31m-			</li>[m
+[31m-		<?php } else { ?>[m
+[31m-			<li class="dropdown">[m
+[31m-				<a class="dropdown-toggle" data-toggle="dropdown" href="#"[m
+[31m-				<?php if ($_smarty_tpl->tpl_vars['menuType']->value == 'toggled' && $_smarty_tpl->tpl_vars['submenu']->value != true) {?>data-tt="tooltip" title="<?php if ($_smarty_tpl->tpl_vars['menu']->value['label']) {[m
+[31m-echo $_smarty_tpl->tpl_vars['menu']->value['label'];[m
+[31m-} else {[m
+[31m-$_block_plugin13 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;[m
+[31m-if (!is_callable($_block_plugin13)) {[m
+[31m-throw new SmartyException('block tag \'translate\' not callable or registered');[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());[m
+[31m-$_block_repeat=true;[m
+[31m-echo $_block_plugin13(array(), null, $_smarty_tpl, $_block_repeat);[m
+[31m-while ($_block_repeat) {[m
+[31m-ob_start();?>noLabel<?php $_block_repeat=false;[m
+[31m-echo $_block_plugin13(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);[m
+[31m-}[m
+[31m-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);[m
+[31m-}?>"<?php }?>>[m
+[31m-					<i class="fa fa-<?php if ($_smarty_tpl->tpl_vars['menu']->value['icon'] && $_smarty_tpl->tpl_vars['menu']->value['icon'] != 'circle') {[m
+[31m-echo $_smarty_tpl->tpl_vars['menu']->value['icon'];[m
+[31m-} else {[m
+[31m-if (!$_smarty_tpl->tpl_vars['submenu']->value) {?>th-list<?php }[m
+[31m-}?>"></i>[m
+[31m-					<span class="caret"></span>[m
+[31m-				</a>[m
+[31m-				<?php if ($_smarty_tpl->tpl_vars['menu']->value['child']) {?>[m
+[31m-					<ul class="dropdown-menu" style="margin-left: 100%; margin-top: -40px;border-top-left-radius: 0;">[m
+[31m-							<?php[m
+[31m-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['menu']->value['child'], 'submenu');[m
+[31m-if ($_from !== null) {[m
+[31m-foreach ($_from as $_smarty_tpl->tpl_vars['submenu']->value) {[m
+[31m-?>[m
+[31m-								<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'createLeftMenu', array('menu'=>$_smarty_tpl->tpl_vars['submenu']->value,'submenu'=>true,'menuType'=>$_smarty_tpl->tpl_vars['menuType']->value), true);?>[m
+[31m-[m
+[31m-							<?php[m
+[31m-}[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>[m
+[31m-					</ul>[m
+[31m-				<?php }?>[m
+[31m-			</li>[m
+[31m-		<?php }?>[m
+[31m-	<?php }[m
+[31m-}}[m
+[31m-/*/ smarty_template_function_createLeftMenu_1162068825d09f6c0444720_63042548 */[m
+[31m-}[m
+[1mdiff --git a/theme_cache_compiled/10371516d4a21974ae23ec14d2a5c1440a2e8405_0.file.App_1col_LeftMenu.tpl.php b/theme_cache_compiled/10371516d4a21974ae23ec14d2a5c1440a2e8405_0.file.App_1col_LeftMenu.tpl.php[m
+[1mdeleted file mode 100644[m
+[1mindex b519022..0000000[m
+[1m--- a/theme_cache_compiled/10371516d4a21974ae23ec14d2a5c1440a2e8405_0.file.App_1col_LeftMenu.tpl.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,29 +0,0 @@[m
+[31m-<?php[m
+[31m-/* Smarty version 3.1.33, created on 2019-07-22 12:07:57[m
+[31m-  from '/opt/moodle/mod/kuink/theme/adminlte/template/app/App_1col_LeftMenu.tpl' */[m
+[31m-[m
+[31m-/* @var Smarty_Internal_Template $_smarty_tpl */[m
+[31m-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array ([m
+[31m-  'version' => '3.1.33',[m
+[31m-  'unifunc' => 'content_5d35a71d54d8c5_73129674',[m
+[31m-  'has_nocache_code' => false,[m
+[31m-  'file_dependency' => [m
+[31m-  array ([m
+[31m-    '10371516d4a21974ae23ec14d2a5c1440a2e8405' => [m
+[31m-    array ([m
+[31m-      0 => '/opt/moodle/mod/kuink/theme/adminlte/template/app/App_1col_LeftMenu.tpl',[m
+[31m-      1 => 1515496186,[m
+[31m-      2 => 'file',[m
+[31m-    ),[m
+[31m-  ),[m
+[31m-  'includes' => [m
+[31m-  array ([m
+[31m-  ),[m
+[31m-),false)) {[m
+[31m-function content_5d35a71d54d8c5_73129674 (Smarty_Internal_Template $_smarty_tpl) {[m
+[31m-$_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'left'), true);?>[m
+[31m-[m
+[31m-<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'default'), true);?>[m
+[31m-[m
+[31m-<?php }[m
+[31m-}[m
+[1mdiff --git a/theme_cache_compiled/10e5355ed169a821c3f42a353416f1109d99fafb_0.file.pe.11.new_html.tpl.php b/theme_cache_compiled/10e5355ed169a821c3f42a353416f1109d99fafb_0.file.pe.11.new_html.tpl.php[m
+[1mdeleted file mode 100644[m
+[1mindex cab7a46..0000000[m
+[1m--- a/theme_cache_compiled/10e5355ed169a821c3f42a353416f1109d99fafb_0.file.pe.11.new_html.tpl.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,48 +0,0 @@[m
+[31m-<?php[m
+[31m-/* Smarty version 3.1.33, created on 2019-10-13 15:56:21[m
+[31m-  from '/opt/moodle/mod/kuink/theme/adminlte/template/message/pe.11.new_html.tpl' */[m
+[31m-[m
+[31m-/* @var Smarty_Internal_Template $_smarty_tpl */[m
+[31m-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array ([m
+[31m-  'version' => '3.1.33',[m
+[31m-  'unifunc' => 'content_5da33b153e31c5_07570235',[m
+[31m-  'has_nocache_code' => false,[m
+[31m-  'file_dependency' => [m
+[31m-  array ([m
+[31m-    '10e5355ed169a821c3f42a353416f1109d99fafb' => [m
+[31m-    array ([m
+[31m-      0 => '/opt/moodle/mod/kuink/theme/adminlte/template/message/pe.11.new_html.tpl',[m
+[31m-      1 => 1539394069,[m
+[31m-      2 => 'file',[m
+[31m-    ),[m
+[31m-  ),[m
+[31m-  'includes' => [m
+[31m-  array ([m
+[31m-  ),[m
+[31m-),false)) {[m
+[31m-function content_5da33b153e31c5_07570235 (Smarty_Internal_Template $_smarty_tpl) {[m
+[31m-?>Exmo. Encarregado de Educação, <br/><br/>[m
+[31m-o processo de pré-inscrição no Colégio foi submetido, para consultar o seu estado deve utilizar o seguinte endereço:[m
+[31m-<br/><br/>[m
+[31m-<a href="<?php echo $_smarty_tpl->tpl_vars['url']->value;?>[m
+[31m-"><?php echo $_smarty_tpl->tpl_vars['url']->value;?>[m
+[31m-</a>[m
+[31m-<br/><br/>[m
+[31m-<strong>Resumo dos dados submetidos</strong>:<br/><br/>[m
+[31m-<?php echo $_smarty_tpl->tpl_vars['legalInfo']->value;?>[m
+[31m-<br/>[m
+[31m-<?php echo $_smarty_tpl->tpl_vars['dataTable']->value;?>[m
+[31m-<br/>[m
+[31m-<br/>[m
+[31m-[m
+[31m-Respondeu ainda com "Sim" aos seguintes pontos:<br/>[m
+[31m-<br/>[m
+[31m-<?php echo $_smarty_tpl->tpl_vars['policies']->value;?>[m
+[31m-<br/>[m
+[31m-[m
+[31m-[m
+[31m-Cumprimentos,<br/>[m
+[31m-<?php echo $_smarty_tpl->tpl_vars['signature']->value;?>[m
+[31m-[m
+[31m-<?php }[m
+[31m-}[m
+[1mdiff --git a/theme_cache_compiled/12e07272be9bb6ac98c0b565ee0d569091e73d32_0.file.ActionGroup.tpl.php b/theme_cache_compiled/12e07272be9bb6ac98c0b565ee0d569091e73d32_0.file.ActionGroup.tpl.php[m
+[1mdeleted file mode 100644[m
+[1mindex 649c717..0000000[m
+[1m--- a/theme_cache_compiled/12e07272be9bb6ac98c0b565ee0d569091e73d32_0.file.ActionGroup.tpl.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,48 +0,0 @@[m
+[31m-<?php[m
+[31m-/* Smarty version 3.1.33, created on 2019-07-03 09:25:26[m
+[31m-  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/ActionGroup.tpl' */[m
+[31m-[m
+[31m-/* @var Smarty_Internal_Template $_smarty_tpl */[m
+[31m-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array ([m
+[31m-  'version' => '3.1.33',[m
+[31m-  'unifunc' => 'content_5d1c7486749ea5_26247312',[m
+[31m-  'has_nocache_code' => false,[m
+[31m-  'file_dependency' => [m
+[31m-  array ([m
+[31m-    '12e07272be9bb6ac98c0b565ee0d569091e73d32' => [m
+[31m-    array ([m
+[31m-      0 => '/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/ActionGroup.tpl',[m
+[31m-      1 => 1517503463,[m
+[31m-      2 => 'file',[m
+[31m-    ),[m
+[31m-  ),[m
+[31m-  'includes' => [m
+[31m-  array ([m
+[31m-  ),[m
+[31m-),false)) {[m
+[31m-function content_5d1c7486749ea5_26247312 (Smarty_Internal_Template $_smarty_tpl) {[m
+[31m-?><div class="controls">[m
+[31m-	<?php[m
+[31m-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['field']->value['options'], 'url', false, 'label');[m
+[31m-if ($_from !== null) {[m
+[31m-foreach ($_from as $_smarty_tpl->tpl_vars['label']->value => $_smarty_tpl->tpl_vars['url']->value) {[m
+[31m-?>[m
+[31m-	   		<?php $_smarty_tpl->_assignInScope('href', $_smarty_tpl->tpl_vars['url']->value['url']);?>[m
+[31m-		    <a href="#" onclick="javascript: result = setFormAction_<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>[m
+[31m-('<?php echo $_smarty_tpl->tpl_vars['href']->value;?>[m
+[31m-','', '',  '', true); $('#<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>[m
+[31m-').submit();" class="link" ><?php echo $_smarty_tpl->tpl_vars['label']->value;?>[m
+[31m-</a> &nbsp;[m
+[31m-[m
+[31m-<!-- javascript: result = setFormAction_<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>[m
+[31m-('<?php echo $_smarty_tpl->tpl_vars['buttonActionUrl']->value;?>[m
+[31m-', confirmMessage, '<?php echo $_smarty_tpl->tpl_vars['buttonType']->value;?>[m
+[31m-', '<?php echo $_smarty_tpl->tpl_vars['buttonAttrs']->value['id'];?>[m
+[31m-'); -->[m
+[31m-	<?php[m
+[31m-}[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>[m
+[31m-</div>[m
+[31m-<?php }[m
+[31m-}[m
+[1mdiff --git a/theme_cache_compiled/151a13174abbe1ae1a302207cb8dacdd339559fc_0.file.Master.tpl.php b/theme_cache_compiled/151a13174abbe1ae1a302207cb8dacdd339559fc_0.file.Master.tpl.php[m
+[1mdeleted file mode 100644[m
+[1mindex 814f04b..0000000[m
+[1m--- a/theme_cache_compiled/151a13174abbe1ae1a302207cb8dacdd339559fc_0.file.Master.tpl.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,174 +0,0 @@[m
+[31m-<?php[m
+[31m-/* Smarty version 3.1.33, created on 2019-06-19 08:48:00[m
+[31m-  from '/opt/moodle/mod/kuink/theme/adminlte/template/Master.tpl' */[m
+[31m-[m
+[31m-/* @var Smarty_Internal_Template $_smarty_tpl */[m
+[31m-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array ([m
+[31m-  'version' => '3.1.33',[m
+[31m-  'unifunc' => 'content_5d09f6c02bf847_66750597',[m
+[31m-  'has_nocache_code' => false,[m
+[31m-  'file_dependency' => [m
+[31m-  array ([m
+[31m-    '151a13174abbe1ae1a302207cb8dacdd339559fc' => [m
+[31m-    array ([m
+[31m-      0 => '/opt/moodle/mod/kuink/theme/adminlte/template/Master.tpl',[m
+[31m-      1 => 1543029482,[m
+[31m-      2 => 'file',[m
+[31m-    ),[m
+[31m-  ),[m
+[31m-  'includes' => [m
+[31m-  array ([m
+[31m-    'file:Head.tpl' => 1,[m
+[31m-    'file:Master_top-navbar.tpl' => 1,[m
+[31m-    'file:Master_left-navbar.tpl' => 1,[m
+[31m-    'file:Modal_embed.tpl' => 1,[m
+[31m-  ),[m
+[31m-),false)) {[m
+[31m-function content_5d09f6c02bf847_66750597 (Smarty_Internal_Template $_smarty_tpl) {[m
+[31m-$_smarty_tpl->smarty->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array ([m
+[31m-  'hook' => [m
+[31m-  array ([m
+[31m-    'compiled_filepath' => '/opt/moodle/mod/kuink/theme/adminlte/theme_cache_compiled/151a13174abbe1ae1a302207cb8dacdd339559fc_0.file.Master.tpl.php',[m
+[31m-    'uid' => '151a13174abbe1ae1a302207cb8dacdd339559fc',[m
+[31m-    'call_name' => 'smarty_template_function_hook_19985500565d09f6c025feb2_66527231',[m
+[31m-  ),[m
+[31m-));[m
+[31m-?>[m
+[31m-[m
+[31m-<?php if (($_smarty_tpl->tpl_vars['_imageUrl']->value == '')) {?>[m
+[31m-	<?php $_smarty_tpl->_assignInScope('imageSrc', 'stream.php?type=photo&guid=');[m
+[31m-} else { ?>[m
+[31m-	<?php $_smarty_tpl->_assignInScope('imageSrc', $_smarty_tpl->tpl_vars['_photoUrl']->value);[m
+[31m-}?>[m
+[31m-[m
+[31m-[m
+[31m-<!DOCTYPE html>[m
+[31m-<html lang="<?php echo $_smarty_tpl->tpl_vars['_lang']->value;?>[m
+[31m-">[m
+[31m-[m
+[31m-	<head>[m
+[31m-		<?php $_smarty_tpl->_subTemplateRender('file:Head.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);[m
+[31m-?>[m
+[31m-	</head>[m
+[31m-[m
+[31m-	<body class="<?php if ($_smarty_tpl->tpl_vars['_environment']->value == 'dev') {?>skin-yellow<?php } else { ?>skin-blue-light<?php }?> sidebar-mini wysihtml5-supported sidebar-collapse">[m
+[31m-[m
+[31m-		<div class="wrapper row-offcanvas row-offcanvas-left">[m
+[31m-			<header class="main-header">[m
+[31m-				<!-- Logo -->[m
+[31m-				<a href="<?php echo $_smarty_tpl->tpl_vars['breadcrumbEntries']->value[2]['href'];?>[m
+[31m-" class="logo">[m
+[31m-					<!-- mini logo for sidebar mini 50x50 pixels -->[m
+[31m-					<span class="logo-mini">S</span>[m
+[31m-					<!-- logo for regular state and mobile devices -->[m
+[31m-					<span class="logo-lg">CSCM-Lx</span>[m
+[31m-				</a>[m
+[31m-[m
+[31m-								<?php $_smarty_tpl->_subTemplateRender('file:Master_top-navbar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);[m
+[31m-?>[m
+[31m-[m
+[31m-			</header>[m
+[31m-[m
+[31m-						<?php $_smarty_tpl->_subTemplateRender('file:Master_left-navbar.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);[m
+[31m-?>[m
+[31m-[m
+[31m-			<!-- Right side column. Contains the navbar and content of the page -->[m
+[31m-			<div class="content-wrapper">[m
+[31m-				<!-- Content Header (Page header) -->[m
+[31m-					<section class="content-header">[m
+[31m-						<h1>[m
+[31m-							<?php echo $_smarty_tpl->tpl_vars['breadcrumbEntries']->value[4]['label'];?>[m
+[31m-[m
+[31m-							<small><?php echo $_smarty_tpl->tpl_vars['breadcrumbEntries']->value[3]['label'];?>[m
+[31m-</small>[m
+[31m-						</h1>[m
+[31m-						<ol class="breadcrumb">[m
+[31m-							<?php[m
+[31m-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['breadcrumbEntries']->value, 'breadcrumb');[m
+[31m-if ($_from !== null) {[m
+[31m-foreach ($_from as $_smarty_tpl->tpl_vars['breadcrumb']->value) {[m
+[31m-?>[m
+[31m-								<li><a href="<?php if ($_smarty_tpl->tpl_vars['breadcrumb']->value['href'] == '') {?>javascript: void(0);<?php } else {[m
+[31m-echo $_smarty_tpl->tpl_vars['breadcrumb']->value['href'];[m
+[31m-}?>"><?php echo $_smarty_tpl->tpl_vars['breadcrumb']->value['label'];?>[m
+[31m-</a></li>[m
+[31m-							<?php[m
+[31m-}[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>[m
+[31m-						</ol>[m
+[31m-					</section>[m
+[31m-[m
+[31m-				<!-- Main content -->[m
+[31m-				<?php if ($_smarty_tpl->tpl_vars['widgetContainer']->value == true) {?>[m
+[31m-						<?php $_smarty_tpl->_assignInScope('appTemplateSmarty', ('app/').($_smarty_tpl->tpl_vars['appTemplate']->value));?>[m
+[31m-						<?php $_smarty_tpl->_subTemplateRender($_smarty_tpl->tpl_vars['appTemplateSmarty']->value, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);[m
+[31m-?>[m
+[31m-				<?php } else { ?>[m
+[31m-					<?php $_smarty_tpl->_subTemplateRender('file:Modal_embed.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);[m
+[31m-?>[m
+[31m-				<?php }?>[m
+[31m-				[m
+[31m-				<footer>[m
+[31m-					<div class="pull-right">[m
+[31m-						<div style="text-align: right">[m
+[31m-							<!-- replace with footer html5 tag -->[m
+[31m-							<span class="version label label-primary" style="white-space: pre-wrap;"><?php $_block_plugin1 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;[m
+[31m-if (!is_callable($_block_plugin1)) {[m
+[31m-throw new SmartyException('block tag \'translate\' not callable or registered');[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));[m
+[31m-$_block_repeat=true;[m
+[31m-echo $_block_plugin1(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);[m
+[31m-while ($_block_repeat) {[m
+[31m-ob_start();?>applicationsVersion<?php $_block_repeat=false;[m
+[31m-echo $_block_plugin1(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);[m
+[31m-}[m
+[31m-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?> | <?php echo $_smarty_tpl->tpl_vars['_appsVersion']->value;?>[m
+[31m-</span>&nbsp;&nbsp;&nbsp;<span class="version label label-primary" style="white-space: pre-wrap;"><?php $_block_plugin2 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;[m
+[31m-if (!is_callable($_block_plugin2)) {[m
+[31m-throw new SmartyException('block tag \'translate\' not callable or registered');[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));[m
+[31m-$_block_repeat=true;[m
+[31m-echo $_block_plugin2(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);[m
+[31m-while ($_block_repeat) {[m
+[31m-ob_start();?>frameworkVersion<?php $_block_repeat=false;[m
+[31m-echo $_block_plugin2(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);[m
+[31m-}[m
+[31m-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?> | <?php echo $_smarty_tpl->tpl_vars['_frameworkVersion']->value;?>[m
+[31m-</span>&nbsp;&nbsp;[m
+[31m-						</div>[m
+[31m-					</div>[m
+[31m-				</footer>[m
+[31m-[m
+[31m-			</div><!-- ./right-side -->[m
+[31m-		</div><!-- ./wrapper -->[m
+[31m-[m
+[31m-	</body>[m
+[31m-[m
+[31m-</html>[m
+[31m-<?php }[m
+[31m-/* smarty_template_function_hook_19985500565d09f6c025feb2_66527231 */[m
+[31m-if (!function_exists('smarty_template_function_hook_19985500565d09f6c025feb2_66527231')) {[m
+[31m-function smarty_template_function_hook_19985500565d09f6c025feb2_66527231(Smarty_Internal_Template $_smarty_tpl,$params) {[m
+[31m-foreach ($params as $key => $value) {[m
+[31m-$_smarty_tpl->tpl_vars[$key] = new Smarty_Variable($value, $_smarty_tpl->isRenderingCache);[m
+[31m-}[m
+[31m-?>[m
+[31m-          	<?php[m
+[31m-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['POSITION']->value[$_smarty_tpl->tpl_vars['position']->value], 'item');[m
+[31m-if ($_from !== null) {[m
+[31m-foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {[m
+[31m-?>[m
+[31m-	<div class="row-fluid" style="margin-left: 0px">[m
+[31m-		<?php echo $_smarty_tpl->tpl_vars['item']->value;?>[m
+[31m-[m
+[31m-	</div>[m
+[31m-	<?php[m
+[31m-}[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);[m
+[31m-}}[m
+[31m-/*/ smarty_template_function_hook_19985500565d09f6c025feb2_66527231 */[m
+[31m-}[m
+[1mdiff --git a/theme_cache_compiled/1e25077a70ecf23beb5c4d724fae3ee73217b82a_0.file.Tab.tpl.php b/theme_cache_compiled/1e25077a70ecf23beb5c4d724fae3ee73217b82a_0.file.Tab.tpl.php[m
+[1mdeleted file mode 100644[m
+[1mindex 7c79395..0000000[m
+[1m--- a/theme_cache_compiled/1e25077a70ecf23beb5c4d724fae3ee73217b82a_0.file.Tab.tpl.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,47 +0,0 @@[m
+[31m-<?php[m
+[31m-/* Smarty version 3.1.33, created on 2019-07-23 10:15:39[m
+[31m-  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Tab.tpl' */[m
+[31m-[m
+[31m-/* @var Smarty_Internal_Template $_smarty_tpl */[m
+[31m-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array ([m
+[31m-  'version' => '3.1.33',[m
+[31m-  'unifunc' => 'content_5d36de4b0b97a7_29919898',[m
+[31m-  'has_nocache_code' => false,[m
+[31m-  'file_dependency' => [m
+[31m-  array ([m
+[31m-    '1e25077a70ecf23beb5c4d724fae3ee73217b82a' => [m
+[31m-    array ([m
+[31m-      0 => '/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Tab.tpl',[m
+[31m-      1 => 1516813824,[m
+[31m-      2 => 'file',[m
+[31m-    ),[m
+[31m-  ),[m
+[31m-  'includes' => [m
+[31m-  array ([m
+[31m-  ),[m
+[31m-),false)) {[m
+[31m-function content_5d36de4b0b97a7_29919898 (Smarty_Internal_Template $_smarty_tpl) {[m
+[31m-if ($_smarty_tpl->tpl_vars['insideHeader']->value == 1) {?>[m
+[31m-	</div>[m
+[31m-<?php }?>[m
+[31m-[m
+[31m-<?php if ($_smarty_tpl->tpl_vars['insideColumn']->value == 1) {?>[m
+[31m-		</div>[m
+[31m-	</div>[m
+[31m-<?php }?>[m
+[31m-[m
+[31m-<?php if ($_smarty_tpl->tpl_vars['insideTab']->value == 1) {?>[m
+[31m-  	</div>[m
+[31m-<?php }?>[m
+[31m-[m
+[31m-<?php $_smarty_tpl->_assignInScope('active', '');[m
+[31m-if ($_smarty_tpl->tpl_vars['insideTab']->value == 0) {?>[m
+[31m-  <?php $_smarty_tpl->_assignInScope('active', 'in active');[m
+[31m-}?>[m
+[31m-[m
+[31m-	<div class="tab-pane fade <?php echo $_smarty_tpl->tpl_vars['active']->value;?>[m
+[31m-" id="<?php echo $_smarty_tpl->tpl_vars['fieldID']->value;?>[m
+[31m-">[m
+[31m-[m
+[31m-<?php }[m
+[31m-}[m
+[1mdiff --git a/theme_cache_compiled/23946ba97baee22b1d11fcff47610e57538f2a77_0.file.app_menuInclude.tpl.php b/theme_cache_compiled/23946ba97baee22b1d11fcff47610e57538f2a77_0.file.app_menuInclude.tpl.php[m
+[1mdeleted file mode 100644[m
+[1mindex 4377c55..0000000[m
+[1m--- a/theme_cache_compiled/23946ba97baee22b1d11fcff47610e57538f2a77_0.file.app_menuInclude.tpl.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,194 +0,0 @@[m
+[31m-<?php[m
+[31m-/* Smarty version 3.1.33, created on 2020-06-03 11:59:52[m
+[31m-  from '/media/sf_local-development/code/kuink-bridge-standalone/vendor/kuink/kuink-theme-adminlte/template/app_menuInclude.tpl' */[m
+[31m-[m
+[31m-/* @var Smarty_Internal_Template $_smarty_tpl */[m
+[31m-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array ([m
+[31m-  'version' => '3.1.33',[m
+[31m-  'unifunc' => 'content_5ed790b8083d71_41544168',[m
+[31m-  'has_nocache_code' => false,[m
+[31m-  'file_dependency' => [m
+[31m-  array ([m
+[31m-    '23946ba97baee22b1d11fcff47610e57538f2a77' => [m
+[31m-    array ([m
+[31m-      0 => '/media/sf_local-development/code/kuink-bridge-standalone/vendor/kuink/kuink-theme-adminlte/template/app_menuInclude.tpl',[m
+[31m-      1 => 1575365758,[m
+[31m-      2 => 'file',[m
+[31m-    ),[m
+[31m-  ),[m
+[31m-  'includes' => [m
+[31m-  array ([m
+[31m-  ),[m
+[31m-),false)) {[m
+[31m-function content_5ed790b8083d71_41544168 (Smarty_Internal_Template $_smarty_tpl) {[m
+[31m-$_smarty_tpl->smarty->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array ([m
+[31m-  'createLeftMenu' => [m
+[31m-  array ([m
+[31m-    'compiled_filepath' => '/media/sf_local-development/code/kuink-bridge-standalone/vendor/kuink/kuink-theme-adminlte/theme_cache_compiled/23946ba97baee22b1d11fcff47610e57538f2a77_0.file.app_menuInclude.tpl.php',[m
+[31m-    'uid' => '23946ba97baee22b1d11fcff47610e57538f2a77',[m
+[31m-    'call_name' => 'smarty_template_function_createLeftMenu_14577078785ed790b8037440_81171708',[m
+[31m-  ),[m
+[31m-));[m
+[31m-echo '<script'; ?>[m
+[31m->[m
+[31m-	function menuAppAction(confirm, confirm_message, location, button_id) {[m
+[31m-[m
+[31m-		//Call kuink submit center[m
+[31m-		$(".box-body").kuinkSubmit({[m
+[31m-			'url' : location+'&modal=embed',[m
+[31m-			'idContext' : '<?php echo $_smarty_tpl->tpl_vars['_idContext']->value;?>[m
+[31m-',[m
+[31m-			'method' : 'get',[m
+[31m-			'button_id' : button_id[m
+[31m-		});[m
+[31m-	}[m
+[31m-[m
+[31m-<?php echo '</script'; ?>[m
+[31m->[m
+[31m-[m
+[31m-[m
+[31m-<?php }[m
+[31m-/* smarty_template_function_createLeftMenu_14577078785ed790b8037440_81171708 */[m
+[31m-if (!function_exists('smarty_template_function_createLeftMenu_14577078785ed790b8037440_81171708')) {[m
+[31m-function smarty_template_function_createLeftMenu_14577078785ed790b8037440_81171708(Smarty_Internal_Template $_smarty_tpl,$params) {[m
+[31m-$params = array_merge(array('menu'=>false,'submenu'=>false,'menuType'=>'toggle'), $params);[m
+[31m-foreach ($params as $key => $value) {[m
+[31m-$_smarty_tpl->tpl_vars[$key] = new Smarty_Variable($value, $_smarty_tpl->isRenderingCache);[m
+[31m-}[m
+[31m-?>[m
+[31m-[m
+[31m-	<?php if (!is_array($_smarty_tpl->tpl_vars['menu']->value['child'])) {?>[m
+[31m-				<li>[m
+[31m-			<a target="<?php echo $_smarty_tpl->tpl_vars['menu']->value['target'];?>[m
+[31m-" href="javascript: menuAppAction(false, '', '<?php echo $_smarty_tpl->tpl_vars['menu']->value['href'];?>[m
+[31m-', '');" style="color: #777;"[m
+[31m-			<?php if ($_smarty_tpl->tpl_vars['menuType']->value == 'toggled' && $_smarty_tpl->tpl_vars['submenu']->value != true) {?>data-tt="tooltip" title="<?php if ($_smarty_tpl->tpl_vars['menu']->value['label']) {[m
+[31m-echo $_smarty_tpl->tpl_vars['menu']->value['label'];[m
+[31m-} else {[m
+[31m-$_block_plugin4 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;[m
+[31m-if (!is_callable($_block_plugin4)) {[m
+[31m-throw new SmartyException('block tag \'translate\' not callable or registered');[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());[m
+[31m-$_block_repeat=true;[m
+[31m-echo $_block_plugin4(array(), null, $_smarty_tpl, $_block_repeat);[m
+[31m-while ($_block_repeat) {[m
+[31m-ob_start();?>noLabel<?php $_block_repeat=false;[m
+[31m-echo $_block_plugin4(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);[m
+[31m-}[m
+[31m-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);[m
+[31m-}?>"<?php }?>>[m
+[31m-				<i class="fa fa-<?php if ($_smarty_tpl->tpl_vars['menu']->value['icon'] && $_smarty_tpl->tpl_vars['menu']->value['icon'] != 'circle') {[m
+[31m-echo $_smarty_tpl->tpl_vars['menu']->value['icon'];[m
+[31m-} else {[m
+[31m-if (!$_smarty_tpl->tpl_vars['submenu']->value) {?>th-list<?php }[m
+[31m-}?>"></i>[m
+[31m-				<?php if ($_smarty_tpl->tpl_vars['menuType']->value != 'toggled' || $_smarty_tpl->tpl_vars['submenu']->value == true) {?><span><?php if ($_smarty_tpl->tpl_vars['menu']->value['label']) {[m
+[31m-echo $_smarty_tpl->tpl_vars['menu']->value['label'];[m
+[31m-} else {[m
+[31m-$_block_plugin5 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;[m
+[31m-if (!is_callable($_block_plugin5)) {[m
+[31m-throw new SmartyException('block tag \'translate\' not callable or registered');[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());[m
+[31m-$_block_repeat=true;[m
+[31m-echo $_block_plugin5(array(), null, $_smarty_tpl, $_block_repeat);[m
+[31m-while ($_block_repeat) {[m
+[31m-ob_start();?>noLabel<?php $_block_repeat=false;[m
+[31m-echo $_block_plugin5(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);[m
+[31m-}[m
+[31m-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);[m
+[31m-}?></span><?php }?>[m
+[31m-			</a>[m
+[31m-		</li>[m
+[31m-	<?php } else { ?>[m
+[31m-		<?php if ($_smarty_tpl->tpl_vars['menuType']->value != 'toggled') {?>[m
+[31m-			<?php if ($_smarty_tpl->tpl_vars['menuType']->value == 'dropdown') {?>[m
+[31m-				<li class="treeview dropdown-header">[m
+[31m-			<?php } else { ?>[m
+[31m-				<li style="background-color:#EEEEEE;">[m
+[31m-			<?php }?>[m
+[31m-			<i class="fa fa-<?php if ($_smarty_tpl->tpl_vars['menu']->value['icon'] && $_smarty_tpl->tpl_vars['menu']->value['icon'] != 'circle') {[m
+[31m-echo $_smarty_tpl->tpl_vars['menu']->value['icon'];[m
+[31m-} else {[m
+[31m-if (!$_smarty_tpl->tpl_vars['submenu']->value) {?>th-list<?php }[m
+[31m-}?>"></i>[m
+[31m-			<?php if ($_smarty_tpl->tpl_vars['menuType']->value != 'toggled' || $_smarty_tpl->tpl_vars['submenu']->value == true) {?><span><?php if ($_smarty_tpl->tpl_vars['menu']->value['label']) {[m
+[31m-echo $_smarty_tpl->tpl_vars['menu']->value['label'];[m
+[31m-} else {[m
+[31m-$_block_plugin6 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;[m
+[31m-if (!is_callable($_block_plugin6)) {[m
+[31m-throw new SmartyException('block tag \'translate\' not callable or registered');[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());[m
+[31m-$_block_repeat=true;[m
+[31m-echo $_block_plugin6(array(), null, $_smarty_tpl, $_block_repeat);[m
+[31m-while ($_block_repeat) {[m
+[31m-ob_start();?>noLabel<?php $_block_repeat=false;[m
+[31m-echo $_block_plugin6(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);[m
+[31m-}[m
+[31m-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);[m
+[31m-}?></span><?php }?>[m
+[31m-			</li>[m
+[31m-			<li>[m
+[31m-			<?php if ($_smarty_tpl->tpl_vars['menu']->value['child']) {?>[m
+[31m-					<?php[m
+[31m-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['menu']->value['child'], 'submenu');[m
+[31m-if ($_from !== null) {[m
+[31m-foreach ($_from as $_smarty_tpl->tpl_vars['submenu']->value) {[m
+[31m-?>[m
+[31m-						<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'createLeftMenu', array('menu'=>$_smarty_tpl->tpl_vars['submenu']->value,'submenu'=>true,'menuType'=>$_smarty_tpl->tpl_vars['menuType']->value), true);?>[m
+[31m-[m
+[31m-					<?php[m
+[31m-}[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>[m
+[31m-			<?php }?>[m
+[31m-			</li>[m
+[31m-		<?php } else { ?>[m
+[31m-			<li class="dropdown">[m
+[31m-				<a class="dropdown-toggle" data-toggle="dropdown" href="#"[m
+[31m-				<?php if ($_smarty_tpl->tpl_vars['menuType']->value == 'toggled' && $_smarty_tpl->tpl_vars['submenu']->value != true) {?>data-tt="tooltip" title="<?php if ($_smarty_tpl->tpl_vars['menu']->value['label']) {[m
+[31m-echo $_smarty_tpl->tpl_vars['menu']->value['label'];[m
+[31m-} else {[m
+[31m-$_block_plugin7 = isset($_smarty_tpl->smarty->registered_plugins['block']['translate'][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['translate'][0] : null;[m
+[31m-if (!is_callable($_block_plugin7)) {[m
+[31m-throw new SmartyException('block tag \'translate\' not callable or registered');[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array());[m
+[31m-$_block_repeat=true;[m
+[31m-echo $_block_plugin7(array(), null, $_smarty_tpl, $_block_repeat);[m
+[31m-while ($_block_repeat) {[m
+[31m-ob_start();?>noLabel<?php $_block_repeat=false;[m
+[31m-echo $_block_plugin7(array(), ob_get_clean(), $_smarty_tpl, $_block_repeat);[m
+[31m-}[m
+[31m-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);[m
+[31m-}?>"<?php }?>>[m
+[31m-					<i class="fa fa-<?php if ($_smarty_tpl->tpl_vars['menu']->value['icon'] && $_smarty_tpl->tpl_vars['menu']->value['icon'] != 'circle') {[m
+[31m-echo $_smarty_tpl->tpl_vars['menu']->value['icon'];[m
+[31m-} else {[m
+[31m-if (!$_smarty_tpl->tpl_vars['submenu']->value) {?>th-list<?php }[m
+[31m-}?>"></i>[m
+[31m-					<span class="caret"></span>[m
+[31m-				</a>[m
+[31m-				<?php if ($_smarty_tpl->tpl_vars['menu']->value['child']) {?>[m
+[31m-					<ul class="dropdown-menu" style="margin-left: 100%; margin-top: -40px;border-top-left-radius: 0;">[m
+[31m-							<?php[m
+[31m-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['menu']->value['child'], 'submenu');[m
+[31m-if ($_from !== null) {[m
+[31m-foreach ($_from as $_smarty_tpl->tpl_vars['submenu']->value) {[m
+[31m-?>[m
+[31m-								<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'createLeftMenu', array('menu'=>$_smarty_tpl->tpl_vars['submenu']->value,'submenu'=>true,'menuType'=>$_smarty_tpl->tpl_vars['menuType']->value), true);?>[m
+[31m-[m
+[31m-							<?php[m
+[31m-}[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>[m
+[31m-					</ul>[m
+[31m-				<?php }?>[m
+[31m-			</li>[m
+[31m-		<?php }?>[m
+[31m-	<?php }[m
+[31m-}}[m
+[31m-/*/ smarty_template_function_createLeftMenu_14577078785ed790b8037440_81171708 */[m
+[31m-}[m
+[1mdiff --git a/theme_cache_compiled/2a5e87de8486d21d81087312754abeadc06ceb94_0.file.Text.tpl.php b/theme_cache_compiled/2a5e87de8486d21d81087312754abeadc06ceb94_0.file.Text.tpl.php[m
+[1mdeleted file mode 100644[m
+[1mindex 7f36b88..0000000[m
+[1m--- a/theme_cache_compiled/2a5e87de8486d21d81087312754abeadc06ceb94_0.file.Text.tpl.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,105 +0,0 @@[m
+[31m-<?php[m
+[31m-/* Smarty version 3.1.33, created on 2019-06-19 08:47:59[m
+[31m-  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Text.tpl' */[m
+[31m-[m
+[31m-/* @var Smarty_Internal_Template $_smarty_tpl */[m
+[31m-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array ([m
+[31m-  'version' => '3.1.33',[m
+[31m-  'unifunc' => 'content_5d09f6bfde8951_92494161',[m
+[31m-  'has_nocache_code' => false,[m
+[31m-  'file_dependency' => [m
+[31m-  array ([m
+[31m-    '2a5e87de8486d21d81087312754abeadc06ceb94' => [m
+[31m-    array ([m
+[31m-      0 => '/opt/moodle/mod/kuink/theme/adminlte/ui/control/form/Text.tpl',[m
+[31m-      1 => 1516749551,[m
+[31m-      2 => 'file',[m
+[31m-    ),[m
+[31m-  ),[m
+[31m-  'includes' => [m
+[31m-  array ([m
+[31m-  ),[m
+[31m-),false)) {[m
+[31m-function content_5d09f6bfde8951_92494161 (Smarty_Internal_Template $_smarty_tpl) {[m
+[31m-$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/opt/kuink-dev/kuink-core/lib/tools/smarty/plugins/block.translate.php','function'=>'smarty_block_translate',),));[m
+[31m-?>[m
+[31m-<div class="controls" style="<?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['inline'] == 'tight') {?>float: left; margin: 0px<?php }?>">[m
+[31m-[m
+[31m-	<?php if ($_smarty_tpl->tpl_vars['fieldAttrs']->value['multilang'] == 'true' && is_array($_smarty_tpl->tpl_vars['field']->value['value'])) {?>[m
+[31m-		<!-- This is multilang: load languages from _lang datasource-->	[m
+[31m-		<?php[m
+[31m-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['_languages']->value, 'language');[m
+[31m-if ($_from !== null) {[m
+[31m-foreach ($_from as $_smarty_tpl->tpl_vars['language']->value) {[m
+[31m-?>[m
+[31m-			<?php $_smarty_tpl->_assignInScope('lang', $_smarty_tpl->tpl_vars['language']->value['country']);?>[m
+[31m-			<div class="input-append">[m
+[31m-				<input type="text" <?php echo $_smarty_tpl->tpl_vars['disabledAttr']->value;?>[m
+[31m- class="form-control <?php echo $_smarty_tpl->tpl_vars['disabledClass']->value;?>[m
+[31m- popover-dismiss" [m
+[31m-					id="<?php echo $_smarty_tpl->tpl_vars['fieldGuid']->value;?>[m
+[31m-_<?php echo $_smarty_tpl->tpl_vars['lang']->value;?>[m
+[31m-" name="<?php echo $_smarty_tpl->tpl_vars['fieldName']->value;?>[m
+[31m-_<?php echo $_smarty_tpl->tpl_vars['lang']->value;?>[m
+[31m-" [m
+[31m-					value="<?php echo $_smarty_tpl->tpl_vars['field']->value['value'][$_smarty_tpl->tpl_vars['lang']->value];?>[m
+[31m-" maxlength="<?php echo $_smarty_tpl->tpl_vars['fieldAttrs']->value['maxlength'];?>[m
+[31m-"/>[m
+[31m-				<span class="add-on"><img src="<?php echo $_smarty_tpl->tpl_vars['_themeRoot']->value;?>[m
+[31m-theme/<?php echo $_smarty_tpl->tpl_vars['THEME']->value;?>[m
+[31m-/assets/css/flags/blank.gif" class="flag flag-<?php echo $_smarty_tpl->tpl_vars['lang']->value;?>[m
+[31m-" alt="<?php echo $_smarty_tpl->tpl_vars['lang']->value;?>[m
+[31m-" /></span>[m
+[31m-			</div>[m
+[31m-		<?php[m
+[31m-}[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>[m
+[31m-	<?php } else { ?>[m
+[31m-		<?php if ($_smarty_tpl->tpl_vars['field']->value['attributes']['icon'] != '') {?>[m
+[31m-			<div class="input-prepend">[m
+[31m-	      			<span class="add-on"><i class="icon-<?php echo $_smarty_tpl->tpl_vars['fieldAttrs']->value['icon'];?>[m
+[31m-"></i></span>[m
+[31m-				<input type="text" <?php echo $_smarty_tpl->tpl_vars['disabledAttr']->value;?>[m
+[31m- class="form-control <?php echo $_smarty_tpl->tpl_vars['disabledClass']->value;?>[m
+[31m- popover-dismiss" id="<?php echo $_smarty_tpl->tpl_vars['fieldGuid']->value;?>[m
+[31m-" [m
+[31m-					name="<?php echo $_smarty_tpl->tpl_vars['fieldName']->value;?>[m
+[31m-" value="<?php echo $_smarty_tpl->tpl_vars['field']->value['value'];?>[m
+[31m-" maxlength="<?php echo $_smarty_tpl->tpl_vars['fieldAttrs']->value['maxlength'];?>[m
+[31m-"[m
+[31m-					<?php if ($_smarty_tpl->tpl_vars['field']->value['attributes']['required'] == 'true') {?> [m
+[31m-						data-bv-notempty data-bv-notempty-message="<?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));[m
+[31m-$_block_repeat=true;[m
+[31m-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);[m
+[31m-while ($_block_repeat) {[m
+[31m-ob_start();?>requiredField<?php $_block_repeat=false;[m
+[31m-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);[m
+[31m-}[m
+[31m-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>"[m
+[31m-					<?php }?>>[m
+[31m-			</div>[m
+[31m-		<?php } else { ?>[m
+[31m-			<input type="text" <?php echo $_smarty_tpl->tpl_vars['disabledAttr']->value;?>[m
+[31m- class="form-control <?php echo $_smarty_tpl->tpl_vars['disabledClass']->value;?>[m
+[31m- popover-dismiss" id="<?php echo $_smarty_tpl->tpl_vars['fieldGuid']->value;?>[m
+[31m-" [m
+[31m-				name="<?php echo $_smarty_tpl->tpl_vars['fieldName']->value;?>[m
+[31m-" value="<?php echo $_smarty_tpl->tpl_vars['field']->value['value'];?>[m
+[31m-" maxlength="<?php echo $_smarty_tpl->tpl_vars['fieldAttrs']->value['maxlength'];?>[m
+[31m-"[m
+[31m-				<?php if ($_smarty_tpl->tpl_vars['field']->value['attributes']['required'] == 'true') {?> [m
+[31m-					data-bv-notempty data-bv-notempty-message="<?php $_smarty_tpl->smarty->_cache['_tag_stack'][] = array('translate', array('app'=>"framework"));[m
+[31m-$_block_repeat=true;[m
+[31m-echo smarty_block_translate(array('app'=>"framework"), null, $_smarty_tpl, $_block_repeat);[m
+[31m-while ($_block_repeat) {[m
+[31m-ob_start();?>requiredField<?php $_block_repeat=false;[m
+[31m-echo smarty_block_translate(array('app'=>"framework"), ob_get_clean(), $_smarty_tpl, $_block_repeat);[m
+[31m-}[m
+[31m-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>"[m
+[31m-				<?php }?>>[m
+[31m-		<?php }?>[m
+[31m-	<?php }?>[m
+[31m-</div>[m
+[31m-<?php }[m
+[31m-}[m
+[1mdiff --git a/theme_cache_compiled/2d58d3cef066ebbc16cad60cb2919ac50ee40cf3_0.file.App_2x1col.tpl.php b/theme_cache_compiled/2d58d3cef066ebbc16cad60cb2919ac50ee40cf3_0.file.App_2x1col.tpl.php[m
+[1mdeleted file mode 100644[m
+[1mindex 2ca019f..0000000[m
+[1m--- a/theme_cache_compiled/2d58d3cef066ebbc16cad60cb2919ac50ee40cf3_0.file.App_2x1col.tpl.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,44 +0,0 @@[m
+[31m-<?php[m
+[31m-/* Smarty version 3.1.33, created on 2019-07-23 10:15:53[m
+[31m-  from '/opt/moodle/mod/kuink/theme/adminlte/template/app/App_2x1col.tpl' */[m
+[31m-[m
+[31m-/* @var Smarty_Internal_Template $_smarty_tpl */[m
+[31m-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array ([m
+[31m-  'version' => '3.1.33',[m
+[31m-  'unifunc' => 'content_5d36de59824777_57052816',[m
+[31m-  'has_nocache_code' => false,[m
+[31m-  'file_dependency' => [m
+[31m-  array ([m
+[31m-    '2d58d3cef066ebbc16cad60cb2919ac50ee40cf3' => [m
+[31m-    array ([m
+[31m-      0 => '/opt/moodle/mod/kuink/theme/adminlte/template/app/App_2x1col.tpl',[m
+[31m-      1 => 1516290437,[m
+[31m-      2 => 'file',[m
+[31m-    ),[m
+[31m-  ),[m
+[31m-  'includes' => [m
+[31m-  array ([m
+[31m-  ),[m
+[31m-),false)) {[m
+[31m-function content_5d36de59824777_57052816 (Smarty_Internal_Template $_smarty_tpl) {[m
+[31m-?>[m
+[31m-<div class="container-fluid" style="zoom:100%">[m
+[31m-	<div class="row-fluid" style="margin-top: 10px;clear:both;">[m
+[31m-		<div class="col-md-6">[m
+[31m-			<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'left'), true);?>[m
+[31m-[m
+[31m-		</div>[m
+[31m-		<div class="col-md-6">[m
+[31m-			<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'right'), true);?>[m
+[31m-[m
+[31m-		</div>[m
+[31m-	</div>[m
+[31m-	<div class="row-fluid" style="margin-top: 10px;clear:both;">[m
+[31m-		<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'bottom'), true);?>[m
+[31m-[m
+[31m-		<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'hook', array('position'=>'default'), true);?>[m
+[31m-[m
+[31m-	</div>[m
+[31m-</div>[m
+[31m-<?php }[m
+[31m-}[m
+[1mdiff --git a/theme_cache_compiled/2da49ef6391f4e2f351dc1eef24b13e59cd17b03_0.file.app_toggleMenu.tpl.php b/theme_cache_compiled/2da49ef6391f4e2f351dc1eef24b13e59cd17b03_0.file.app_toggleMenu.tpl.php[m
+[1mdeleted file mode 100644[m
+[1mindex f93a38c..0000000[m
+[1m--- a/theme_cache_compiled/2da49ef6391f4e2f351dc1eef24b13e59cd17b03_0.file.app_toggleMenu.tpl.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,91 +0,0 @@[m
+[31m-<?php[m
+[31m-/* Smarty version 3.1.33, created on 2020-06-03 11:59:52[m
+[31m-  from '/media/sf_local-development/code/kuink-bridge-standalone/vendor/kuink/kuink-theme-adminlte/template/app_toggleMenu.tpl' */[m
+[31m-[m
+[31m-/* @var Smarty_Internal_Template $_smarty_tpl */[m
+[31m-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array ([m
+[31m-  'version' => '3.1.33',[m
+[31m-  'unifunc' => 'content_5ed790b80c6731_94014719',[m
+[31m-  'has_nocache_code' => false,[m
+[31m-  'file_dependency' => [m
+[31m-  array ([m
+[31m-    '2da49ef6391f4e2f351dc1eef24b13e59cd17b03' => [m
+[31m-    array ([m
+[31m-      0 => '/media/sf_local-development/code/kuink-bridge-standalone/vendor/kuink/kuink-theme-adminlte/template/app_toggleMenu.tpl',[m
+[31m-      1 => 1575365758,[m
+[31m-      2 => 'file',[m
+[31m-    ),[m
+[31m-  ),[m
+[31m-  'includes' => [m
+[31m-  array ([m
+[31m-  ),[m
+[31m-),false)) {[m
+[31m-function content_5ed790b80c6731_94014719 (Smarty_Internal_Template $_smarty_tpl) {[m
+[31m-?><!-- Sidebar -->[m
+[31m-<?php if ($_smarty_tpl->tpl_vars['menuIsToggled']->value == false) {?>[m
+[31m-	<div id="sidebar-wrapper" style="overflow: hidden; display: none;margin-right: 20px; float: left;">[m
+[31m-		<ul style="list-style: none;" class="nav nav-pills nav-stacked">[m
+[31m-			<?php[m
+[31m-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['menuEntries']->value, 'menu');[m
+[31m-if ($_from !== null) {[m
+[31m-foreach ($_from as $_smarty_tpl->tpl_vars['menu']->value) {[m
+[31m-?>[m
+[31m-				<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'createLeftMenu', array('menu'=>$_smarty_tpl->tpl_vars['menu']->value,'submenu'=>false,'menuType'=>'toggle'), true);?>[m
+[31m-[m
+[31m-			<?php[m
+[31m-}[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>[m
+[31m-		</ul>[m
+[31m-	</div>[m
+[31m-<?php } else { ?>[m
+[31m-	<div id="iconMenuToggled" style="display: block;margin-right:20px;float:left;">[m
+[31m-		<ul style="list-style: none;" class="nav nav-pills nav-stacked" id="toggleMenuChildren">[m
+[31m-			<?php[m
+[31m-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['menuEntries']->value, 'menu');[m
+[31m-if ($_from !== null) {[m
+[31m-foreach ($_from as $_smarty_tpl->tpl_vars['menu']->value) {[m
+[31m-?>[m
+[31m-				<?php $_smarty_tpl->smarty->ext->_tplFunction->callTemplateFunction($_smarty_tpl, 'createLeftMenu', array('menu'=>$_smarty_tpl->tpl_vars['menu']->value,'submenu'=>false,'menuType'=>'toggled'), true);?>[m
+[31m-[m
+[31m-			<?php[m
+[31m-}[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>[m
+[31m-		</ul>[m
+[31m-	</div>[m
+[31m-[m
+[31m-<?php }?>[m
+[31m-<!-- /#sidebar-wrapper -->[m
+[31m-<?php echo '<script'; ?>[m
+[31m->[m
+[31m-$(document).ready(function(){[m
+[31m-	$("[data-tt=tooltip]").tooltip();[m
+[31m-	if(typeof window.toggleMenuIsVisible !== 'undefined') {[m
+[31m-		if(window.toggleMenuIsVisible == false){[m
+[31m-			if($("#sidebar-wrapper").is(":visible") == true){[m
+[31m-				$("#wrapper").toggleClass("toggled");[m
+[31m-			}[m
+[31m-			$("#sidebar-wrapper").fadeOut('fast');[m
+[31m-			$("#iconMenuToggled").fadeIn('fast');[m
+[31m-		} else {[m
+[31m-			if($("#sidebar-wrapper").is(":visible") == false){[m
+[31m-				$("#wrapper").toggleClass("toggled");[m
+[31m-			}[m
+[31m-			$("#sidebar-wrapper").fadeIn('fast');[m
+[31m-			$("#iconMenuToggled").fadeOut('fast');[m
+[31m-		}[m
+[31m-	}[m
+[31m-[m
+[31m-	var hasMenu = document.getElementById("toggleMenuChildren");[m
+[31m-	if(hasMenu != null) {[m
+[31m-		if(hasMenu.hasChildNodes())[m
+[31m-			$("#sidebarMenu").fadeIn('fast');[m
+[31m-	} else {[m
+[31m-		if(!hasMenu.hasChildNodes())[m
+[31m-			$("#sidebarMenu").fadeOut('fast');[m
+[31m-	}});[m
+[31m-<?php echo '</script'; ?>[m
+[31m->[m
+[31m-<?php }[m
+[31m-}[m
+[1mdiff --git a/theme_cache_compiled/332b820f10652b56764a98445b0f266484a3aa4c_2.file.debug.tpl.php b/theme_cache_compiled/332b820f10652b56764a98445b0f266484a3aa4c_2.file.debug.tpl.php[m
+[1mdeleted file mode 100644[m
+[1mindex c1cd61f..0000000[m
+[1m--- a/theme_cache_compiled/332b820f10652b56764a98445b0f266484a3aa4c_2.file.debug.tpl.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,239 +0,0 @@[m
+[31m-<?php[m
+[31m-/* Smarty version 3.1.33, created on 2019-10-30 12:02:13[m
+[31m-  from '/opt/kuink-dev/kuink-core/lib/tools/smarty/debug.tpl' */[m
+[31m-[m
+[31m-/* @var Smarty_Internal_Template $_smarty_tpl */[m
+[31m-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array ([m
+[31m-  'version' => '3.1.33',[m
+[31m-  'unifunc' => 'content_5db97bc51826b0_39369829',[m
+[31m-  'has_nocache_code' => false,[m
+[31m-  'file_dependency' => [m
+[31m-  array ([m
+[31m-    '332b820f10652b56764a98445b0f266484a3aa4c' => [m
+[31m-    array ([m
+[31m-      0 => '/opt/kuink-dev/kuink-core/lib/tools/smarty/debug.tpl',[m
+[31m-      1 => 1536785656,[m
+[31m-      2 => 'file',[m
+[31m-    ),[m
+[31m-  ),[m
+[31m-  'includes' => [m
+[31m-  array ([m
+[31m-  ),[m
+[31m-),false)) {[m
+[31m-function content_5db97bc51826b0_39369829 (Smarty_Internal_Template $_smarty_tpl) {[m
+[31m-$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/opt/kuink-dev/kuink-core/lib/tools/smarty/plugins/modifier.debug_print_var.php','function'=>'smarty_modifier_debug_print_var',),));[m
+[31m-$_smarty_tpl->smarty->ext->_capture->open($_smarty_tpl, '_smarty_debug', 'debug_output', null);?>[m
+[31m-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">[m
+[31m-    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">[m
+[31m-    <head>[m
+[31m-        <title>Smarty Debug Console</title>[m
+[31m-        <style type="text/css">[m
+[31m-            [m
+[31m-            body, h1, h2, h3, td, th, p {[m
+[31m-                font-family: sans-serif;[m
+[31m-                font-weight: normal;[m
+[31m-                font-size: 0.9em;[m
+[31m-                margin: 1px;[m
+[31m-                padding: 0;[m
+[31m-            }[m
+[31m-[m
+[31m-            h1 {[m
+[31m-                margin: 0;[m
+[31m-                text-align: left;[m
+[31m-                padding: 2px;[m
+[31m-                background-color: #f0c040;[m
+[31m-                color: black;[m
+[31m-                font-weight: bold;[m
+[31m-                font-size: 1.2em;[m
+[31m-            }[m
+[31m-[m
+[31m-            h2 {[m
+[31m-                background-color: #9B410E;[m
+[31m-                color: white;[m
+[31m-                text-align: left;[m
+[31m-                font-weight: bold;[m
+[31m-                padding: 2px;[m
+[31m-                border-top: 1px solid black;[m
+[31m-            }[m
+[31m-            h3 {[m
+[31m-                text-align: left;[m
+[31m-                font-weight: bold;[m
+[31m-                color: black;[m
+[31m-                font-size: 0.7em;[m
+[31m-                padding: 2px;[m
+[31m-            }[m
+[31m-[m
+[31m-            body {[m
+[31m-                background: black;[m
+[31m-            }[m
+[31m-[m
+[31m-            p, table, div {[m
+[31m-                background: #f0ead8;[m
+[31m-            }[m
+[31m-[m
+[31m-            p {[m
+[31m-                margin: 0;[m
+[31m-                font-style: italic;[m
+[31m-                text-align: center;[m
+[31m-            }[m
+[31m-[m
+[31m-            table {[m
+[31m-                width: 100%;[m
+[31m-            }[m
+[31m-[m
+[31m-            th, td {[m
+[31m-                font-family: monospace;[m
+[31m-                vertical-align: top;[m
+[31m-                text-align: left;[m
+[31m-            }[m
+[31m-[m
+[31m-            td {[m
+[31m-                color: green;[m
+[31m-            }[m
+[31m-[m
+[31m-            .odd {[m
+[31m-                background-color: #eeeeee;[m
+[31m-            }[m
+[31m-[m
+[31m-            .even {[m
+[31m-                background-color: #fafafa;[m
+[31m-            }[m
+[31m-[m
+[31m-            .exectime {[m
+[31m-                font-size: 0.8em;[m
+[31m-                font-style: italic;[m
+[31m-            }[m
+[31m-[m
+[31m-            #bold div {[m
+[31m-                color: black;[m
+[31m-                font-weight: bold;[m
+[31m-            }[m
+[31m-            #blue h3 {[m
+[31m-                color: blue;[m
+[31m-            }[m
+[31m-            #normal div {[m
+[31m-                color: black;[m
+[31m-                font-weight: normal;[m
+[31m-            }[m
+[31m-            #table_assigned_vars th {[m
+[31m-                color: blue;[m
+[31m-                font-weight: bold;[m
+[31m-            }[m
+[31m-[m
+[31m-            #table_config_vars th {[m
+[31m-                color: maroon;[m
+[31m-            }[m
+[31m-[m
+[31m-            [m
+[31m-        </style>[m
+[31m-    </head>[m
+[31m-    <body>[m
+[31m-[m
+[31m-    <h1>Smarty <?php echo htmlspecialchars(Smarty::SMARTY_VERSION, ENT_QUOTES, 'UTF-8');?>[m
+[31m- Debug Console[m
+[31m-        -  <?php if (isset($_smarty_tpl->tpl_vars['template_name']->value)) {[m
+[31m-echo smarty_modifier_debug_print_var($_smarty_tpl->tpl_vars['template_name']->value);?>[m
+[31m- <?php }[m
+[31m-if (!empty($_smarty_tpl->tpl_vars['template_data']->value)) {?>Total Time <?php echo htmlspecialchars(sprintf("%.5f",$_smarty_tpl->tpl_vars['execution_time']->value), ENT_QUOTES, 'UTF-8');[m
+[31m-}?></h1>[m
+[31m-[m
+[31m-    <?php if (!empty($_smarty_tpl->tpl_vars['template_data']->value)) {?>[m
+[31m-        <h2>included templates &amp; config files (load time in seconds)</h2>[m
+[31m-        <div>[m
+[31m-            <?php[m
+[31m-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['template_data']->value, 'template');[m
+[31m-if ($_from !== null) {[m
+[31m-foreach ($_from as $_smarty_tpl->tpl_vars['template']->value) {[m
+[31m-?>[m
+[31m-                <font color=brown><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['template']->value['name'], ENT_QUOTES, 'UTF-8');?>[m
+[31m-</font>[m
+[31m-                <br />&nbsp;&nbsp;<span class="exectime">[m
+[31m-                (compile <?php echo htmlspecialchars(sprintf("%.5f",$_smarty_tpl->tpl_vars['template']->value['compile_time']), ENT_QUOTES, 'UTF-8');?>[m
+[31m-) (render <?php echo htmlspecialchars(sprintf("%.5f",$_smarty_tpl->tpl_vars['template']->value['render_time']), ENT_QUOTES, 'UTF-8');?>[m
+[31m-) (cache <?php echo htmlspecialchars(sprintf("%.5f",$_smarty_tpl->tpl_vars['template']->value['cache_time']), ENT_QUOTES, 'UTF-8');?>[m
+[31m-)[m
+[31m-                 </span>[m
+[31m-                <br />[m
+[31m-            <?php[m
+[31m-}[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>[m
+[31m-        </div>[m
+[31m-    <?php }?>[m
+[31m-[m
+[31m-    <h2>assigned template variables</h2>[m
+[31m-[m
+[31m-    <table id="table_assigned_vars">[m
+[31m-        <?php[m
+[31m-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['assigned_vars']->value, 'vars');[m
+[31m-$_smarty_tpl->tpl_vars['vars']->iteration = 0;[m
+[31m-if ($_from !== null) {[m
+[31m-foreach ($_from as $_smarty_tpl->tpl_vars['vars']->key => $_smarty_tpl->tpl_vars['vars']->value) {[m
+[31m-$_smarty_tpl->tpl_vars['vars']->iteration++;[m
+[31m-$__foreach_vars_2_saved = $_smarty_tpl->tpl_vars['vars'];[m
+[31m-?>[m
+[31m-            <tr class="<?php if ($_smarty_tpl->tpl_vars['vars']->iteration%2 == 0) {?>odd<?php } else { ?>even<?php }?>">[m
+[31m-                <td><h3><font color=blue>$<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['vars']->key, ENT_QUOTES, 'UTF-8');?>[m
+[31m-</font></h3>[m
+[31m-                    <?php if (isset($_smarty_tpl->tpl_vars['vars']->value['nocache'])) {?><b>Nocache</b><br /><?php }?>[m
+[31m-                    <?php if (isset($_smarty_tpl->tpl_vars['vars']->value['scope'])) {?><b>Origin:</b> <?php echo smarty_modifier_debug_print_var($_smarty_tpl->tpl_vars['vars']->value['scope']);[m
+[31m-}?>[m
+[31m-                </td>[m
+[31m-                <td><h3>Value</h3><?php echo smarty_modifier_debug_print_var($_smarty_tpl->tpl_vars['vars']->value['value'],10,80);?>[m
+[31m-</td>[m
+[31m-                <td><?php if (isset($_smarty_tpl->tpl_vars['vars']->value['attributes'])) {?><h3>Attributes</h3><?php echo smarty_modifier_debug_print_var($_smarty_tpl->tpl_vars['vars']->value['attributes']);?>[m
+[31m- <?php }?></td>[m
+[31m-         <?php[m
+[31m-$_smarty_tpl->tpl_vars['vars'] = $__foreach_vars_2_saved;[m
+[31m-}[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>[m
+[31m-    </table>[m
+[31m-[m
+[31m-    <h2>assigned config file variables</h2>[m
+[31m-[m
+[31m-    <table id="table_config_vars">[m
+[31m-        <?php[m
+[31m-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['config_vars']->value, 'vars');[m
+[31m-$_smarty_tpl->tpl_vars['vars']->iteration = 0;[m
+[31m-if ($_from !== null) {[m
+[31m-foreach ($_from as $_smarty_tpl->tpl_vars['vars']->key => $_smarty_tpl->tpl_vars['vars']->value) {[m
+[31m-$_smarty_tpl->tpl_vars['vars']->iteration++;[m
+[31m-$__foreach_vars_3_saved = $_smarty_tpl->tpl_vars['vars'];[m
+[31m-?>[m
+[31m-            <tr class="<?php if ($_smarty_tpl->tpl_vars['vars']->iteration%2 == 0) {?>odd<?php } else { ?>even<?php }?>">[m
+[31m-                <td><h3><font color=blue>#<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['vars']->key, ENT_QUOTES, 'UTF-8');?>[m
+[31m-#</font></h3>[m
+[31m-                    <?php if (isset($_smarty_tpl->tpl_vars['vars']->value['scope'])) {?><b>Origin:</b> <?php echo smarty_modifier_debug_print_var($_smarty_tpl->tpl_vars['vars']->value['scope']);[m
+[31m-}?>[m
+[31m-                </td>[m
+[31m-                <td><?php echo smarty_modifier_debug_print_var($_smarty_tpl->tpl_vars['vars']->value['value'],10,80);?>[m
+[31m-</td>[m
+[31m-            </tr>[m
+[31m-        <?php[m
+[31m-$_smarty_tpl->tpl_vars['vars'] = $__foreach_vars_3_saved;[m
+[31m-}[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>[m
+[31m-[m
+[31m-    </table>[m
+[31m-    </body>[m
+[31m-    </html>[m
+[31m-<?php $_smarty_tpl->smarty->ext->_capture->close($_smarty_tpl);[m
+[31m-echo '<script'; ?>[m
+[31m- type="text/javascript">[m
+[31m-    <?php $_smarty_tpl->_assignInScope('id', '__Smarty__');?>[m
+[31m-    <?php if ($_smarty_tpl->tpl_vars['display_mode']->value) {[m
+[31m-$_smarty_tpl->_assignInScope('id', md5(((string)$_smarty_tpl->tpl_vars['offset']->value).((string)$_smarty_tpl->tpl_vars['template_name']->value)));[m
+[31m-}?>[m
+[31m-    _smarty_console = window.open("", "console<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['id']->value, ENT_QUOTES, 'UTF-8');?>[m
+[31m-", "width=1024,height=600,left=<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['offset']->value, ENT_QUOTES, 'UTF-8');?>[m
+[31m-,top=<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['offset']->value, ENT_QUOTES, 'UTF-8');?>[m
+[31m-,resizable,scrollbars=yes");[m
+[31m-    _smarty_console.document.write("<?php echo strtr($_smarty_tpl->tpl_vars['debug_output']->value, array("\\" => "\\\\", "'" => "\\'", "\"" => "\\\"", "\r" => "\\r", "\n" => "\\n", "</" => "<\/" ));?>[m
+[31m-");[m
+[31m-    _smarty_console.document.close();[m
+[31m-<?php echo '</script'; ?>[m
+[31m->[m
+[31m-<?php }[m
+[31m-}[m
+[1mdiff --git a/theme_cache_compiled/3444157611c5786aa2c8dba8c0343931671b0352_0.file.Form_HandleActionButtons.tpl.php b/theme_cache_compiled/3444157611c5786aa2c8dba8c0343931671b0352_0.file.Form_HandleActionButtons.tpl.php[m
+[1mdeleted file mode 100644[m
+[1mindex 46847b5..0000000[m
+[1m--- a/theme_cache_compiled/3444157611c5786aa2c8dba8c0343931671b0352_0.file.Form_HandleActionButtons.tpl.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,216 +0,0 @@[m
+[31m-<?php[m
+[31m-/* Smarty version 3.1.33, created on 2019-06-19 08:47:59[m
+[31m-  from '/opt/moodle/mod/kuink/theme/adminlte/ui/control/Form_HandleActionButtons.tpl' */[m
+[31m-[m
+[31m-/* @var Smarty_Internal_Template $_smarty_tpl */[m
+[31m-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array ([m
+[31m-  'version' => '3.1.33',[m
+[31m-  'unifunc' => 'content_5d09f6bff131e0_36568567',[m
+[31m-  'has_nocache_code' => false,[m
+[31m-  'file_dependency' => [m
+[31m-  array ([m
+[31m-    '3444157611c5786aa2c8dba8c0343931671b0352' => [m
+[31m-    array ([m
+[31m-      0 => '/opt/moodle/mod/kuink/theme/adminlte/ui/control/Form_HandleActionButtons.tpl',[m
+[31m-      1 => 1517503379,[m
+[31m-      2 => 'file',[m
+[31m-    ),[m
+[31m-  ),[m
+[31m-  'includes' => [m
+[31m-  array ([m
+[31m-  ),[m
+[31m-),false)) {[m
+[31m-function content_5d09f6bff131e0_36568567 (Smarty_Internal_Template $_smarty_tpl) {[m
+[31m-$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/opt/kuink-dev/kuink-core/lib/tools/smarty/plugins/modifier.replace.php','function'=>'smarty_modifier_replace',),));[m
+[31m-?>[m
+[31m-[m
+[31m-[m
+[31m-<?php $_smarty_tpl->_assignInScope('buttonAttrs', $_smarty_tpl->tpl_vars['button']->value['attributes']);[m
+[31m-$_smarty_tpl->_assignInScope('buttonType', $_smarty_tpl->tpl_vars['buttonAttrs']->value['type']);[m
+[31m-$_smarty_tpl->_assignInScope('buttonIcon', $_smarty_tpl->tpl_vars['buttonAttrs']->value['icon']);[m
+[31m-$_smarty_tpl->_assignInScope('group', $_smarty_tpl->tpl_vars['buttonAttrs']->value['group']);?>[m
+[31m-[m
+[31m-<?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");[m
+[31m-$_smarty_tpl->_assignInScope('buttonClass', "btn");?>[m
+[31m-[m
+[31m-<?php if ($_smarty_tpl->tpl_vars['buttonType']->value == "submit" || $_smarty_tpl->tpl_vars['buttonAttrs']->value['decoration'] == "primary") {?>[m
+[31m-	<?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");[m
+[31m-}?>[m
+[31m-[m
+[31m-	      	<?php if ($_smarty_tpl->tpl_vars['buttonType']->value == "cancel") {?>[m
+[31m-		        <?php $_smarty_tpl->_assignInScope('buttonClass', "btn");?>[m
+[31m-		        <?php $_smarty_tpl->_assignInScope('iconColor', '');?>[m
+[31m-  	      <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "add") {?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "plus");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-success");?>[m
+[31m-  	      <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "execute") {?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "play");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>[m
+[31m-  	      <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "save") {?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "check");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>[m
+[31m-  	      <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "delete") {?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "remove");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-danger");?>[m
+[31m-  	      <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "search") {?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "search");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>[m
+[31m-          <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "back") {?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "cancel");?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "chevron-left");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('iconColor', '');?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn");?>[m
+[31m-          <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "continue") {?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "chevron-right");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>[m
+[31m-          <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "list") {?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "list");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>[m
+[31m-          <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "view") {?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "file");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>[m
+[31m-          <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "update") {?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "pencil");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>[m
+[31m-          <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "send") {?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "arrow-right");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-danger");?>[m
+[31m-  	      <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "validate") {?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>[m
+[31m-  	       	  <?php $_smarty_tpl->_assignInScope('buttonIcon', "ok");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-  	          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-success");?>[m
+[31m-          <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "refresh") {?>[m
+[31m-              <?php $_smarty_tpl->_assignInScope('buttonType', "submit");?>[m
+[31m-              <?php $_smarty_tpl->_assignInScope('buttonIcon', "refresh");?>[m
+[31m-              <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-              <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-warning");?>[m
+[31m-          <?php } elseif ($_smarty_tpl->tpl_vars['buttonType']->value == "print") {?>[m
+[31m-              <?php $_smarty_tpl->_assignInScope('buttonType', "cancel");?>[m
+[31m-              <?php $_smarty_tpl->_assignInScope('buttonIcon', "print");?>[m
+[31m-              <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-              <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-primary");?>[m
+[31m-	      <?php }?>[m
+[31m-[m
+[31m-        <?php if ($_smarty_tpl->tpl_vars['buttonAttrs']->value['decoration'] == "secundary") {?>[m
+[31m-          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-info");?>[m
+[31m-          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-        <?php } elseif ($_smarty_tpl->tpl_vars['buttonAttrs']->value['decoration'] == "success") {?>[m
+[31m-          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-success");?>[m
+[31m-          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-        <?php } elseif ($_smarty_tpl->tpl_vars['buttonAttrs']->value['decoration'] == "warning") {?>[m
+[31m-          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-warning");?>[m
+[31m-          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-        <?php } elseif ($_smarty_tpl->tpl_vars['buttonAttrs']->value['decoration'] == "danger") {?>[m
+[31m-          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-danger");?>[m
+[31m-          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-        <?php } elseif ($_smarty_tpl->tpl_vars['buttonAttrs']->value['decoration'] == "inverse") {?>[m
+[31m-          <?php $_smarty_tpl->_assignInScope('buttonClass', "btn btn-inverse");?>[m
+[31m-          <?php $_smarty_tpl->_assignInScope('iconColor', "icon-white");?>[m
+[31m-        <?php }?>[m
+[31m-[m
+[31m-<?php $_smarty_tpl->_assignInScope('buttonActionUrl', ((string)$_smarty_tpl->tpl_vars['form']->value['baseUrl']));[m
+[31m-if ($_smarty_tpl->tpl_vars['buttonAttrs']->value['action'] != '') {?>[m
+[31m-	<?php $_smarty_tpl->_assignInScope('buttonActionUrl', ((string)$_smarty_tpl->tpl_vars['form']->value['baseUrl'])."&action=".((string)$_smarty_tpl->tpl_vars['buttonAttrs']->value['action']));[m
+[31m-}[m
+[31m-if ($_smarty_tpl->tpl_vars['buttonAttrs']->value['event'] != '') {?>[m
+[31m-	<?php $_smarty_tpl->_assignInScope('buttonActionUrl', ((string)$_smarty_tpl->tpl_vars['form']->value['baseUrl'])."&event=".((string)$_smarty_tpl->tpl_vars['buttonAttrs']->value['event']));[m
+[31m-}?>[m
+[31m-[m
+[31m-<?php echo '<script'; ?>[m
+[31m->[m
+[31m-	$(document).ready(function() {[m
+[31m-[m
+[31m-		//Handle confirm message[m
+[31m-		var confirmMessage = '';[m
+[31m-		<?php $_tmp_array = isset($_smarty_tpl->tpl_vars['buttonAttrs']) ? $_smarty_tpl->tpl_vars['buttonAttrs']->value : array();[m
+[31m-if (!is_array($_tmp_array) || $_tmp_array instanceof ArrayAccess) {[m
+[31m-settype($_tmp_array, 'array');[m
+[31m-}[m
+[31m-$_tmp_array['confirm'] = smarty_modifier_replace($_smarty_tpl->tpl_vars['buttonAttrs']->value['confirm'],'"',"'");[m
+[31m-$_smarty_tpl->_assignInScope('buttonAttrs', $_tmp_array);?>[m
+[31m-		<?php if ($_smarty_tpl->tpl_vars['buttonAttrs']->value['confirm'] != 'false' && $_smarty_tpl->tpl_vars['buttonAttrs']->value['confirm'] != '') {?>			[m
+[31m-			<?php $_smarty_tpl->_assignInScope('keywords', explode("\n",$_smarty_tpl->tpl_vars['buttonAttrs']->value['confirm']));?>[m
+[31m-			<?php $_smarty_tpl->_assignInScope('firstChunk', 1);?>[m
+[31m-			<?php[m
+[31m-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['keywords']->value, 'keyword');[m
+[31m-if ($_from !== null) {[m
+[31m-foreach ($_from as $_smarty_tpl->tpl_vars['keyword']->value) {[m
+[31m-?>[m
+[31m-				<?php if ($_smarty_tpl->tpl_vars['firstChunk']->value == 1) {?>[m
+[31m-					confirmMessage = "<?php echo $_smarty_tpl->tpl_vars['keyword']->value;?>[m
+[31m-";[m
+[31m-					<?php $_smarty_tpl->_assignInScope('firstChunk', 0);?>[m
+[31m-				<?php } else { ?>[m
+[31m-					confirmMessage = confirmMessage + "\n<?php echo $_smarty_tpl->tpl_vars['keyword']->value;?>[m
+[31m-";[m
+[31m-				<?php }?>[m
+[31m-			<?php[m
+[31m-}[m
+[31m-}[m
+[31m-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>		[m
+[31m-		<?php } else { ?>[m
+[31m-				confirmMessage = "<?php echo $_smarty_tpl->tpl_vars['buttonAttrs']->value['confirm'];?>[m
+[31m-";[m
+[31m-		<?php }?>[m
+[31m-		[m
+[31m-		if (confirmMessage!='' && confirmMessage!='false')[m
+[31m-			__kuink.controlAddKey('<?php echo $_smarty_tpl->tpl_vars['_idContext']->value;?>[m
+[31m-','<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>[m
+[31m-', '<?php echo $_smarty_tpl->tpl_vars['buttonAttrs']->value['id'];?>[m
+[31m-', 'confirm', confirmMessage);[m
+[31m-		[m
+[31m-		[m
+[31m-		$("#<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>[m
+[31m- #<?php echo $_smarty_tpl->tpl_vars['buttonAttrs']->value['id'];?>[m
+[31m-").attr("onclick", function() {[m
+[31m-			return "javascript: result = setFormAction_<?php echo $_smarty_tpl->tpl_vars['_guid']->value;?>[m
+[31m-('<?php echo $_smarty_tpl->tpl_vars['buttonActionUrl']->value;?>[m
+[31m-', '', '<?php echo $_smarty_tpl->tpl_vars['buttonType']->value;?>[m
+[31m-', '<?php echo $_smarty_tpl->tpl_vars['buttonAttrs']->value['id'];?>[m
+[31m-', false);";[m
+[31m-		});[m
+[31m-	});[m
+[31m-<?php echo '</script'; ?>[m
+[31m->[m
+[31m-[m
+[31m-<?php $_smarty_tpl->_assignInScope('disabledClass', '');[m
+[31m-$_smarty_tpl->_assignInScope('disabledAttr', '');[m
+[31m-if ($_smarty_tpl->tpl_vars['buttonAttrs']->value['disabled'] == "true") {?>[m
+[31m-	<?php $_smarty_tpl->_assignInScope('disabledClass', "disabled");?>[m
+[31m-	<?php $_smarty_tpl->_assignInScope('disabledAttr', "disabled");[m
+[31m-}?>[m
+[31m-[m
+[31m-<button type="<?php echo $_smarty_tpl->tpl_vars['buttonType']->value;?>[m
+[31m-" class="btn-flat <?php echo $_smarty_tpl->tpl_vars['buttonPrintableClass']->value;?>[m
+[31m- <?php echo $_smarty_tpl->tpl_vars['buttonDefaultClass']->value;?>[m
+[31m- <?php echo $_smarty_tpl->tpl_vars['buttonClass']->value;?>[m
+[31m- <?php echo $_smarty_tpl->tpl_vars['disabledClass']->value;?>[m
+[31m-" <?php echo $_smarty_tpl->tpl_vars['disabledAttr']->value;?>[m
+[31m- id="<?php echo $_smarty_tpl->tpl_vars['buttonAttrs']->value['id'];?>[m
+[31m-" onclick=""><?php if ($_smarty_tpl->tpl_vars['buttonIcon']->value != '') {?><i class="fa fa-<?php echo $_smarty_tpl->tpl_vars['buttonIcon']->value;?>[m
+[31m- <?php echo $_smarty_tpl->tpl_vars['iconColor']->value;?>[m
+[31m-"></i><?php }?>&nbsp;<?php echo $_smarty_tpl->tpl_vars['buttonAttrs']->value['label'];?>[m
+[31m-</button>[m
+[31m-<?php }[m
+[31m-}[m
+[1mdiff --git a/theme_cache_compiled/34d7d53509e13cde7b649138d1edeefcd326dc8e_0.file.Grid.tpl.php b/theme_cache_compiled/34d7d53509e13cde7b649138d1edeefcd326dc8e_0.file.Grid.tpl.php[m
+[1mdeleted file mode 100644[m
+[1mindex 4a2d21c..0000000[m
+[1m--- a/theme_cache_compiled/34d7d53509e13cde7b649138d1edeefcd326dc8e_0.file.Grid.tpl.php[m
+[1m+

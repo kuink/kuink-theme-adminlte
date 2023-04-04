@@ -40,7 +40,7 @@
         {foreach $data as $data_bind}
           {foreach $data_bind as $data_row}
             {
-              title: "{$data_row['value']->title}",
+              title: "{$data_row['value']->title|escape:javascript}",  
               start: new Date({$data_row->start_date}*1000 ),
               end: new Date({$data_row->end_date}*1000 ),
               allDay: false,

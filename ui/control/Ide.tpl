@@ -137,7 +137,7 @@
   <div class="modal-dialog" role="document" style="width: 90%">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="__kuink.modalClose();"><span aria-hidden="true">&times;</span></button>
+        <button type="button" aria-label="Close" onclick="__kuink.globalModalClose();"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="kuinkModalTitle">App Launcher</h4>
       </div>
       <div class="modal-body">
@@ -146,7 +146,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="__kuink.modalClose();">Close</button>
+        <button type="button" class="btn btn-default" onclick="__kuink.globalModalClose();">Close</button>
       </div>
     </div>
   </div>
@@ -205,15 +205,15 @@ jQuery("#libraries").select2({
     var d = new Date();
     var mili = d.getMilliseconds();
     //QuickFix. Launch a new context so it will not interfere with the previous one
-    $("#kuink_{$_guid}").kuinkSubmit({
+    $("#{$_guid}").kuinkSubmit({
       'url' 			: '{$baseUrl}'+mili+'&startuc='+process+'&event='+event+'&modal=embed',
-      'idContext'	: '{$_idContext}'+mili,
+      'idContext'	: '_{$_idContext}', //temporary context starts with an underscore
       'method' 		: 'get',
       'processData': false,
       'contentType': false,
       'button_id' : null,
       'target' : 'kuinkModalContainer',
-      'formGuid'	: 'kuink_{$_guid}'
+      'formGuid'	: '{$_guid}'
     });
   }
 

@@ -1,8 +1,11 @@
 
 function KuinkManager() {
 	this.contexts = [];
+	this.focusIdControl = '';
 	this.ajaxExecuteFunctionsBeforeLoad = []; //Functions to execute before the load of ajax
 	this.ajaxExecuteFunctionsAfterLoad = []; //Functions to execute after the load of ajax
+	this.apiUrl = '';  //Internal api Url to be set
+
 
 	/*
 		Some functions must be executed before content has been loaded in ajax
@@ -24,6 +27,15 @@ function KuinkManager() {
 		$.each(this.ajaxExecuteFunctionsAfterLoad, function( index, fieldFunction ) {
 			fieldFunction();
 		});
+		
+		//Set the focus automatically to the selected control
+		if ((this.focusIdControl != '') && ($('#'+this.focusIdControl).length) ) {
+			console.log("Setting focus to: " + this.focusIdControl);
+			$('html, body').animate({
+				scrollTop: $('#'+this.focusIdControl).offset().top
+			}, 'fast');
+		}
+
 		//Clear the functions
 		this.ajaxExecuteFunctionsAfterLoad = [];
 	};
@@ -35,16 +47,62 @@ function KuinkManager() {
 		}
 	};
 
+	this.setFocusToControl = function(idControl) {
+		if (idControl != '')
+			this.focusIdControl = idControl;
+	};	
+
+	//Launch application in a Modal (floating applications)
+	/* 
+	this.launchApplication = function($baseUrl, $idContext, $formGuid, $process, $event) {
+		//The target will be the modal from now on
+		$('#kuinkModal').modal('show'); 
+		__kuink.modalOpen();
+		//QuickFix. Launch a new context with _ prefix so it will not interfere with the previous one and the underscore will set it to temporary
+		$("#kuink_"+$formGuid).kuinkSubmit({
+		'url' 			: $baseUrl+'&startuc='+$process+'&event='+$event+'&modal=embed',
+		'idContext'	: '_'+$idContext, //temporary context starts with an underscore
+		'method' 		: 'get',
+		'processData': false,
+		'contentType': false,
+		'button_id' : null,
+		'target' : 'kuinkModalContainer',
+		'formGuid'	: 'kuink_'+$formGuid
+		});
+	};
+	*/
+
+	this.launchApplication = function($baseUrl, $idContext, $formGuid, $process, $event) {
+		//The target will be the modal from now on
+		__kuink.modalOpen();
+		var $appData = '';
+		if ($process != '')
+			$appData = '&startuc='+$process+'&event='+$event;
+		$baseUrl = $baseUrl.replace("modal=embed", "modal=onlyContent"); 
+		console.log($baseUrl);
+		
+		//QuickFix. Launch a new context with _ prefix so it will not interfere with the previous one and the underscore will set it to temporary
+		$("#kuink_"+$formGuid).kuinkSubmit({
+		'url' 		 : $baseUrl+$appData,
+		'idContext'	 : '_'+$idContext, //temporary context starts with an underscore
+		'method' 	 : 'get',
+		'processData': false,
+		'contentType': false,
+		'button_id'  : null,
+		'target' 	 : 'kuinkModalContainer',
+		'formGuid'	 : 'kuink_'+$formGuid
+		});
+	};
+
 	//Is kuink running in modal mode?
 	this.modalOpen = function() {
-		this.modal = true;
+		this.modal=true;
 	};
 
 	//Is kuink running in modal mode?
 	this.modalClose = function() {
-		this.modal = false;
+		this.modal=false;
 	};
-
 
 	this.controlAdd = function(context, guid) {
 		//console.log('Adding controls');
@@ -86,15 +144,38 @@ function KuinkManager() {
 			delete this.contexts[context];
 		}
 	};
+
+	//Calls a kuink api and returns the json object
+	this.callApi = function(api, params, callback) {
+		//build the url params
+		var urlParams;
+		urlParams = '';
+		for (const [key, value] of Object.entries(params)) {
+			urlParams = urlParams+'&'+key+'='+value;
+		}
+		var urlComplete = this.apiUrl+api+urlParams;
+		console.log('calling API: ' + urlComplete);
+
+		$.ajax({
+			url: urlComplete,
+			type: "GET",
+			dataType: "json",
+			contentType: "application/json; charset=utf-8",                
+			success: function (result) {
+				console.log("success");
+				//console.log('result:', result);
+				callback(result);
+			},
+			error: function (result) {
+				console.log("error");
+			}
+		});
+
+	};
 };
 
 class KuinkTools {
 	static multilineString() {
 	};
 };
-
-
-
-var __kuink = new KuinkManager();  //Global variable with kuink specific data
-
 

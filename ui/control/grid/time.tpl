@@ -6,7 +6,7 @@
 			data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"
 		{/if} />
 		<span class="input-group-addon">
-			<span class="fa fa-clock-o"></span>
+			<span class="fa fa-clock-o" onclick="{$onChange}"></span>
 		</span>
 	</div>
 </div>
