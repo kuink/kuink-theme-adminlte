@@ -18,6 +18,7 @@
 
 	{if $buttonType == "cancel"}
 			{$buttonClass = "btn"}
+			{$buttonIcon = "times"}
 			{$iconColor = ""}
 		{elseif $buttonType == "add"}
 			{$buttonType = "submit"}
@@ -41,7 +42,7 @@
 			{$buttonClass = "btn btn-primary"}
 		{elseif $buttonType == "delete"}
 			{$buttonType = "submit"}
-			{$buttonIcon = "remove"}
+			{$buttonIcon = "trash-o"}
 			{$iconColor = "icon-white"}
 			{$buttonClass = "btn btn-danger"}
 		{elseif $buttonType == "search"}
@@ -101,19 +102,19 @@
 			{$buttonClass = "btn btn-primary"}
 	{/if}
 
-	{if $buttonAttrs['decoration']=="secundary"}
+	{if $buttonAttrs['decoration'] == "secundary"}
 		{$buttonClass = "btn btn-info"}
 		{$iconColor = "icon-white"}
-	{elseif $buttonAttrs['decoration']=="success"}
+	{elseif $buttonAttrs['decoration'] == "success"}
 		{$buttonClass = "btn btn-success"}
 		{$iconColor = "icon-white"}
-	{elseif $buttonAttrs['decoration']=="warning"}
+	{elseif $buttonAttrs['decoration'] == "warning"}
 		{$buttonClass = "btn btn-warning"}
 		{$iconColor = "icon-white"}
-	{elseif $buttonAttrs['decoration']=="danger"}
+	{elseif $buttonAttrs['decoration'] == "danger"}
 		{$buttonClass = "btn btn-danger"}
 		{$iconColor = "icon-white"}
-	{elseif $buttonAttrs['decoration']=="inverse"}
+	{elseif $buttonAttrs['decoration'] == "inverse"}
 		{$buttonClass = "btn btn-inverse"}
 		{$iconColor = "icon-white"}
 	{/if}
@@ -121,7 +122,7 @@
 
 	{$disabledClass = ""}
 	{$disabledAttr = ""}
-	{if $buttonAttrs['disabled']=="true"}
+	{if $buttonAttrs['disabled'] == "true"}
 		{$disabledClass = "disabled"}
 		{$disabledAttr = "disabled"}
 	{/if}
