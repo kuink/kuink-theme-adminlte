@@ -41,12 +41,12 @@ increase left & right margins a bit**/
 give gallery's parent container a cursor: pointer.**/
 /** .DivName {cursor: pointer}
 } **/
-	
-	
-	
 
-	
-	
+/* Support to highlight styles */
+.grayed-highlight {
+	opacity: 0.5;
+	filter: grayscale(100%);
+}
 	
 	
 	

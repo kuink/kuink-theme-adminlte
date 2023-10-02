@@ -337,6 +337,15 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 							{/if}
 							{$index = $index + 1 }
 						{/foreach}
+
+						{* Get columns that have defined highlight *}
+						{foreach $columnAttributes as $column}
+							{if $column['highlightstyle']}
+								{$highlightColumn['highlightstyle'] = $column['highlightstyle']}
+								{$highlightColumn['highlightvalue'] = $column['highlightvalue']}
+								{$highlightColumns[$column['name']] = $highlightColumn}
+							{/if}
+						{/foreach}
 					</tr>
 				</thead>
 				{/if}
@@ -354,7 +363,14 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 								{break}
 							{/foreach}
 
-							<tr class="{if $tree == 'true'}treegrid-{$first['attributes']['treeid']} {if $first['attributes']['treeparentid'] != ''}treegrid-parent-{$first['attributes']['treeparentid']}{/if}{/if}">
+							{* Support to highlight columns according values *}
+							{$highlightClasses = ''}
+							{foreach $highlightColumns item=highlightColumn key=colname}
+								{if $row[$colname]['nonformatedvalue'] == $highlightColumn['highlightvalue']}
+									{$highlightClasses = $highlightClasses|cat:' '|cat:$highlightColumn['highlightstyle']|cat:'-highlight'}
+								{/if}
+							{/foreach}
+							<tr class="{if $tree == 'true'}treegrid-{$first['attributes']['treeid']} {if $first['attributes']['treeparentid'] != ''}treegrid-parent-{$first['attributes']['treeparentid']}{/if}{/if}{$highlightClasses}">
 								{$index = 0}
 								{$id = $row['id']['value']}
 
@@ -411,7 +427,6 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 												</span>
 											{/if}
 										{/if}
-								
 										</td>
 									{/if}
 
