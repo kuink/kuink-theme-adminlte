@@ -68,6 +68,10 @@ and handle the control display
 	
   {if $fieldAttrs['label-size']=='medium'}
   	{$labelSize=6}
+  {elseif $fieldAttrs['label-size']=='small'}
+	{$labelSize=4}
+  {elseif $fieldAttrs['label-size']=='xsmall'}
+	{$labelSize=2}
   {elseif $fieldAttrs['label-size']=='large'}
   	{$labelSize=8}
   {elseif $fieldAttrs['label-size']=='xlarge'}
