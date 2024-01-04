@@ -30,7 +30,7 @@
 </style>
   <span>
     {if ($menu[$url] != null && $menu[$url] != '')}
-      <a id="{$menu['code']}" href="{$menu[$url]}" target="_parent{* target="_blank"*} style="width: 200px" class="btn btn-sq-lg btn-{$menu[$type]}" {if $tooltip != ''}data-toggle="tooltip" data-placement="bottom" title="{$menu[$tooltip]}" {/if}>
+      <a id="{$menu['code']}" href="{$menu[$url]}" target="_parent"{* target="_blank"*} style="width: 200px" class="btn btn-sq-lg btn-{$menu[$type]}" {if $tooltip != ''}data-toggle="tooltip" data-placement="bottom" title="{$menu[$tooltip]}" {/if}>
     {else}
       <div id="{$menu['code']}" class="btn btn-sq-lg {if ($menu[$type] != '')}btn-{$menu[$type]}{/if}" style="width: 200px" {if $tooltip != ''}data-toggle="tooltip" data-placement="bottom" title="{$menu[$tooltip]}" {/if}>
     {/if}
