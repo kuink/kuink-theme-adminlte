@@ -33,11 +33,48 @@
 				</ul>
 			</li>
 
-			<!-- User Account: style can be found in dropdown.less -->
+			{* <!-- User Account: style can be found in dropdown.less -->
 			<li class="dropdown user user-menu">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<i class="glyphicon glyphicon-user"></i>
 					<span>{$userDisplayName} <i class="caret"></i></span>
+				</a>
+				<ul class="dropdown-menu">
+					<!-- User image -->
+					<li class="user-header {if $_environment == 'dev'}bg-yellow{else}bg-light-blue{/if}">
+						{if $_environment == 'dev'}<img src="{$_imageUrl}photo/default.jpg" class="img-circle " alt="User Image" />
+						{else}<img src="{$imageSrc}{$_user['publicKey']}{if ($_imageUrl != '')}.jpg{/if}" class="img-circle " alt="User Image" />
+						{/if}
+						<p>
+							{$userDisplayName}
+							<small>**</small>
+						</p>
+					</li>
+					<!-- Menu Body -->
+					<li class="user-footer">
+						<!--div class="col-xs-4 text-center"-->
+							<a href="{$baseurl}/user/profile.php?id={$userId}" class="btn btn-default btn-flat">{translate app="framework"}profile{/translate}</a>
+						<!--/div-->
+					</li>
+					<!-- Menu Footer-->
+					<li class="user-footer">
+						<!--div class="pull-left">
+							<a href="{$breadcrumbEntries[1]['href']}" class="btn btn-default btn-flat">{translate app="framework"}backToMoodleCourse{/translate}</a>
+						</div>
+						<div class="pull-right"-->
+							<a href="{$baseurl}/login/logout.php?sesskey={$sessKey}" class="btn btn-default btn-flat">{translate app="framework"}sign-out{/translate}</a>
+						<!--/div-->
+					</li>
+				</ul>
+			</li> *}
+			
+			<!-- NEW ICON: User Account -->
+			<li class="dropdown user user-menu">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					{if $_environment == 'dev'}<img src="{$_imageUrl}photo/default.jpg" class="img-circle" style="width: 35px !important; height: 35px !important" alt=""/>
+					{else}<img src="{$imageSrc}{$_user['publicKey']}{if ($_imageUrl != '')}.jpg{/if}" class="img-circle" style="width: 35px !important; height: 35px !important" alt=""/>
+					{/if}
+					<span style="margin-left: 10px"><i class="fa fa-angle-down"></i></span>
 				</a>
 				<ul class="dropdown-menu">
 					<!-- User image -->

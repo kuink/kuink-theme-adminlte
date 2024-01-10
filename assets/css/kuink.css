@@ -47,6 +47,20 @@ give gallery's parent container a cursor: pointer.**/
 	opacity: 0.5;
 	filter: grayscale(100%);
 }
-	
-	
-	
+
+/* Global menus and navigation */
+.navbar {
+	height: 61px;
+}
+
+.navbar * {
+	height: 100%;
+}
+
+.navbar .dropdown-menu > li {
+    height: auto;
+}
+
+.navbar-right {
+	padding-right: 15px;
+}
