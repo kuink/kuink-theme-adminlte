@@ -62,5 +62,5 @@ give gallery's parent container a cursor: pointer.**/
 }
 
 .navbar-right {
-	padding-right: 15px;
+	margin-right: 0px !important;
 }
