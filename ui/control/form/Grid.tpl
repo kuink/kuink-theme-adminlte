@@ -120,7 +120,7 @@
         {$buttonClass = "btn btn-primary"}
       {/if}
 
-      <button type="{$buttonType}" class="{$buttonClass}" onclick="return submit_form('submit','{$name}', '{$baseUrl}', '{$action_name}', '');">{if $buttonAttrs['icon']!=""}<i class="icon-{$buttonAttrs['icon']}" ></i>{/if} {$action_desc}</button>
+      <button type="{$buttonType}" class="{$buttonClass}" onclick="return submit_form('submit','{$name}', '{$baseUrl}', '{$action_name}', '');">{if $buttonAttrs['icon']!=""}<i class="icon-{$buttonAttrs['icon']}" ></i> {/if}{$action_desc}</button>
       {$count = $count+1}
     {/foreach}
     </p>

@@ -16,9 +16,8 @@
 				<p>{$userDisplayName}</p>
 			</div>
 		</div>
-
-		
-
+		<ul class="sidebar-menu tree" data-widget="tree">
+		</ul>
 	</section>
 	<!-- /.sidebar -->
 </aside>

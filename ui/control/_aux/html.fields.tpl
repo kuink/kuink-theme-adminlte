@@ -127,7 +127,7 @@
 		{$disabledAttr = "disabled"}
 	{/if}
 
-	<button type="{$buttonType}" class="btn-flat {$buttonClass} {$disabledClass}" {$disabledAttr} id="{$buttonAttrs['id']}" onclick="">{if $buttonIcon != ""}<i class="fa fa-{$buttonIcon} {$iconColor}"></i>{/if}&nbsp;{$buttonAttrs['label']}</button>
+	<button type="{$buttonType}" class="btn-flat {$buttonClass} {$disabledClass}" {$disabledAttr} id="{$buttonAttrs['id']}" onclick="">{if $buttonIcon != ""}<i class="fa fa-{$buttonIcon} {$iconColor}"></i>&nbsp;{/if}{$buttonAttrs['label']}</button>
 
 {/function}
 

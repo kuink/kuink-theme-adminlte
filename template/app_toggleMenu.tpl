@@ -44,5 +44,12 @@ $(document).ready(function(){
 	} else {
 		if(!hasMenu.hasChildNodes())
 			$("#sidebarMenu").fadeOut('fast');
-	}});
+	}
+	var menuText = `
+	{foreach from=$menuEntries item=menu}
+        {createLeftMenuNew menu=$menu submenu=false menuType=toggle}
+    {/foreach}`;
+    
+	$(".main-sidebar .sidebar-menu").html(menuText);
+});
 </script>
