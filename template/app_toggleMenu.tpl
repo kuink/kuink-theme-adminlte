@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-{if $menuIsToggled == false}
+{*{if $menuIsToggled == false}
 	<div id="sidebar-wrapper" style="overflow: hidden; display: none;margin-right: 20px; float: left;">
 		<ul style="list-style: none;" class="nav nav-pills nav-stacked">
 			{foreach from=$menuEntries item=menu}
@@ -16,12 +16,12 @@
 		</ul>
 	</div>
 
-{/if}
+{/if}*}
 <!-- /#sidebar-wrapper -->
 <script>
 $(document).ready(function(){
 	$("[data-tt=tooltip]").tooltip();
-	if(typeof window.toggleMenuIsVisible !== 'undefined') {
+	{*if(typeof window.toggleMenuIsVisible !== 'undefined') {
 		if(window.toggleMenuIsVisible == false){
 			if($("#sidebar-wrapper").is(":visible") == true){
 				$("#wrapper").toggleClass("toggled");
@@ -44,7 +44,7 @@ $(document).ready(function(){
 	} else {
 		if(!hasMenu.hasChildNodes())
 			$("#sidebarMenu").fadeOut('fast');
-	}
+	} *}
 	var menuText = `
 	{foreach from=$menuEntries item=menu}
         {createLeftMenuNew menu=$menu submenu=false menuType=toggle}

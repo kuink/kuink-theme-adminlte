@@ -17,10 +17,14 @@
 		</div>-->
 		<i class="fa fa-cube"></i>
 		<h3 class="box-title">{$appName}</h3>
-		<div style="display:inline-block;white-space: nowrap;">
+		{*<div style="display:inline-block;white-space: nowrap;">
 			{if !empty($menuEntries)}<a href="#sidebarMenu" class="btn btn-default" id="sidebarMenu" data-toggle="tooltip" data-placement="right" title="{translate}toggleMenu{/translate}"><i class="fa fa-bars"></i></a>{/if}
+		</div>*}
+		<div style="display:inline-block;white-space: nowrap;">
+			<a href="#sidebarMenu" class="btn btn-default sidebar-toggle" id="sidebarMenu" data-toggle="push-menu" data-placement="right" title="{translate}toggleMenu{/translate}"><i class="icon fa fa-list fa-fw " aria-hidden="true"></i></a>
 		</div>
 		<a href="javascript: menuAppAction(false, '', '{$_refresh}', '');" class="btn btn-success" id="refresh" title="{translate}refresh{/translate}"><i class="fa fa-sync"></i></a>
+		{*<a href="javascript: menuAppAction(false, '', '{$_refresh}', '');" class="btn btn-success" id="refresh" title="{translate}refresh{/translate}"><i class="fa fa-sync"></i></a>*}
 		{/if}
 	</div>
 	

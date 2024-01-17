@@ -87,3 +87,16 @@ body {
 .wrapper {
 	background-color: #f9fafc !important;
 }
+
+#refresh {
+	position:fixed;
+	top: 110px;
+	right: 20px;
+	z-index: 9999;
+	border-radius: 50% !important;
+	width: 42px;
+	height: 42px;
+	font-size: 18px;
+	padding: 8px !important;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 8px;
+}
