@@ -69,10 +69,21 @@ give gallery's parent container a cursor: pointer.**/
 	padding-top: 61px;
 }
 
+/* Sidebar */
+.main-sidebar {
+	box-shadow: 0 14px 28px rgba(0,0,0,.35),0 10px 10px rgba(0,0,0,.32) !important;
+}
+
 /* Some button styles */
 .btn-group .btn:not(:last-child) {
     margin-right: 5px; /* Adiciona uma margem à direita para todos os botões, exceto o último */
 }
 .btn {
 	border-radius: 13px !important;
+}
+body {
+	font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+.wrapper {
+	background-color: #f9fafc !important;
 }

@@ -71,7 +71,7 @@
 		</li>
 	{else}
 		{if $menuType != 'toggled'}
-				<li class="treeview menu-open">
+				<li class="treeview">
 					<a href="#">
 			{*{if $menuType==dropdown}
 				<li class="treeview dropdown-header">
@@ -80,7 +80,7 @@
 			{/if} *}
 						<i class="fa fa-{if $menu['icon']}{$menu['icon']}{else}circle-o{/if}"></i>
 						{if $menuType!='toggled' || $submenu == true}<span>{if $menu['label']}{$menu['label']}{else}{translate}noLabel{/translate}{/if}</span>{/if}
-							{if $menu['child']}<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>{/if}
+							{if $menu['child']}<span class="pull-right-container pull-right"><i class="fa fa-angle-left pull-right"></i></span>{/if}
 					</a>
 					{if $menu['child']}
 						<ul class="treeview-menu">
