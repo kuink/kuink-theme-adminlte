@@ -93,7 +93,7 @@
 							<a href="{$baseurl}/user/profile.php?id={$userId}" class="dropdown-item">{translate app="framework"}profile{/translate}</a>
 						<!--/div-->
 					</li>
-					<li id="company_title" class="user-footer dropdown-header" style="padding-bottom: 0">
+					<li id="company_title" class="user-footer" style="padding-bottom: 0">
 						<span style="color: #777; display: block; padding: 3px 20px; clear: both; font-weight: 400; line-height: 1.42857143; white-space: nowrap;">{translate app="framework"}id_company{/translate}</span>
 					</li>
 					{foreach from=$_userCompanies item=COMPANY}
