@@ -76,7 +76,7 @@
 					{/if}
 					<span style="margin-left: 10px"><i class="fa fa-angle-down"></i></span>
 				</a>
-				<ul class="dropdown-menu">
+				<ul class="dropdown-menu" style="height: auto">
 					<!-- User image -->
 					<li class="user-header {if $_environment == 'dev'}bg-yellow{else}bg-light-blue{/if}">
 						{if $_environment == 'dev'}<img src="{$_imageUrl}photo/default.jpg" class="img-circle " alt="User Image" />
@@ -141,6 +141,12 @@
 				event.stopPropagation();
 				}
 			)
+			$('.dropdown').on('show.bs.dropdown', function(e){
+				$(this).find('.dropdown-menu').first().stop(true, true).slideDown(600);
+			});
+			$('.dropdown').on('hide.bs.dropdown', function(e){
+				$(this).find('.dropdown-menu').first().stop(true, true).slideUp(400);
+			});
 		</script>
 	</div>
 </nav>
