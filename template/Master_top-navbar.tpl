@@ -122,7 +122,7 @@
 			</li>
 		</ul>
 		<script>
-			$("#company_title, #selected_company").click(
+			$(".user-header, #company_title, #selected_company").click(
 				function(event) {
 					event.preventDefault();
 				event.stopPropagation();
