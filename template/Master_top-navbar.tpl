@@ -83,7 +83,7 @@
 						{else}<img src="{$imageSrc}{$_user['publicKey']}{if ($_imageUrl != '')}.jpg{/if}" class="img-circle " alt="User Image" />
 						{/if}
 						<p>
-							{$userDisplayName}
+							{$userId} | {$userDisplayName}
 							<small>**</small>
 						</p>
 					</li>
@@ -109,19 +109,6 @@
 							</li>
 						{/if}
 					{/foreach}
-					{*<li class="user-footer">
-						<a href="#" class="dropdown-item dropdown-toggle">{translate app="framework"}id_company{/translate}</a>
-						<ul class="dropdown-menu">
-							<li class="dropdown-item">
-								<a href="#" class="">gdfdfgfg</a>
-							</li>
-							<li class="dropdown-item">
-								<a href="#" class="">ssdfsdfsd</a>
-							</li>
-						</ul>
-					</li>*}
-
-
 					<!-- Menu Footer-->
 					<li class="user-footer">
 						<!--div class="pull-left">
