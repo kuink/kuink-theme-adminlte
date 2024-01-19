@@ -99,12 +99,12 @@
 					{foreach from=$_userCompanies item=COMPANY}
 						{if $_userCompany == $COMPANY.id}
 							<li id="selected_company" class="user-footer">
-								<span style="padding-left: 35px !important; color: #fff; background-color: #337ab7; display: block; padding: 3px 20px; clear: both; font-weight: 400; line-height: 1.42857143; white-space: nowrap;">{$COMPANY.name}</span>
+								<span style="padding-left: 35px !important; color: #fff; background-color: #337ab7; display: block; padding: 3px 20px; clear: both; font-weight: 400; line-height: 1.42857143; white-space: nowrap;">{$COMPANY.code}</span>
 							</li>
 						{else}
 							<li class="user-footer">
 								<a href="#" id="kuink_company_{$COMPANY.id}" style="padding-left: 35px !important;" onclick="javascript: window.location = window.location + '&idCompany={$COMPANY.id}';">
-									{$COMPANY.name}
+									{$COMPANY.code}
 								</a>
 							</li>
 						{/if}
