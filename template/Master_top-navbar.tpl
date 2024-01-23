@@ -1,11 +1,16 @@
 <!-- Header Navbar: style can be found in header.less -->
 <nav class="navbar navbar-fixed-top" role="navigation">
 	<!-- Sidebar toggle button-->
-	<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+	<!--<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
-  </a>	
-	<div class="navbar-right">
-		<ul class="nav navbar-nav">
+    </a>-->
+	<div class="navbar-header">
+		<a class="navbar-brand" href="#">
+			<img src="{$_userCompanyData.horizontal_white_logo_url}">
+		</a>
+	</div>
+	<div class="navbar-right" style="float: right !important;">
+		<ul class="nav navbar-nav" style="margin: 0; float: left">
 
 			<!-- Companies Menu -->
 			{*<li class="dropdown notifications-menu">
@@ -69,7 +74,7 @@
 			</li> *}
 			
 			<!-- NEW ICON: User Account -->
-			<li class="dropdown user user-menu">
+			<li class="dropdown user user-menu" style="">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-top: 13px !important;">
 					{if $_environment == 'dev'}<img src="{$_imageUrl}photo/default.jpg" class="img-circle" style="width: 35px !important; height: 35px !important" alt=""/>
 					{else}<img src="{$imageSrc}{$_user['publicKey']}{if ($_imageUrl != '')}.jpg{/if}" class="img-circle" style="width: 35px !important; height: 35px !important" alt=""/>
@@ -125,7 +130,7 @@
 			$(".user-header, #company_title, #selected_company").click(
 				function(event) {
 					event.preventDefault();
-				event.stopPropagation();
+					event.stopPropagation();
 				}
 			)
 			$('.dropdown').on('show.bs.dropdown', function(e){

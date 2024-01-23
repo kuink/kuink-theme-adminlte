@@ -68,6 +68,14 @@ give gallery's parent container a cursor: pointer.**/
 .content-wrapper {
 	padding-top: 61px;
 }
+.navbar-brand {
+	padding-bottom: 4.5px;
+	padding-top: 4.5px;
+	padding-left: 16px;
+}
+.navbar-header {
+	float: left;
+}
 
 /* Sidebar */
 .main-sidebar {
@@ -102,5 +110,15 @@ body {
 }
 
 .dropdown-menu {
-	box-shadow: 0 6px 12px rgba(0,0,0,.175);
+	box-shadow: 0 6px 12px rgba(0,0,0,.175) !important;
+	position: absolute !important;
+	left: -192.35px;
+}
+
+.dropdown-item {
+    color: inherit !important;
+}
+.dropdown-item:hover {
+	background-color: #e1e3e9 !important;
+	color: #333 !important;
 }
