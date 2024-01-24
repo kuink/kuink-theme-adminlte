@@ -1,12 +1,16 @@
 <!-- Header Navbar: style can be found in header.less -->
 <nav class="navbar navbar-fixed-top" role="navigation">
 	<!-- Sidebar toggle button-->
-	<!--<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+	<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
-    </a>-->
+    </a>
 	<div class="navbar-header">
 		<a class="navbar-brand" href="#">
-			<img src="{$_userCompanyData.horizontal_white_logo_url}">
+			{if $_userCompanyData.horizontal_white_logo_url}
+				<img src="{$_userCompanyData.horizontal_white_logo_url}">
+			{else}
+				<span style="font-size: 30px;position: absolute;top: 50%;-ms-transform: translateY(-50%);transform: translateY(-50%);height: auto;">{$_userCompanyData.code}</span>
+			{/if}
 		</a>
 	</div>
 	<div class="navbar-right" style="float: right !important;">

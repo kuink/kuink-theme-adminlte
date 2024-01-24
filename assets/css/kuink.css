@@ -72,9 +72,15 @@ give gallery's parent container a cursor: pointer.**/
 	padding-bottom: 4.5px;
 	padding-top: 4.5px;
 	padding-left: 16px;
+	display: none;
 }
 .navbar-header {
 	float: left;
+}
+@media screen and (min-width: 400px) {
+	.navbar-brand {
+		display: initial;
+	}
 }
 
 /* Sidebar */
