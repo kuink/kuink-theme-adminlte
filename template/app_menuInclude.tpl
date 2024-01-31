@@ -66,7 +66,7 @@
 			<a target="{$menu['target']}" href="javascript: menuAppAction(false, '', '{$menu['href']}', '');"
 			{if $menuType == 'toggled' && $submenu != true}data-tt="tooltip" title="{if $menu['label']}{$menu['label']}{else}{translate}noLabel{/translate}{/if}"{/if}>
 				<i class="fa fa-{if $menu['icon']}{$menu['icon']}{else}circle-o{/if}"></i>
-				{if $menuType != 'toggled' || $submenu == true}<span>{if $menu['label']}{$menu['label']}{else}{translate}noLabel{/translate}{/if}</span>{/if}
+				{if $menuType != 'toggled' || $submenu == true}<span style="white-space: initial;">{if $menu['label']}{$menu['label']}{else}{translate}noLabel{/translate}{/if}</span>{/if}
 			</a>
 		</li>
 	{else}
@@ -79,7 +79,7 @@
 				<li style="background-color:#EEEEEE;">
 			{/if} *}
 						<i class="fa fa-{if $menu['icon']}{$menu['icon']}{else}circle-o{/if}"></i>
-						{if $menuType!='toggled' || $submenu == true}<span>{if $menu['label']}{$menu['label']}{else}{translate}noLabel{/translate}{/if}</span>{/if}
+						{if $menuType!='toggled' || $submenu == true}<span style="white-space: initial;">{if $menu['label']}{$menu['label']}{else}{translate}noLabel{/translate}{/if}</span>{/if}
 							{if $menu['child']}<span class="pull-right-container pull-right"><i class="fa fa-angle-left pull-right"></i></span>{/if}
 					</a>
 					{if $menu['child']}
