@@ -297,7 +297,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 								{$index = $index + 1}
 							{/while}
 							{if $columnAttributes[$index]['hidden'] != "true"}
-								<th class="col_{$columnAttributes[$index]['name']} col-{$columnAttributes[$index]['colsize']} col-xs-{$columnAttributes[$index]['colsize']} col-sm-{$columnAttributes[$index]['colsize']} col-md-{$columnAttributes[$index]['colsize']} col-lg-{$columnAttributes[$index]['colsize']}" style="text-align: {if $columnAttributes[$index]['headeralign'] == ''}{$columnAttributes[$index]['align']}{else}{$columnAttributes[$index]['headeralign']}{/if}">
+								<th class="col_{$columnAttributes[$index]['name']} col-{$columnAttributes[$index]['colsize']} col-xs-{$columnAttributes[$index]['colsize']} col-sm-{$columnAttributes[$index]['colsize']} col-md-{$columnAttributes[$index]['colsize']} col-lg-{$columnAttributes[$index]['colsize']}" style="text-align: {if $columnAttributes[$index]['headeralign'] == ''}{$columnAttributes[$index]['horizontalalign']}{else}{$columnAttributes[$index]['headeralign']}{/if}">
 									{if $columnAttributes[$index]['type'] == 'pick'}
 										<input type="checkbox" class="input-medium" id="{$name}_selectall" name="{$name}_selectall" onclick="{$name}ToggleChecked(this.checked);" value="0">
 									{/if}
@@ -384,9 +384,9 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 									{* Only show not hidden fields *}
 									{if $fieldAttrs['hidden'] != "true"}
 										{if $fieldAttrs['nowrap'] == "true"}
-											<td nowrap="true" style="white-space: nowrap; overflow-x: auto; text-align: {$columnAttributes[$index]['align']}">
+											<td nowrap="true" style="white-space: nowrap; overflow-x: auto; text-align: {$columnAttributes[$index]['horizontalalign']}; vertical-align: {$columnAttributes[$index]['verticalalign']}">
 										{else}
-											<td style="text-align: {$columnAttributes[$index]['align']}">
+											<td style="text-align: {$columnAttributes[$index]['horizontalalign']}; vertical-align: {$columnAttributes[$index]['verticalalign']}">
 										{/if}
 
 
