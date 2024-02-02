@@ -121,7 +121,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 				<!-- Hide/Show grid not editable columns -->
 				{if ($freeze == 'true') && ($showColumns == 'true')}
-					<a href="#properties_{$_guid}" class="btn btn-default" data-toggle="modal" data-target="#properties_{$_guid}"><i class="fa fa-bars"></i></a>
+					{*<a href="#properties_{$_guid}" class="btn btn-default" data-toggle="modal" data-target="#properties_{$_guid}"><i class="fa fa-bars"></i></a>*}
 				{/if}
 			</div>
 			{if ($title != '')}
@@ -384,9 +384,9 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 									{* Only show not hidden fields *}
 									{if $fieldAttrs['hidden'] != "true"}
 										{if $fieldAttrs['nowrap'] == "true"}
-											<td nowrap="true" style="white-space: nowrap; overflow-x: auto; text-align: {$columnAttributes[$index]['horizontalalign']}; vertical-align: {$columnAttributes[$index]['verticalalign']}">
+											<td nowrap="true" style="white-space: nowrap; overflow-x: auto; text-align: {$fieldAttrs['horizontalalign']}; vertical-align: {$fieldAttrs['verticalalign']}">
 										{else}
-											<td style="text-align: {$columnAttributes[$index]['horizontalalign']}; vertical-align: {$columnAttributes[$index]['verticalalign']}">
+											<td style="text-align: {$fieldAttrs['horizontalalign']}; vertical-align: {$fieldAttrs['verticalalign']}">
 										{/if}
 
 
