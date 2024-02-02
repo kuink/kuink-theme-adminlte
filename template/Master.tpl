@@ -104,7 +104,7 @@ $position = Position of controls
 							<select id="handler" name="handler" class="form-control"></select>
 							<br>
 							<label for="message" class="form-label">{translate app="framework"}describeProblem{/translate}</label>
-							<textarea class="form-control" id="message" name="message" placeholder="{translate app="framework"}enterMessage{/translate}" oninvalid="this.setCustomValidity('{translate app=framework}emptyMessage{/translate}')" rows="10" required style="resize:none"></textarea>
+							<textarea class="form-control" id="message" name="message" placeholder="{translate app="framework"}enterMessage{/translate}" oninvalid="this.setCustomValidity('{translate app=framework}emptyMessage{/translate}')" rows="6" required style="resize:none"></textarea>
 							<small id="successSendingMessage" class="text-success" style="display: none">{translate app="framework"}requestSuccess{/translate}</small>    
 							<small id="errorSendingMessage" class="text-danger" style="display: none">{translate app="framework"}requestError{/translate}</small>    
 						</form>
