@@ -46,16 +46,17 @@ $(document).ready(function(){
 			$("#sidebarMenu").fadeOut('fast');
 	} *}
 	var menuText = '<li><br></li>';
+	menuText += '<li><a href="{$breadcrumbEntries[2]['href']|regex_replace:'/&.*/':''}"><i aria-hidden="true" class="fa fa-home"></i><span>{translate app="framework"}home{/translate}</span></a></li><li><br></li>';
+
 	menuText += `
 	{foreach from=$menuEntries item=menu}
         {createLeftMenuNew menu=$menu submenu=false menuType=toggle}
     {/foreach}`;
 	//console.log(menuText);
 	
-	menuText += '<li><br></li><li><a href="{$breadcrumbEntries[2]['href']|regex_replace:'/&.*/':''}"><i aria-hidden="true" class="fa fa-home"></i><span>{translate app="framework"}home{/translate}</span></a></li>';
-	menuText += '<li><a href="{$breadcrumbEntries[1]['href']}"><i aria-hidden="true" class="fa fa-door-open"></i><span>{translate app="framework"}exit{/translate}</span></a></li><li style="margin-bottom: 60px"><br></li>';
+	menuText += '<li><br></li><li><a data-toggle="modal" data-target="#reportBugTool" href="#"><i aria-hidden="true" class="fa fa-exclamation-triangle"></i><span>{translate app="framework"}reportBug{/translate}</span></a></li>';
+	menuText += '<li><a href="{$breadcrumbEntries[1]['href']}"><i aria-hidden="true" class="fa fa-sign-out"></i><span>{translate app="framework"}exit{/translate}</span></a></li><li style="margin-bottom: 60px"><br></li>';
 	$(".main-sidebar .sidebar-menu").html(menuText);
-	
 
 	if (window.innerWidth <= 767)
 		$("body").removeClass("sidebar-collapse");	

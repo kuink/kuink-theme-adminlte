@@ -34,7 +34,7 @@ $position = Position of controls
 		{include 'Head.tpl'}
 	</head>
 
-	<body class="{if $_environment == 'dev'}skin-yellow{else}skin-blue-light{/if} sidebar-mini wysihtml5-supported sidebar-collapse">
+	<body class="{if $_environment == 'dev'}skin-yellow{else}skin-blue{*-light*}{/if} sidebar-mini wysihtml5-supported sidebar-collapse">
 
 		<div class="wrapper row-offcanvas row-offcanvas-left">
 			<header class="main-header" style="height: 0">

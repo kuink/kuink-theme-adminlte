@@ -24,8 +24,9 @@
 			<a href="#sidebarMenu" class="btn btn-default sidebar-toggle" id="sidebarMenu" data-toggle="push-menu" data-placement="right" title="{translate}toggleMenu{/translate}"><i class="icon fa fa-list fa-fw " aria-hidden="true"></i></a>
 		</div>*}
 		<div id="float-panel">
+			<button id="backToTop" class="btn float-button" title="{translate app="framework"}backToTop{/translate}"><i class="fa fa-chevron-up"></i></button>
 			<a href="javascript: menuAppAction(false, '', '{$_refresh}', '');" class="btn btn-success float-button" title="{translate app="framework"}refresh{/translate}"><i class="fa fa-sync"></i></a>
-			<button data-toggle="modal" data-target="#reportBugTool" class="btn btn-warning float-button" title="{translate app="framework"}reportBug{/translate}"><i class="fa fa-exclamation-triangle"></i></button>
+			{*<button data-toggle="modal" data-target="#reportBugTool" class="btn btn-warning float-button" title="{translate app="framework"}reportBug{/translate}"><i class="fa fa-exclamation-triangle"></i></button>*}
 		</div>
 		{*<a href="javascript: menuAppAction(false, '', '{$_refresh}', '');" class="btn btn-success" id="refresh" title="{translate app="framework"}refresh{/translate}"><i class="fa fa-sync"></i></a>
 		<button data-toggle="modal" data-target="#reportBugTool" class="btn btn-warning" id="bug" title="{translate app="framework"}reportBug{/translate}"><i class="fa fa-exclamation-triangle"></i></button>
@@ -165,6 +166,22 @@ $(document).ready(function(){
 					if(hasMenu.hasChildNodes())
 						$("#sidebarMenu").fadeIn('fast');
 			}
+		}
+	});
+</script>
+
+<script>
+	$("#backToTop").click(function() {ldelim}
+		var body = $("html, body");
+		body.stop().animate({ldelim}scrollTop:0{rdelim}, 500, 'swing', function() {ldelim}
+			$("#backToTop").blur();
+		{rdelim});
+	{rdelim});
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 220) {
+			$("#backToTop").fadeIn();
+		} else {
+			$("#backToTop").fadeOut();
 		}
 	});
 </script>
