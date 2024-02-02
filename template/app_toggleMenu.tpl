@@ -65,11 +65,12 @@ $(document).ready(function(){
 		$("body").removeClass("sidebar-collapse");
 	} );
 
-	// Dirty hack
-	setTimeout(() => {
-		//$("body").addClass("fixed");	
-		//$(window). trigger('resize');
-	}, 1000);
-	//$("body").addClass("fixed");
+	// This needs to be ensured that is always this way
+	$(".sidebar-toggle").click(function(){
+    	if ($('body').hasClass('sidebar-collapse') || !$('body').hasClass('sidebar-open'))
+			$('.sidebar ').addClass('y-scroll');
+		else
+			$('.sidebar ').removeClass('y-scroll');
+	});
 });
 </script>

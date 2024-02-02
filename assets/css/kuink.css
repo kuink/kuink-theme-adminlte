@@ -97,12 +97,19 @@ give gallery's parent container a cursor: pointer.**/
 
 .main-sidebar {
 	padding-top: 50px !important;
-	/*position: fixed;*/
+	top: 0px;
+	left: 0px;
+	position: fixed;
 }
 .sidebar {
 	height: 100vh !important;
 	/*overflow-y: scroll;*/
 }
+
+.y-scroll {
+	overflow-y: scroll;
+}
+
 .sidebar-toggle {
 	padding: 19px !important;
 }
