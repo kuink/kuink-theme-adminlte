@@ -5,7 +5,7 @@
         <span class="sr-only">Toggle navigation</span>
     </a>
 	<div class="navbar-header">
-		<a class="navbar-brand" href="#">
+		<a class="navbar-brand" href="{$breadcrumbEntries[0]['href']}">
 			{if $_userCompanyData.horizontal_white_logo_url}
 				<img src="{$_userCompanyData.horizontal_white_logo_url}">
 			{else}

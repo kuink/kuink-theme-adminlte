@@ -52,9 +52,11 @@ $(document).ready(function(){
 	{foreach from=$menuEntries item=menu}
         {createLeftMenuNew menu=$menu submenu=false menuType=toggle}
     {/foreach}`;
-	//console.log(menuText);
 	
-	menuText += '<li><br></li><li><a data-toggle="modal" data-target="#reportBugTool" href="#"><i aria-hidden="true" class="fa fa-exclamation-triangle"></i><span>{translate app="framework"}reportBug{/translate}</span></a></li>';
+	menuText += '<li><br></li>';
+	{if $_user['id'] != '0'}
+		menuText += '<li><a data-toggle="modal" data-target="#reportBugTool" href="#"><i aria-hidden="true" class="fa fa-exclamation-triangle"></i><span>{translate app="framework"}reportBug{/translate}</span></a></li>';
+	{/if}
 	menuText += '<li><a href="{$breadcrumbEntries[1]['href']}"><i aria-hidden="true" class="fa fa-sign-out"></i><span>{translate app="framework"}exit{/translate}</span></a></li><li style="margin-bottom: 60px"><br></li>';
 	$(".main-sidebar .sidebar-menu").html(menuText);
 
