@@ -112,7 +112,7 @@
 							</li>
 						{else}
 							<li class="user-footer">
-								<a href="#" id="kuink_company_{$COMPANY.id}" style="padding-left: 35px !important;" onclick="javascript: window.location = window.location + '&idCompany={$COMPANY.id}';">
+								<a href="#" id="kuink_company_{$COMPANY.id}" style="padding-left: 35px !important;" onclick="javascript: paramSet('idCompany', {$COMPANY.id})">
 									{$COMPANY.code}
 								</a>
 							</li>
@@ -131,6 +131,13 @@
 			</li>
 		</ul>
 		<script>
+			function paramSet(param, value) {
+				url = new URL(window.location);
+				params = new URLSearchParams(url.search);
+				params.set(param, value);
+				url.search = params.toString();
+				window.location.href = url.href;
+			}
 			$(".user-header, #company_title, #selected_company").click(
 				function(event) {
 					event.preventDefault();

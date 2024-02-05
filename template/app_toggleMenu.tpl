@@ -63,14 +63,21 @@ $(document).ready(function(){
 
 	$( window ).on( "resize", function() {
 		$("body").removeClass("sidebar-collapse");
+		y_scroll_toggle();
 	} );
 
 	// This needs to be ensured that is always this way
 	$(".sidebar-toggle").click(function(){
-    	if ($('body').hasClass('sidebar-collapse') || !$('body').hasClass('sidebar-open'))
-			$('.sidebar ').addClass('y-scroll');
-		else
-			$('.sidebar ').removeClass('y-scroll');
+		y_scroll_toggle();
 	});
+
+	function y_scroll_toggle() {
+		setTimeout(() => {
+			if (!$('body').hasClass('sidebar-collapse'))
+				$('.sidebar ').addClass('y-scroll');
+			else
+				$('.sidebar ').removeClass('y-scroll');
+		}, 500);
+	}
 });
 </script>
