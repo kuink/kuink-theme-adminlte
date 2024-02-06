@@ -88,7 +88,7 @@
 				<ul class="dropdown-menu" style="height: auto">
 					<!-- User image -->
 					<li class="user-header {if $_environment == 'dev'}bg-yellow{else}bg-light-blue{/if}">
-						{if $_environment == 'dev'}<img src="{$_imageUrl}photo/default.jpg" class="img-circle " alt="User Image" />
+						{if $_environment == 'dev' || $_user['id'] == '0'}<img src="{$_imageUrl}photo/default.jpg" class="img-circle " alt="User Image" />
 						{else}<img src="{$imageSrc}{$_user['publicKey']}{if ($_imageUrl != '')}.jpg{/if}" class="img-circle " alt="User Image" />
 						{/if}
 						<p>
