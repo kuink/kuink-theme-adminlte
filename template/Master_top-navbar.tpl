@@ -9,7 +9,7 @@
 			{if $_userCompanyData.horizontal_white_logo_url}
 				<img src="{$_userCompanyData.horizontal_white_logo_url}">
 			{else}
-				<span style="font-size: 30px;position: absolute;top: 50%;-ms-transform: translateY(-50%);transform: translateY(-50%);height: auto;">{$_userCompanyData.code}</span>
+				<span style="font-size: 30px;position: absolute;top: 55%;-ms-transform: translateY(-55%);transform: translateY(-55%);height: auto;">{$_userCompanyData.code}</span>
 			{/if}
 		</a>
 	</div>
@@ -80,7 +80,7 @@
 			<!-- NEW ICON: User Account -->
 			<li class="dropdown user user-menu" style="">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-top: 13px !important;">
-					{if $_environment == 'dev'}<img src="{$_imageUrl}photo/default.jpg" class="img-circle" style="width: 35px !important; height: 35px !important" alt=""/>
+					{if $_environment == 'dev' || $_user['id'] == '0'}<img src="{$_imageUrl}photo/default.jpg" class="img-circle" style="width: 35px !important; height: 35px !important" alt=""/>
 					{else}<img src="{$imageSrc}{$_user['publicKey']}{if ($_imageUrl != '')}.jpg{/if}" class="img-circle" style="width: 35px !important; height: 35px !important" alt=""/>
 					{/if}
 					<span style="margin-left: 10px"><i class="fa fa-angle-down"></i></span>
@@ -97,11 +97,13 @@
 						</p>
 					</li>
 					<!-- Menu Body -->
+					{if $_user['id'] != '0'}
 					<li class="user-footer">
 						<!--div class="col-xs-4 text-center"-->
 							<a href="{$baseurl}/user/profile.php?id={$userId}" class="dropdown-item">{translate app="framework"}profile{/translate}</a>
 						<!--/div-->
 					</li>
+					{/if}
 					<li id="company_title" class="user-footer" style="padding-bottom: 0">
 						<span style="color: #777; display: block; padding: 3px 20px; clear: both; font-weight: 400; line-height: 1.42857143; white-space: nowrap;">{translate app="framework"}id_company{/translate}</span>
 					</li>
@@ -119,14 +121,11 @@
 						{/if}
 					{/foreach}
 					<!-- Menu Footer-->
+					{if $_user['id'] != '0'}
 					<li class="user-footer">
-						<!--div class="pull-left">
-							<a href="{$breadcrumbEntries[1]['href']}" class="btn btn-default btn-flat">{translate app="framework"}backToMoodleCourse{/translate}</a>
-						</div>
-						<div class="pull-right"-->
-							<a href="{$baseurl}/login/logout.php?sesskey={$sessKey}" class="dropdown-item">{translate app="framework"}sign-out{/translate}</a>
-						<!--/div-->
+						<a href="{$baseurl}/login/logout.php?sesskey={$sessKey}" class="dropdown-item">{translate app="framework"}sign-out{/translate}</a>
 					</li>
+					{/if}
 				</ul>
 			</li>
 		</ul>

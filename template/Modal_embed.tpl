@@ -38,12 +38,15 @@
 		<div id="{$_idContext}_loading_wrapper" kuink-guid="{$_idContext}">
 			<div id="wrapper" class="toggled">
 				{if $onlyApp != 1}
-				{if !empty($menuEntries)}
+				{* commented to support display default items even if menu is not defined 
+					needs to be organized. toggle current not needed.
+				*}
+				{*{if !empty($menuEntries)} *} 
 					{assign var="menuIsToggled" value=false}
 					{include 'app_toggleMenu.tpl'}
 					{assign var="menuIsToggled" value=true}
 					{include 'app_toggleMenu.tpl'}
-				{/if}
+				{*{/if}*}
 				{/if}
 				<!-- Page Content -->
 				<div style="overflow: auto;overflow-x: hidden;">
