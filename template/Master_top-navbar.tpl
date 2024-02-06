@@ -92,7 +92,7 @@
 						{else}<img src="{$imageSrc}{$_user['publicKey']}{if ($_imageUrl != '')}.jpg{/if}" class="img-circle " alt="User Image" />
 						{/if}
 						<p>
-							<span style="font-size: 14px">{$_user['id']}</span><br>{$userDisplayName}
+							{if $_user['id'] != '0'}<span style="font-size: 14px">{$_user['id']}</span>{/if}<br>{$userDisplayName}
 							{*<small>**</small>*}
 						</p>
 					</li>
