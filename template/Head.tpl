@@ -9,7 +9,8 @@
 				<!-- Theme style -->
 				<!-- link href="{$_themeRoot}theme/{$THEME}/assets/css/AdminLTE.min.css" rel="stylesheet" type="text/css" / -->
 				<link href="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-				<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+				<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" type='text/css'>
+
 
 				<!-- select2 bootstrap -->
 				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/css/select2/select2.css"/>
