@@ -15,8 +15,8 @@
 		<!--<div class="pull-right box-tools">
 			<button id="collapseWidgetButton" class="btn btn-danger btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="{translate}toggleApp{/translate}"><i class="fa fa-minus"></i></button>
 		</div>-->
-		<i class="fa fa-cube"></i>
-		<h3 class="box-title">{$appName}</h3>
+		{*<i class="fa fa-cube"></i>
+		<h3 class="box-title">{$appName}</h3>*}
 		{*<div style="display:inline-block;white-space: nowrap;">
 			{if !empty($menuEntries)}<a href="#sidebarMenu" class="btn btn-default" id="sidebarMenu" data-toggle="tooltip" data-placement="right" title="{translate}toggleMenu{/translate}"><i class="fa fa-bars"></i></a>{/if}
 		</div>*}
@@ -49,7 +49,7 @@
 				{*{/if}*}
 				{/if}
 				<!-- Page Content -->
-				<div style="overflow: auto;overflow-x: hidden;">
+				<div style="overflow: auto;overflow-x: hidden; padding-bottom: 40px">
 						<div class="row">
 							<div class="col-lg-12 col-md-12 .col-sm-12 .col-xs-12">
 								{if $userMessages|@count > 0}

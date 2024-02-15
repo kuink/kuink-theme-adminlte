@@ -58,9 +58,10 @@ $position = Position of controls
 			<div class="content-wrapper">
 				<!-- Content Header (Page header) -->
 					<section class="content-header">
-						<h1>
-							{$breadcrumbEntries[4]['label']}
-							<small>{$breadcrumbEntries[3]['label']}</small>
+						<h1>{*<i class="fa fa-cube" style="font-size: 85%"></i>*}
+						{$appName}
+						{*	{$breadcrumbEntries[4]['label']}
+							<small>{$breadcrumbEntries[3]['label']}</small> *}
 						</h1>
 						{* <ol class="breadcrumb">
 							{foreach from=$breadcrumbEntries item=breadcrumb}

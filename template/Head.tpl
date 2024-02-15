@@ -9,6 +9,7 @@
 				<!-- Theme style -->
 				<!-- link href="{$_themeRoot}theme/{$THEME}/assets/css/AdminLTE.min.css" rel="stylesheet" type="text/css" / -->
 				<link href="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+				<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 
 				<!-- select2 bootstrap -->
 				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/css/select2/select2.css"/>
