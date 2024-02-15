@@ -41,7 +41,7 @@
 						.treegrid-expander-collapsed{background-image: url(../img/expand.png);}
 
 						.badge {
-							padding: 4px 9px 2px;
+							padding: 4px 9px;
 							font-size: 12.025px;
 							font-weight: bold;
 							white-space: nowrap;
