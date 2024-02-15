@@ -13,6 +13,7 @@
 <script src="kuink-core/lib/tools/codemirror/mode/xml/xml.js"></script>
 
 <link href="{$_themeRoot}theme/{$THEME}/assets/css/simple-sidebar/simple-sidebar.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 
 <style type="text/css">
   .CodeMirror { border: 1px solid #eee; width: 99%; height: auto }
