@@ -9,12 +9,15 @@
 {* include the template *}
 <!-- Main content -->
 
-<div id="{$_idContext}_wrapper" class="box" kuink-guid="{$_idContext}" style="padding: 0px 5px;">
+<div id="{$_idContext}_wrapper" class="box" kuink-guid="{$_idContext}" style="padding: 0px 5px; border-top: unset;" >
 	{if $onlyApp != 1}
-	<div class="box-header with-border" style="cursor: move;">
-		<!--<div class="pull-right box-tools">
+	<div {if $screenTitle == ''}class="box-header with-border"{/if} {*style="cursor: move;"*}>
+		{if $screenTitle != ''}
+			<div class="screen-title"><p>{$screenTitle}</p></div>
+		{/if}
+		{*<div class="pull-right box-tools">
 			<button id="collapseWidgetButton" class="btn btn-danger btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="{translate}toggleApp{/translate}"><i class="fa fa-minus"></i></button>
-		</div>-->
+		</div>*}
 		{*<i class="fa fa-cube"></i>
 		<h3 class="box-title">{$appName}</h3>*}
 		{*<div style="display:inline-block;white-space: nowrap;">

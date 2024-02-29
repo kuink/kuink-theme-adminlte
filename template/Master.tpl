@@ -57,18 +57,18 @@ $position = Position of controls
 			<!-- Right side column. Contains the navbar and content of the page -->
 			<div class="content-wrapper">
 				<!-- Content Header (Page header) -->
-					<section class="content-header">
-						<h1>{*<i class="fa fa-cube" style="font-size: 85%"></i>*}
-						{$appName}
-						{*	{$breadcrumbEntries[4]['label']}
-							<small>{$breadcrumbEntries[3]['label']}</small> *}
-						</h1>
+					{*<section class="content-header">
+						<h1>*}{*<i class="fa fa-cube" style="font-size: 85%"></i>*}
+						{*{$appName}
+							{$breadcrumbEntries[4]['label']}
+							<small>{$breadcrumbEntries[3]['label']}</small> 
+						</h1>*}
 						{* <ol class="breadcrumb">
 							{foreach from=$breadcrumbEntries item=breadcrumb}
 								<li><a href="{if $breadcrumb['href']==''}javascript: void(0);{else}{$breadcrumb['href']}{/if}">{$breadcrumb['label']}</a></li>
 							{/foreach}
-						</ol> *}
-					</section>
+						</ol> 
+					</section>*}
 
 				<!-- Main content -->
 				{if $widgetContainer==true}
