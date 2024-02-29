@@ -52,10 +52,10 @@ give gallery's parent container a cursor: pointer.**/
 
 .screen-title {
 	text-align: center;
-	font-size: 24px;
-	font-weight: bold;
+	font-size: 28px;
+	/*font-weight: bold;*/
 	font-family: 'Trebuchet MS', 'Source Sans Pro', Arial, Helvetica, sans-serif;
-	letter-spacing: 1px;
+	letter-spacing: 1.5px;
 	padding-top: 20px;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #eee;
