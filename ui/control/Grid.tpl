@@ -131,7 +131,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 			
 		</div>
 
-		<div class="gridBlock_{$name} kuink-grid" style="overflow-x: auto">
+		<div class="gridBlock_{$name} kuink-grid" style="overflow-x: auto; overflow-y: hidden">
 
 			{$multiSeparator = '-'}
 
