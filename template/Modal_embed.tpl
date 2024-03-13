@@ -9,18 +9,31 @@
 {* include the template *}
 <!-- Main content -->
 
-<div id="{$_idContext}_wrapper" class="box" kuink-guid="{$_idContext}" style="padding: 0px 5px;">
+<div id="{$_idContext}_wrapper" class="box" kuink-guid="{$_idContext}" style="padding: 0px 5px; border-top: unset;" >
 	{if $onlyApp != 1}
-	<div class="box-header with-border" style="cursor: move;">
-		<div class="pull-right box-tools">
+	<div {if $screenTitle == ''}class="box-header with-border"{/if} {*style="cursor: move;"*}>
+		{if $screenTitle != ''}
+			<div class="screen-title"><p>{$screenTitle}</p></div>
+		{/if}
+		{*<div class="pull-right box-tools">
 			<button id="collapseWidgetButton" class="btn btn-danger btn-sm" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="{translate}toggleApp{/translate}"><i class="fa fa-minus"></i></button>
-		</div>
-		<i class="fa fa-cube"></i>
-		<h3 class="box-title">{$appName}</h3>
-		<div style="display:inline-block;white-space: nowrap;">
+		</div>*}
+		{*<i class="fa fa-cube"></i>
+		<h3 class="box-title">{$appName}</h3>*}
+		{*<div style="display:inline-block;white-space: nowrap;">
 			{if !empty($menuEntries)}<a href="#sidebarMenu" class="btn btn-default" id="sidebarMenu" data-toggle="tooltip" data-placement="right" title="{translate}toggleMenu{/translate}"><i class="fa fa-bars"></i></a>{/if}
+		</div>*}
+		{*<div style="display:inline-block;white-space: nowrap;">
+			<a href="#sidebarMenu" class="btn btn-default sidebar-toggle" id="sidebarMenu" data-toggle="push-menu" data-placement="right" title="{translate}toggleMenu{/translate}"><i class="icon fa fa-list fa-fw " aria-hidden="true"></i></a>
+		</div>*}
+		<div id="float-panel">
+			<button id="backToTop" class="btn float-button" title="{translate app="framework"}backToTop{/translate}"><i class="fa fa-chevron-up"></i></button>
+			<a href="javascript: menuAppAction(false, '', '{$_refresh}', '');" class="btn btn-success float-button" title="{translate app="framework"}refresh{/translate}"><i class="fa fa-sync"></i></a>
+			{*<button data-toggle="modal" data-target="#reportBugTool" class="btn btn-warning float-button" title="{translate app="framework"}reportBug{/translate}"><i class="fa fa-exclamation-triangle"></i></button>*}
 		</div>
-		<a href="javascript: menuAppAction(false, '', '{$_refresh}', '');" class="btn btn-success" id="refresh" title="{translate}refresh{/translate}"><i class="fa fa-sync"></i></a>
+		{*<a href="javascript: menuAppAction(false, '', '{$_refresh}', '');" class="btn btn-success" id="refresh" title="{translate app="framework"}refresh{/translate}"><i class="fa fa-sync"></i></a>
+		<button data-toggle="modal" data-target="#reportBugTool" class="btn btn-warning" id="bug" title="{translate app="framework"}reportBug{/translate}"><i class="fa fa-exclamation-triangle"></i></button>
+		<a href="javascript: menuAppAction(false, '', '{$_refresh}', '');" class="btn btn-success" id="refresh" title="{translate}refresh{/translate}"><i class="fa fa-sync"></i></a>*}
 		{/if}
 	</div>
 	
@@ -28,15 +41,18 @@
 		<div id="{$_idContext}_loading_wrapper" kuink-guid="{$_idContext}">
 			<div id="wrapper" class="toggled">
 				{if $onlyApp != 1}
-				{if !empty($menuEntries)}
+				{* commented to support display default items even if menu is not defined 
+					needs to be organized. toggle current not needed.
+				*}
+				{*{if !empty($menuEntries)} *} 
 					{assign var="menuIsToggled" value=false}
 					{include 'app_toggleMenu.tpl'}
 					{assign var="menuIsToggled" value=true}
 					{include 'app_toggleMenu.tpl'}
-				{/if}
+				{*{/if}*}
 				{/if}
 				<!-- Page Content -->
-				<div style="overflow: auto;overflow-x: hidden;">
+				<div style="overflow: auto;overflow-x: hidden; padding-bottom: 40px">
 						<div class="row">
 							<div class="col-lg-12 col-md-12 .col-sm-12 .col-xs-12">
 								{if $userMessages|@count > 0}
@@ -156,6 +172,22 @@ $(document).ready(function(){
 					if(hasMenu.hasChildNodes())
 						$("#sidebarMenu").fadeIn('fast');
 			}
+		}
+	});
+</script>
+
+<script>
+	$("#backToTop").click(function() {ldelim}
+		var body = $("html, body");
+		body.stop().animate({ldelim}scrollTop:0{rdelim}, 500, 'swing', function() {ldelim}
+			$("#backToTop").blur();
+		{rdelim});
+	{rdelim});
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 220) {
+			$("#backToTop").fadeIn();
+		} else {
+			$("#backToTop").fadeOut();
 		}
 	});
 </script>

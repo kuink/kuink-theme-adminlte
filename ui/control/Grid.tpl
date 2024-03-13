@@ -121,7 +121,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 
 				<!-- Hide/Show grid not editable columns -->
 				{if ($freeze == 'true') && ($showColumns == 'true')}
-					<a href="#properties_{$_guid}" class="btn btn-default" data-toggle="modal" data-target="#properties_{$_guid}"><i class="fa fa-bars"></i></a>
+					{*<a href="#properties_{$_guid}" class="btn btn-default" data-toggle="modal" data-target="#properties_{$_guid}"><i class="fa fa-bars"></i></a>*}
 				{/if}
 			</div>
 			{if ($title != '')}
@@ -131,7 +131,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 			
 		</div>
 
-		<div class="gridBlock_{$name} kuink-grid" style="overflow-x: auto">
+		<div class="gridBlock_{$name} kuink-grid" style="overflow-x: auto; overflow-y: hidden">
 
 			{$multiSeparator = '-'}
 
@@ -297,7 +297,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 								{$index = $index + 1}
 							{/while}
 							{if $columnAttributes[$index]['hidden'] != "true"}
-								<th class="col_{$columnAttributes[$index]['name']} col-{$columnAttributes[$index]['colsize']} col-xs-{$columnAttributes[$index]['colsize']} col-sm-{$columnAttributes[$index]['colsize']} col-md-{$columnAttributes[$index]['colsize']} col-lg-{$columnAttributes[$index]['colsize']}">
+								<th class="col_{$columnAttributes[$index]['name']} col-{$columnAttributes[$index]['colsize']} col-xs-{$columnAttributes[$index]['colsize']} col-sm-{$columnAttributes[$index]['colsize']} col-md-{$columnAttributes[$index]['colsize']} col-lg-{$columnAttributes[$index]['colsize']}" style="text-align: {if $columnAttributes[$index]['headeralign'] == ''}{$columnAttributes[$index]['horizontalalign']}{else}{$columnAttributes[$index]['headeralign']}{/if}">
 									{if $columnAttributes[$index]['type'] == 'pick'}
 										<input type="checkbox" class="input-medium" id="{$name}_selectall" name="{$name}_selectall" onclick="{$name}ToggleChecked(this.checked);" value="0">
 									{/if}
@@ -384,9 +384,9 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 									{* Only show not hidden fields *}
 									{if $fieldAttrs['hidden'] != "true"}
 										{if $fieldAttrs['nowrap'] == "true"}
-											<td nowrap="true" style="white-space: nowrap; overflow-x: auto;">
+											<td nowrap="true" style="white-space: nowrap; overflow-x: auto; text-align: {$fieldAttrs['horizontalalign']}; vertical-align: {$fieldAttrs['verticalalign']}">
 										{else}
-											<td>
+											<td style="text-align: {$fieldAttrs['horizontalalign']}; vertical-align: {$fieldAttrs['verticalalign']}">
 										{/if}
 
 

@@ -20,7 +20,7 @@
       {$disabledClass = "disabled"}
       {$disabledAttr = "disabled"}
     {/if}
-    <button type="{$buttonType}" class="{$buttonClass} {$disabledClass} " {$disabledAttr} onclick="return submit_form_{$_guid}('{$buttonType}','{$_guid}', '{$form['baseUrl']}', '{$buttonAttrs['action']}', '{$buttonAttrs['event']}');">{if $buttonAttrs['icon']!=""}<i class="icon-{$buttonAttrs['icon']}" ></i>{/if} {$buttonAttrs['label']}</button>
+    <button type="{$buttonType}" class="{$buttonClass} {$disabledClass} " {$disabledAttr} onclick="return submit_form_{$_guid}('{$buttonType}','{$_guid}', '{$form['baseUrl']}', '{$buttonAttrs['action']}', '{$buttonAttrs['event']}');">{if $buttonAttrs['icon']!=""}<i class="icon-{$buttonAttrs['icon']}" ></i> {/if}{$buttonAttrs['label']}</button>
 
 
   </div>

@@ -9,6 +9,8 @@
 				<!-- Theme style -->
 				<!-- link href="{$_themeRoot}theme/{$THEME}/assets/css/AdminLTE.min.css" rel="stylesheet" type="text/css" / -->
 				<link href="{$_themeRoot}theme/{$THEME}/assets/vendor/almasaeed2010/adminlte/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+				<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" type='text/css'>
+
 
 				<!-- select2 bootstrap -->
 				<link rel="stylesheet" href="{$_themeRoot}theme/{$THEME}/assets/css/select2/select2.css"/>
@@ -39,7 +41,7 @@
 						.treegrid-expander-collapsed{background-image: url(../img/expand.png);}
 
 						.badge {
-							padding: 1px 9px 2px;
+							padding: 4px 9px;
 							font-size: 12.025px;
 							font-weight: bold;
 							white-space: nowrap;

@@ -47,6 +47,148 @@ give gallery's parent container a cursor: pointer.**/
 	opacity: 0.5;
 	filter: grayscale(100%);
 }
-	
-	
-	
+
+/* Kuink Fonts */
+
+.screen-title {
+	text-align: center;
+	font-size: 28px;
+	/*font-weight: bold;*/
+	font-family: 'Trebuchet MS', 'Source Sans Pro', Arial, Helvetica, sans-serif;
+	letter-spacing: 1.5px;
+	padding-top: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #eee;
+}
+
+/* Below CSS: TO REVIEW, after new versions of theme libraries */
+/* Global menus and navigation */
+.navbar {
+	height: 61px;
+	margin-left: 0px !important;
+}
+.navbar * {
+	height: 100%;
+}
+.navbar .dropdown-menu > li {
+    height: auto;
+}
+.navbar-right {
+	margin-right: 0px !important;
+}
+.navbar-fixed-top {
+	box-shadow: 0 0 15px 0 rgba(0,0,0,.3) !important;
+}
+.content-wrapper {
+	padding-top: 61px !important;
+}
+.navbar-brand {
+	padding-bottom: 4.5px;
+	padding-top: 4.5px;
+	padding-left: 16px;
+	display: none;
+}
+.navbar-header {
+	float: left;
+}
+@media screen and (min-width: 405px) {
+	.navbar-brand {
+		display: initial;
+	}
+}
+
+/* Sidebar */
+@media screen and (min-width: 768px) {
+	.main-sidebar {
+		box-shadow: 0 14px 28px rgba(0,0,0,.35),0 10px 10px rgba(0,0,0,.32) !important;
+	}
+}
+
+.sidebar-open .main-sidebar {
+	box-shadow: 0 14px 28px rgba(0,0,0,.35),0 10px 10px rgba(0,0,0,.32) !important;
+}
+
+.main-sidebar {
+	padding-top: 50px !important;
+	top: 0px;
+	left: 0px;
+	position: fixed;
+}
+.sidebar {
+	height: 100vh !important;
+	/*overflow-y: scroll;*/
+}
+
+.y-scroll {
+	overflow-y: scroll;
+}
+
+.sidebar-toggle {
+	padding: 16px !important;
+	width: 50px;
+}
+
+/* Some button styles */
+.btn-group .btn:not(:last-child) {
+    margin-right: 5px; /* Adiciona uma margem à direita para todos os botões, exceto o último */
+}
+.btn {
+	border-radius: 13px !important;
+}
+body {
+	/*font-size: 14px;*/
+}
+.wrapper {
+	background-color: #f9fafc !important;
+}
+
+#float-panel {
+	position:fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 1000;
+	width: min-content;
+}
+
+.float-button {
+	border-radius: 50% !important;
+	width: 36px;
+	height: 36px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 8px;
+	font-size: 16px;
+	padding: 6px !important;
+	margin: 5px 0px;
+}
+
+.dropdown-menu {
+	box-shadow: 0 6px 12px rgba(0,0,0,.175) !important;
+	position: absolute !important;
+	left: -192.35px;
+}
+
+.dropdown-item {
+    color: inherit !important;
+}
+.dropdown-item:hover {
+	background-color: #e1e3e9 !important;
+	color: #333 !important;
+}
+
+#backToTop {
+	display: none;
+}
+
+.sidebar-toggle::before {
+	font-size: 20px;
+	content: "\f0c9";
+}
+@media screen and (min-width: 768px) {
+	body:not(.sidebar-collapse) .sidebar-toggle::before {
+		content: "\f00d";
+	}
+}
+@media screen and (max-width: 768px) {
+	body.sidebar-open .sidebar-toggle::before {
+		content: "\f00d";
+	}
+}
