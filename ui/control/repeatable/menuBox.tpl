@@ -13,6 +13,7 @@
     {/if}
   </span>
 
+  
 {*
 <div class="col-sm-{12/$cols}">
     <!-- small box -->
