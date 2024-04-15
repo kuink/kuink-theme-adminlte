@@ -45,7 +45,7 @@ $(document).ready(function(){
 		if(!hasMenu.hasChildNodes())
 			$("#sidebarMenu").fadeOut('fast');
 	} *}
-	var menuText = '<li><br></li>';
+	var menuText = '<li style="padding-top:9px;"><br></li>';
 	menuText += `<li><a href="{$breadcrumbEntries[2]['href']|regex_replace:'/&.*/':''}"><i aria-hidden="true" class="fa fa-home"></i>
 	<span style="white-space: initial; font-weight: bold; font-size: 15px">{$appName}</span></a></li><li><br></li>`;
 
@@ -58,7 +58,7 @@ $(document).ready(function(){
 	{if $_user['id'] != '0'}
 		menuText += `<li><a data-toggle="modal" data-target="#reportBugTool" href="#"><i aria-hidden="true" class="fa fa-exclamation-triangle"></i><span>{translate app="framework"}reportBug{/translate}</span></a></li>`;
 	{/if}
-	menuText += '<li><a href="{$breadcrumbEntries[1]['href']}"><i aria-hidden="true" class="fa fa-sign-out"></i><span>{translate app="framework"}exit{/translate}</span></a></li><li style="margin-bottom: 60px"><br></li>';
+	menuText += '<li><a href="{$breadcrumbEntries[1]['href']}"><i aria-hidden="true" class="fa fa-sign-out"></i><span>{translate app="framework"}exit{/translate}</span></a></li><li style="margin-bottom: 20px"><br></li>';
 	$(".main-sidebar .sidebar-menu").html(menuText);
 
 	if (window.innerWidth <= 767)
@@ -77,9 +77,9 @@ $(document).ready(function(){
 	function y_scroll_toggle() {
 		setTimeout(() => {
 			if (!$('body').hasClass('sidebar-collapse'))
-				$('.sidebar ').addClass('y-scroll');
+				$('.sidebar ').addClass('y-scrollable');
 			else
-				$('.sidebar ').removeClass('y-scroll');
+				$('.sidebar ').removeClass('y-scrollable');
 		}, 500);
 	}
 });
