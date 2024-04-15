@@ -9,7 +9,7 @@
 {* include the template *}
 <!-- Main content -->
 
-<div id="{$_idContext}_wrapper" class="box background-img " kuink-guid="{$_idContext}" style="padding: 0px 5px; border-top: unset; overflow-y: auto;" >
+<div id="{$_idContext}_wrapper" class="box{if $onlyApp != 1} background-img y-scrollable{/if}" kuink-guid="{$_idContext}" style="padding: 0px 5px; border-top: unset; overflow-y: auto;" >
 	{if $onlyApp != 1}
 	<div {if $screenTitle == ''}class="box-header with-border"{/if} {*style="cursor: move;"*}>
 		{if $screenTitle != ''}
@@ -34,9 +34,9 @@
 		{*<a href="javascript: menuAppAction(false, '', '{$_refresh}', '');" class="btn btn-success" id="refresh" title="{translate app="framework"}refresh{/translate}"><i class="fa fa-sync"></i></a>
 		<button data-toggle="modal" data-target="#reportBugTool" class="btn btn-warning" id="bug" title="{translate app="framework"}reportBug{/translate}"><i class="fa fa-exclamation-triangle"></i></button>
 		<a href="javascript: menuAppAction(false, '', '{$_refresh}', '');" class="btn btn-success" id="refresh" title="{translate}refresh{/translate}"><i class="fa fa-sync"></i></a>*}
-		{/if}
 	</div>
-	
+	{/if}
+
 	<div class="box-body">
 		<div id="{$_idContext}_loading_wrapper" kuink-guid="{$_idContext}">
 			<div id="wrapper" class="toggled">
