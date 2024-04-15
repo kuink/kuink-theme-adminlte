@@ -9,7 +9,7 @@
 {* include the template *}
 <!-- Main content -->
 
-<div id="{$_idContext}_wrapper" class="box background-img y-scrollable" kuink-guid="{$_idContext}" style="padding: 0px 5px; border-top: unset; overflow-y: auto; height: calc(100vh - 61px)" >
+<div id="{$_idContext}_wrapper" class="box background-img " kuink-guid="{$_idContext}" style="padding: 0px 5px; border-top: unset; overflow-y: auto; height: calc(100vh - 61px)" >
 	{if $onlyApp != 1}
 	<div {if $screenTitle == ''}class="box-header with-border"{/if} {*style="cursor: move;"*}>
 		{if $screenTitle != ''}
