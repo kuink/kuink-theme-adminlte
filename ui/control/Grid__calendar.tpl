@@ -78,6 +78,59 @@
 			}
 			return transformedEvents;
 		}	
+		function filter (node) {
+        return (node.tagName !== 'i');
+      }
+
+	  /*
+	   * To print calendar on print button click. Uses html2canva to convert html fullCalendar to an image,
+	   * which is placed on a new window to be printed.
+	   */
+
+		$('#{$_guid}-print-calendar').click(function(){	
+			var title = prompt("Introduza um título para o calendário:");
+
+			var newWindow = window.open();
+
+			
+			var titleElement = '';
+			if (!(title.trim() === ''))
+				titleElement = `<h1 style="font-family: 'Source Sans Pro', sans-serif; text-align: center; margin-bottom: 30px">` + title + '</h1>';
+
+			
+			$('#{$_guid}').css('width', '23cm');
+			$(".fc-left, .fc-right").hide();
+
+			// Remove background from today
+			bgToday = $('#{$_guid} .fc-widget-content.fc-today').css('background');
+			$('#{$_guid} .fc-widget-content.fc-today').css('background', '#fff');
+
+			html2canvas(document.querySelector("#{$_guid}"), { scale: 1 }).then(canvas => {
+				$('#{$_guid}').css('width', '');
+				$(".fc-left, .fc-right").show();
+				$('#{$_guid} .fc-widget-content.fc-today').css('background', '');
+	
+				var imageData = canvas.toDataURL('image/svg+xml');
+                newWindow.document.write('<div style="margin-top: 80px"/>' + titleElement + 
+									'<img src="' + imageData + '" style="display: block; margin-left: auto; margin-right: auto;"/>' +
+									'<div style="margin-top: 100px"/>');
+
+				
+
+				var style = newWindow.document.createElement('style');
+				style.textContent = `
+				@media print {
+					@page { size: auto;	margin-top: 0;  margin-bottom: 0; }
+					header, footer { display: none; }
+				}`;
+
+				newWindow.document.head.appendChild(style);
+
+				//newWindow.print();
+				//newWindow.close();
+			});
+		});
+
 
 	$('#{$_guid}').fullCalendar({
 		header: {
@@ -178,12 +231,21 @@
 		{/if}
 	});
 
+	
 	});
 
+	
 </script>
 <div class="container-fluid">
+	<button type="print" style="margin-top: 15px; margin-left: 5px; padding-top: 4px; padding-bottom: 4px;" class="btn-flat btn btn-info pull-right" id="{$_guid}-print-calendar">
+		<i class="fa fa-print" aria-hidden="true"></i>
+	</button>
+
 	<div class="row-fluid">
 		<div id='{$_guid}'></div>
+	</div>
+
+	<div id="svg">
 	</div>
 </div>
 
