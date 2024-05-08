@@ -171,6 +171,9 @@
 				<!-- Font Awesome -->
 				<script src="https://kit.fontawesome.com/0779454afb.js" crossorigin="anonymous"></script>
 
+				<!-- html2canvas -->
+				<script src="{$_themeRoot}theme/{$THEME}/assets/js/html2canvas/html2canvas.min.js" type="text/javascript"></script>
+
 				<!-- Kuink Scripts - Must be the last scripts -->
 				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/kuink/dist/js/kuink_Core.Manager.js" type="text/javascript"></script>
 				<script src="{$_themeRoot}theme/{$THEME}/assets/vendor/kuink/dist/js/kuink_Core.Submit.js" type="text/javascript"></script>				
