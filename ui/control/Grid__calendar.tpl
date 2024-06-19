@@ -82,37 +82,38 @@
         return (node.tagName !== 'i');
       }
 
-	  /*
+	  {*
 	   * To print calendar on print button click. Uses html2canva to convert html fullCalendar to an image,
 	   * which is placed on a new window to be printed.
-	   */
-
-		$('#{$_guid}-print-calendar').click(function(){	
-			var title = prompt("Introduza um título para o calendário:");
+	   *}
+	    {*$(document).on("submit", "#{$_guid}-printCalendar", function(e)*}
+		$('#{$_guid}-prinst-calendar').click(function(){	
+			var title = prompt("Introduza um título para o calendário:" , "{$printTitle}");
 
 			var newWindow = window.open();
 
 			
 			var titleElement = '';
 			if (!(title.trim() === ''))
-				titleElement = `<h1 style="font-family: 'Source Sans Pro', sans-serif; text-align: center; margin-bottom: 30px">` + title + '</h1>';
+				titleElement = `<p class="title">` + title + '</p>';
+
+			$('#{$_guid}').css('width', '20cm');//.trigger('resize');
+			$('#{$_guid} tbody .fc-row').css('height', '145px');
+			//$(window).trigger('resize');
+			$(".fc-left, .fc-right, #{$_guid}-print-calendar").hide(); // Hide buttons
 
 			
-			$('#{$_guid}').css('width', '23cm');
-			$(".fc-left, .fc-right").hide();
-
-			// Remove background from today
-			bgToday = $('#{$_guid} .fc-widget-content.fc-today').css('background');
-			$('#{$_guid} .fc-widget-content.fc-today').css('background', '#fff');
+			$('#{$_guid} .fc-widget-content.fc-today').css('background', '#fff'); // Remove background from today
 
 			html2canvas(document.querySelector("#{$_guid}"), { scale: 1 }).then(canvas => {
 				$('#{$_guid}').css('width', '');
-				$(".fc-left, .fc-right").show();
+				$('#{$_guid} tbody .fc-row').css('height', '');
+				$(".fc-left, .fc-right, #{$_guid}-print-calendar").show();
 				$('#{$_guid} .fc-widget-content.fc-today').css('background', '');
 	
 				var imageData = canvas.toDataURL('image/svg+xml');
-                newWindow.document.write('<div style="margin-top: 80px"/>' + titleElement + 
-									'<img src="' + imageData + '" style="display: block; margin-left: auto; margin-right: auto;"/>' +
+                newWindow.document.write('<div style="margin-top: 40px"/>' + titleElement + 
+									'<img src="' + imageData + '" style="display: block; margin-left: auto; margin-right: auto; width: 18cm"/>' +
 									'<div style="margin-top: 100px"/>');
 
 				
@@ -122,14 +123,81 @@
 				@media print {
 					@page { size: auto;	margin-top: 0;  margin-bottom: 0; }
 					header, footer { display: none; }
+				}
+				.title {
+					font-family: 'Source Sans Pro', sans-serif;
+					font-size: 24px;
+					font-weight: bold;
+					text-align: center;
+					margin-bottom: 10px;
 				}`;
 
 				newWindow.document.head.appendChild(style);
-
-				//newWindow.print();
-				//newWindow.close();
+				$(window).trigger('resize');
+				newWindow.print();
+				newWindow.close();
+				
 			});
+
+			
 		});
+
+		$(document).ready(function () {
+
+
+				$(document).on("submit", "#{$_guid}-printCalendar", function(e){
+					e.preventDefault();
+
+					var newWindow = window.open();
+
+					var title = $('#{$_guid}-printCalendar #title').val();
+					var titleElement = '';
+					if (!(title.trim() === ''))
+						titleElement = `<p class="title">` + title + '</p>';
+					
+					$('#{$_guid}').css('width', '20cm');
+					$('#{$_guid} tbody .fc-row').css('height', '145px');
+					$(".fc-left, .fc-right, #{$_guid}-print-calendar").hide(); // Hide buttons
+					$('#{$_guid} .fc-widget-content.fc-today').css('background', '#fff'); // Remove background from today
+
+					html2canvas(document.querySelector("#{$_guid}"), { scale: 1 }).then(canvas => {
+						$('#{$_guid}').css('width', '');
+						$('#{$_guid} tbody .fc-row').css('height', '');
+						$(".fc-left, .fc-right, #{$_guid}-print-calendar").show();
+						$('#{$_guid} .fc-widget-content.fc-today').css('background', '');
+			
+						var imageData = canvas.toDataURL('image/svg+xml');
+						newWindow.document.write('<div style="margin-top: 40px"/>' + titleElement + 
+											'<img src="' + imageData + '" style="display: block; margin-left: auto; margin-right: auto; width: 18cm"/>' +
+											'<div style="margin-top: 100px"/>');
+
+
+						var style = newWindow.document.createElement('style');
+						style.textContent = `
+						@media print {
+							@page { size: auto;	margin-top: 0;  margin-bottom: 0; }
+							header, footer { display: none; }
+						}
+						.title {
+							font-family: 'Source Sans Pro', sans-serif;
+							font-size: 24px;
+							font-weight: bold;
+							text-align: center;
+							margin-bottom: 10px;
+						}`;
+
+						newWindow.document.head.appendChild(style);
+						$('#{$_guid}-printCalendarTool').modal("hide");
+						$(window).trigger('resize');
+						newWindow.print();
+						newWindow.close();
+					});
+				});
+				$("#{$_guid}-printCalendarTool").on('hidden.bs.modal', function(){
+					$('#{$_guid}-printCalendar').get(0).reset();
+				});
+
+			});
 
 
 	$('#{$_guid}').fullCalendar({
@@ -237,7 +305,7 @@
 	
 </script>
 <div class="container-fluid">
-	<button type="print" style="margin-top: 15px; margin-left: 5px; padding-top: 4px; padding-bottom: 4px;" class="btn-flat btn btn-info pull-right" id="{$_guid}-print-calendar">
+	<button data-toggle="modal" href="#" data-target="#{$_guid}-printCalendarTool" type="print" style="margin-top: 15px; margin-left: 5px; padding-top: 4px; padding-bottom: 4px;" class="btn-flat btn btn-info pull-right" id="{$_guid}-print-calendar">
 		<i class="fa fa-print" aria-hidden="true"></i>
 	</button>
 
@@ -249,6 +317,27 @@
 	</div>
 </div>
 
+<!-- Modal PRINT CALENDAR -->
+<div id="{$_guid}-printCalendarTool" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content" style="border-radius: 6px;">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">{translate app="framework"}printCalendar{/translate}</h4>
+			</div>
+			<div class="modal-body">
+				<form id="{$_guid}-printCalendar" class="form-group">
+					<label for="title" class="form-label">{translate app="framework"}title{/translate}</label>
+					<input id="title" name="title" class="form-control" value="{$printTitle}"></input>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">{translate app="framework"}close{/translate}</button>
+				<button type="submit" form="{$_guid}-printCalendar" class="btn btn-primary">{translate app="framework"}print{/translate}</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 {* 
 	EXPERIMENTAL THINGS
