@@ -156,7 +156,12 @@
 						titleElement = `<p class="title">` + title + '</p>';
 					
 					$('#{$_guid}').css('width', '21cm');
-					$('#{$_guid} tbody .fc-row').css('height', '145px');
+					$('#{$_guid} tbody .fc-row').each(function() {
+						if ($(this).prop('scrollHeight') <= 80)
+							$(this).css('height', '80px');
+						else
+							$(this).css('height', 'auto');
+					});
 					$(".fc-left, .fc-right, #{$_guid}-print-calendar").hide(); // Hide buttons
 					$('#{$_guid} .fc-widget-content.fc-today').css('background', '#fff'); // Remove background from today
 
@@ -189,8 +194,10 @@
 						newWindow.document.head.appendChild(style);
 						$('#{$_guid}-printCalendarTool').modal("hide");
 						$(window).trigger('resize');
-						//newWindow.print();
-						//newWindow.close();
+						$(newWindow.document).ready(function () {
+							newWindow.print();
+							newWindow.close();
+						});
 					});
 				});
 				$("#{$_guid}-printCalendarTool").on('hidden.bs.modal', function(){
