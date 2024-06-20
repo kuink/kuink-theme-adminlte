@@ -87,124 +87,69 @@
 	   * which is placed on a new window to be printed.
 	   *}
 	    {*$(document).on("submit", "#{$_guid}-printCalendar", function(e)*}
-		$('#{$_guid}-prinst-calendar').click(function(){	
-			var title = prompt("Introduza um título para o calendário:" , "{$printTitle}");
-
-			var newWindow = window.open();
-
-			
-			var titleElement = '';
-			if (!(title.trim() === ''))
-				titleElement = `<p class="title">` + title + '</p>';
-
-			$('#{$_guid}').css('width', '20cm');//.trigger('resize');
-			$('#{$_guid} tbody .fc-row').css('height', '145px');
-			//$(window).trigger('resize');
-			$(".fc-left, .fc-right, #{$_guid}-print-calendar").hide(); // Hide buttons
-
-			
-			$('#{$_guid} .fc-widget-content.fc-today').css('background', '#fff'); // Remove background from today
-
-			html2canvas(document.querySelector("#{$_guid}"), { scale: 1 }).then(canvas => {
-				$('#{$_guid}').css('width', '');
-				$('#{$_guid} tbody .fc-row').css('height', '');
-				$(".fc-left, .fc-right, #{$_guid}-print-calendar").show();
-				$('#{$_guid} .fc-widget-content.fc-today').css('background', '');
-	
-				var imageData = canvas.toDataURL('image/svg+xml');
-                newWindow.document.write('<div style="margin-top: 40px"/>' + titleElement + 
-									'<img src="' + imageData + '" style="display: block; margin-left: auto; margin-right: auto; width: 18cm"/>' +
-									'<div style="margin-top: 100px"/>');
-
-				
-
-				var style = newWindow.document.createElement('style');
-				style.textContent = `
-				@media print {
-					@page { size: auto;	margin-top: 0;  margin-bottom: 0; }
-					header, footer { display: none; }
-				}
-				.title {
-					font-family: 'Source Sans Pro', sans-serif;
-					font-size: 24px;
-					font-weight: bold;
-					text-align: center;
-					margin-bottom: 10px;
-				}`;
-
-				newWindow.document.head.appendChild(style);
-				$(window).trigger('resize');
-				newWindow.print();
-				newWindow.close();
-				
-			});
-
-			
-		});
-
 		$(document).ready(function () {
+			$(document).on("submit", "#{$_guid}-printCalendar", function(e){
+				e.preventDefault();
+
+				var newWindow = window.open();
+
+				var title = $('#{$_guid}-printCalendar #title').val();
+				var titleElement = '';
+				if (!(title.trim() === ''))
+					titleElement = `<p class="title">` + title + '</p>';
+				
+				$('#{$_guid}').css('width', '21cm');
+				$('#{$_guid} tbody .fc-row').css('min-height', '90px');
+				$('#{$_guid} tbody .fc-row').each(function() {
+					if ($(this).find('.fc-content').length == 0) {
+						$(this).css('height', '90px');
+					}
+				});					
+				$(".fc-left, .fc-right, #{$_guid}-print-calendar").hide(); // Hide buttons
+				$('#{$_guid} .fc-widget-content.fc-today').css('background', '#fff'); // Remove background from today
+
+				html2canvas(document.querySelector("#{$_guid}"), { scale: 4 }).then(canvas => {
+					$('#{$_guid}').css('width', '');
+					$('#{$_guid} tbody .fc-row').css('height', '');
+					$('#{$_guid} tbody .fc-row').css('min-height', '');
+					$(".fc-left, .fc-right, #{$_guid}-print-calendar").show();
+					$('#{$_guid} .fc-widget-content.fc-today').css('background', '');
+		
+					var imageData = canvas.toDataURL('image/svg+xml');
+					newWindow.document.write('<div style="margin-top: 30px"/>' + titleElement + 
+										'<img id="calendar-img" src="' + imageData + '" style="display: block; margin-left: auto; margin-right: auto; max-height:26cm; max-width: 18cm;"/>' +
+										'<div style="margin-top: 90px"/>');
 
 
-				$(document).on("submit", "#{$_guid}-printCalendar", function(e){
-					e.preventDefault();
+					var style = newWindow.document.createElement('style');
+					style.textContent = `
+					@media print {
+						@page { size: A4;	margin-top: 0;  margin-bottom: 0; }
+						header, footer { display: none; }
+						body { margin: 0; }
+					}
+					.title {
+						font-family: 'Source Sans Pro', sans-serif;
+						font-size: 24px;
+						font-weight: bold;
+						text-align: center;
+						margin-bottom: 10px;
+					}`;
 
-					var newWindow = window.open();
-
-					var title = $('#{$_guid}-printCalendar #title').val();
-					var titleElement = '';
-					if (!(title.trim() === ''))
-						titleElement = `<p class="title">` + title + '</p>';
-					
-					$('#{$_guid}').css('width', '21cm');
-					$('#{$_guid} tbody .fc-row').each(function() {
-						if ($(this).prop('scrollHeight') <= 80)
-							$(this).css('height', '80px');
-						else
-							$(this).css('height', 'auto');
-					});
-					$(".fc-left, .fc-right, #{$_guid}-print-calendar").hide(); // Hide buttons
-					$('#{$_guid} .fc-widget-content.fc-today').css('background', '#fff'); // Remove background from today
-
-					html2canvas(document.querySelector("#{$_guid}"), { scale: 2 }).then(canvas => {
-						$('#{$_guid}').css('width', '');
-						$('#{$_guid} tbody .fc-row').css('height', '');
-						$(".fc-left, .fc-right, #{$_guid}-print-calendar").show();
-						$('#{$_guid} .fc-widget-content.fc-today').css('background', '');
-			
-						var imageData = canvas.toDataURL('image/svg+xml');
-						newWindow.document.write('<div style="margin-top: 30px"/>' + titleElement + 
-											'<img src="' + imageData + '" style="display: block; margin-left: auto; margin-right: auto; max-height:26cm; max-width: 18cm;"/>' +
-											'<div style="margin-top: 90px"/>');
-
-
-						var style = newWindow.document.createElement('style');
-						style.textContent = `
-						@media print {
-							@page { size: auto;	margin-top: 0;  margin-bottom: 0; }
-							header, footer { display: none; }
-						}
-						.title {
-							font-family: 'Source Sans Pro', sans-serif;
-							font-size: 24px;
-							font-weight: bold;
-							text-align: center;
-							margin-bottom: 10px;
-						}`;
-
-						newWindow.document.head.appendChild(style);
-						$('#{$_guid}-printCalendarTool').modal("hide");
-						$(window).trigger('resize');
-						$(newWindow.document).ready(function () {
-							newWindow.print();
-							newWindow.close();
-						});
+					newWindow.document.head.appendChild(style);
+					$('#{$_guid}-printCalendarTool').modal("hide");
+					$(window).trigger('resize');
+					$(newWindow.document).find('#calendar-img').on('load', function() {
+						newWindow.print();
+					//	newWindow.close();
 					});
 				});
-				$("#{$_guid}-printCalendarTool").on('hidden.bs.modal', function(){
-					$('#{$_guid}-printCalendar').get(0).reset();
-				});
-
 			});
+			$("#{$_guid}-printCalendarTool").on('hidden.bs.modal', function(){
+				$('#{$_guid}-printCalendar').get(0).reset();
+			});
+
+		});
 
 
 	$('#{$_guid}').fullCalendar({
