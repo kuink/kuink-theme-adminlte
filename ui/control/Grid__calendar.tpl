@@ -141,7 +141,7 @@
 					$(window).trigger('resize');
 					$(newWindow.document).find('#calendar-img').on('load', function() {
 						newWindow.print();
-					//	newWindow.close();
+						newWindow.close();
 					});
 				});
 			});
