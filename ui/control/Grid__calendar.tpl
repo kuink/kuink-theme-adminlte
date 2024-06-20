@@ -189,8 +189,8 @@
 						newWindow.document.head.appendChild(style);
 						$('#{$_guid}-printCalendarTool').modal("hide");
 						$(window).trigger('resize');
-						newWindow.print();
-						newWindow.close();
+						//newWindow.print();
+						//newWindow.close();
 					});
 				});
 				$("#{$_guid}-printCalendarTool").on('hidden.bs.modal', function(){
