@@ -155,21 +155,21 @@
 					if (!(title.trim() === ''))
 						titleElement = `<p class="title">` + title + '</p>';
 					
-					$('#{$_guid}').css('width', '20cm');
+					$('#{$_guid}').css('width', '21cm');
 					$('#{$_guid} tbody .fc-row').css('height', '145px');
 					$(".fc-left, .fc-right, #{$_guid}-print-calendar").hide(); // Hide buttons
 					$('#{$_guid} .fc-widget-content.fc-today').css('background', '#fff'); // Remove background from today
 
-					html2canvas(document.querySelector("#{$_guid}"), { scale: 1 }).then(canvas => {
+					html2canvas(document.querySelector("#{$_guid}"), { scale: 2 }).then(canvas => {
 						$('#{$_guid}').css('width', '');
 						$('#{$_guid} tbody .fc-row').css('height', '');
 						$(".fc-left, .fc-right, #{$_guid}-print-calendar").show();
 						$('#{$_guid} .fc-widget-content.fc-today').css('background', '');
 			
 						var imageData = canvas.toDataURL('image/svg+xml');
-						newWindow.document.write('<div style="margin-top: 40px"/>' + titleElement + 
-											'<img src="' + imageData + '" style="display: block; margin-left: auto; margin-right: auto; width: 18cm"/>' +
-											'<div style="margin-top: 100px"/>');
+						newWindow.document.write('<div style="margin-top: 30px"/>' + titleElement + 
+											'<img src="' + imageData + '" style="display: block; margin-left: auto; margin-right: auto; max-height:26cm; max-width: 18cm;"/>' +
+											'<div style="margin-top: 90px"/>');
 
 
 						var style = newWindow.document.createElement('style');
