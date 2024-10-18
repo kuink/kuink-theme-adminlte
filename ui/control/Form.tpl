@@ -106,10 +106,21 @@
 	/** generic apply rules **/
 	function applyRule_{$_guid}(field, attr, attrValue) {
 		if (attr=='disabled') {
-			if (attrValue == 'true')
+			if (attrValue == 'true') {
 				$("#{$_guid}").find("#"+field).attr('disabled','disabled');
-			else
+
+				// Added because of datetime pickers (2024.10.11)
+				var datetimepicker = $("#{$_guid}").find("#datetimepicker__" + field);
+				if (datetimepicker.length && datetimepicker.data("DateTimePicker"))
+    				datetimepicker.data("DateTimePicker").disable();
+			} else {
 				$("#{$_guid}").find("#"+field).removeAttr('disabled');
+				
+				// Added because of datetime pickers (2024.10.11)
+				var datetimepicker = $("#{$_guid}").find("#datetimepicker__" + field);
+				if (datetimepicker.length && datetimepicker.data("DateTimePicker"))
+    				datetimepicker.data("DateTimePicker").enable();
+			}
 		} else if (attr=='visible') {
 			if (attrValue == 'true') {
 				$("#{$_guid}").find("#"+field).removeAttr('disabled');

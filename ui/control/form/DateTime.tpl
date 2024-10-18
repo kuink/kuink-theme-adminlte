@@ -1,7 +1,7 @@
 <div class="form-control" style="border: none;padding: 0;">
 	<input type="hidden" name="{$fieldID}" id="{$fieldID}" value="{$field['value']}"/>
 	<div class='input-group date' id='datetimepicker__{$fieldID}' data-date-format="YYYY/MM/DD HH:mm">
-		<input type='text' class="form-control {$disabledClass} _kuink_notSubmit" {$disabledAttr} id="{$fieldID}_visible" name="{$fieldID}_visible"
+		<input type='text' class="form-control {*{$disabledClass}*} _kuink_notSubmit" {*{$disabledAttr}*} id="{$fieldID}_visible" name="{$fieldID}_visible"
 			{if $field['attributes']['required']=='true'}
 				data-bv-notempty data-bv-notempty-message="{translate app="framework"}requiredField{/translate}"
 			{/if}/>
@@ -21,7 +21,7 @@
 	})
 
 	$(function () {
-		{if $field['attributes']['disabled'] != 'true'}
+		{*{if $field['attributes']['disabled'] != 'true'}*}
 			$('#datetimepicker__{$fieldID}').datetimepicker({
 				pickDate: true, 				// en/disables the date picker
 				pickTime: true, 				// en/disables the time picker
@@ -50,15 +50,21 @@
 				$('#datetimepicker__{$fieldID}').data("DateTimePicker").setDate($('#{$fieldID}_visible').val());
 			});
 
-		{/if}
+		{*{/if}*}
 
 		{if $field['attributes']['now'] == 'true' || $field['value']}
 			kuink_updateVisibleDateTime('{$fieldID}',{$personTimeZoneOffset});
 		{/if}
 
-		{if $field['attributes']['disabled'] != 'true'}
+		{*{if $field['attributes']['disabled'] != 'true'}*}
 			$('#datetimepicker__{$fieldID}').data("DateTimePicker").setDate($('#{$fieldID}_visible').val());
+		{*{/if}*}
+
+		{* Changes to make use of the appropriate functions to enable/disable and allow to do this dynamically, according rules. 2024.10.11 *}
+		{if $field['attributes']['disabled'] == 'true'}
+			$('#datetimepicker__{$fieldID}').data("DateTimePicker").disable();
 		{/if}
+
 
 	});
 
