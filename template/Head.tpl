@@ -23,10 +23,10 @@
 				
 				
 				{* Temporarily added to solve the fail of script import *}
-				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+				{*<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-0c38nfCMzF8w8DBI+9nTWzApOpr1z0WuyswL4y6x/2ZTtmj/Ki5TedKeUcFusC/k" crossorigin="anonymous">
-				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">*}
 				{* Temporarily added to solve the fail of JS import by <script src="https://kit.fontawesome.com/0779454afb.js" /*}
 				
 				<!-- Ionicons -->
@@ -178,7 +178,8 @@
   				<!-- /MultiLanguage input support -->
 
 				<!-- Font Awesome -->
-				<script src="https://kit.fontawesome.com/0779454afb.js" crossorigin="anonymous"></script>
+				<!--<script src="https://kit.fontawesome.com/0779454afb.js" crossorigin="anonymous"></script>-->
+				<script src="https://kit.fontawesome.com/a636427355.js" crossorigin="anonymous"></script>
 
 				<!-- html2canvas -->
 				<script src="{$_themeRoot}theme/{$THEME}/assets/js/html2canvas/html2canvas.min.js" type="text/javascript"></script>
