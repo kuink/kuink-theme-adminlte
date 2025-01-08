@@ -1,3 +1,8 @@
+<script>
+  {* Redirect current page to the base (home page) if not running inside an iframe. *}
+  if(window.self === window.top)
+    window.location.href = window.location.origin;
+</script>
 <div class="container">
 {$item=0}
 {foreach $data as $bind}
