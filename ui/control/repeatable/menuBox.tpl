@@ -1,8 +1,3 @@
-<script>
-  {* Redirect current page to the base (home page) if not running inside an iframe. *}
-  if(window.self === window.top)
-    window.location.href = window.location.origin;
-</script>
 {*  <span>
     {if ($menu[$url] != null && $menu[$url] != '')}
       <a id="{$menu['code']}" href="{$menu[$url]}" target="_blank" style="width: 200px" class="btn btn-sq-lg btn-{$menu[$type]}" {if $tooltip != ''}data-toggle="tooltip" data-placement="bottom" title="{$menu[$tooltip]}" {/if}>
