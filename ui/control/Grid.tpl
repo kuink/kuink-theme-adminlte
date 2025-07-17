@@ -225,16 +225,18 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 				//Function to toggle all the pick checkboxes
 				function {$name}ToggleChecked(status) {
 					$(".neon-pick").each( function() {
-						$(this).attr("checked",status);
-						var id = $(this).attr("id");
-						var idParts = id.split("{$multiSeparator}"); //id is number-fieldname, ans we need just the number
-						if( $(this).attr("checked") == "checked") {
-							$("#"+idParts[0]+"{$multiSeparator}SELECTED").val(1);
-							document.getElementById($(this).attr("id")).checked = true;
-						}
-						else {
-							$("#"+idParts[0]+"{$multiSeparator}SELECTED").val(0);
-							document.getElementById($(this).attr("id")).checked = false;
+						if(!$(this).prop("disabled")) {
+							$(this).attr("checked",status);
+							var id = $(this).attr("id");
+							var idParts = id.split("{$multiSeparator}"); //id is number-fieldname, ans we need just the number
+							if( $(this).attr("checked") == "checked") {
+								$("#"+idParts[0]+"{$multiSeparator}SELECTED").val(1);
+								document.getElementById($(this).attr("id")).checked = true;
+							}
+							else {
+								$("#"+idParts[0]+"{$multiSeparator}SELECTED").val(0);
+								document.getElementById($(this).attr("id")).checked = false;
+							}
 						}
 					})
 				}
@@ -242,14 +244,16 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 				//Function to toggle all the pick checkboxes
 				function {$name}ToggleChecked2(status, style) {
 					$("#{$_guid} ."+style).each( function() {
-						$(this).attr("checked",status);
-						var id = $(this).attr("id");
-						var idParts = id.split("{$multiSeparator}"); //id is number-fieldname, ans we need just the number
-						if( $(this).attr("checked") == "checked") {
-							document.getElementById($(this).attr("id")).checked = true;
-							setChanged(idParts[0]);
-						} else
-							document.getElementById($(this).attr("id")).checked = false;
+						if(!$(this).prop("disabled")) {
+							$(this).attr("checked",status);
+							var id = $(this).attr("id");
+							var idParts = id.split("{$multiSeparator}"); //id is number-fieldname, ans we need just the number
+							if( $(this).attr("checked") == "checked") {
+								document.getElementById($(this).attr("id")).checked = true;
+								setChanged(idParts[0]);
+							} else
+								document.getElementById($(this).attr("id")).checked = false;
+						}
 					})
 				}
 
