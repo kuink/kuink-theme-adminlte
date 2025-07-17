@@ -404,7 +404,7 @@ $modalData = array("fieldID" => "theFieldID", "helpText" => "theHelpText");
 											{$disabledAttr='disabled'}
 										{else}
 											{if $value['attributes']['conditionalfield'] != ''}
-												{if $row[$value['attributes']['conditionalfield']] == $value['attributes']['conditionalvalue']}
+												{if $row[$value['attributes']['conditionalfield']]['value'] == $value['attributes']['conditionalvalue']}
 													{$disabledClass='disabled'}
 													{$disabledAttr='disabled'}
 												{/if}
